@@ -19,6 +19,17 @@ import mthree from '../assets/images/icon/month3.svg'
 import clockone from '../assets/images/icon/clock.svg'
 import clocktwo from '../assets/images/icon/clock1.svg'
 import clockthree from '../assets/images/icon/clock3.svg'
+import buildone from '../assets/images/icon/home.svg'
+import buildtwo from '../assets/images/icon/hotel.svg'
+import buildthree from '../assets/images/icon/factor.svg'
+import buildfour from '../assets/images/icon/build.svg'
+import buildfive from '../assets/images/icon/hospital.svg'
+import buildsix from '../assets/images/icon/school.svg'
+import buleone from '../assets/images/icon/bule1.svg'
+import buletwo from '../assets/images/icon/bule2.svg'
+import bulethree from '../assets/images/icon/bule3.svg'
+import bulefour from '../assets/images/icon/sun-blue.svg'
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -29,25 +40,24 @@ function Assesement() {
   const [selectedProperty, setSelectedProperty] = useState(1);
   const [selectedPower, setSelectedPower] = useState(1);
   const [active, setActive] = useState("bill");
-
   const options = [
     {
       id: "bill",
       title: "Monthly Bill",
       desc: "Enter kWh directly from your bill.",
-      icon: "📊",
+      icon: mone,
     },
     {
       id: "appliance",
       title: "Appliance Calculator",
       desc: "Select appliances and hours/day.",
-      icon: "⚡",
+      icon: mtwo,
     },
     {
       id: "custom",
       title: "Custom Equipment",
       desc: "For factories, hospitals, specialist loads.",
-      icon: "🏭",
+      icon: mthree,
     },
   ];
 
@@ -73,12 +83,12 @@ function Assesement() {
   ];
 
   const propertyOptions = [
-    { id: 1, title: "Home", desc: "Backup and lower energy bills" , icon: sitethree,},
-    { id: 2, title: "Hotel", desc: "Optimise generator and hybrid power", icon: sitethree,},
-    { id: 3, title: "Factory", desc: "Support larger equipment loads", icon: sitethree, },
-    { id: 4, title: "Commercial Building", desc: "Reduce business electricity cost", icon: sitethree, },
-    { id: 5, title: "Hospital / Clinic", desc: "Reliable power for critical systems" ,icon: sitethree, },
-    { id: 6, title: "School / Education", desc: "Maximise daytime solar savings" ,icon: sitethree, }
+    { id: 1, title: "Home", desc: "Backup and lower energy bills" , icon: buildone,},
+    { id: 2, title: "Hotel", desc: "Optimise generator and hybrid power", icon: buildtwo,},
+    { id: 3, title: "Factory", desc: "Support larger equipment loads", icon: buildthree, },
+    { id: 4, title: "Commercial Building", desc: "Reduce business electricity cost", icon: buildfour, },
+    { id: 5, title: "Hospital / Clinic", desc: "Reliable power for critical systems" ,icon: buildfive, },
+    { id: 6, title: "School / Education", desc: "Maximise daytime solar savings" ,icon: buildsix, }
   ];
 
   
@@ -303,30 +313,31 @@ function Assesement() {
               </div>
 
               {powerOptions.map((item) => (
-                <div
-                  className={`property-card mb-3 ${selectedProperty === item.id ? "active" : ""}`}
-                  onClick={() => setSelectedProperty(item.id)}
-                >
-                  <div className="d-flex justify-content-between align-items-center">
+  <div
+    key={item.id}
+    className={`property-card mb-3 ${selectedPower === item.id ? "active" : ""}`}
+    onClick={() => setSelectedPower(item.id)}
+  >
+    <div className="d-flex justify-content-between align-items-center">
 
-                    <div className="d-flex align-items-center gap-3">
-                      <div className="icon-box">
-                        {item.icon}
-                      </div>
+      <div className="d-flex align-items-center gap-3">
+        <div className="icon-box">
+          <img src={item.icon} alt="icon" />
+        </div>
 
-                      <div>
-                        <h6 className="mb-1 fw-semibold curr-ass">{item.title}</h6>
-                        <p className="mb-0 small text-muted curr-ass-semi-hide">{item.desc}</p>
-                      </div>
-                    </div>
+        <div>
+          <h6 className="mb-1 fw-semibold curr-ass">{item.title}</h6>
+          <p className="mb-0 small text-muted curr-ass-semi-hide">{item.desc}</p>
+        </div>
+      </div>
 
-                    <div className="radio-circle">
-                      {selectedPower === item.id && <div className="radio-dot"></div>}
-                    </div>
+      <div className="radio-circle">
+        {selectedPower === item.id && <div className="radio-dot"></div>}
+      </div>
 
-                  </div>
-                </div>
-              ))}
+    </div>
+  </div>
+))}
 
           </div>
            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
@@ -354,7 +365,9 @@ function Assesement() {
                         onClick={() => setActive(item.id)}
                       >
                         <div className="d-flex align-items-start">
-                          <div className="icon-box me-2">{item.icon}</div>
+                          <div className="icon-box me-2">
+                            <img src={item.icon} />
+                          </div>
 
                           <div className="flex-grow-1">
                             <h6 className="mb-1 fw-semibold ass-semiss">{item.title}</h6>
@@ -503,7 +516,7 @@ function Assesement() {
                    Add your typical appliances to estimate your daily energy use. This is the easiest way if you don't know your kWh. </p>
                 </div>
               </div>
-              <div className="container mt-4">
+              <div className="mt-4">
                 <div className="appliance-box mt-4">
 
   {/* Header */}
@@ -516,127 +529,187 @@ function Assesement() {
   </div>
 
   {/* Row 1 */}
-  <div className="row align-items-center mb-2 p-2 tabls-rows">
+  <div className="row align-items-center mb-3 p-3 tabls-rows">
 
-    <div className="col-md-3 d-flex align-items-center gap-2">
-      <div className="tables-icon-box-custom"> <img src={appone} alt="icon" /></div>
-      <select className="form-select border-0 first-table">
-        <option>LED Bulb</option>
-        <option>Fan</option>
-        <option>AC</option>
-        <option>TV</option>
-      </select>
+  {/* LEFT: Icon + Select */}
+  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
+    <div className="tables-icon-box-custom">
+      <img src={appone} alt="icon" />
     </div>
 
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="10" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="6" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center bg-light inputs-text" defaultValue="10" readOnly />
-    </div>
-
-    <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-
+    <select className="form-select border-0 first-table">
+      <option>LED Bulb</option>
+      <option>Fan</option>
+      <option>AC</option>
+      <option>TV</option>
+    </select>
   </div>
+
+  {/* RIGHT: Inputs */}
+  <div className="col-12 col-md-9">
+    <div className="row g-2">
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Qty</label>
+        <input type="number" className="form-control text-center" defaultValue="10" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Hrs/Day</label>
+        <input type="number" className="form-control text-center" defaultValue="6" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Power</label>
+        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
+      </div>
+
+      <div className="col-6 col-md-3 text-center">
+        <label className="d-md-none small">Daily kWh</label>
+        <div className="fw-bold text-primary">0.60</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
   {/* Row 2 */}
-  <div className="row align-items-center mb-2 p-2 tabls-rows">
+  <div className="row align-items-center mb-3 p-3 tabls-rows">
 
-    <div className="col-md-3 d-flex align-items-center gap-2">
-      <div className="tables-icon-box-custom"><img src={apptwo} alt="icon" /></div>
-      <select className="form-select border-0 first-table">
-        <option>TV</option>
-        <option>LED Bulb</option>
-        <option>Fan</option>
-        <option>AC</option>
-      </select>
+  {/* LEFT: Icon + Select */}
+  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
+    <div className="tables-icon-box-custom">
+      <img src={appone} alt="icon" />
     </div>
 
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="10" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="6" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center bg-light inputs-text" defaultValue="10" readOnly />
-    </div>
-
-    <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-
+    <select className="form-select border-0 first-table">
+      <option>LED Bulb</option>
+      <option>Fan</option>
+      <option>AC</option>
+      <option>TV</option>
+    </select>
   </div>
+
+  {/* RIGHT: Inputs */}
+  <div className="col-12 col-md-9">
+    <div className="row g-2">
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Qty</label>
+        <input type="number" className="form-control text-center" defaultValue="10" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Hrs/Day</label>
+        <input type="number" className="form-control text-center" defaultValue="6" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Power</label>
+        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
+      </div>
+
+      <div className="col-6 col-md-3 text-center">
+        <label className="d-md-none small">Daily kWh</label>
+        <div className="fw-bold text-primary">0.60</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
     {/* Row 3 */}
-  <div className="row align-items-center mb-2 p-2 tabls-rows">
+  <div className="row align-items-center mb-3 p-3 tabls-rows">
 
-    <div className="col-md-3 d-flex align-items-center gap-2">
-      <div className="tables-icon-box-custom"><img src={appthree} alt="icon" /></div>
-      <select className="form-select border-0 first-table">
-        <option>TV</option>
-        <option>LED Bulb</option>
-        <option>Fan</option>
-        <option>AC</option>
-      </select>
+  {/* LEFT: Icon + Select */}
+  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
+    <div className="tables-icon-box-custom">
+      <img src={appone} alt="icon" />
     </div>
 
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="10" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="6" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center bg-light inputs-text" defaultValue="10" readOnly />
-    </div>
-
-    <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-
+    <select className="form-select border-0 first-table">
+      <option>LED Bulb</option>
+      <option>Fan</option>
+      <option>AC</option>
+      <option>TV</option>
+    </select>
   </div>
+
+  {/* RIGHT: Inputs */}
+  <div className="col-12 col-md-9">
+    <div className="row g-2">
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Qty</label>
+        <input type="number" className="form-control text-center" defaultValue="10" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Hrs/Day</label>
+        <input type="number" className="form-control text-center" defaultValue="6" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Power</label>
+        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
+      </div>
+
+      <div className="col-6 col-md-3 text-center">
+        <label className="d-md-none small">Daily kWh</label>
+        <div className="fw-bold text-primary">0.60</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
     {/* Row 4 */}
-  <div className="row align-items-center mb-2 p-2 tabls-rows">
+ <div className="row align-items-center mb-3 p-3 tabls-rows">
 
-    <div className="col-md-3 d-flex align-items-center gap-2">
-      <div className="tables-icon-box-custom"><img src={appfour} alt="icon" /></div>
-      <select className="form-select border-0 first-table">
-        <option>TV</option>
-        <option>LED Bulb</option>
-        <option>Fan</option>
-        <option>AC</option>
-      </select>
+  {/* LEFT: Icon + Select */}
+  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
+    <div className="tables-icon-box-custom">
+      <img src={appone} alt="icon" />
     </div>
 
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="10" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center inputs-text" defaultValue="6" />
-    </div>
-
-    <div className="col-md-2 text-center">
-      <input type="number" className="form-control text-center bg-light inputs-text" defaultValue="10" readOnly />
-    </div>
-
-    <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-
+    <select className="form-select border-0 first-table">
+      <option>LED Bulb</option>
+      <option>Fan</option>
+      <option>AC</option>
+      <option>TV</option>
+    </select>
   </div>
+
+  {/* RIGHT: Inputs */}
+  <div className="col-12 col-md-9">
+    <div className="row g-2">
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Qty</label>
+        <input type="number" className="form-control text-center" defaultValue="10" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Hrs/Day</label>
+        <input type="number" className="form-control text-center" defaultValue="6" />
+      </div>
+
+      <div className="col-6 col-md-3">
+        <label className="d-md-none small">Power</label>
+        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
+      </div>
+
+      <div className="col-6 col-md-3 text-center">
+        <label className="d-md-none small">Daily kWh</label>
+        <div className="fw-bold text-primary">0.60</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
   {/* Add Button */}
   <button className="btn btn-outline-primary mt-3 table-add-btn">
@@ -669,7 +742,7 @@ function Assesement() {
               </div>
 
 
-              <div className="container mt-4">
+              <div className="mt-4">
 
                 {/* Tabs */}
                 <div className="d-flex flex-wrap gap-2 mb-4">
@@ -931,12 +1004,12 @@ function Assesement() {
 
                 <div className="step-item active">
                   <span className="step-circle">2</span>
-                  <span>Load estimate</span>
+                  <span>Load estimate from bill or appliances</span>
                 </div>
 
                 <div className="step-item disabled">
                   <span className="step-circle">3</span>
-                  <span>System size</span>
+                  <span>System size & savings recommendation</span>
                 </div>
               </div>
 
@@ -944,7 +1017,7 @@ function Assesement() {
               <div className="row g-3">
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box mb-2">⚡</div>
+                    <div className="icon-box mb-2"><img src={buleone} alt="icon" /></div>
                     <h5 className='asst-h'>11.3</h5>
                     <small>kWh/month</small>
                     <small>MONTHLY USAGE</small>
@@ -953,7 +1026,7 @@ function Assesement() {
 
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2">📊</div>
+                    <div className="icon-box  mb-2"><img src={buletwo} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
                     <small>kWh/month</small>
                     <small>ESTIMATED ANNUAL LOAD</small>
@@ -961,7 +1034,7 @@ function Assesement() {
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2">📊</div>
+                    <div className="icon-box  mb-2"><img src={bulefour} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
                     <small>kW</small>
                     <small>MONTHLY SPEND</small>
@@ -969,7 +1042,7 @@ function Assesement() {
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2">📊</div>
+                    <div className="icon-box  mb-2"><img src={bulethree} alt="icon" /></div>
                     <h5 className='asst-h'>Bill</h5>
                     <small>ASSESSMENT PATH</small>
                   </div>
