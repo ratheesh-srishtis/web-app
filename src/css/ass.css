@@ -5,9 +5,6 @@
     top: 55px;
 }
 
-section.hero.d-flex.align-items-center.ass-bannr {
-    height: 400px;
-}
 
 .step-box {
   width: 40px;
@@ -38,16 +35,8 @@ section.hero.d-flex.align-items-center.ass-bannr {
   background-color: #f0f6ff;
 }
 
-.icon-box {
-  width: 40px;
-  height: 40px;
-  background: #eef2ff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
+
+
 
 .check-mark {
   position: absolute;
@@ -99,10 +88,21 @@ section.hero.d-flex.align-items-center.ass-bannr {
       color: #9CA3B4;
     font-size: 12px;
 }
-
+.icon {
+    width: 45px;
+    height: 45px;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 17px auto 15px;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 .icon-box {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   background: #eef2ff;
   border-radius: 10px;
   display: flex;
@@ -110,6 +110,13 @@ section.hero.d-flex.align-items-center.ass-bannr {
   justify-content: center;
   margin: auto;
   font-size: 18px;
+}
+
+.icon-box img {
+    width: 57%;
+    position: relative;
+    /* left: 40px; */
+  
 }
 
 /* Card base */
@@ -125,7 +132,7 @@ section.hero.d-flex.align-items-center.ass-bannr {
 
 /* Hover */
 .property-card:hover {
-  border-color: #2563eb;
+
   background: #fff;
 }
 
@@ -138,18 +145,16 @@ p.small.mb-0.text-muted.ass-muted {
     color: #6F7196;
     font-size: 13px;
     font-weight: 500;
+    display:block;
+}
+p.small.mb-0.text-muted.ass-mutedss {
+    color: #6F7196;
+    font-size: 13px;
+    font-weight: 500;
+    display:block;
 }
 /* Icon box */
-.icon-box {
-  width: 32px;
-  height: 32px;
-  background: #e0edff;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
+
 
 .property-card.active .icon-box {
   background: #174C90;
@@ -198,6 +203,9 @@ h6.mb-1.fw-semibold.ass-semi {
 
 /* Active state */
 .property-card.active h6.mb-1.fw-semibold.ass-semi {
+  color: #174C90;
+}
+.property-card.active h6.mb-1.fw-semibold.ass-semiss {
   color: #174C90;
 }
 
@@ -314,16 +322,6 @@ h5.asst-h {
   background: #eef4ff;
 }
 
-/* Icon */
-.icon-box {
-  width: 40px;
-  height: 40px;
-  background: #e0edff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* Radio outer */
 .radio-circle {
@@ -357,6 +355,14 @@ p.mb-0.small.text-muted.curr-ass-semi {
     color: #6F7196;
     font-size: 13px;
     font-weight: 500;
+    display: block;
+}
+
+p.mb-0.small.text-muted.curr-ass-semi {
+    color: #6F7196;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
 }
 
 /* Tabs */
@@ -369,6 +375,40 @@ p.mb-0.small.text-muted.curr-ass-semi {
     font-size: 14px;
     transition: 0.3s;
     font-weight: 500;
+    position: relative;
+    left: 30px;
+
+    
+}
+input.form-control.text-center.inputs-textss {
+    color: #1A2259;
+    font-size: 14px;
+    width: 60px;
+    height: 36px;
+    border-radius: 4px;
+    position: relative;
+    left: 20px;
+}
+.input-group-custom {
+  display: flex;
+  gap: 10px;   /* 👈 control space here */
+}
+
+.col-md-1.text-center.width-ajt {
+    position: relative;
+    left: -10px;
+    width: 100%;
+    max-width: 110px;
+}
+
+.col-md-1.text-center.width-ajts {
+    position: relative;
+    left: -10px;
+    width: 100%;
+    max-width: 103px;
+}
+.input-group-custom input {
+  width: 60px; /* optional: keep size consistent */
 }
 
 .tab-btn:hover {
@@ -415,15 +455,7 @@ p.mb-0.small.text-muted.curr-ass-semi {
   background-color: #f4f8ff;
 }
 
-.icon-box {
-  width: 36px;
-  height: 36px;
-  background: #eef2f7;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .check {
   color: #0d6efd;
@@ -470,7 +502,67 @@ textarea.form-control.notes-box.ass-text-area {
     border: 1px solid #D1D5DB;
 }
 
+/* PRIMARY BUTTON */
+.btn-primary-custom {
+ background: #234e8f;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    height: 66px;
+}
 
+.btn-primary-custom:hover {
+  background: #1e3f73;
+}
+
+/* Arrow spacing */
+.btn-primary-custom .arrow {
+  margin-left: 8px;
+}
+
+/* OUTLINE BUTTON */
+.btn-outline-custom2 {
+     background: transparent;
+    color: #234e8f;
+    border: 2px solid #c7d7f2;
+    border-radius: 50px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    width: 24%;
+    height: 60px;
+}
+
+.btn-outline-custom2:hover {
+  background: #eef4ff;
+}
+
+/* ICON STYLE */
+.icon {
+  font-size: 18px;
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  .btn-primary-custom,
+  .btn-outline-custom2 {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
 
 
    .btn-energy {
@@ -525,3 +617,316 @@ button.btn.btn-outline-custom.btn-start {
     height: 56px;
     border-radius: 50px;
 }
+
+.input-wrapper {
+  position: relative;
+  max-width: 375px;
+}
+
+.custom-input {
+  border-radius: 12px;
+  padding-right: 60px; /* space for unit */
+  height: 48px;
+  font-size: 18px;
+}
+
+.unit {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d; /* Bootstrap muted */
+  font-size: 16px;
+}
+
+
+.property-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.property-card.active {
+  border-color: #2b5da8;
+  background: #eef4ff;
+}
+
+
+.d-flex {
+  min-width: 0;
+}
+
+.d-flex > div:nth-child(2) {
+  min-width: 0;
+
+}
+.container.position-relative.z-1.menu-div.ass-div {
+    position: relative;
+    top: -25%;
+}
+section.hero.d-flex.align-items-center.ass-bannr {
+    height: 100%;
+    min-height: 400px;
+}
+.property-card.active .icon-box {
+  background: #2b5da8;
+  color: white;
+}
+h6.mb-1.fw-semibold.ass-semi {
+  max-width: 140px;
+}
+.check-icon {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 14px;
+  color: #fff;
+ 
+}
+h6.mb-1.fw-semibold.ass-semiss {
+        font-size: 14px;
+    }
+
+.appliance-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.appliance-row {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.icon-box {
+  width: 35px;
+  height: 35px;
+  background: #eef2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.add-btn {
+  border: 2px dashed #bcd3ff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: transparent;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+select.form-select.border-0.first-table {
+    font-size: 14px;
+    color: #212738;
+   
+}
+
+.row.text-muted.small.mb-2.px-2.table-heading {
+    color: #6D7189;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+input.form-control.text-center.inputs-text {
+    color: #1A2259;
+    font-size: 14px;
+    width: 60px;
+    height: 36px;
+    border-radius: 4px;
+        position: relative;
+    left: 20px;
+}
+.col-md-2.text-center.fw-bold.text-primary.inputs-text-blue {
+    color: #174C90 !important;
+    font-size: 14px;
+}
+
+.row.align-items-center.mb-2.p-2.tabls-rows {
+    border-bottom: 1px solid #E8EDF5;
+}
+
+.tables-icon-box-custom {
+width: 28px;
+    height: 28px;
+    background: #F0F4FA;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.btn.btn-outline-primary.mt-3.table-add-btn {
+    color: #174C90 !important;
+    border: 1px dashed #CAE1FF  !important;
+    font-size: 14px;
+}
+
+* Remove hover effect */
+button.btn.btn-outline-primary.mt-3.table-add-btn:hover {
+  color: #174C90 !important;
+  border: 1px dashed #CAE1FF !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus & active effects */
+button.btn.btn-outline-primary.mt-3.table-add-btn:focus,
+button.btn.btn-outline-primary.mt-3.table-add-btn:active {
+  color: #174C90 !important;
+  border: 1px dashed #CAE1FF !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile spacing + tighter look */
+@media (max-width: 576px) {
+  .property-card {
+    padding: 12px;
+  }
+  p.mb-0.small.text-muted.curr-ass-semi-hide {
+    display: none;
+}
+p.small.mb-0.text-muted.ass-mutedss {
+   font-size: 13px;
+        font-weight: 500;
+        display: block;
+        position: relative;
+        left: -4px;
+        top: 3px;
+
+}
+}
+
+
+  
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    nav.navbar.navbar-expand-md.mb-2 {
+        position: relative;
+        top: 10px;
+    }
+    .check-icon {
+display:none;
+}
+
+    .row.align-items-center.text-divs.ass-text-bann {
+    position: relative;
+    top: 15px;
+}
+
+}
+
+@media (max-width: 768px) {
+p.small.mb-0.text-muted.ass-muted{display: none;}
+   
+    h6.mb-1.fw-semibold.ass-semi {
+            white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        top: 15px !important;
+        left: -5px !important;
+        width: 100%;
+        min-width: 100px;
+  }
+   h6.mb-1.fw-semibold.ass-semiss {
+         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        top: 5px !important;
+        left: -5px !important;
+        width: 100%;
+        min-width: 100px;
+        font-size: 13px;
+   
+      }
+
+      .p-4.rounded-4.shadow-sm.sticky-top.right-panel.assts-right {
+    
+    display: none;
+}
+  }
+
+    
+
+ 
+
+
+
+  /* ✅ Fix alignment (REMOVE your previous left hacks) */
+  .icon-box {
+    left: 0 !important;
+  }
+
+  .property-card h6 {
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  /* ✅ Proper alignment */
+  .d-flex {
+    align-items: center !important;
+  }
+

@@ -54,7 +54,7 @@ function Home() {
                   <li className="nav-item">
                     <Link
                       className="nav-link text-white"
-                      to="/Assesement"
+                      to="/assesement"
                       onClick={() => setOpen(false)}
                     >
                       How It Works
