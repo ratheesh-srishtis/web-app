@@ -105,16 +105,23 @@ function Assesement() {
     city: ""
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const [fileName, setFileName] = useState("No file chosen");
+
+
+
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value
+  }));
+};
+
+
   const categories = [
     "Hospitals",
     "Factories",
@@ -127,9 +134,86 @@ function Assesement() {
 
   const [activeTab, setActiveTab] = useState("Businesses");
 
+const applianceOptions = [
+  { name: "LED Bulb", power: 10, icon: appone, },
+  { name: "Fan", power: 75 , icon: apptwo, },
+  { name: "TV", power: 120 , icon: appthree,},
+  { name: "AC", power: 1500 , icon: appfour,},
+];
+
+
+const applianceOptionssecond = [
+  { name: "Ultrasound", qty: 10, hours: 6, power: 10 , icon: appone, },
+  { name: "Ultrasound", qty: 1, hours: 5, power: 120 , icon: apptwo, },
+  { name: "Ultrasound", qty: 2, hours: 8, power: 70 ,  icon: appthree,},
+  { name: "Ultrasound", qty: 1, hours: 6, power: 1500  ,  icon: appfour,},
+];  
+
+
+const initialData = [
+  { name: "LED Bulb", qty: 10, hours: 6, power: 10 , icon: appone, },
+  { name: "LED Bulb", qty: 1, hours: 5, power: 120 , icon: apptwo, },
+  { name: "LED Bulb", qty: 2, hours: 8, power: 70 ,  icon: appthree,},
+  { name: "LED Bulb", qty: 1, hours: 6, power: 1500  ,  icon: appfour,},
+];
+
+
+const calculateKwh = (qty:any, hours:any , power:any) => {
+  const q = Number(qty) || 0;
+  const h = Number(hours) || 0;
+  const p = Number(power) || 0;
+
+  return ((q * h * p) / 1000).toFixed(2);
+};
+
+
+
+ const [rows, setRows] = useState(initialData);
+
+
+const handleRowChange = (index:any, field:any, value:any) => {
+  setRows((prevRows) => {
+    const updatedRows:any = [...prevRows];
+
+    // ✅ Safety check
+    if (!updatedRows[index]) return prevRows;
+
+    // ✅ Convert numbers properly
+    if (field === "qty" || field === "hours" || field === "power") {
+      updatedRows[index][field] = Number(value) || 0;
+    } else {
+      updatedRows[index][field] = value;
+    }
+
+    // ✅ Auto update power when appliance changes
+    if (field === "name") {
+      const selected = applianceOptions.find(
+        (opt) => opt.name === value
+      );
+      if (selected) {
+        updatedRows[index].power = selected.power;
+      }
+    }
+
+    return updatedRows;
+  });
+};
+
+
+
+
+const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    } else {
+      setFileName("No file chosen");
+    }
+  };
 
 
   return (
+
+    
     <div>
       <section className="hero d-flex align-items-center ass-bannr">
         <div className="overlay"></div>
@@ -196,7 +280,7 @@ function Assesement() {
           <div className="row align-items-center text-divs ass-text-bann">
 
 
-            <div className="col-lg-6 text-white mb-3 mb-lg-0">
+            <div className="col-lg-12 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
                 Energy Assessment
               </h1>
@@ -213,7 +297,7 @@ function Assesement() {
 
 
 
-      <section className="container d-flex my-4">
+      <section className="container my-4">
         <div className="row g-4 align-items-start">
 
           {/* ✅ LEFT SIDE */}
@@ -321,7 +405,7 @@ function Assesement() {
     <div className="d-flex justify-content-between align-items-center">
 
       <div className="d-flex align-items-center gap-3">
-        <div className="icon-box">
+        <div className="icon-boxs">
           <img src={item.icon} alt="icon" />
         </div>
 
@@ -343,7 +427,7 @@ function Assesement() {
            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
 
               {/* Header */}
-              <div className="d-flex align-items-center mb-3">
+              <div className="d-flex align-items-center">
                 <div className="step-box me-3">3</div>
                 <div>
                   <h5 className="fw-bold mb-1 heading-ass">Choose Input Method</h5>
@@ -353,10 +437,10 @@ function Assesement() {
                 </div>
               </div>
 
-              <div className="container my-4">
+              <div className="container my-2">
 
                 {/* Top Cards */}
-                <div className="property-card row">
+                <div className=" row">
                   {options.map((item) => (
                     <div className="col-md-4" key={item.id}>
                       <div
@@ -396,12 +480,15 @@ function Assesement() {
 
                 {/* Upload */}
                 <div className="col-md-6">
-                  <div className="upload-box text-center p-5">
-                    <div className="mb-2 fs-4">☁️</div>
-                    <p className="mb-0 text-muted ass-choose">
-                      Drag & drop file here or{" "}
-                      <span className="text-primary">choose file</span>
-                    </p>
+                    <label className="mb-2 fw-semibold ass-hedss">Upload Bill (optional)</label>
+                  <div className="upload-box text-center">
+                    <div className="file-upload">
+      <label className="file-label">
+        <span className="file-btn">Choose file</span>
+        <span className="file-name">{fileName}</span>
+        <input type="file" onChange={handleFileChange} />
+      </label>
+    </div>
                   </div>
                 </div>
 
@@ -517,206 +604,81 @@ function Assesement() {
                 </div>
               </div>
               <div className="mt-4">
-                <div className="appliance-box mt-4">
+                <div className="table-container">
+      <table className="appliance-table">
+        <thead>
+          <tr>
+            <th>APPLIANCE</th>
+            <th>QTY</th>
+            <th>HRS/DAY</th>
+            <th>POWER (W)</th>
+            <th>DAILY KWH</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((item, index) => (
+            <tr key={index}>
+              <td className="appliance-cell py-2">
+                <div className="tables-icon-box-custom"><img src={item.icon} alt="icon" /></div>
 
-  {/* Header */}
-  <div className="row text-muted small mb-2 px-2 table-heading">
-    <div className="col-md-3">APPLIANCE</div>
-    <div className="col-md-2 text-center">QTY</div>
-    <div className="col-md-2 text-center">HRS/DAY</div>
-    <div className="col-md-2 text-center">POWER (W)</div>
-    <div className="col-md-2 text-center">DAILY KWH</div>
-  </div>
+                {/* ✅ SELECT DROPDOWN */}
+                <select className='form-select border-0 first-table'
+                  value={item.name}
+          onChange={(e) =>
+  handleRowChange(index, "name", e.target.value)
+}
+                >
+                  {applianceOptions.map((opt, i) => (
+                    <option key={i} value={opt.name}>
+                      {opt.name}
+                    </option>
+                  ))}
+                </select>
+              </td>
 
-  {/* Row 1 */}
-  <div className="row align-items-center mb-3 p-3 tabls-rows">
+              <td>
+                <input
+                className='rows-borders'
+                  type="number"
+                  value={item.qty}
+              onChange={(e) =>
+  handleRowChange(index, "qty", Number(e.target.value))
+}   />
+              </td>
 
-  {/* LEFT: Icon + Select */}
-  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
-    <div className="tables-icon-box-custom">
-      <img src={appone} alt="icon" />
-    </div>
+              <td>
+                <input
+                 className='rows-borders'
+                  type="number"
+                  value={item.hours}
+          onChange={(e) =>
+  handleRowChange(index, "hours", Number(e.target.value))
+}
+                />
+              </td>
 
-    <select className="form-select border-0 first-table">
-      <option>LED Bulb</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-
-  {/* RIGHT: Inputs */}
-  <div className="col-12 col-md-9">
-    <div className="row g-2">
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Qty</label>
-        <input type="number" className="form-control text-center" defaultValue="10" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Hrs/Day</label>
-        <input type="number" className="form-control text-center" defaultValue="6" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Power</label>
-        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
-      </div>
-
-      <div className="col-6 col-md-3 text-center">
-        <label className="d-md-none small">Daily kWh</label>
-        <div className="fw-bold text-primary">0.60</div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-  {/* Row 2 */}
-  <div className="row align-items-center mb-3 p-3 tabls-rows">
-
-  {/* LEFT: Icon + Select */}
-  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
-    <div className="tables-icon-box-custom">
-      <img src={appone} alt="icon" />
-    </div>
-
-    <select className="form-select border-0 first-table">
-      <option>LED Bulb</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-
-  {/* RIGHT: Inputs */}
-  <div className="col-12 col-md-9">
-    <div className="row g-2">
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Qty</label>
-        <input type="number" className="form-control text-center" defaultValue="10" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Hrs/Day</label>
-        <input type="number" className="form-control text-center" defaultValue="6" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Power</label>
-        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
-      </div>
-
-      <div className="col-6 col-md-3 text-center">
-        <label className="d-md-none small">Daily kWh</label>
-        <div className="fw-bold text-primary">0.60</div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-    {/* Row 3 */}
-  <div className="row align-items-center mb-3 p-3 tabls-rows">
-
-  {/* LEFT: Icon + Select */}
-  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
-    <div className="tables-icon-box-custom">
-      <img src={appone} alt="icon" />
-    </div>
-
-    <select className="form-select border-0 first-table">
-      <option>LED Bulb</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-
-  {/* RIGHT: Inputs */}
-  <div className="col-12 col-md-9">
-    <div className="row g-2">
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Qty</label>
-        <input type="number" className="form-control text-center" defaultValue="10" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Hrs/Day</label>
-        <input type="number" className="form-control text-center" defaultValue="6" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Power</label>
-        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
-      </div>
-
-      <div className="col-6 col-md-3 text-center">
-        <label className="d-md-none small">Daily kWh</label>
-        <div className="fw-bold text-primary">0.60</div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-    {/* Row 4 */}
- <div className="row align-items-center mb-3 p-3 tabls-rows">
-
-  {/* LEFT: Icon + Select */}
-  <div className="col-12 col-md-3 d-flex align-items-center gap-2 mb-2 mb-md-0">
-    <div className="tables-icon-box-custom">
-      <img src={appone} alt="icon" />
-    </div>
-
-    <select className="form-select border-0 first-table">
-      <option>LED Bulb</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-
-  {/* RIGHT: Inputs */}
-  <div className="col-12 col-md-9">
-    <div className="row g-2">
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Qty</label>
-        <input type="number" className="form-control text-center" defaultValue="10" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Hrs/Day</label>
-        <input type="number" className="form-control text-center" defaultValue="6" />
-      </div>
-
-      <div className="col-6 col-md-3">
-        <label className="d-md-none small">Power</label>
-        <input type="number" className="form-control text-center bg-light" defaultValue="10" readOnly />
-      </div>
-
-      <div className="col-6 col-md-3 text-center">
-        <label className="d-md-none small">Daily kWh</label>
-        <div className="fw-bold text-primary">0.60</div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-  {/* Add Button */}
-  <button className="btn btn-outline-primary mt-3 table-add-btn">
-    + Add Appliance
-  </button>
-
+              <td>
+                 <div className="inputs-text-bluess">
+                <input
+                 type="number"
+                  value={item.power}
+         onChange={(e) =>
+  handleRowChange(index, "power", Number(e.target.value))
+}
+                />
                 </div>
+              </td>
+
+              <td className="col-md-2 text-center">
+  <div className="inputs-text-bluess">
+    {calculateKwh(item.qty, item.hours, item.power)}
+  </div>
+</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
               </div>
             </div>
             </div>
@@ -744,136 +706,111 @@ function Assesement() {
 
               <div className="mt-4">
 
-                {/* Tabs */}
-                <div className="d-flex flex-wrap gap-2 mb-4">
-                  {categories.map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setActiveTab(item)}
-                      className={`tab-btn ${activeTab === item ? "active-tab" : ""
-                        }`}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-
                 {/* table-end */}
-<div className="appliance-box mt-4">
+ <div className="table-container">
+      <table className="appliance-table">
+        <thead>
+          <tr>
+            <th>EQUIPMENT</th>
+            <th>RATED POWER (W)</th>
+            <th>QTY</th>
+            <th>Hrs/Day</th>
+            <th>LOAD FACTOR</th>
+            <th>DAILY KWH</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((item, index) => (
+            <tr key={index}>
+              <td className="appliance-cell py-2">
+                <div className="tables-icon-box-custom"><img src={item.icon} alt="icon" /></div>
 
- 
- {/* Header */}
-<div className="row text-muted small mb-2 px-2 table-heading">
-  <div className="col-md-3">EQUIPMENT</div>
-  <div className="col-md-1 text-center width-ajt">RATED POWER (W)</div>
-  <div className="col-md-1 text-center width-ajt">QTY</div>
-  <div className="col-md-1 text-center width-ajt">Hrs/Day</div>
-  <div className="col-md-1 text-center width-ajt">LOAD FACTOR</div>
-  <div className="col-md-1 text-center width-ajt">DAILY KWH</div>
-</div>
+                {/* ✅ SELECT DROPDOWN */}
+                <select className='form-select border-0 first-table'
+                  value={item.name}
+          onChange={(e) =>
+  handleRowChange(index, "name", e.target.value)
+}
+                >
+                  {applianceOptionssecond.map((opt, i) => (
+                    <option key={i} value={opt.name}>
+                      {opt.name}
+                    </option>
+                  ))}
+                </select>
+              </td>
 
-{/* ROW 1 */}
-<div className="row align-items-center mb-2 p-2 tabls-rows">
-  <div className="col-md-3 d-flex align-items-center gap-3">
-    <div className="tables-icon-box-custom"><img src={appone} alt="icon" /></div>
-    <select className="form-select border-0 first-table">
-      <option>Ultrasound</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="10" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="2" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="6" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-textss" defaultValue="0.8" /></div>
-  <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-</div>
+              <td>
+                <input
+                className='rows-borders'
+                  type="number"
+                  value={item.qty}
+              onChange={(e) =>
+  handleRowChange(index, "qty", Number(e.target.value))
+}   />
+              </td>
 
-{/* ROW 2 */}
-<div className="row align-items-center mb-2 p-2 tabls-rows">
-  <div className="col-md-3 d-flex align-items-center gap-3">
-    <div className="tables-icon-box-custom"><img src={appone} alt="icon" /></div>
-    <select className="form-select border-0 first-table">
-      <option>Ultrasound</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="10" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="2" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="6" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-textss" defaultValue="0.8" /></div>
-  <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-</div>
-{/* ROW 3 */}
-<div className="row align-items-center mb-2 p-2 tabls-rows">
-  <div className="col-md-3 d-flex align-items-center gap-3">
-    <div className="tables-icon-box-custom"><img src={appone} alt="icon" /></div>
-    <select className="form-select border-0 first-table">
-      <option>Ultrasound</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="10" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="2" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="6" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-textss" defaultValue="0.8" /></div>
-  <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-</div>
+              <td>
+                <input
+                 className='rows-borders'
+                  type="number"
+                  value={item.hours}
+          onChange={(e) =>
+  handleRowChange(index, "hours", Number(e.target.value))
+}
+                />
+              </td>
 
-{/* ROW 4 */}
-<div className="row align-items-center mb-2 p-2 tabls-rows">
-  <div className="col-md-3 d-flex align-items-center gap-3">
-    <div className="tables-icon-box-custom"><img src={appone} alt="icon" /></div>
-    <select className="form-select border-0 first-table">
-      <option>Ultrasound</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="10" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="2" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="6" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-textss" defaultValue="0.8" /></div>
-  <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-</div>
+              <td>
+                <input
+                 className='rows-borders'
+                  type="number"
+                  value={item.hours}
+          onChange={(e) =>
+  handleRowChange(index, "hours", Number(e.target.value))
+}
+                />
+              </td>
 
-{/* ROW 5 */}
-<div className="row align-items-center mb-2 p-2 tabls-rows">
-  <div className="col-md-3 d-flex align-items-center gap-3">
-    <div className="tables-icon-box-custom"><img src={appone} alt="icon" /></div>
-    <select className="form-select border-0 first-table">
-      <option>Ultrasound</option>
-      <option>Fan</option>
-      <option>AC</option>
-      <option>TV</option>
-    </select>
-  </div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="10" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="2" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-text" defaultValue="6" /></div>
-  <div className="col-md-1 text-center width-ajts"><input type="number" className="form-control text-center inputs-textss" defaultValue="0.8" /></div>
-  <div className="col-md-2 text-center fw-bold text-primary inputs-text-blue">
-      0.60
-    </div>
-</div>
-
-
-
+              <td>
+                 <div className="inputs-text-bluess">
+                <input
+                 type="number"
+                  value={item.power}
+         onChange={(e) =>
+  handleRowChange(index, "power", Number(e.target.value))
+}
+                />
                 </div>
+              </td>
+
+              <td className="col-md-2 text-center">
+  <div className="inputs-text-bluess">
+    {calculateKwh(item.qty, item.hours, item.power)}
+  </div>
+</td>
+            </tr>
+
+            
+          ))}
+        
+        </tbody>
+            {/* ✅ BUTTONS HERE (after table) */}
+  <div className="buttons-actions d-flex flex-wrap gap-3 mt-3">
+    <button className="dashed-btn">
+      <span className="plus">+</span> Add Equipment
+    </button>
+
+    <button className="dashed-btn">
+      <span className="plus">+</span> Add Critical Load Tag
+    </button>
+  </div>
+
+
+        
+      </table>
+   
+    </div>
                  {/* table-end*/}
                 
               </div>
@@ -959,8 +896,13 @@ function Assesement() {
                     </div>
                   ))}
 
+ </div>
+              </div>
 
-                  <div className="d-flex gap-3 flex-wrap">
+
+            </div>
+            
+                  <div className="d-flex gap-3 flex-wrap mt-3">
 
                     {/* Primary Button */}
                     <button className="btn-primary-custom">
@@ -976,20 +918,9 @@ function Assesement() {
                     </button>
 
                   </div>
-
-
-
-
-
-
-
-
-                </div>
-              </div>
-
-
-            </div>
           </div>
+
+          
 
           {/* ✅ RIGHT SIDE */}
           <div className="col-lg-4">
