@@ -31,6 +31,7 @@ import bulethree from '../assets/images/icon/bule3.svg'
 import bulefour from '../assets/images/icon/sun-blue.svg'
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Bold } from 'lucide-react';
 
 
 
@@ -444,7 +445,7 @@ const handleFileChange = (e) => {
                   {options.map((item) => (
                     <div className="col-md-4" key={item.id}>
                       <div
-                        className={`option-card  ${active === item.id ? "active" : ""
+                        className={`option-card mb-3 ${active === item.id ? "active" : ""
                           }`}
                         onClick={() => setActive(item.id)}
                       >
@@ -950,8 +951,10 @@ const handleFileChange = (e) => {
                   <div className="stat-card text-center">
                     <div className="icon-box mb-2"><img src={buleone} alt="icon" /></div>
                     <h5 className='asst-h'>11.3</h5>
+                    <div className="usage-wrapper">
                     <small>kWh/month</small>
-                    <small>MONTHLY USAGE</small>
+                    <small><b>MONTHLY USAGE</b></small>
+                    </div>
                   </div>
                 </div>
 
@@ -959,23 +962,27 @@ const handleFileChange = (e) => {
                   <div className="stat-card text-center">
                     <div className="icon-box  mb-2"><img src={buletwo} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
+                    <div className="usage-wrapper">
                     <small>kWh/month</small>
-                    <small>ESTIMATED ANNUAL LOAD</small>
+                    <small><b>ESTIMATED ANNUAL LOAD</b></small>
+                    </div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
                     <div className="icon-box  mb-2"><img src={bulefour} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
-                    <small>kW</small>
-                    <small>MONTHLY SPEND</small>
+                    <div className="usage-wrapper">
+                    
+                    <small><b>MONTHLY SPEND</b></small>
+                    </div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
                     <div className="icon-box  mb-2"><img src={bulethree} alt="icon" /></div>
                     <h5 className='asst-h'>Bill</h5>
-                    <small>ASSESSMENT PATH</small>
+                    <small><b>ASSESSMENT PATH</b></small>
                   </div>
                 </div>
               </div>
