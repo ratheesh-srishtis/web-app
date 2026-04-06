@@ -683,6 +683,13 @@ img.boxs-img {
   .input-box {
     max-width: 100%;
   }
+.property-card{ position: relative;
+    top: 0px !important;}
+  .property-card.active .icon-box {
+   
+    position: relative;
+    top: 0px !important;
+}
  
   .card-boxs {
     background: #ffffff;

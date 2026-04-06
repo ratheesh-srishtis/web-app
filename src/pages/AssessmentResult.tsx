@@ -4,10 +4,9 @@ import '../assets/images/logo.png'
 import logo from '../assets/images/logo.png'
 import bttnarrow from '../assets/images/btton-arrow.png'
 import "bootstrap/dist/css/bootstrap.min.css";
-import buleone from '../assets/images/icon/bule1.svg'
+
 import buletwo from '../assets/images/icon/bule2.svg'
-import bulethree from '../assets/images/icon/bule3.svg'
-import bulefour from '../assets/images/icon/sun-blue.svg'
+
 import Sun from '../assets/images/icon/sun-red.svg';
 import halfSun from '../assets/images/icon/half-s.svg';
 import batt from '../assets/images/icon/batt.svg';
@@ -15,9 +14,8 @@ import money from '../assets/images/icon/money-bag.svg';
 import imp from '../assets/images/icon/imporent.svg';
 import donw from '../assets/images/icon/d11.svg';
 import save from '../assets/images/icon/saves.svg';
-import done from '../assets/images/icon/d1.svg';
-import dtwo from '../assets/images/icon/d2.svg';
-import dthree from '../assets/images/icon/d3.svg';
+import qut from '../assets/images/icon/qut.svg';
+
 import whitearrow from '../assets/images/icon/w-arror.svg';
 
 import { Battery } from 'lucide-react';
@@ -483,9 +481,9 @@ function AssesementResult() {
               {/* Steps */}
            <div className="d-flex align-items-center mb-3">
   <div className="qs-icon me-2">
-    <i className="bi bi-lightning-charge-fill"></i>
+    <img src={qut} alt="icon" />
   </div>
-  <h6 className="fw-bold mb-0">Quick Snapshot</h6>
+  <h6 className="qt-text fw-bold mb-0">Quick Snapshot</h6>
 </div>
 
       <hr />
@@ -495,33 +493,41 @@ function AssesementResult() {
 
       <div className="row g-3">
 
-  <div className="col-6">
-    <div className="qs-card text-center">
-      <i className="colo-sym bi bi-graph-up mb-2 text-primary fs-5"></i>
-      <small className="label">ANNUAL SAVINGS</small>
-      <h5 className="value">N1.8M</h5>
+ <div className="col-6">
+  <div className="qs-cards">
+    <div className="icon-box-right">
+      <i className="colo-sym-right bi bi-graph-up text-primary fs-5"></i>
     </div>
+    <small className="label">ANNUAL SAVINGS</small>
+    <h5 className="value">N1.8M</h5>
   </div>
+</div>
 
   <div className="col-6">
-    <div className="qs-card text-center">
-      <i className="colo-sym bi bi-graph-up mb-2 text-primary fs-5"></i>
+   <div className="qs-cards">
+    <div className="icon-box-right">
+      <i className="colo-sym-right bi bi-clock-history text-primary fs-5"></i>
+    </div>
       <small className="label">PAYBACK</small>
       <h5 className="value">4.3yrs</h5>
     </div>
   </div>
 
   <div className="col-6">
-    <div className="qs-card text-center">
-      <i className="colo-sym bi bi-graph-up mb-2 text-primary fs-5"></i>
+    <div className="qs-cards">
+    <div className="icon-box-right">
+     <i className="colo-sym-right bi bi-fire text-primary fs-5"></i>
+    </div>
       <small className="label">DIESEL SAVED</small>
       <h5 className="value">2,150L</h5>
     </div>
   </div>
 
   <div className="col-6">
-    <div className="qs-card text-center">
-      <i className="colo-sym bi bi-graph-up mb-2 text-primary fs-5"></i>
+     <div className="qs-cards">
+    <div className="icon-box-right">
+     <i className="colo-sym-right bi bi-stack text-primary fs-5"></i>
+    </div>
       <small className="label">SYSTEM CLASS</small>
       <h5 className="value">Hybrid</h5>
     </div>
@@ -539,7 +545,7 @@ function AssesementResult() {
     <i className="bi bi-file-earmark-text"></i>
   </div>
   <div>
-    <div className="fw-semibold info-title">Detailed technical review</div>
+    <div className="det-text fw-semibold info-title">Detailed technical review</div>
     <small className="text-muted info-desc">
       Best for hotels, hospitals, factories, estates, and higher-value projects.
     </small>
@@ -551,35 +557,26 @@ function AssesementResult() {
     <i className="bi bi-people"></i>
   </div>
   <div>
-    <div className="fw-semibold info-title">Installer matching</div>
+    <div className="det-text fw-semibold info-title">Installer matching</div>
     <small className="text-muted info-desc">
       Best for users ready to compare implementation options immediately.
     </small>
   </div>
 </div>
 
-        <div className="d-flex mb-4">
-      
-          <div>
-            <div className="fw-semibold small">Installer matching</div>
-            <small className="text-muted">
-              Best for users ready to compare implementation options immediately.
-            </small>
-          </div>
-        </div>
 
       </div>
 
       {/* Buttons */}
-      <button className="btn-primary-custom">
-                      <span className="icon-sun"><img src={donw} alt="logo" /></span>
+      <button className="btn-primary-customss">
+                      <span className="icon-get"><i className="whit-icon bi bi-file-earmark-text"></i></span>
                       <span>Get Detailed Review</span>
                       <span className="arrows"><img src={save} alt="icon" /></span>
                     </button>
 
                     {/* Outline Button */}
-                    <button className="btn-outline-custom2">
-                      <span className="icon-sun"><img src={save} alt="icon" /></span>
+                    <button className="btn-outline-customss2">
+                      <span className="icon-get"><i className="bi bi-arrow-left"></i></span>
                       <span>Back to Assessment</span>
                     </button>
 
