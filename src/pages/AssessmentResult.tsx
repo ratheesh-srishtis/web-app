@@ -149,7 +149,7 @@ function AssesementResult() {
                 <div className="card custom-card h-100">
                   <div className="card-body">
                     <div className="d-flex align-items-center mb-2">
-                      <div className="icon-box-sun">
+                      <div className="icon-box-battery">
                         <img src={batt} alt="icon" />
                       </div>
                       <small className="text-uppercase text-muted g-2">
@@ -177,7 +177,7 @@ function AssesementResult() {
                 <div className="card custom-card h-100">
                   <div className="card-body">
                     <div className="d-flex align-items-center mb-2">
-                      <div className="icon-box-sun">
+                      <div className="icon-box-act">
                         <img src={halfSun} alt="icon" />
                       </div>
                       <small className="text-uppercase text-muted g-2">
