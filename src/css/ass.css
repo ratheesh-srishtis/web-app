@@ -19,6 +19,7 @@
   font-size: 30px;
     position: relative;
     top: -4px;
+        flex-shrink: 0;
 }
 
 .custom-card {
@@ -103,6 +104,51 @@
     font-size: 28px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.property-card.active .icon-box-tops{
+  background: #2b5da8;
+  color: white;
+}
+
+.icon-box-topsss{
+  width: 36px;
+  height: 36px;
+  background: #eef2ff;
+  border-radius: 8px;
+position: relative;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+top: 0px;
+  flex-shrink: 0; /* prevents shrinking */
+}
+.icon-box-tops{
+  width: 36px;
+  height: 36px;
+  background: #eef2ff;
+  border-radius: 8px;
+position: relative;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+top: 0px;
+  flex-shrink: 0; /* prevents shrinking */
+}
+
+.icon-box-topss{
+  width: 36px;
+  height: 36px;
+  background: #eef2ff;
+  border-radius: 8px;
+position: relative;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+top: 0px;
+  flex-shrink: 0; /* prevents shrinking */
+}
+
+
 .icon-box {
   width: 50px;
   height: 40px;
@@ -113,6 +159,7 @@
   justify-content: center;
   margin: auto;
   font-size: 18px;
+  flexShrink:0;
 }
 
 .icon-box img {
@@ -124,13 +171,34 @@
 
 /* Card base */
 .property-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 16px;
-  background: #f9fafb;
-  cursor: pointer;
-  position: relative;
-  transition: 0.3s ease;
+  width: 100%;
+  height: 100px; /* fixed equal height */
+  background: #eef2f7;
+  border-radius: 12px;
+
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+}
+
+.property-card h6,
+.property-card small {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Hover */
@@ -159,22 +227,29 @@ p.small.mb-0.text-muted.ass-mutedss {
 /* Icon box */
 
 
-
-
-.option-card.active .icon-box {
+.option-card.active .icon-box-topss {
   background: #174C90;
   color: white;
    
     position: relative;
-    top: -13px;
-    left: -4px !important;
+    
 }
+
+.option-card.active .icon-box-topsss {
+  background: #174C90;
+  color: white;
+   
+    position: relative;
+    
+}
+
+
 
 /* Check icon */
 .check-icon {
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 15px;
   background: #174C90;
   color: white;
   font-size: 12px;
@@ -335,6 +410,19 @@ h5.asst-h {
     background: #fff;
   }
 
+  .icon-box-tops {
+    width: 36px;
+    height: 36px;
+    background: #eef2ff;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    flex-shrink: 0;
+}
+
   .tabls-rows label {
     font-size: 12px;
     color: #6c757d;
@@ -343,13 +431,16 @@ h5.asst-h {
 
 /* Radio outer */
 .radio-circle {
-  width: 18px;
-  height: 18px;
-  border: 2px solid #9ca3af;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2d5b9f;
   border-radius: 50%;
-  display: flex;
+
+
   align-items: center;
   justify-content: center;
+
+  margin-left: auto; /* 🔥 key line */
 }
 
 /* Active radio */
@@ -357,13 +448,17 @@ h5.asst-h {
   border-color: #174C90;
 }
 
-/* Inner dot */
 .radio-dot {
-  width: 8px;
-  height: 8px;
-  background: #174C90;
+  width: 10px;
+  height: 10px;
+  background: #2d5b9f;
   border-radius: 50%;
+      position: relative;
+    top: 3px;
+    left: 2px;
 }
+
+
 h6.mb-1.fw-semibold.curr-ass {
     color: #174C90;
     font-size: 15px;
@@ -470,12 +565,23 @@ input.form-control.text-center.inputs-textss {
 
 .option-card {
   border: 1px solid #e0e0e0;
-  border-radius: 10px;
+
   background: #fff;
   cursor: pointer;
   transition: 0.2s;
   position: relative;
-  padding: 10px;
+ 
+  width: 100%;
+  height: 110px; /* 🔥 fixed equal height */
+  border-radius: 14px;
+
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  box-sizing: border-box;
 }
 
 .option-card:hover {
@@ -819,14 +925,7 @@ section.hero.d-flex.align-items-center.ass-bannr {
   color: white;
 }
 
-.check-icon {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 10px;
-  color: #fff;
- 
-}
+
 h6.mb-1.fw-semibold.ass-semiss {
         font-size: 14px;
     }
@@ -852,7 +951,7 @@ h6.mb-1.fw-semibold.ass-semiss {
   justify-content: center;
   border-radius: 8px;
   position: relative;
-    top: -13px;
+    top: 0px;
     left: -4px !important;
 }
 
@@ -922,6 +1021,20 @@ input.rows-borders {
     background: none;
 }
 
+
+.icon-box-build-right.mb-2 {
+  width: 40px;
+  height: 35px;
+  background: #eef2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  margin: 0 auto 10px; /* center the box horizontally */
+  position: relative;
+  top: 0; /* remove negative shift */
+}
 
 .buttons-actions {
   display: flex;
@@ -1066,6 +1179,7 @@ input[type="number"] {
 @media (max-width: 576px) {
   .property-card {
     padding: 12px;
+    height: 75px;
   }
   p.mb-0.small.text-muted.curr-ass-semi-hide {
     display: none;
@@ -1081,7 +1195,7 @@ p.small.mb-0.text-muted.ass-mutedss {
 }
 
 .step-box {
-    width: 75px;
+    width: 48px;
    
 }
 }
@@ -1122,7 +1236,7 @@ p.small.mb-0.text-muted.ass-muted{display: none;}
         top: 15px !important;
         left: -5px !important;
         width: 100%;
-        min-width: 100px;
+        min-width: 70px;
   }
    h6.mb-1.fw-semibold.ass-semiss {
          white-space: nowrap;

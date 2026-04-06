@@ -326,7 +326,7 @@ const handleFileChange = (e) => {
                     >
                       <div className="d-flex align-items-start gap-3">
 
-                       <div className="icon-box">
+                       <div className="icon-box-tops">
   <img src={item.icon} alt="icon" />
 </div>
 
@@ -402,10 +402,10 @@ const handleFileChange = (e) => {
     key={item.id}
     className={`property-card mb-3 ${selectedPower === item.id ? "active" : ""}`}
     onClick={() => setSelectedPower(item.id)}
-  >
+ >
     <div className="d-flex justify-content-between align-items-center">
 
-      <div className="d-flex align-items-center gap-3">
+      <div className="d-flex align-items-center w-100 gap-3">
         <div className="icon-boxs">
           <img src={item.icon} alt="icon" />
         </div>
@@ -416,7 +416,7 @@ const handleFileChange = (e) => {
         </div>
       </div>
 
-      <div className="radio-circle">
+      <div className="radio-circle ms-auto">
         {selectedPower === item.id && <div className="radio-dot"></div>}
       </div>
 
@@ -425,7 +425,7 @@ const handleFileChange = (e) => {
 ))}
 
           </div>
-           <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
+           <div className="p-3 shadow-sm rounded-4 ass-first mt-3">
 
               {/* Header */}
               <div className="d-flex align-items-center">
@@ -450,7 +450,7 @@ const handleFileChange = (e) => {
                         onClick={() => setActive(item.id)}
                       >
                         <div className="d-flex align-items-start">
-                          <div className="icon-box me-2">
+                          <div className="icon-box-topss me-2">
                             <img src={item.icon} />
                           </div>
 
@@ -822,7 +822,7 @@ const handleFileChange = (e) => {
 
 
 
-            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
+            <div className="p-3 shadow-sm rounded-4 ass-first mt-3">
 
               {/* Header */}
               <div className="d-flex align-items-center mb-3">
@@ -880,7 +880,7 @@ const handleFileChange = (e) => {
                         onClick={() => setActive(item.id)}
                       >
                         <div className="d-flex align-items-start">
-                          <div className="icon-box me-2">
+                          <div className="icon-box-topsss me-2">
                             <img src={item.icon} alt="icon" />
                             </div>
 
@@ -949,7 +949,7 @@ const handleFileChange = (e) => {
               <div className="row g-3">
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box mb-2"><img src={buleone} alt="icon" /></div>
+                    <div className="icon-box-build-right mb-2"><img src={buleone} alt="icon" /></div>
                     <h5 className='asst-h'>11.3</h5>
                     <div className="usage-wrapper">
                     <small>kWh/month</small>
@@ -960,7 +960,7 @@ const handleFileChange = (e) => {
 
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2"><img src={buletwo} alt="icon" /></div>
+                    <div className="icon-box-build-right  mb-2"><img src={buletwo} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
                     <div className="usage-wrapper">
                     <small>kWh/month</small>
@@ -970,7 +970,7 @@ const handleFileChange = (e) => {
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2"><img src={bulefour} alt="icon" /></div>
+                    <div className="icon-box-build-right mb-2"><img src={bulefour} alt="icon" /></div>
                     <h5 className='asst-h'>340</h5>
                     <div className="usage-wrapper">
                     
@@ -980,7 +980,7 @@ const handleFileChange = (e) => {
                 </div>
                 <div className="col-6">
                   <div className="stat-card text-center">
-                    <div className="icon-box  mb-2"><img src={bulethree} alt="icon" /></div>
+                    <div className="icon-box-build-right mb-2"><img src={bulethree} alt="icon" /></div>
                     <h5 className='asst-h'>Bill</h5>
                     <small><b>ASSESSMENT PATH</b></small>
                   </div>
