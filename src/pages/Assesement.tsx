@@ -797,7 +797,7 @@ const handleFileChange = (e) => {
         
         </tbody>
             {/* ✅ BUTTONS HERE (after table) */}
-  <div className="buttons-actions d-flex flex-wrap gap-3 mt-3">
+  <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
     <button className="dashed-btn">
       <span className="plus">+</span> Add Equipment
     </button>

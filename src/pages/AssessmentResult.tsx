@@ -461,7 +461,7 @@ function AssesementResult() {
                     </button>
 
                     {/* Outline Button */}
-                    <button className="btn-outline-custom2">
+                    <button className="btn-outline-custom2 assresult">
                       <span className="icon-sun"><img src={save} alt="icon" /></span>
                       <span>Request Installer Quotes</span>
                     </button>
