@@ -1,0 +1,31 @@
+p.bannr-text-second.text-light.mt-3.mb-3 {
+    font-size: 18px;
+    font-weight: 100;
+    width: 65%;
+}
+.process-section {
+
+  padding: 10px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  text-align: center;
+
+}
+
+.process-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e2a5a; /* dark blue */
+  margin-bottom: 10px;
+}
+
+.process-subtitle {
+  font-size: 14px;
+  color: #6b7280; /* grey text */
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
