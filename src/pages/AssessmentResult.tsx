@@ -27,12 +27,12 @@ function AssesementResult() {
 
   return (
     <div>
-      <section className="hero d-flex align-items-center ass-bannr">
+     <section className="hero d-flex align-items-center ass-bannr">
         <div className="overlay"></div>
         <div className="container position-relative z-1 menu-div ass-div">
 
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2">
+          <nav className="navbar navbar-expand-md mb-2 asst-menuss-reult">
             <div className="container-fluid">
 
               {/* Logo */}
@@ -92,14 +92,14 @@ function AssesementResult() {
           <div className="row align-items-center text-divs ass-text-bann">
 
 
-            <div className="col-lg-12 text-white mb-3 mb-lg-0">
+            <div className="col-lg-8 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
-                Your preliminary energy  system recommendation
+               Your preliminary energy  system recommendation
               </h1>
 
               <p className="bannr-text-s text-light mt-3 mb-3">
                 Based on the information entered, Solarvy estimates the most suitable solar, battery, and inverter configuration, together with indicative savings and payback.
-              </p>
+                </p>
 
 
             </div>
