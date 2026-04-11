@@ -214,7 +214,7 @@ function Home() {
                   <img src={onee} alt="icon" className="main-icon" />
                 </div>
 
-                <h4 className="head-blue mt-4">Enter your energy data</h4>
+                <h4 className="head-blue mt-3">Enter your energy data</h4>
 
                 <p>
                   Use your electricity bill, standard appliances, or custom equipment to estimate demand.

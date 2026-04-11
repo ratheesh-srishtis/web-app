@@ -16,7 +16,11 @@
 .custom-card small {
   font-size: 14px;
   color: #6F7196 !important;
-  margin-left: 10px;
+
+}
+
+hr {
+    border: 1px solid #E8EDF5 !important;
 }
 
 .icon-box-sun {
@@ -32,7 +36,7 @@
 .icon-box-right {
   width: 48px;
   height: 48px;
-  background-color: #fff; /* light grey */
+  background-color: #F0F4FA; /* light grey */
   border-radius: 12px;
 
   align-items: center;
@@ -295,7 +299,7 @@ small.text-muted.sub-down {
   padding: 16px;
 }
 .qs-cards {
-background: #f8fafc;
+
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   padding: 16px;
@@ -440,7 +444,7 @@ i.colo-sym.bi.bi-graph-up.mb-2.text-primary.fs-5 {
 .btn-outline-customss2 {
   width: 100%;
   height: 56px;
-  background-color: #E9EDF3;
+  background-color: #fff;
   color: #234F8E;
 
   border: 2px solid #BFD0EA;

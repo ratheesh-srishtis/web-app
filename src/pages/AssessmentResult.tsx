@@ -120,11 +120,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-sun">
                         <img src={Sun} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted ">
                         <b>Recommended Solar PV</b>
                       </small>
                     </div>
@@ -148,11 +148,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-battery">
                         <img src={batt} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted ">
                         <b>Recommended Battery</b>
                       </small>
                     </div>
@@ -176,11 +176,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-act">
                         <img src={halfSun} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted">
                         <b>Recommended Inverter</b>
                       </small>
                     </div>
