@@ -63,7 +63,7 @@ button.btn-outline-custom2.assresult {
     transition: 0.3s ease;
     width: 100%;
     height: 60px;
-    max-width: 280px;
+    
 }
 .icon-box-battery {
   width: 48px;
@@ -474,6 +474,46 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
   cursor: pointer;
 }
 
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  flex-direction: row;      /* ✅ side by side (web) */
+  flex-wrap: nowrap;        /* ✅ prevent breaking line */
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column; /* ✅ stack */
+  }
+
+  .button-group button {
+    width: 100%;            /* ✅ full width */
+  }
+}
+
+.btn-outline-customsss2 {
+  width: 100%;
+  height: 56px;
+  background-color: #fff;
+  color: #234F8E;
+
+  border: 2px solid #BFD0EA;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+  margin-top: 10px;
+
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 .icon-sun img {
   width: 18px;
   height: 18px;
@@ -527,6 +567,6 @@ button.btn-outline-custom2.assresult {
     
     width: 100%;
     height: 60px;
-    max-width: 295px;
+   
 }
 }

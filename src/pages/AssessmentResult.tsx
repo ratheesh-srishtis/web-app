@@ -454,26 +454,21 @@ function AssesementResult() {
               </div>
 
               {/* Buttons */}
-              <div className="d-flex gap-3 flex-wrap mt-3">
-                {/* Primary Button */}
-                <button className="btn-primary-custom">
-                  <span className="icon-sun">
-                    <img src={donw} alt="logo" />
-                  </span>
-                  <span>Download Report</span>
-                  <span className="arrows">
-                    <img src={save} alt="icon" />
-                  </span>
-                </button>
+      <div className="button-group mt-3">
+  <button className="btn-primary-customss">
+    <span className="icon-get">
+      <img src={donw} alt="logo" />
+    </span>
+    <span>Download Report</span>
+  </button>
 
-                {/* Outline Button */}
-                <button className="btn-outline-custom2 assresult">
-                  <span className="icon-sun">
-                    <img src={save} alt="icon" />
-                  </span>
-                  <span>Request Installer Quotes</span>
-                </button>
-              </div>
+  <button className="btn-outline-customsss2">
+    <span className="icon-get">
+      <img src={save} alt="icon" />
+    </span>
+    <span>Request Installer Quotes</span>
+  </button>
+</div>
             </div>
           </div>
 
