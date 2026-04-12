@@ -505,9 +505,10 @@ function Assesement() {
             </div>
 
             {/* no:4 (1) start */}
-            <div className="monthbill-section-tab-1">
-              {/* Bottom Section */}
-              <div className="row mt-4 g-3">
+            {active === "bill" && (
+              <div className="monthbill-section-tab-1">
+                {/* Bottom Section */}
+                <div className="row mt-4 g-3">
                 {/* Upload */}
                 <div className="col-md-6">
                   <label className="mb-2 fw-semibold ass-hedss">
@@ -612,10 +613,12 @@ function Assesement() {
                 </div>
               </div>
             </div>
+            )}
             {/* no:4 (1) end*/}
 
             {/* no:4 (2) start */}
-            <div className="Appliance Calculator-section-tab-2">
+            {active === "appliance" && (
+              <div className="Appliance Calculator-section-tab-2">
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
                 {/* Header */}
                 <div className="d-flex align-items-center mb-3">
@@ -726,21 +729,19 @@ function Assesement() {
                 </div>
               </div>
             </div>
+            )}
             {/* no:4 (2) end*/}
 
             {/* no:4 (3) start */}
-            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
+            {active === "custom" && (
+              <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
               {/* Header */}
               <div className="d-flex align-items-center mb-3">
                 <div className="step-box me-3">4</div>
                 <div>
-                  <h5 className="fw-bold mb-1 heading-ass">
-                    Appliance Calculator
-                  </h5>
+                  <h5 className="fw-bold mb-1 heading-ass">Custom Equipment</h5>
                   <p className="text-muted small mb-0 para-ass">
-                    Keep this path fast and straightforward. It should feel
-                    easier than the appliance calculator for users who already
-                    have bill information.
+                    Upload information to match custom equipment.
                   </p>
                 </div>
               </div>
@@ -867,6 +868,7 @@ function Assesement() {
                 </div>
               </div>
             </div>
+            )}
             {/* no:4 (3) end*/}
 
             <div className="p-3 shadow-sm rounded-4 ass-first mt-3">
