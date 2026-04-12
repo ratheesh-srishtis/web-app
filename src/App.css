@@ -132,25 +132,97 @@ p.bannr-text-s.text-light {
   width: 70%;
 }
 
+
+/* Dropdown container */
+select {
+  background-color: #f5f5f5; /* light grey */
+  color: #333; /* dark grey text */
+  border: 1px solid #dcdcdc;
+}
+
+/* Dropdown options */
+select option {
+  background-color: #ffffff; /* white background */
+  color: #555; /* medium grey text */
+}
+
+/* Hover / focus state */
+select:focus {
+  outline: none;
+  border-color: #c0c0c0;
+  box-shadow: none;
+}
+
+/* Selected option highlight */
+select option:checked {
+  background-color: #e0e0e0; /* light grey instead of blue */
+  color: #333;
+}
+
+.form-select {
+  background-color: #f5f5f5;
+  color: #333;
+  border-color: #ddd;
+}
+
+.form-select:focus {
+  box-shadow: none;
+  border-color: #ccc;
+}
 .custom-btn {
-  display: inline-flex;
+
   align-items: center;
   gap: 10px;
   justify-content: space-between;
   /* pushes text left & icon right */
   font-family: "Poppins", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
-  padding: 15px;
-
+  padding: 8px 8px 8px 20px;
+height: 50px;
   color: #252525;
   background-color: #ffffff;
 
-  border-radius: 50px;
-  border: none;
+  border-radius: 52px;
+  border: 1px solid #B2B2B2;
 
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.3s ease;
+}
+
+.custom-btn {
+  display: inline-flex !important;
+}
+
+.custom-btn-mobile-view {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .custom-btn {
+    display: none !important;
+  }
+
+  .custom-btn-mobile-view {
+    display: inline-flex !important;
+  }
+}
+.custom-btn-mobile-view {
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    padding: 8px 8px 8px 20px !important;
+    height: 50px;
+    color: #1A2259 !important;
+    background-color: #ffffff !important;
+    border-radius: 52px !important;
+    border: 1px solid #B2B2B2;
+    cursor: pointer !important;
+    transition: all 0.3s ease;
+    width: 100%;
 }
 
 .select.form-select.select-text :valid {
@@ -213,8 +285,11 @@ p.bannr-text-s.text-light {
 }
 
 button.custom-btn.other-section {
-  background: #174c90;
+  background-color: #174c90 !important;
   color: #ffffff;
+  border-radius: 100px;
+  padding: 8px 8px 8px 26px !important;
+  cursor: pointer !important;
 }
 
 /* Icon inside button */
@@ -253,7 +328,7 @@ nav.navbar.navbar-expand-md.mb-2 {
 
 .subtitle {
   color: #6c757d;
-  margin-bottom: 40px;
+ 
   font-size: 18px;
 }
 
@@ -457,8 +532,9 @@ body {
 .bannar-see {
   /* update path */
   background-size: cover;
-  background-position: center;
+
   background-repeat: no-repeat;
+ background-image: url('./assets/images/see-bannar.png'); /* update path */
 
   display: flex;
   align-items: center;
@@ -575,8 +651,9 @@ body {
 
 /* Title */
 .newsletter-title {
-  font-size: 14px;
-  color: #fff;
+     font-size: 17px;
+    color: #fff;
+    font-weight: 500;
 }
 
 .step {
@@ -613,7 +690,7 @@ body {
   outline: none;
   padding: 10px 15px;
   flex: 1;
-
+text-align: left;
   font-size: 14px;
 }
 
@@ -728,7 +805,29 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
   font-weight: 600;
   margin-bottom: 15px;
 }
+/* Desktop (default) */
+.normal-sizee {
+  display: block;
+  width: 160px;  /* big logo */
+  height: auto;
+}
 
+.mbile-size {
+  display: none;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .normal-sizee {
+    display: none;
+  }
+
+  .mbile-size {
+    display: block;
+    width: 96px; /* small logo */
+    height: 40px;
+  }
+}
 /* Left text */
 .footer-text {
   font-size: 14px;
@@ -810,6 +909,26 @@ p.sub-left {
 
 a.text-light.align-self-center {
   font-size: 20px;
+      font-weight: 500;
+}
+
+/* Default (desktop) - keep as it is */
+.navbar-brand {
+  margin: 0 auto; /* if you had center alignment */
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .navbar-brand {
+  margin: 0px auto !important;
+        justify-content: flex-start;
+        position: relative;
+        right: 45%;
+  }
+
+  .navbar {
+    justify-content: space-between; /* logo left, menu right */
+  }
 }
 
 /* 📱 Mobile Responsive */

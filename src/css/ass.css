@@ -470,8 +470,9 @@ h5.asst-h {
   background: #2d5b9f;
   border-radius: 50%;
       position: relative;
-    top: 3px;
-    left: 2px;
+   top: 3px;
+    /* left: 2px; */
+    margin: 0 auto;
 }
 
 
@@ -1077,7 +1078,7 @@ input.rows-borders {
 .icon-box-build-right.mb-2 {
   width: 40px;
   height: 35px;
-  background: #eef2f7;
+  background: #F0F4FA;
   display: flex;
   align-items: center;
   justify-content: center;
