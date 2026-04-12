@@ -304,6 +304,10 @@ font-size: 45px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+hr {
+    border: 1px solid #E8EDF5 !important;
+}
+
 /* Text */
 .step h4 {
   font-size: 18px;
@@ -397,13 +401,15 @@ body {
 
 
 .card-box {
-  background: #ffffff;
-  padding: 18px 22px;
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
-  transition: 0.3s;
-  border: 1px solid #CAE1FF !important;
+     background: #ffffff;
+    padding: 18px 22px;
+    border-radius: 12px;
+    /* box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05); */
+    margin-bottom: 15px;
+    transition: 0.3s;
+    /* border: 1px solid #CAE1FF !important; */
+    border: 0.5px solid #CAE1FF;
+    box-shadow: 0px 20px 21px 0 rgba(202, 225, 255, 0.1);
 }
 
 .card-boxs {
@@ -418,8 +424,9 @@ body {
 }
 
 .step-s {
-  box-shadow: 0 1px 12px #CAE1FF;
-  border-radius: 0 0 15px 15px;
+     border-radius: 12px;
+    box-shadow: 4px 4px 16px 0 rgba(202, 225, 255, 0.3);
+
 }
 
 .card-box:hover {
@@ -499,9 +506,7 @@ body {
 .select-text option {
   width: 100%;
 }
-img.boxs-img {
-    width: 100%;
-}
+
 
 
 .card-boxs small {
@@ -671,7 +676,10 @@ img.boxs-img {
   font-weight: 500;
 }
 
-
+nav.navbar.navbar-expand-md.mb-2.asst-menuss {
+  position: relative;
+  top: 58px;
+}
 
 /* Divider */
 .divider {
@@ -700,7 +708,7 @@ img.boxs-img {
     transition: 0.3s;
     border: 1px solid #CAE1FF !important;
     height: 130px;
-    width: 180px;
+ 
 }
   .subtitle {
 
@@ -727,13 +735,15 @@ img.boxs-img {
     position: relative;
   }
 
-  .container.position-relative.z-1.menu-div {
-  
-        /*  position: relative;
-        top: 32%; */
-        margin-bottom: 65px;
-  }
-
+nav.navbar.navbar-expand-md.mb-2.asst-menuss {
+    position: relative;
+    top: 5px;
+}
+section.hero.d-flex.align-items-center.ass-bannr {
+    height: 100%;
+    min-height: 400px;
+    margin-bottom:1px
+}
   .hero {
 
     height: 100%;
@@ -826,16 +836,19 @@ img.boxs-img {
 }
 
 h4.head-blue-left {
-  text-align: left;
-  padding: 15px 0px 0px 15px;
-  color: #1A2259;
+    text-align: left;
+    padding: 15px 0px 0px 15px;
+    color: #1A2259;
+    font-size: 24px !important;
+    font-weight: 600;
 }
 
 p.sub-left {
-  font-size: 14px;
-  color: #6c757d;
-  text-align: left;
-  padding: 0px 0px 0px 15px;
+      font-size: 16px;
+    color: #6D7189;
+    text-align: left;
+    padding: 0px 0px 0px 15px;
+    font-weight: 400;
 }
 
 a.text-light.align-self-center {
@@ -877,7 +890,10 @@ a.text-light.align-self-center {
     margin-bottom: 10px;
     color: #1A2259;
   }
-
+    .row.align-items-center.text-divs.ass-text-bann {
+        position: relative;
+        top: -45px;
+    }
   .row.align-items-center.text-divs {
     position: relative;
     top: 1px;

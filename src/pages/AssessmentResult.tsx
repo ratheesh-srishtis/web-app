@@ -27,12 +27,12 @@ function AssesementResult() {
 
   return (
     <div>
-      <section className="hero d-flex align-items-center ass-bannr">
+     <section className="hero d-flex align-items-center ass-bannr">
         <div className="overlay"></div>
         <div className="container position-relative z-1 menu-div ass-div">
 
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2">
+          <nav className="navbar navbar-expand-md mb-2 asst-menuss-reult">
             <div className="container-fluid">
 
               {/* Logo */}
@@ -92,14 +92,14 @@ function AssesementResult() {
           <div className="row align-items-center text-divs ass-text-bann">
 
 
-            <div className="col-lg-12 text-white mb-3 mb-lg-0">
+            <div className="col-lg-8 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
-                Your preliminary energy  system recommendation
+               Your preliminary energy  system recommendation
               </h1>
 
               <p className="bannr-text-s text-light mt-3 mb-3">
                 Based on the information entered, Solarvy estimates the most suitable solar, battery, and inverter configuration, together with indicative savings and payback.
-              </p>
+                </p>
 
 
             </div>
@@ -120,11 +120,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-sun">
                         <img src={Sun} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted ">
                         <b>Recommended Solar PV</b>
                       </small>
                     </div>
@@ -148,11 +148,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-battery">
                         <img src={batt} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted ">
                         <b>Recommended Battery</b>
                       </small>
                     </div>
@@ -176,11 +176,11 @@ function AssesementResult() {
               <div className="col-md-4">
                 <div className="card custom-card h-100">
                   <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
+                    <div className="d-flex align-items-center mb-2 gap-2">
                       <div className="icon-box-act">
                         <img src={halfSun} alt="icon" />
                       </div>
-                      <small className="text-uppercase text-muted g-2">
+                      <small className="text-uppercase text-muted">
                         <b>Recommended Inverter</b>
                       </small>
                     </div>

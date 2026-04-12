@@ -41,6 +41,17 @@ function Assesement() {
   const [selectedProperty, setSelectedProperty] = useState(1);
   const [selectedPower, setSelectedPower] = useState(1);
   const [active, setActive] = useState("bill");
+
+
+
+
+
+
+
+
+
+
+  
   const options = [
     {
       id: "bill",
@@ -133,6 +144,13 @@ const handleChange = (
   ];
 
 
+
+
+
+
+
+  
+
   const [activeTab, setActiveTab] = useState("Businesses");
 
 const applianceOptions = [
@@ -221,7 +239,7 @@ const handleFileChange = (e) => {
         <div className="container position-relative z-1 menu-div ass-div">
 
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2">
+          <nav className="navbar navbar-expand-md mb-2 asst-menuss">
             <div className="container-fluid">
 
               {/* Logo */}
@@ -317,7 +335,7 @@ const handleFileChange = (e) => {
               </div>
 
               {/* Cards */}
-              <div className="row g-3">
+              <div className="row g-3 mb-3">
                 {propertyOptions.map((item) => (
                   <div className="col-6 col-md-6 col-lg-4" key={item.id}>
                     <div
@@ -346,7 +364,7 @@ const handleFileChange = (e) => {
               </div>
 
               {/* Form */}
-              <div className="row g-3 mt-3">
+              <div className="row g-3 ">
 
                 {/* COUNTRY */}
                 <div className="col-md-6">
@@ -392,15 +410,16 @@ const handleFileChange = (e) => {
                 <div>
                   <h5 className="fw-bold mb-1 heading-ass">Current Power Setup</h5>
                   <p className="text-muted small mb-0 para-ass">
-                    This helps us understand your current energy infra
+                 This helps us understand your current energy infrastructure.
                   </p>
                 </div>
               </div>
 
               {powerOptions.map((item) => (
-  <div
+  <div className="parent-container">
+    <div
     key={item.id}
-    className={`property-card mb-3 ${selectedPower === item.id ? "active" : ""}`}
+    className={`property-card  ${selectedPower === item.id ? "active" : ""}`}
     onClick={() => setSelectedPower(item.id)}
  >
     <div className="d-flex justify-content-between align-items-center">
@@ -421,6 +440,7 @@ const handleFileChange = (e) => {
       </div>
 
     </div>
+  </div>
   </div>
 ))}
 
@@ -797,7 +817,15 @@ const handleFileChange = (e) => {
         
         </tbody>
             {/* ✅ BUTTONS HERE (after table) */}
-  <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
+
+
+
+        
+      </table>
+   
+    </div>
+                 {/* table-end*/}
+                  <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
     <button className="dashed-btn">
       <span className="plus">+</span> Add Equipment
     </button>
@@ -806,14 +834,6 @@ const handleFileChange = (e) => {
       <span className="plus">+</span> Add Critical Load Tag
     </button>
   </div>
-
-
-        
-      </table>
-   
-    </div>
-                 {/* table-end*/}
-                
               </div>
             </div>
             {/* no:4 (3) end*/}
