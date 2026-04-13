@@ -9,11 +9,11 @@ function Footer() {
 
           {/* LEFT SIDE */}
           <div className="col-md-7 mb-4">
-            <a className="navbar-brand text-white fw-bold" href="#">
+            <a className="navbar-brand text-white fw-bold mb-4" href="#">
               <img src={logo} alt="logo" />
             </a>
 
-            <p className="footer-text">
+            <p className="footer-text mt-4">
               Solarvy helps homes and businesses estimate energy demand,
               recommended system size, savings, and payback before they commit
               to equipment or installation.
@@ -26,7 +26,7 @@ function Footer() {
 
               <div className="col-6 col-md-4 mb-3">
                 <ul className="footer-links">
-                  <h6 className="newsletter-title">Main Page</h6>
+                  <h6 className="newsletter-title mb-4">Main Page</h6>
                   <li>How It Works</li>
                   <li>Sample Results</li>
                   <li>Who It’s For</li>
@@ -35,7 +35,7 @@ function Footer() {
 
               <div className="col-6 col-md-4 mb-3">
                 <ul className="footer-links">
-                  <h6 className="newsletter-title">Company</h6>
+                  <h6 className="newsletter-title mb-4">Company</h6>
                   <li>About Us</li>
                   <li>Contact Us</li>
                   <li>Terms Of Use</li>

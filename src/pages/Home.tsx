@@ -33,11 +33,19 @@ function Home() {
             <div className="container-fluid">
               {/* Logo */}
               <Link
-                to="/ Home"
+                to="/Home"
                 onClick={() => window.scrollTo(0, 0)}
                 className="navbar-brand text-white fw-bold"
               >
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="logo" className="normal-sizee" />
+              </Link>
+
+               <Link
+                to="/Home"
+                onClick={() => window.scrollTo(0, 0)}
+                className="navbar-brand text-white fw-bold"
+              >
+                <img src={logo} alt="logo" className="mbile-size"/>
               </Link>
 
               {/* Hamburger */}
@@ -91,6 +99,8 @@ function Home() {
                       <img src={bttnarrow} alt="arrow" />
                     </button>
                   </li>
+
+                  
                 </ul>
               </div>
             </div>
@@ -111,11 +121,18 @@ function Home() {
               </p>
 
               <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mt-3">
-                <button className="custom-btn mobile-viw">
+                <button className="custom-btn">
                   {" "}
-                  Start Assessment
+                  Start Free Assessment
                   <img src={bttnarrow} alt="arrow" />
                 </button>
+
+                 <button className="custom-btn-mobile-view">
+                  {" "}
+                  Start Free Assessment
+                  <img src={bttnarrow} alt="arrow" />
+                </button>
+
                 <a href="#" className="text-light align-self-center">
                   See Sample Result
                 </a>
@@ -225,7 +242,7 @@ function Home() {
       <section className="how-it-works py-4">
         <div className="container text-center">
           <h2 className="head-nor">How Solarvy Works</h2>
-          <p className="subtitle mb-5">
+          <p className="subtitle ">
             A simple energy decision workflow built around problem-solving, not
             just calculations.
           </p>
@@ -291,11 +308,7 @@ function Home() {
       </section>
 
       <section
-        className=" d-flex align-items-center bannar-see mt-4"
-        style={{
-          backgroundImage: `url(${see})`,
-        }}
-      >
+        className=" d-flex align-items-center bannar-see mt-4">
         <div className="container text-center mt-4 mb-3">
           <h1 className="title">See A Sample Energy Assessment</h1>
           <p className="subtitle">
@@ -304,8 +317,8 @@ function Home() {
             problem-solving, not just calculations.
           </p>
 
-          <div className="row mt-3 g-4">
-            <div className="col-md-6">
+          <div className="row g-4">
+            <div className="col-md-6 ">
               <div className="card-box d-flex justify-content-between">
                 <span>Location</span>
                 <span className="text-muted text-color">Lagos, Nigeria</span>
@@ -329,7 +342,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 mt-2">
               <div className="row g-4">
                 <div className="col-6">
                   <div className="card-boxs text-center">

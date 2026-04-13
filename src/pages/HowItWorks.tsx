@@ -34,9 +34,21 @@ function HowItWorks() {
           <nav className="navbar navbar-expand-md mb-2">
             <div className="container-fluid">
               {/* Logo */}
-              <a className="navbar-brand text-white fw-bold" href="#">
-                <img src={logo} alt="logo" />
-              </a>
+              <Link
+                to="/Home"
+                onClick={() => window.scrollTo(0, 0)}
+                className="navbar-brand text-white fw-bold"
+              >
+                <img src={logo} alt="logo" className="normal-sizee" />
+              </Link>
+
+               <Link
+                to="/Home"
+                onClick={() => window.scrollTo(0, 0)}
+                className="navbar-brand text-white fw-bold"
+              >
+                <img src={logo} alt="logo" className="mbile-size"/>
+              </Link>
 
               {/* Hamburger */}
               <button
