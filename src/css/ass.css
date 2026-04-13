@@ -214,6 +214,7 @@ top: 0px;
 /* Active state */
 .property-card.active {
   border: 2px solid #174C90;
+  background-color: rgba(23, 76, 144, 0.04);
 
 }
 p.small.mb-0.text-muted.ass-muted {
@@ -302,6 +303,7 @@ select.form-select.rounded-3.ass-intput {
     font-weight: 400;
         padding: .375rem .75rem;
     height: 45px;
+        border: 1px solid #E8EDF5 !important;
 
 }
 input.form-control.rounded-3.ass-intput {
@@ -371,9 +373,7 @@ input.form-control.rounded-3.ass-intput {
     border: 1px solid #E8EDF5;
     border-radius: 16px !important;
    background-color: rgb(255, 255, 255);
-    position: sticky !important;
-    top: 100px; /* 🔥 adjust based on header */
-    align-self: flex-start; /* 🔥 VERY IMPORTANT */
+
    
 }
 
@@ -427,16 +427,16 @@ h5.asst-h {
   }
 
   .icon-box-tops {
-    width: 36px;
-    height: 36px;
-    background: #eef2ff;
-    border-radius: 8px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 5px;
-    flex-shrink: 0;
+   width: 30px;
+        height: 30px;
+        background: #eef2ff;
+        border-radius: 8px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0px;
+        flex-shrink: 0;
 }
 
   .tabls-rows label {
@@ -444,6 +444,9 @@ h5.asst-h {
     color: #6c757d;
   }
 }
+
+
+
 
 /* Radio outer */
 .radio-circle {
@@ -581,7 +584,7 @@ input.form-control.text-center.inputs-textss {
 }
 
 .option-card {
-  border: 1px solid #e0e0e0;
+  border:2px solid #E8EDF5;
 
   background: #fff;
   cursor: pointer;
@@ -705,6 +708,23 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
     position: relative;
     top: -58px;
 }
+
+/* Default (top) */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;   /* ✅ no background */
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* On scroll */
+nav.navbar.scrolled {
+  background: #174c90 !important;       /* ✅ your color */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
 
 @media (max-width: 768px) {
     nav.navbar.navbar-expand-md.mb-2.asst-menuss {
@@ -950,10 +970,7 @@ button.btn.btn-outline-custom.btn-start {
 
 }
 
-.property-card.active {
-  border-color: #174C90;
- 
-}
+
 
 
 .d-flex {
@@ -1241,7 +1258,9 @@ input[type="number"] {
 
 
 
-
+.icon-boxs {
+  flex-shrink: 0; /* ✅ keeps icon size fixed */
+}
 
 
 
@@ -1251,9 +1270,17 @@ input[type="number"] {
 
 /* Mobile spacing + tighter look */
 @media (max-width: 576px) {
+  .icon-boxs {
+  flex-shrink: 0; /* ✅ keeps icon size fixed */
+}
   .property-card {
-    padding: 12px;
-    height: 75px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px !important;
+  border-radius: 12px;
+    min-width: 150px;
+  width: auto;
   }
   p.mb-0.small.text-muted.curr-ass-semi-hide {
     display: none;
@@ -1269,7 +1296,11 @@ p.small.mb-0.text-muted.ass-mutedss {
 }
 
 .step-box {
-    width: 48px;
+    width: 32px;
+        height: 32px;
+        font-size: 20px;
+        position: relative;
+        top: -20px;
    
 }
 }
@@ -1284,10 +1315,7 @@ p.small.mb-0.text-muted.ass-mutedss {
 
 
 @media (max-width: 768px) {
-    nav.navbar.navbar-expand-md.mb-2 {
-        position: relative;
-        top: 10px;
-    }
+   
     .check-icon {
 display:none;
 }
@@ -1301,17 +1329,21 @@ display:none;
 
 @media (max-width: 768px) {
 p.small.mb-0.text-muted.ass-muted{display: none;}
-   
+   img.mobile-iconssss {
+    width: 20px;
+    height: 20px;
+}
     h6.mb-1.fw-semibold.ass-semi {
-            white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        position: relative;
-        top: 15px !important;
-        left: -5px !important;
+             position: relative;
+        top: 10px !important;
+        left: -8px !important;
         width: 100%;
         min-width: 70px;
-  }
+        display: block;
+        overflow: hidden;
+        line-height: 1.2em;
+        height: 1.2em;
+        font-size: 11px;}
    h6.mb-1.fw-semibold.ass-semiss {
          white-space: nowrap;
         overflow: hidden;

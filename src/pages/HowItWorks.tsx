@@ -18,20 +18,36 @@ import qut from "../assets/images/icon/qut.svg";
 
 import whitearrow from "../assets/images/icon/w-arror.svg";
 import { useNavigate } from "react-router-dom";
-
+import { useEffect} from "react";
 import { Battery } from "lucide-react";
 
 function HowItWorks() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+
+  const [scrolled, setScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div>
       <section className="hero d-flex align-items-center ass-bannr">
         <div className="overlay"></div>
         <div className="container position-relative z-1 menu-div ass-div">
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2">
+          <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
             <div className="container-fluid">
               {/* Logo */}
               <Link
@@ -106,7 +122,7 @@ function HowItWorks() {
             </div>
           </nav>
 
-          <div className="row align-items-center text-divs ass-text-bann">
+        <div className="row align-items-center text-divs top-space ">
             <div className="col-lg-12 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
                 Get a tailored energy solution in minutes

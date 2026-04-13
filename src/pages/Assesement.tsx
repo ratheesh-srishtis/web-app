@@ -30,7 +30,7 @@ import buletwo from "../assets/images/icon/bule2.svg";
 import bulethree from "../assets/images/icon/bule3.svg";
 import bulefour from "../assets/images/icon/sun-blue.svg";
 import { useNavigate } from "react-router-dom";
-
+import { useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Bold } from "lucide-react";
 
@@ -236,6 +236,21 @@ function Assesement() {
       setFileName("No file chosen");
     }
   };
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <div>
@@ -243,7 +258,7 @@ function Assesement() {
         <div className="overlay"></div>
         <div className="container position-relative z-1 menu-div ass-div">
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2 asst-menuss">
+           <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
             <div className="container-fluid">
               <Link
                 to="/Home"
@@ -317,7 +332,7 @@ function Assesement() {
             </div>
           </nav>
 
-          <div className="row align-items-center text-divs ass-text-bann">
+          <div className="row align-items-center text-divs top-space enery ">
             <div className="col-lg-12 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
                 Energy Assessment
@@ -360,7 +375,7 @@ function Assesement() {
                     >
                       <div className="d-flex align-items-start gap-3">
                         <div className="icon-box-tops">
-                          <img src={item.icon} alt="icon" />
+                          <img src={item.icon} alt="icon" className="mobile-iconssss" />
                         </div>
 
                         <div>
@@ -465,7 +480,7 @@ function Assesement() {
                 </div>
               ))}
             </div>
-            <div className="p-3 shadow-sm rounded-4 ass-first mt-3">
+            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
               {/* Header */}
               <div className="d-flex align-items-center">
                 <div className="step-box me-3">3</div>
@@ -519,7 +534,7 @@ function Assesement() {
             {active === "bill" && (
               <div className="monthbill-section-tab-1">
                 {/* Bottom Section */}
-                <div className="row mt-4 g-3">
+                <div className="row mt-2 g-3">
                 {/* Upload */}
                 <div className="col-md-6">
                   <label className="mb-2 fw-semibold ass-hedss">
@@ -882,7 +897,7 @@ function Assesement() {
             )}
             {/* no:4 (3) end*/}
 
-            <div className="p-3 shadow-sm rounded-4 ass-first mt-3">
+            <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
               {/* Header */}
               <div className="d-flex align-items-center mb-3">
                 <div className="step-box me-3">5</div>
@@ -986,7 +1001,7 @@ function Assesement() {
 
           {/* ✅ RIGHT SIDE */}
           <div className="col-lg-4">
-            <div className="p-4 rounded-4 shadow-sm sticky-top right-panel assts-right">
+            <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
               {/* Steps */}
               <div className="mb-4">
                 <div className="step-item active">

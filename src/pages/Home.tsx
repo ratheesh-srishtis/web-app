@@ -18,9 +18,32 @@ import enery from "../assets/images/energy.png";
 import quik from "../assets/images/quik.png";
 import see from "../assets/images/see-bannar.png";
 import { useNavigate } from "react-router-dom";
+import { useEffect} from "react";
 function Home() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const handleToggle = () => {
+  if (window.innerWidth < 768) {
+    setOpen(!open);
+  }
+};
+
+
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <div>
@@ -29,7 +52,7 @@ function Home() {
 
         <div className="container position-relative z-1 menu-div">
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2">
+          <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
             <div className="container-fluid">
               {/* Logo */}
               <Link
@@ -49,11 +72,7 @@ function Home() {
               </Link>
 
               {/* Hamburger */}
-              <button
-                className="navbar-toggler"
-                type="button"
-                onClick={() => setOpen(!open)}
-              >
+             <button onClick={handleToggle} className="navbar-toggler">
                 <span className="navbar-toggler-icon"></span>
               </button>
 
@@ -89,7 +108,7 @@ function Home() {
                   </li>
                   <li className="nav-item">
                     <button
-                      className="custom-btn"
+                      className="custom-btn "
                       onClick={() => {
                         navigate("/start-assesement");
                       }}
@@ -121,7 +140,7 @@ function Home() {
               </p>
 
               <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mt-3">
-                <button className="custom-btn">
+                <button className="custom-btn bann-second">
                   {" "}
                   Start Free Assessment
                   <img src={bttnarrow} alt="arrow" />
@@ -342,7 +361,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="col-md-6 mt-2">
+            <div className="col-md-6 ">
               <div className="row g-4">
                 <div className="col-6">
                   <div className="card-boxs text-center">
@@ -448,7 +467,7 @@ function Home() {
               </p>
 
               <div className="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap text-center">
-                <button className="custom-btn other-section">
+                <button className="custom-btn other-section strst">
                   {" "}
                   Start Assessment
                   <img src={bttnarrowhite} alt="arrow" />

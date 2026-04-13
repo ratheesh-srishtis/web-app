@@ -9,7 +9,7 @@ function Footer() {
 
           {/* LEFT SIDE */}
           <div className="col-md-7 mb-4">
-            <a className="navbar-brand text-white fw-bold mb-4" href="#">
+            <a className="navbar-brand footer-logoss text-white fw-bold mb-4" href="#">
               <img src={logo} alt="logo" />
             </a>
 
