@@ -228,7 +228,7 @@ function HowItWorks() {
 
                         <div className="card-content">
                           <h6 className="title">
-                            <i className="bi bi-grid me-2"></i>
+                            
                             <strong className="rang-heads">
                               Get your plan
                             </strong>

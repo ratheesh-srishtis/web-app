@@ -1265,7 +1265,35 @@ input[type="number"] {
 }
 
 
+@media (max-width: 768px) {
+  .next-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
+  .badge-box {
+    position: static;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .next-card {
+    text-align: center;
+  }
+
+  .badge-box {
+    position: static;     /* remove absolute positioning */
+    display: block;
+    margin: 0 auto 12px; 
+  }
+
+  .card-content {
+    align-items: center;
+  }
+}
 
 
 
@@ -1376,6 +1404,11 @@ p.small.mb-0.text-muted.ass-muted{display: none;}
         height: 1.2em;
         font-size: 11px;
     }
+
+    .how-it-works {
+   
+    top: 80px;
+}
    h6.mb-1.fw-semibold.ass-semiss {
          white-space: nowrap;
         overflow: hidden;
@@ -1392,6 +1425,9 @@ p.small.mb-0.text-muted.ass-muted{display: none;}
 
      
   }
+
+
+  
 
     
 

@@ -956,7 +956,7 @@ useEffect(() => {
                           </div>
 
                           <div className="flex-grow-1">
-                            <h6 className="mb-1 fw-semibold ass-semi" style={{ fontSize: "15px" }}>
+                            <h6 className="mb-1 fw-semibold ass-semi">
                               {item.title}
                             </h6>
                             <p className="small mb-0 text-muted ass-muted">
