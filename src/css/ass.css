@@ -984,12 +984,14 @@ button.btn.btn-outline-custom.btn-start {
     cursor: pointer;
     transition: all 0.2s ease;
     position: relative;
-    margin-bottom: 10px; /* adds gap */
+
 
 }
 
 
-
+.parent-container.onlt-this:not(:last-child) {
+  margin-bottom: 16px; /* adjust gap */
+}
 
 .d-flex {
   min-width: 0;
