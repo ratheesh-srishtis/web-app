@@ -114,6 +114,16 @@
   color: white;
 }
 
+
+
+.icon-svg {
+  fill: #2f5bea; /* default */
+}
+
+.property-card.active .icon-svg {
+  fill: #ffffff; /* white when active */
+}
+
 .icon-box-topsss{
   width: 36px;
   height: 36px;
@@ -252,6 +262,20 @@ p.small.mb-0.text-muted.ass-mutedss {
 
 /* Check icon */
 .check-icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  background: #174C90;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-icon-homss {
   position: absolute;
   right: 10px;
   top: 15px;
@@ -450,16 +474,14 @@ h5.asst-h {
 
 /* Radio outer */
 .radio-circle {
-  width: 20px;
+ width: 20px;
   height: 20px;
-  border: 2px solid #2d5b9f;
+  border: 2px solid #2f5bea;
   border-radius: 50%;
-
-
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-left: auto; /* 🔥 key line */
+  flex-shrink: 0;
 }
 
 /* Active radio */
@@ -468,14 +490,10 @@ h5.asst-h {
 }
 
 .radio-dot {
-  width: 10px;
+width: 10px;
   height: 10px;
-  background: #2d5b9f;
+  background-color: #174C90;
   border-radius: 50%;
-      position: relative;
-   top: 3px;
-    /* left: 2px; */
-    margin: 0 auto;
 }
 
 
@@ -592,7 +610,7 @@ input.form-control.text-center.inputs-textss {
   position: relative;
  
   width: 100%;
-  height: 110px; /* 🔥 fixed equal height */
+ 
   border-radius: 14px;
 
 
@@ -1035,9 +1053,24 @@ h6.mb-1.fw-semibold.ass-semiss {
 }
 
 select.form-select.border-0.first-table {
-    font-size: 14px;
+    width: 100%;
+  min-width: 160px;
+  max-width: 220px;   /* optional */
+  overflow: visible;
+      font-size: 14px;
     color: #212738;
+
    
+}
+
+select.form-select.border-0.first-table option {
+  white-space: normal;
+}
+
+.appliance-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .row.text-muted.small.mb-2.px-2.table-heading {
@@ -1289,9 +1322,7 @@ p.small.mb-0.text-muted.ass-mutedss {
    font-size: 13px;
         font-weight: 500;
         display: block;
-        position: relative;
-        left: -4px;
-        top: 3px;
+               padding: 5px 0px 0px 5px;
 
 }
 
@@ -1316,7 +1347,7 @@ p.small.mb-0.text-muted.ass-mutedss {
 
 @media (max-width: 768px) {
    
-    .check-icon {
+    .check-icon-homss {
 display:none;
 }
 
@@ -1343,7 +1374,8 @@ p.small.mb-0.text-muted.ass-muted{display: none;}
         overflow: hidden;
         line-height: 1.2em;
         height: 1.2em;
-        font-size: 11px;}
+        font-size: 11px;
+    }
    h6.mb-1.fw-semibold.ass-semiss {
          white-space: nowrap;
         overflow: hidden;
@@ -1353,7 +1385,8 @@ p.small.mb-0.text-muted.ass-muted{display: none;}
         left: -5px !important;
         width: 100%;
         min-width: 100px;
-        font-size: 13px;
+        font-size: 15px;
+                padding-left: 10px;
    
       }
 

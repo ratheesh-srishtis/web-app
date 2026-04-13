@@ -388,7 +388,7 @@ useEffect(() => {
                         </div>
 
                         {selectedProperty === item.id && (
-                          <div className="check-icon">✔</div>
+                          <div className="check-icon-homss">✔</div>
                         )}
                       </div>
                     </div>
@@ -454,8 +454,8 @@ useEffect(() => {
                     className={`property-card  ${selectedPower === item.id ? "active" : ""}`}
                     onClick={() => setSelectedPower(item.id)}
                   >
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="d-flex align-items-center w-100 gap-3">
+                    <div className="d-flex align-items-center justify-content-between w-100">
+                      <div className="d-flex align-items-center gap-3">
                         <div className="icon-boxs">
                           <img src={item.icon} alt="icon" />
                         </div>
@@ -471,9 +471,7 @@ useEffect(() => {
                       </div>
 
                       <div className="radio-circle ms-auto">
-                        {selectedPower === item.id && (
-                          <div className="radio-dot"></div>
-                        )}
+                      {selectedPower === item.id && <div className="radio-dot"></div>}
                       </div>
                     </div>
                   </div>
@@ -506,7 +504,7 @@ useEffect(() => {
                         onClick={() => setActive(item.id)}
                       >
                         <div className="d-flex align-items-start">
-                          <div className="icon-box-topss me-2">
+                          <div className="icon-box-topss me-2" >
                             <img src={item.icon} />
                           </div>
 
@@ -789,7 +787,7 @@ useEffect(() => {
                     <tbody>
                       {rows.map((item, index) => (
                         <tr key={index}>
-                          <td className="appliance-cell py-2">
+                          <td className="appliance-cell py-2" style={{ minWidth: "180px" }}>
                             <div className="tables-icon-box-custom">
                               <img src={item.icon} alt="icon" />
                             </div>
@@ -953,12 +951,12 @@ useEffect(() => {
                         onClick={() => setActive(item.id)}
                       >
                         <div className="d-flex align-items-start">
-                          <div className="icon-box-topsss me-2">
+                          <div className="icon-box-topsss me-2 " >
                             <img src={item.icon} alt="icon" />
                           </div>
 
                           <div className="flex-grow-1">
-                            <h6 className="mb-1 fw-semibold ass-semi">
+                            <h6 className="mb-1 fw-semibold ass-semi" style={{ fontSize: "15px" }}>
                               {item.title}
                             </h6>
                             <p className="small mb-0 text-muted ass-muted">
