@@ -16,7 +16,7 @@ import donw from "../assets/images/icon/d11.svg";
 import save from "../assets/images/icon/saves.svg";
 import qut from "../assets/images/icon/qut.svg";
 import { useNavigate } from "react-router-dom";
-
+import { useEffect} from "react";
 import whitearrow from "../assets/images/icon/w-arror.svg";
 
 import { Battery } from "lucide-react";
@@ -24,13 +24,30 @@ import { Battery } from "lucide-react";
 function AssesementResult() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [scrolled, setScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div>
       <section className="hero d-flex align-items-center ass-bannr">
         <div className="overlay"></div>
         <div className="container position-relative z-1 menu-div ass-div">
           {/* Navbar */}
-          <nav className="navbar navbar-expand-md mb-2 asst-menuss-reult">
+           <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
             <div className="container-fluid">
               {/* Logo */}
                <Link
@@ -105,7 +122,7 @@ function AssesementResult() {
             </div>
           </nav>
 
-          <div className="row align-items-center text-divs ass-text-bann">
+        <div className="row align-items-center text-divs top-space">
             <div className="col-lg-8 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
                 Your preliminary energy system recommendation
@@ -454,32 +471,27 @@ function AssesementResult() {
               </div>
 
               {/* Buttons */}
-              <div className="d-flex gap-3 flex-wrap mt-3">
-                {/* Primary Button */}
-                <button className="btn-primary-custom">
-                  <span className="icon-sun">
-                    <img src={donw} alt="logo" />
-                  </span>
-                  <span>Download Report</span>
-                  <span className="arrows">
-                    <img src={save} alt="icon" />
-                  </span>
-                </button>
+      <div className="button-group mt-3">
+  <button className="btn-primary-customss">
+    <span className="icon-get">
+      <img src={donw} alt="logo" />
+    </span>
+    <span>Download Report</span>
+  </button>
 
-                {/* Outline Button */}
-                <button className="btn-outline-custom2 assresult">
-                  <span className="icon-sun">
-                    <img src={save} alt="icon" />
-                  </span>
-                  <span>Request Installer Quotes</span>
-                </button>
-              </div>
+  <button className="btn-outline-customsss2">
+    <span className="icon-get">
+      <img src={save} alt="icon" />
+    </span>
+    <span>Request Installer Quotes</span>
+  </button>
+</div>
             </div>
           </div>
 
           {/* ✅ RIGHT SIDE */}
           <div className="col-lg-4">
-            <div className="p-4 rounded-4 shadow-sm sticky-top right-panel assts-right">
+            <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
               {/* Steps */}
               <div className="d-flex align-items-center mb-3">
                 <div className="qs-icon me-2">
