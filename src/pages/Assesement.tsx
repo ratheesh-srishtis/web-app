@@ -448,7 +448,7 @@ useEffect(() => {
               </div>
 
               {powerOptions.map((item) => (
-                <div className="parent-container">
+                <div className="parent-container onlt-this">
                   <div
                     key={item.id}
                     className={`property-card  ${selectedPower === item.id ? "active" : ""}`}
@@ -492,13 +492,13 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div className="container my-2 p-1">
+              <div className="container mt-2 p-1">
                 {/* Top Cards */}
                 <div className=" row">
                   {options.map((item) => (
                     <div className="col-md-4" key={item.id}>
                       <div
-                        className={`option-card mb-3 ${
+                        className={`option-card  ${
                           active === item.id ? "active" : ""
                         }`}
                         onClick={() => setActive(item.id)}
