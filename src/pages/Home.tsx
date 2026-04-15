@@ -53,7 +53,7 @@ useEffect(() => {
         <div className="container position-relative z-1 menu-div">
           {/* Navbar */}
           <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
-            <div className="container-fluid">
+            <div className="container">
               {/* Logo */}
               <Link
                 to="/Home"
