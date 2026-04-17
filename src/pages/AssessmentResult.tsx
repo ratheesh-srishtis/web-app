@@ -402,15 +402,15 @@ function AssesementResult() {
 
               {/* Cards */}
               <div className="row g-3 mb-4">
-                <div className="container my-4">
+               
                   <div className="row g-4">
                     {/* Card 1 */}
                     <div className="col-md-4">
-                      <div className="next-card">
-                        <div className="badge-box">1</div>
+                     <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">1</div>
 
                         <div className="card-content">
-                          <h6 className="title">
+                          <h6 className="titles">
                             <i className="bi bi-download me-2"></i>
                             <strong className="rang-heads">
                               Download your report
@@ -427,11 +427,11 @@ function AssesementResult() {
 
                     {/* Card 2 */}
                     <div className="col-md-4">
-                      <div className="next-card">
-                        <div className="badge-box">2</div>
+                       <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">2</div>
 
                         <div className="card-content">
-                          <h6 className="title">
+                          <h6 className="titles">
                             <i className="bi bi-people me-2"></i>
                             <strong className="rang-heads">
                               Request installer quotes
@@ -448,11 +448,11 @@ function AssesementResult() {
 
                     {/* Card 3 */}
                     <div className="col-md-4">
-                      <div className="next-card">
-                        <div className="badge-box">3</div>
+                     <div className="next-card">
+                        <div className="badge-box  mb-1">3</div>
 
-                        <div className="card-content">
-                          <h6 className="title">
+                        <div className="card-contentss">
+                          <h6 className="titles">
                             <i className="bi bi-grid me-2"></i>
                             <strong className="rang-heads">
                               Upgrade to expert review
@@ -467,7 +467,7 @@ function AssesementResult() {
                       </div>
                     </div>
                   </div>
-                </div>
+                
               </div>
 
               {/* Buttons */}
