@@ -113,13 +113,11 @@ function SampleResults() {
           <div className="row align-items-center text-divs top-space">
             <div className="col-lg-8 text-white mb-3 mb-lg-0">
               <h1 className="bannr-text display-5  mt-3 mb-3">
-                Your preliminary energy system recommendation
+                See what you'll get
               </h1>
 
               <p className="bannr-text-s text-light mt-3 mb-3">
-                Based on the information entered, Solarvy estimates the most
-                suitable solar, battery, and inverter configuration, together
-                with indicative savings and payback.
+                This page shows the kind of output Solarvy can generate after a user completes the assessment. It should make the product feel real, practical, and worth trying.
               </p>
             </div>
           </div>
