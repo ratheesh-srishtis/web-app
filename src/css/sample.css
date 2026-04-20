@@ -153,4 +153,18 @@ font-size: 16px;
     padding: 12px 16px;
     font-size: 12px;
   }
+  .dashboard-title {
+    font-size: 22px;
+  }
+
+  .dashboard-subtitle {
+    font-size: 13px;
+  }
+
+  .custom-table thead th,
+  .custom-table tbody td {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
 }
+

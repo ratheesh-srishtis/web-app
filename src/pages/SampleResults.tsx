@@ -281,13 +281,13 @@ function SampleResults() {
         </div>
       </section>
 
-         <section className="container my-2">
-        <div className="row g-4 align-items-start">
+         <section className="container my-2 mb-4">
+        <div className="row g-4 align-items-stretch">
           {/* ✅ LEFT SIDE */}
-          <div className="col-lg-6">
+          <div className="col-lg-6 d-flex">
             {/* ✅ ADD THIS ROW */}
      
-<div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+<div className="p-4 shadow-sm rounded-4 ass-first mt-4 w-100 h-100">
               {/* Header */}
               <div className="d-flex align-items-center mb-4">
              
@@ -352,9 +352,9 @@ function SampleResults() {
             </div>
 
 </div>
-<div className="col-lg-6">
+<div className="col-lg-6 d-flex">
             {/* ✅ ADD THIS ROW */}
-           <div className="p-4 shadow-sm rounded-4 ass-first mt-4" style={{ height: "48vh" }}>
+           <div className="p-4 shadow-sm rounded-4 ass-first  mt-4 w-100 h-100" >
               {/* Header */}
               <div className="d-flex align-items-center mb-2">
                 
@@ -409,17 +409,16 @@ function SampleResults() {
         </div>
       </section>
 
-  <section className="container my-4">
+  <section className="container my-4 ">
         <div className="row g-4 align-items-start">
-          <div className="dashboard-container">
+          <div className="col-12 dashboard-container">
             <h2 className="dashboard-title">Energy strategy comparison</h2>
             <p className="dashboard-subtitle">
              This helps you quickly your options and see which one gives you the best results.
             </p>
           </div>
 
-          <div className="container my-2">
-  <div className="row">
+          
     <div className="col-12">
       
       <div className="custom-table">
@@ -474,8 +473,7 @@ function SampleResults() {
         </table>
       </div>
 
-    </div>
-  </div>
+    
 </div>
         </div>
       </section>
