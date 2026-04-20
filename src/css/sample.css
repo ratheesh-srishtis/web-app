@@ -1,0 +1,156 @@
+.dashboard-card {
+
+  border: 1px solid #E8EDF5;
+  border-radius: 16px;
+  padding: 18px 20px;
+  height: 100%;
+}
+h2.dashboard-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e2a5a;
+    margin-bottom: 10px;
+}
+p.dashboard-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    
+    
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5F6D90 !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px !important;
+}
+
+.card-value {
+font-size: 36px;
+    font-weight: 700;
+    color: #1A2259;
+    margin-bottom: 6px;
+}
+
+.card-sub {
+    font-size: 14px;
+    color: #737C92;
+    margin: 0;
+}
+/* TABLE WRAPPER */
+.custom-table {
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* TABLE RESET */
+.custom-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* HEADER */
+.custom-table thead {
+  background: #2F5597;
+}
+
+.custom-table thead th {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 16px 28px; /* ✅ FIXED SPACING */
+  border: none;
+}
+
+/* HEADER RADIUS */
+.custom-table thead th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.custom-table thead th:last-child {
+  border-top-right-radius: 14px;
+}
+
+/* BODY */
+.custom-table tbody td {
+font-size: 16px;
+    color: #4D5260;
+    padding: 18px 28px;
+    border-top: 1px solid #E5E7EB !important;
+    font-weight: 700;
+}
+
+.text-color-b {
+  color: #174C90 !important;
+}
+
+/* REMOVE FIRST ROW BORDER */
+.custom-table tbody tr:first-child td {
+  border-top: none;
+}
+
+/* ROW HEIGHT + ALIGN */
+.custom-table tbody tr {
+  vertical-align: middle;
+}
+
+/* RECOMMENDED ROW */
+.recommended-row {
+  background: #EEF3FB; /* soft blue like image */
+}
+
+.recommended-row td {
+  font-weight: 500;
+  color: #1F2A44;
+}
+
+/* STRONG TEXT */
+.strong {
+  font-weight: 700;
+  color: #1F2A44;
+}
+
+/* BADGE */
+.badge-recommended {
+  background: #22C55E;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+/* LAST ROW RADIUS */
+.custom-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 14px;
+}
+
+.custom-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 14px;
+}
+
+/* MOBILE SCROLL */
+@media (max-width: 768px) {
+  .custom-table {
+    overflow-x: auto;
+  }
+
+  .custom-table table {
+    min-width: 700px;
+  }
+
+  .custom-table thead th,
+  .custom-table tbody td {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+}

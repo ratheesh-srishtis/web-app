@@ -401,74 +401,53 @@ function AssesementResult() {
               </div>
 
               {/* Cards */}
-              <div className="row g-3 mb-4">
-               
-                  <div className="row g-4">
-                    {/* Card 1 */}
-                    <div className="col-md-4">
-                     <div className="next-card text-center text-md-start">
-                        <div className="badge-box mx-auto mx-md-0 mb-1">1</div>
+          <div className="container my-4">
+  <div className="row g-4">
 
-                        <div className="card-content">
-                          <h6 className="titles">
-                            <i className="bi bi-download me-2"></i>
-                            <strong className="rang-heads">
-                              Download your report
-                            </strong>
-                          </h6>
+    <div className="col-12 col-md-4">
+      <div className="info-card">
+        <div className="info-badge">1</div>
+        <h6 className="info-title">
+          <i className="bi bi-download me-2"></i>
+          Download your report
+        </h6>
+        <p className="info-text">
+          Send a PDF summary by email with the recommended system,
+          savings, and payback period.
+        </p>
+      </div>
+    </div>
 
-                          <p className="desc">
-                            Send a PDF summary by email with the recommended
-                            system, savings, and payback period.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+    <div className="col-12 col-md-4">
+      <div className="info-card">
+        <div className="info-badge">2</div>
+        <h6 className="info-title">
+          <i className="bi bi-people me-2"></i>
+          Request installer quotes
+        </h6>
+        <p className="info-text">
+          Use the result to match you with installers suited to the
+          location and system size.
+        </p>
+      </div>
+    </div>
 
-                    {/* Card 2 */}
-                    <div className="col-md-4">
-                       <div className="next-card text-center text-md-start">
-                        <div className="badge-box mx-auto mx-md-0 mb-1">2</div>
+    <div className="col-12 col-md-4">
+      <div className="info-card">
+        <div className="info-badge">3</div>
+        <h6 className="info-title">
+          <i className="bi bi-bar-chart me-2"></i>
+          Upgrade to expert review
+        </h6>
+        <p className="info-text">
+          For more confidence before investment, route into a deeper
+          technical review with our advisory team.
+        </p>
+      </div>
+    </div>
 
-                        <div className="card-content">
-                          <h6 className="titles">
-                            <i className="bi bi-people me-2"></i>
-                            <strong className="rang-heads">
-                              Request installer quotes
-                            </strong>
-                          </h6>
-
-                          <p className="desc">
-                            Use the result to match you with installers suited
-                            to the location and system size.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="col-md-4">
-                     <div className="next-card">
-                        <div className="badge-box  mb-1">3</div>
-
-                        <div className="card-contentss">
-                          <h6 className="titles">
-                            <i className="bi bi-grid me-2"></i>
-                            <strong className="rang-heads">
-                              Upgrade to expert review
-                            </strong>
-                          </h6>
-
-                          <p className="desc">
-                            For more confidence before investment, route into a
-                            deeper technical review with our advisory team.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                
-              </div>
+  </div>
+</div>
 
               {/* Buttons */}
       <div className="button-group mt-3">
