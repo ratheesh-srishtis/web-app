@@ -263,7 +263,7 @@ function HowItWorks() {
               
               <div className="row d-flex">
 
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
                   <div className="icon-box-maony me-3 mb-3">
                     <img src={money} alt="icon" />
@@ -295,7 +295,7 @@ function HowItWorks() {
                 </div>
               </div>
 
-              <div className="col-6">
+              <div className="col-12 col-md-6">
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
                   <div className="icon-box-maony me-3 mb-3">
                     <img src={money} alt="icon" />
