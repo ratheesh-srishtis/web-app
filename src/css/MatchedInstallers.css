@@ -1,0 +1,280 @@
+.info-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  height: 100%;
+  transition: 0.2s ease;
+}
+
+.info-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-icon {
+  font-size: 20px;
+    color: #174C90;
+  flex-shrink: 0;
+      position: relative;
+    top: -10px;
+
+}
+
+.info-label {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A2259;
+  margin: 0;
+}
+
+.info-note {
+  background: #eef4ff;
+  border: 1px solid #dbeafe;
+  color: #174C90;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+
+/* Titles */
+.title-main {
+    font-weight: 600;
+    color: #1A2259;
+    font-size: 40px;
+}
+
+.sub-text {
+     font-size: 14px;
+    color: #6F7196;
+}
+
+/* Cards */
+.installer-card {
+  background: #fff;
+    border: 1px solid #CAE1FF80;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 17px;
+}
+
+/* Score */
+.score-box {
+  width: 40px;
+  height: 40px;
+  background: #1e3a8a;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+      position: relative;
+    top: -30px;
+}
+
+.green-bg {
+  background: #16a34a;
+}
+
+.orange-bg {
+  background: #f59e0b;
+}
+
+/* Text */
+.company-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.location-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+/* Badges */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.badge-custom {
+  font-size: 12px;
+    padding: 5px 12px;
+    background: #f1f5f9;
+    border-radius: 14px;
+   color: #174C90;
+    font-weight: 600;
+}
+
+.badge-custom.green {
+  background: #ecfdf5;
+  color: #16a34a;
+}
+
+/* Buttons */
+.btn-primary-custom-match{
+ background: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    top: -40px;
+    left: -10px;
+    position: relative;
+}
+
+.btn-orange {
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.btn-outline {
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+/* Links */
+.link-view {
+ font-size: 16px;
+    color: #174C90;
+  
+    font-weight: 700;
+}
+
+/* Side */
+.side-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.side-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.side-text {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Tags */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.tag {
+  font-size: 11px;
+  background: #eef2ff;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Icons */
+.icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* Upload */
+.upload-box {
+  border: 1px dashed #cbd5e1;
+  padding: 12px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* Price */
+.price {
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.flow-card {
+  background: #f5f7fb;
+  border-radius: 14px;
+  padding: 20px 22px;
+  max-width: 480px;
+  border: 1px solid #e5e7eb;
+}
+
+.flow-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 16px;
+}
+
+.flow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.flow-item:last-child {
+  margin-bottom: 0;
+}
+
+.flow-text h6 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.flow-text p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.check-icon {
+  width: 22px;
+  height: 22px;
+  background: #e6f7ef;
+  color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
