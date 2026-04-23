@@ -304,29 +304,42 @@ function MatchedInstallers() {
 
       <div className="side-card">
         <div className="d-flex align-items-center gap-2 mb-2">
-          <div className="icon-circle green"><i className="bi bi-currency-dollar"></i></div>
-          <h6 className="side-title">Strong match</h6>
+            <div className="score-box-match">81</div>
+          <h6 className="company-name-m">Strong match</h6>
         </div>
-        <p className="side-text">Scored by project fit, delivery ability, and budget alignment.</p>
+        <p className="sub-text">Scored by project fit, delivery ability, and budget alignment.</p>
+ 
 
         <div className="tag-row">
-          <span className="tag">Lagos coverage</span>
-          <span className="tag">Fits budget</span>
-          <span className="tag">Battery capable</span>
+          <span className="badge-custom">Lagos coverage</span>
+          <span className="badge-custom">Fits budget</span>
+          <span className="badge-custom">Battery capable</span>
+          <span className="badge-custom">SME projects</span>
         </div>
 
-        <a href="#" className="link-view">See projects</a>
       </div>
 
       <div className="side-card">
-        <h6 className="side-title">Need help choosing?</h6>
-        <p className="side-text">Review options clearly and compare.</p>
-        <h5 className="price">₦250k+</h5>
+        <h6 className="company-name-m"><i className="bi bi-shield"></i> Need help choosing?</h6>
+        <p className="side-text">For users with quotes already, or users unsure which installer fits their budget best, this is the natural paid next step..</p>
+        
+        <div className="review-card">
+ 
+
+  <p className="review-text">
+    Independent Installer Review <br />
+    We check the quoted cost, the system size, the battery option,
+    and the savings claim against your results.
+  </p>
+
+  <h2 className="review-price">₦250k+</h2>
+</div>
+
         <button className="btn-orange w-100">Get independent review</button>
       </div>
 
       <div className="side-card">
-        <h6 className="side-title">Already have a quote?</h6>
+        <h6 className="company-name-m"><i className="bi bi-upload"></i>  Already have a quote?</h6>
         <div className="upload-box">
           <i className="bi bi-upload"></i>
           <p>Upload quote</p>
@@ -341,7 +354,7 @@ function MatchedInstallers() {
   <h5 className="flow-title">Why this flow feels connected</h5>
 
   <div className="flow-item">
-    <div className="check-icon">✔</div>
+    <div className="check-icon-m">✔</div>
     <div className="flow-text">
       <h6>Cost is carried forward</h6>
       <p>Users still see estimated installation cost, savings, and payback.</p>
@@ -349,7 +362,7 @@ function MatchedInstallers() {
   </div>
 
   <div className="flow-item">
-    <div className="check-icon">✔</div>
+    <div className="check-icon-m">✔</div>
     <div className="flow-text">
       <h6>Installers relate to that budget</h6>
       <p>Each shortlist card shows typical project budget or cost fit.</p>
@@ -357,7 +370,7 @@ function MatchedInstallers() {
   </div>
 
   <div className="flow-item">
-    <div className="check-icon">✔</div>
+    <div className="check-icon-m">✔</div>
     <div className="flow-text">
       <h6>Review compares quote to results</h6>
       <p>So the paid step feels logical, not random.</p>

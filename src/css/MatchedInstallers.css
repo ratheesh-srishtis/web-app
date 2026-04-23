@@ -66,6 +66,20 @@
     margin-bottom: 17px;
 }
 
+
+.score-box-match {
+  width: 40px;
+  height: 40px;
+  background: #10B981;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+      position: relative;
+    top: -5px;
+}
 /* Score */
 .score-box {
   width: 40px;
@@ -78,7 +92,39 @@
   align-items: center;
   justify-content: center;
       position: relative;
-    top: -30px;
+    top: -45px;
+}
+.review-card {
+  background-color: #F0F5FF;
+  border-radius: 20px;
+  padding: 25px 30px;
+  max-width: 520px;
+}
+
+.review-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 10px;
+}
+
+.review-text {
+      font-size: 14px;
+    color: #1A2259;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.review-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A2259;
+}
+h6.company-name-m {
+    font-weight: 700;
+    font-size: 20px;
+    color: #1A2259;
 }
 
 .green-bg {
@@ -266,7 +312,7 @@
   line-height: 1.4;
 }
 
-.check-icon {
+.check-icon-m {
   width: 22px;
   height: 22px;
   background: #e6f7ef;
