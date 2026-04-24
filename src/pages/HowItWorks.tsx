@@ -160,17 +160,17 @@ function HowItWorks() {
                   <div className="row g-4">
                     {/* Card 1 */}
                     <div className="col-md-3">
-                      <div className="next-card">
-                        <div className="badge-box">1</div>
+                      <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">1</div>
 
-                        <div className="card-content">
+                        <div className="card-content ">
                           <h6 className="title">
                             <strong className="rang-heads">
                               Enter your details
                             </strong>
                           </h6>
 
-                          <p className="desc">
+                          <p className="desc mt-1">
                             Provide your location, electricity bill, appliances,
                             or custom equipment so Solarvy understands your
                             building and energy usage.
@@ -181,8 +181,8 @@ function HowItWorks() {
 
                     {/* Card 2 */}
                     <div className="col-md-3">
-                      <div className="next-card">
-                        <div className="badge-box">2</div>
+                     <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">2</div>
 
                         <div className="card-content">
                           <h6 className="title">
@@ -202,8 +202,8 @@ function HowItWorks() {
 
                     {/* Card 3 */}
                     <div className="col-md-3">
-                      <div className="next-card">
-                        <div className="badge-box">3</div>
+                    <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">3</div>
 
                         <div className="card-content">
                           <h6 className="title">
@@ -223,8 +223,8 @@ function HowItWorks() {
 
                     {/* Card 4 */}
                     <div className="col-md-3">
-                      <div className="next-card">
-                        <div className="badge-box">4</div>
+                   <div className="next-card text-center text-md-start">
+                        <div className="badge-box mx-auto mx-md-0 mb-1">1</div>
 
                         <div className="card-content">
                           <h6 className="title">
@@ -260,218 +260,146 @@ function HowItWorks() {
                 </p>
               </div>
 
-              <div className="d-flex align-items-center mb-4">
+              
+              <div className="row d-flex">
+
+              <div className="col-12 col-md-6">
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                  <div className="icon-box-maony me-3">
+                  <div className="icon-box-maony me-3 mb-3">
                     <img src={money} alt="icon" />
                   </div>
                   <div>
-                    <h5 className="fw-bold mb-1 rang-head">
-                      Financial Summary
+                    <h5 className="fw-bold mb-2 rang-head">
+                     Technical modelling Financial Summary
                     </h5>
                     <small className="text-muted">
-                      Understand the commercial side quickly, without technical
-                      jargon.
+                     Solarvy uses structured energy logic to estimate system size, expected generation, battery support, and performance under real operating conditions.
                     </small>
                   </div>
-                  <div className="row">
-                    {/* LEFT SIDE */}
-                    <div className="col-md-6 border-end">
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Estimated system cost</span>
-                        <strong className="rang-head">N7.8m</strong>
-                      </div>
+                 <div className="feature-list">
+  <div className="feature-item">
+    <span className="dot-blue"></span>
+    <span className="dots-texts">Bill-based or appliance-based estimation</span>
+  </div>
 
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Gross annual savings</span>
-                        <strong className="rang-head">N2.0m</strong>
-                      </div>
+  <div className="feature-item">
+    <span className="dot-blue"></span>
+    <span className="dots-texts">Solar and hybrid system sizing</span>
+  </div>
 
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Annual O&M allowance</span>
-                        <strong className="rang-head">N0.2m</strong>
-                      </div>
-
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Net annual savings</span>
-                        <strong className="rang-head">N1.8m</strong>
-                      </div>
-
-                      <div className="summary-row d-flex justify-content-between border-0">
-                        <span className="rang-name">Simple payback</span>
-                        <strong className="rang-head">4.3 years</strong>
-                      </div>
-                    </div>
-
-                    {/* RIGHT SIDE */}
-                    <div className="col-md-6 ps-md-4 mt-4 mt-md-0">
-                      <h6 className="left-rang fw-bold mb-3">
-                        % Energy Impact
-                      </h6>
-
-                      {/* Solar */}
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Solar share</span>
-                          <strong className="per-rang">68%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-danger"
-                            style={{ width: "68%" }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Grid */}
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Grid offset</span>
-                          <strong className="per-rang">42%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-primary"
-                            style={{ width: "42%" }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Diesel */}
-                      <div>
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Diesel reduction</span>
-                          <strong className="per-rang">57%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-success"
-                            style={{ width: "57%" }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>{" "}
+  <div className="feature-item">
+    <span className="dot-blue"></span>
+    <span className="dots-texts">Simple energy strategy comparison</span>
+  </div>
+</div>
                 </div>
               </div>
 
-              <div className="d-flex align-items-center mb-4">
+              <div className="col-12 col-md-6">
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                  <div className="icon-box-maony me-3">
+                  <div className="icon-box-maony me-3 mb-3">
                     <img src={money} alt="icon" />
                   </div>
                   <div>
-                    <h5 className="fw-bold mb-1 rang-head">
-                      Financial Summary
+                    <h5 className="fw-bold mb-2 rang-head">
+                      Financial outputs
                     </h5>
                     <small className="text-muted">
-                      Understand the commercial side quickly, without technical
-                      jargon.
+                     The platform translates technical results into decision-friendly outputs so users can understand whether a solution is <br />
+                     commercially attractive.
                     </small>
                   </div>
-                  <div className="row">
-                    {/* LEFT SIDE */}
-                    <div className="col-md-6 border-end">
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Estimated system cost</span>
-                        <strong className="rang-head">N7.8m</strong>
-                      </div>
+                 <div className="feature-list-orange">
+  <div className="feature-item">
+    <span className="dot-orange"></span>
+    <span className="dots-texts">Indicative system cost</span>
+  </div>
 
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Gross annual savings</span>
-                        <strong className="rang-head">N2.0m</strong>
-                      </div>
+  <div className="feature-item">
+    <span className="dot-orange"></span>
+    <span className="dots-texts">Estimated savings</span>
+  </div>
 
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Annual O&M allowance</span>
-                        <strong className="rang-head">N0.2m</strong>
-                      </div>
-
-                      <div className="summary-row d-flex justify-content-between">
-                        <span className="rang-name">Net annual savings</span>
-                        <strong className="rang-head">N1.8m</strong>
-                      </div>
-
-                      <div className="summary-row d-flex justify-content-between border-0">
-                        <span className="rang-name">Simple payback</span>
-                        <strong className="rang-head">4.3 years</strong>
-                      </div>
-                    </div>
-
-                    {/* RIGHT SIDE */}
-                    <div className="col-md-6 ps-md-4 mt-4 mt-md-0">
-                      <h6 className="left-rang fw-bold mb-3">
-                        % Energy Impact
-                      </h6>
-
-                      {/* Solar */}
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Solar share</span>
-                          <strong className="per-rang">68%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-danger"
-                            style={{ width: "68%" }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Grid */}
-                      <div className="mb-3">
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Grid offset</span>
-                          <strong className="per-rang">42%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-primary"
-                            style={{ width: "42%" }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Diesel */}
-                      <div>
-                        <div className="d-flex justify-content-between">
-                          <span className="rang-name">Diesel reduction</span>
-                          <strong className="per-rang">57%</strong>
-                        </div>
-                        <div className="progress custom-progress">
-                          <div
-                            className="progress-bar bg-success"
-                            style={{ width: "57%" }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>{" "}
+  <div className="feature-item">
+    <span className="dot-orange"></span>
+    <span className="dots-texts">Simple payback and value indicators</span>
+  </div>
+</div>
                 </div>
+              </div>
               </div>
             </div>
 
-            {/* Buttons */}
-            <div className="d-flex gap-3 flex-wrap mt-3">
-              {/* Primary Button */}
-              <button className="btn-primary-custom">
-                <span className="icon-sun">
-                  <img src={donw} alt="logo" />
-                </span>
-                <span>Download Report</span>
-                <span className="arrows">
-                  <img src={save} alt="icon" />
-                </span>
-              </button>
 
-              {/* Outline Button */}
-              <button className="btn-outline-custom2">
-                <span className="icon-sun">
-                  <img src={save} alt="icon" />
-                </span>
-                <span>Request Installer Quotes</span>
-              </button>
-            </div>
+
+               <div className="third section mt-4">
+              <div className="process-section text-center">
+                <h2 className="process-title">
+                 Built for real-world energy conditions
+                </h2>
+                <p className="process-subtitle">
+              Solarvy is not just another basic solar calculator — it's 
+               <br />
+               designed for the realities of West African energy.
+
+                </p>
+              </div>
+
+               <div className="row d-flex">
+
+              <div className="col-4">
+                <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                  <div className="icon-box-sun mb-3">
+                        <img src={Sun} alt="icon" />
+                      </div>
+                  <div>
+                    <h5 className="fw-bold mb-2 rang-head">
+                    Grid + generator + solar logic
+                    </h5>
+                    <small className="text-muted">
+                    Designed for environments where power is not always stable and hybrid systems are a practical necessity. </small>
+                  </div>
+        
+                </div>
+              </div>
+
+              <div className="col-4">
+                <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                 <div className="icon-box-battery mb-3">
+                        <img src={batt} alt="icon" />
+                      </div>
+                  <div>
+                    <h5 className="fw-bold mb-2 rang-head">
+                     Homes and businesses
+                    </h5>
+                    <small className="text-muted">
+                    Useful for residential users, SMEs, and facilities with more demanding energy and reliability needs.
+                    </small>
+                  </div>
+           
+                </div>
+              </div>
+
+              <div className="col-4">
+                <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                    <div className="icon-box-act mb-3">
+                        <img src={halfSun} alt="icon" />
+                      </div>
+                  <div>
+                    <h5 className="fw-bold mb-2 rang-head">
+                      Clear decision support
+                    </h5>
+                    <small className="text-muted">
+                   Moves beyond simple panel-counting to show practical options, cost implications, and next steps.
+                    </small>
+                  </div>
+           
+                </div>
+              </div>
+              </div>
+              </div>
+
+          
           </div>
         </div>
       </section>

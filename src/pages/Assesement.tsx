@@ -562,7 +562,8 @@ useEffect(() => {
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
                 {/* Header */}
                 <div className="d-flex align-items-center mb-3">
-                  <div className="step-box me-3">4</div>
+                  <div className="step-box me-3"
+  style={{ position: "relative", top: "0px" }} >4</div>
                   <div>
                     <h5 className="fw-bold mb-1 heading-ass">
                       Bill information

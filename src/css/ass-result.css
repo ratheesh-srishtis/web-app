@@ -256,30 +256,46 @@ small.text-muted.sub-down {
   background: #f8fafc; /* light grey */
   border: 1px solid #e2e8f0;
   border-radius: 20px;
-  padding: 0px 0px 0px 10px !important;
+
   position: relative;
   height: 100%;
+
+  padding: 40px 20px 20px;
+  text-align: center;
 }
 
 .badge-box {
+  
+     background: linear-gradient(180deg, #eb6337 0%, #E96209 50%, #ffba39 100%);
+
   position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #f97316, #f59e0b);
-  border-radius: 12px;
-  color: white;
-  font-weight: 600;
+  top: 10px;
+  left: 20px;              /* 👈 left aligned */
+  
+  width: 60px;
+  height: 60px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.3);
+
+  color: #fff;
+  font-weight: bold;
+  border-radius: 16px;
+box-shadow: 
+  0 8px 20px rgba(230, 84, 5, 0.35),
+  0 0 10px rgba(241, 167, 27, 0.4);
 }
 
-.card-content {
-  margin-top: 50px;
+@media (max-width: 768px) {
+  .badge-box {
+    margin-left: auto !important;
+    margin-right: auto !important;
+     position: static !important;
+  }
 }
+
+
 
 
 .qs-icon {
@@ -383,7 +399,14 @@ i.colo-sym-right.bi {
   color: #1e293b;
   margin-bottom: 10px;
 }
-
+.titles {
+  line-height: 1.4;
+ /* keeps equal height */
+    white-space: nowrap;   /* keeps text in one line */
+     color: #1A2259;
+     font-size: 16px;
+     font-weight: 600;
+}
 .desc {
   color: #64748b;
   font-size: 14px;
@@ -511,7 +534,8 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
   justify-content: center;
 
   padding: 0 20px;
-  margin-top: 10px;
+
+  
 
   font-size: 16px;
   font-weight: 500;
@@ -547,7 +571,54 @@ h6.qt-text.fw-bold.mb-0 {
 }
 
 
+.info-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  transition: 0.3s ease;
+}
 
+.info-card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.info-badge {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.info-title {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.info-title i {
+  color: #2563eb;
+  font-size: 16px;
+}
+
+.info-text {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
 
 
 
@@ -563,9 +634,7 @@ h6.qt-text.fw-bold.mb-0 {
 
 
 @media (max-width: 768px) {
-  .card-content {
-    margin-top: 70px;
-}
+ 
 
 button.btn-outline-custom2.assresult {
     
