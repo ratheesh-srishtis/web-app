@@ -157,6 +157,8 @@ p.bannr-text-s.text-light {
 }
 
 
+
+
 .main-section {
   background-image: url("/src/assets/images/see-bannar.png");
   background-size: cover;
@@ -890,7 +892,7 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
 
   .hero-section {
     height: 53vh;
-    background: url(/src/assets/images/banner-2.png) center / cover no-repeat;
+    background: url(/src/assets/images/bannar-second.jpeg) center / cover no-repeat;
     position: relative;
   }
 
@@ -1064,11 +1066,11 @@ a.text-light.align-self-center {
     margin: 0px auto !important;
     justify-content: flex-start;
     position: relative;
-    right: 50%;
+    right: 48%;
   }
 
   nav.navbar {
-
+left: 0px;
     background-color: #174c90;
   }
 
@@ -1171,6 +1173,10 @@ a.text-light.align-self-center {
     position: relative;
     top: -45px;
   }
+  .col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {
+    position: relative;
+    left: 10px !important;
+}
 }
 
 
@@ -1183,4 +1189,9 @@ a.text-light.align-self-center {
 .nav-bottom-section.row.align-items-center {
   position: relative;
   top: 40px;
+}
+
+.col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {
+    position: relative;
+    left: 20px;
 }

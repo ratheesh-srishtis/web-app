@@ -162,7 +162,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="col-12 col-lg-5 offset-lg-1 mt-4 mt-lg-0">
+              <div className="col-12 col-lg-5 offset-lg-1 mt-4 mt-lg-0 quit-sec">
                 <div
                   className="p-4 shadow rounded-4"
                   style={{

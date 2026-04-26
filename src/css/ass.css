@@ -455,7 +455,7 @@ p.bannr-text-s.text-light.mt-2.mb-5.ass-page-two {
 .p-4.shadow-sm.rounded-4.ass-first {
   border: 1px solid #E8EDF5;
   border-radius: 16px !important;
-
+background-color: #fff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.04) !important;
 
 }

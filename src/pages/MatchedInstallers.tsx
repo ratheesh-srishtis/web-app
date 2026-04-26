@@ -225,7 +225,7 @@ function MatchedInstallers() {
           <div className="row g-4 align-items-start">
 
             {/* LEFT SIDE */}
-            <div className="col-lg-8 mb-4">
+            <div className="col-lg-8 ">
 
               <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
 
@@ -264,8 +264,8 @@ function MatchedInstallers() {
                         <span className="badge-custom green">
                           <i className="bi bi-check-circle me-1"></i> Matches most (70%)
                         </span>
-                        <span className="badge-custom">Solar battery</span>
-                        <span className="badge-custom">Fits your range</span>
+                        <span className="badge-custom-blue">Solar battery</span>
+                        <span className="badge-custom-blue">Fits your range</span>
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
@@ -308,8 +308,8 @@ function MatchedInstallers() {
 
                       <div className="badge-row mb-3">
                         <span className="badge-custom green"><i className="bi bi-check-circle"></i> Matches most (80%)</span>
-                        <span className="badge-custom">Commercial install</span>
-                        <span className="badge-custom">Cost effective</span>
+                        <span className="badge-custom-blue">Commercial install</span>
+                        <span className="badge-custom-blue">Cost effective</span>
                         <span className="badge-custom">Typical budget ₦14m–₦24m</span>
                       </div>
 
@@ -352,8 +352,8 @@ function MatchedInstallers() {
 
                       <div className="badge-row mb-3">
                         <span className="badge-custom green"><i className="bi bi-check-circle"></i> Matches most (70%)</span>
-                        <span className="badge-custom">Solar + battery</span>
-                        <span className="badge-custom">Storage capable</span>
+                        <span className="badge-custom-blue">Solar + battery</span>
+                        <span className="badge-custom-blue">Storage capable</span>
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
@@ -397,8 +397,8 @@ function MatchedInstallers() {
 
                       <div className="badge-row mb-3">
                         <span className="badge-custom green"><i className="bi bi-check-circle"></i> Matches most (70%)</span>
-                        <span className="badge-custom">Solar + battery</span>
-                        <span className="badge-custom">Storage capable</span>
+                        <span className="badge-custom-blue">Solar + battery</span>
+                        <span className="badge-custom-blue">Storage capable</span>
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
@@ -499,8 +499,7 @@ function MatchedInstallers() {
 
               <div className="side-card">
                 <h6 className="company-name-m"><i className="bi bi-shield"></i> Need help choosing?</h6>
-                <p className="side-text">For users with quotes already, or users unsure which installer fits their budget best, this is the natural paid next step..</p>
-
+                
                 <div className="review-card">
 
 

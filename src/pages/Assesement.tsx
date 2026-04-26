@@ -964,7 +964,7 @@ function Assesement() {
                           onClick={() => setActive(item.id)}
                         >
                           <div className="d-flex align-items-start">
-                            <div className="icon-box-topsss me-3 " >
+                            <div className="icon-box-topsss me-2 " >
                               <img src={item.icon} alt="icon" />
                             </div>
 

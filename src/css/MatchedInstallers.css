@@ -1,5 +1,5 @@
 .info-card {
-  background: #f8fafc;
+  background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 12px 14px;
@@ -221,14 +221,21 @@ h6.company-name-m {
   gap: 6px;
   margin-bottom: 6px;
 }
-
+span.badge-custom-blue {
+    font-size: 12px;
+    padding: 5px 12px;
+    background: #F0F5FF;
+    border-radius: 14px;
+    color: #174C90;
+    font-weight: 600;
+}
 .badge-custom {
-  font-size: 12px;
-  padding: 5px 12px;
-  background: #f1f5f9;
-  border-radius: 14px;
-  color: #174C90;
-  font-weight: 600;
+     font-size: 12px;
+    padding: 5px 12px;
+    background: #F8F9FA;
+    border-radius: 14px;
+    color: #4D5260;
+    font-weight: 600;
 }
 
 .badge-custom.green {
@@ -244,7 +251,7 @@ h6.company-name-m {
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
-  top: 50px;
+  top: 10px;
   left: -10px;
   position: relative;
 }
