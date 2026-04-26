@@ -18,240 +18,245 @@ import enery from "../assets/images/energy.png";
 import quik from "../assets/images/quik.png";
 import see from "../assets/images/see-bannar.png";
 import { useNavigate } from "react-router-dom";
-import { useEffect} from "react";
+import { useEffect } from "react";
 function Home() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const handleToggle = () => {
-  if (window.innerWidth < 768) {
-    setOpen(!open);
-  }
-};
-
-
-const [scrolled, setScrolled] = useState(false);
-
-useEffect(() => {
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
+    if (window.innerWidth < 768) {
+      setOpen(!open);
     }
   };
 
-  window.addEventListener("scroll", handleScroll);
 
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
       <section className="hero d-flex align-items-center">
         <div className="overlay"></div>
 
-        <div className="container position-relative z-1 menu-div">
-          {/* Navbar */}
-          <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
-            <div className="container">
-              {/* Logo */}
-              <Link
-                to="/Home"
-                onClick={() => window.scrollTo(0, 0)}
-                className="navbar-brand text-white fw-bold"
-              >
-                <img src={logo} alt="logo" className="normal-sizee" />
-              </Link>
+        <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div">
 
-               <Link
-                to="/Home"
-                onClick={() => window.scrollTo(0, 0)}
-                className="navbar-brand text-white fw-bold"
-              >
-                <img src={logo} alt="logo" className="mbile-size"/>
-              </Link>
 
-              {/* Hamburger */}
-             <button onClick={handleToggle} className="navbar-toggler">
-                <span className="navbar-toggler-icon"></span>
-              </button>
+          <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Menu */}
-              <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
-                <ul className="navbar-nav ms-auto align-items-md-center gap-3">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link text-white"
-                      to="/how-it-works"
-                      onClick={() => setOpen(false)}
-                    >
-                      How It Works
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link text-white"
-                      to="/assesement-result"
-                      onClick={() => setOpen(false)}
-                    >
-                      Sample Results
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link text-white"
-                      to="/"
-                      onClick={() => setOpen(false)}
-                    >
-                      Who It's For
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <button
-                      className="custom-btn "
-                      onClick={() => {
-                        navigate("/start-assesement");
-                      }}
-                    >
-                      {" "}
-                      Start Assessment
-                      <img src={bttnarrow} alt="arrow" />
-                    </button>
-                  </li>
+            {/* Navbar */}
+            <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <div className="container-fluid px-lg-4 px-3">
+                {/* Logo */}
+                <Link
+                  to="/Home"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="navbar-brand text-white fw-bold"
+                >
+                  <img src={logo} alt="logo" className="normal-sizee" />
+                </Link>
 
-                  
-                </ul>
-              </div>
-            </div>
-          </nav>
+                <Link
+                  to="/Home"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="navbar-brand text-white fw-bold"
+                >
+                  <img src={logo} alt="logo" className="mbile-size" />
+                </Link>
 
-          <div className="row align-items-center text-divs ">
-            <div className="col-lg-6 text-white mb-3 mb-lg-0">
-              <h1 className="bannr-text display-5  mt-3 mb-3">
-                Find The Right Solar And <br />
-                Backup Power System For <br />
-                Your Building
-              </h1>
-
-              <p className="bannr-text-s text-light mt-3 mb-3">
-                Solarvy helps homes and businesses estimate solar size, battery
-                storage, diesel reduction, savings, and payback before speaking
-                to installers or committing money.
-              </p>
-
-              <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 mt-3">
-                <button className="custom-btn bann-second">
-                  {" "}
-                  Start Free Assessment
-                  <img src={bttnarrow} alt="arrow" />
+                {/* Hamburger */}
+                <button onClick={handleToggle} className="navbar-toggler">
+                  <span className="navbar-toggler-icon"></span>
                 </button>
 
-                 <button className="custom-btn-mobile-view">
-                  {" "}
-                  Start Free Assessment
-                  <img src={bttnarrow} alt="arrow" />
-                </button>
+                {/* Menu */}
+                <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <ul className="navbar-nav ms-auto align-items-md-center gap-3">
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-white"
+                        to="/how-it-works"
+                        onClick={() => setOpen(false)}
+                      >
+                        How It Works
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-white"
+                        to="/assesement-result"
+                        onClick={() => setOpen(false)}
+                      >
+                        Sample Results
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link text-white"
+                        to="/"
+                        onClick={() => setOpen(false)}
+                      >
+                        Who It's For
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <button
+                        className="custom-btn "
+                        onClick={() => {
+                          navigate("/start-assesement");
+                        }}
+                      >
+                        {" "}
+                        Start Assessment
+                        <img src={bttnarrow} alt="arrow" />
+                      </button>
+                    </li>
 
-                <a href="#" className="text-light align-self-center">
-                  See Sample Result
-                </a>
-              </div>
-            </div>
 
-            <div className="col-lg-5 offset-lg-1">
-              <div
-                className="p-4 shadow rounded-4"
-                style={{
-                  backgroundImage: `url(${quik})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <h5 className="fw-bold text-center mb-3">
-                  Quick Assessment Preview
-                </h5>
-
-                <div className="row">
-                  <div className="col-6">
-                    <label className="quick-lable">Property Type</label>
-                    <select
-                      className="form-select select-text"
-                      defaultValue=""
-                      onChange={(e) => {
-                        e.target.style.color = "#000";
-                      }}
-                    >
-                      <option disabled>Select Property</option>
-                      <option value="home">Home</option>
-                      <option value="hotel">Hotel</option>
-                      <option value="factory">Factory</option>
-                      <option value="commercial building">
-                        Commercial Building
-                      </option>
-                      <option value="hospital clinic">Hospital/Clinic</option>
-                      <option value="school education">School/Education</option>
-                    </select>
-                  </div>
-                  <div className="col-6">
-                    <label className="quick-lable">Location</label>
-                    <select
-                      className="form-select select-text"
-                      defaultValue=""
-                      onChange={(e) => {
-                        e.target.style.color = "#000";
-                      }}
-                    >
-                      <option>Nigeria</option>
-                    </select>
-                  </div>
+                  </ul>
                 </div>
 
-                <label className="quick-lable">Monthly Electricity Bill</label>
-                <input
-                  type="text"
-                  className="form-control select-text mb-2"
-                  placeholder=""
-                />
+              </div>
+            </nav>
+            <div className="nav-bottom-section row align-items-center">
+              <div className="col-12 col-lg-6 text-white ">
+                <h1 className="bannr-text display-5 ">
+                  Find The Right Solar And <br />
+                  Backup Power System For <br />
+                  Your Building
+                </h1>
 
-                <div className="row g-2 mb-3">
-                  <div className="col">
-                    <label className="quick-lable">Power Setup</label>
-                    <select
-                      className="form-select select-text"
-                      defaultValue=""
-                      onChange={(e) => {
-                        e.target.style.color = "#000";
-                      }}
-                    >
-                      <option disabled>Select Power Setup</option>
-                      <option value="Grid Generator">Grid + Generator</option>
-                      <option value="Grid Only">Grid Only</option>
-                      <option value="Solar grid">Solar grid</option>
-                    </select>
-                  </div>
-                  <div className="col">
-                    <label className="quick-lable">Main Objective</label>
-                    <select
-                      className="form-select select-text"
-                      defaultValue=""
-                      onChange={(e) => {
-                        e.target.style.color = "#000";
-                      }}
-                    >
-                      <option disabled>Select Main Objective</option>
-                      <option value="1">Reduce Diesel Use</option>
-                      <option value="2">Reduce Electricity Bills</option>
-                      <option value="3">Backup During Outages</option>
-                    </select>
-                  </div>
+                <p className="bannr-text-s text-light mt-2 mb-5">
+                  Solarvy helps homes and businesses estimate solar size, battery
+                  storage, diesel reduction, savings, and payback before speaking
+                  to installers or committing money.
+                </p>
+
+                <div className="d-flex flex-column flex-sm-row gap-3 mt-3">
+                  <button className="custom-btn bann-second">
+                    {" "}
+                    Start Free Assessment
+                    <img src={bttnarrow} alt="arrow" />
+                  </button>
+
+                  <button className="custom-btn-mobile-view">
+                    {" "}
+                    Start Free Assessment
+                    <img src={bttnarrow} alt="arrow" />
+                  </button>
+
+                  <a href="#" className="text-light align-self-center">
+                    See Sample Result
+                  </a>
                 </div>
+              </div>
 
-                <button className="custom-btn other-section d-flex align-items-center justify-content-between w-100">
-                  {" "}
-                  Start Assessment
-                  <img src={bttnarrowhite} alt="arrow" />
-                </button>
+              <div className="col-12 col-lg-5 offset-lg-1 mt-4 mt-lg-0">
+                <div
+                  className="p-4 shadow rounded-4"
+                  style={{
+                    backgroundImage: `url(${quik})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <h5 className="fw-bold text-center mb-3">
+                    Quick Assessment Preview
+                  </h5>
+
+                  <div className="row">
+                    <div className="col-6">
+                      <label className="quick-lable">Property Type</label>
+                      <select
+                        className="form-select select-text"
+                        defaultValue=""
+                        onChange={(e) => {
+                          e.target.style.color = "#000";
+                        }}
+                      >
+                        <option disabled>Select Property</option>
+                        <option value="home">Home</option>
+                        <option value="hotel">Hotel</option>
+                        <option value="factory">Factory</option>
+                        <option value="commercial building">
+                          Commercial Building
+                        </option>
+                        <option value="hospital clinic">Hospital/Clinic</option>
+                        <option value="school education">School/Education</option>
+                      </select>
+                    </div>
+                    <div className="col-6">
+                      <label className="quick-lable">Location</label>
+                      <select
+                        className="form-select select-text"
+                        defaultValue=""
+                        onChange={(e) => {
+                          e.target.style.color = "#000";
+                        }}
+                      >
+                        <option>Nigeria</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <label className="quick-lable">Monthly Electricity Bill</label>
+                  <input
+                    type="text"
+                    className="form-control select-text mb-2"
+                    placeholder=""
+                  />
+
+                  <div className="row g-2 mb-3">
+                    <div className="col">
+                      <label className="quick-lable">Power Setup</label>
+                      <select
+                        className="form-select select-text"
+                        defaultValue=""
+                        onChange={(e) => {
+                          e.target.style.color = "#000";
+                        }}
+                      >
+                        <option disabled>Select Power Setup</option>
+                        <option value="Grid Generator">Grid + Generator</option>
+                        <option value="Grid Only">Grid Only</option>
+                        <option value="Solar grid">Solar grid</option>
+                      </select>
+                    </div>
+                    <div className="col">
+                      <label className="quick-lable">Main Objective</label>
+                      <select
+                        className="form-select select-text"
+                        defaultValue=""
+                        onChange={(e) => {
+                          e.target.style.color = "#000";
+                        }}
+                      >
+                        <option disabled>Select Main Objective</option>
+                        <option value="1">Reduce Diesel Use</option>
+                        <option value="2">Reduce Electricity Bills</option>
+                        <option value="3">Backup During Outages</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button className="custom-btn other-section d-flex align-items-center justify-content-between w-100">
+                    {" "}
+                    Start Assessment
+                    <img src={bttnarrowhite} alt="arrow" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -327,8 +332,8 @@ useEffect(() => {
       </section>
 
       <section
-        className=" d-flex align-items-center bannar-see mt-4">
-        <div className="container text-center mt-4 mb-3">
+        className=" d-flex align-items-center bannar-see py-4">
+        <div className="container text-center  mb-3">
           <h1 className="title">See A Sample Energy Assessment</h1>
           <p className="subtitle">
             A simple energy decision workflow built around
@@ -413,7 +418,7 @@ useEffect(() => {
         </div>
       </section>
 
-      <section className="container built-cases text-center mt-4 mb-4">
+      <section className="container built-cases text-center py-4 mb-4">
         <h2 className="head-blue ">Built for real use cases</h2>
         <div className="steps mt-3">
           <div className="step-s">

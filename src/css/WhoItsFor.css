@@ -24,19 +24,20 @@
 }
 
 .icon-box-who i {
- font-size: 24px;
-    color: #174C90;
-    border-radius: 18px;
+  font-size: 24px;
+  color: #174C90;
+  border-radius: 18px;
 }
 
 .tag {
-    background: #e0ecff;
-    color: #174C90;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 500;
+  background: #e0ecff;
+  color: #174C90;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
 }
+
 .feature-card {
   background: #f8fafc;
   border-radius: 18px;
