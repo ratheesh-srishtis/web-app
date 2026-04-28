@@ -202,7 +202,8 @@ function Home() {
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
-                        defaultValue="Select Location"
+                        
+                        defaultValue="Select location"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
