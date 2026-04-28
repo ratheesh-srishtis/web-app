@@ -282,7 +282,7 @@ p.small.mb-0.text-muted.ass-mutedss {
 .check-icon {
   position: absolute;
   right: 10px;
-  top: 15px;
+  top: 8px;
   background: #174C90;
   color: white;
   font-size: 12px;
@@ -460,6 +460,8 @@ background-color: #fff;
 
 }
 
+
+
 h5.asst-h {
   color: #1A2259;
   font-size: 30px;
@@ -543,8 +545,8 @@ h5.asst-h {
 
 /* Radio outer */
 .radio-circle {
-  width: 20px;
-  height: 20px;
+  width: 21px;
+  height: 21px;
   border: 2px solid #2f5bea;
   border-radius: 50%;
   display: flex;
@@ -563,6 +565,8 @@ h5.asst-h {
   height: 10px;
   background-color: #174C90;
   border-radius: 50%;
+  position: relative;
+  left: 0px;
 }
 
 
@@ -870,9 +874,6 @@ nav.navbar.scrolled {
   font-size: 18px;
 }
 
-.dashed-btn {
-  width: 100%;
-}
 
 
 
@@ -1164,7 +1165,7 @@ button.btn.btn-outline-custom.btn-start {
 
 section.hero.d-flex.align-items-center.ass-bannr {
   height: 100%;
-  min-height: 400px;
+  min-height: 445px;
   margin-bottom: 30px;
 }
 
@@ -1577,7 +1578,7 @@ input[type="number"] {
   h6.mb-1.fw-semibold.ass-semi {
     position: relative;
     top: 10px !important;
-    left: -8px !important;
+    left: 0px !important;
     width: 100%;
     min-width: 70px;
     display: block;

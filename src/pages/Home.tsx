@@ -129,7 +129,7 @@ function Home() {
 
               </div>
             </nav>
-            <div className="nav-bottom-section row align-items-center">
+            <div className="nav-bottom-section row align-items-center home-page">
               <div className="col-12 col-lg-6 text-white ">
                 <h1 className="bannr-text display-5 ">
                   Find The Right Solar And <br />
@@ -181,7 +181,8 @@ function Home() {
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
-                        defaultValue=""
+                        
+                        defaultValue="Select Property"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
@@ -201,11 +202,12 @@ function Home() {
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
-                        defaultValue=""
+                        defaultValue="Select Location"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
                       >
+                        <option disabled>Select location</option>
                         <option>Nigeria</option>
                       </select>
                     </div>
@@ -223,7 +225,7 @@ function Home() {
                       <label className="quick-lable">Power Setup</label>
                       <select
                         className="form-select select-text"
-                        defaultValue=""
+                        defaultValue=" Select power setup"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
@@ -238,7 +240,7 @@ function Home() {
                       <label className="quick-lable">Main Objective</label>
                       <select
                         className="form-select select-text"
-                        defaultValue=""
+                        defaultValue="Select Main Objective"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}

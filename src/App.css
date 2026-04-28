@@ -146,6 +146,17 @@ p.bannr-text-s.text-light {
 }
 
 .hero {
+  background-image: url("./assets/images/bannar-second.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+
+}
+
+.hero-home {
   background-image: url("./assets/images/bannarmain.jpg");
   background-size: cover;
   background-position: center;
@@ -903,9 +914,10 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
 
   section.hero.d-flex.align-items-center.ass-bannr {
     height: 100%;
-    min-height: 400px;
-    margin-bottom: 1px;
+    min-height: 380px !important;
+    margin-bottom: 10px !important;
   }
+  
 
   .hero {
     height: 965px;
@@ -1177,6 +1189,15 @@ left: 0px;
     position: relative;
     left: 10px !important;
 }
+.nav-bottom-section.row.align-items-center.home-page {
+    position: relative;
+    top: 50px !important;
+}
+
+.nav-bottom-section.row.align-items-center {
+  position: relative;
+  top: 40px !important;
+}
 }
 
 
@@ -1184,11 +1205,14 @@ left: 0px;
 .nav-bottom-section {
   flex-wrap: wrap;
 }
-
+.nav-bottom-section.row.align-items-center.home-page {
+    position: relative;
+    top: 50px;
+}
 
 .nav-bottom-section.row.align-items-center {
   position: relative;
-  top: 40px;
+  top: 0px;
 }
 
 .col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {

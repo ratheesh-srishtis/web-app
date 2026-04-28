@@ -477,10 +477,13 @@ function SampleResults() {
                     </tr>
 
                     <tr className="recommended-row">
-                      <td className="text-color-b">
-                        Solar + Battery + Generator
-                        <span className="badge-recommended">Recommended</span>
-                      </td>
+                     <td className="text-color-b title-cell">
+  <span className="title-text">
+    Solar + Battery + Generator
+  </span>
+  <span className="badge-recommended">Recommended</span>
+</td>
+                      
                       <td className="text-color-b">NGN 7.0m</td>
                       <td className="strong text-color-b">Very High</td>
                       <td className="strong text-color-b">Very Low</td>

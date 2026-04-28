@@ -341,7 +341,7 @@ function AssesementResult() {
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
                 {/* Header */}
                 <div className="d-flex align-items-center mb-4">
-                  <div className="icon-box-maony me-3">
+                  <div className="icon-box-maony-two me-3">
                     <img src={buletwo} alt="icon" />
                   </div>
                   <div>
@@ -467,14 +467,14 @@ function AssesementResult() {
 
                 {/* Buttons */}
                 <div className="button-group mt-3">
-                  <button className="btn-primary-customss">
+                  <button className="btn-primary-customss-down">
                     <span className="icon-get">
                       <img src={donw} alt="logo" />
                     </span>
                     <span>Download Report</span>
                   </button>
 
-                  <button className="btn-outline-customsss2">
+                  <button className="btn-outline-customsss2-req">
                     <span className="icon-get">
                       <img src={save} alt="icon" />
                     </span>
@@ -576,7 +576,7 @@ function AssesementResult() {
                 </div>
 
                 {/* Buttons */}
-                <button className="btn-primary-customss">
+                <button className="btn-primary-customss" style={{height:"45px"}}>
                   <span className="icon-get">
                     <i className="whit-icon bi bi-file-earmark-text"></i>
                   </span>
@@ -587,7 +587,7 @@ function AssesementResult() {
                 </button>
 
                 {/* Outline Button */}
-                <button className="btn-outline-customss2">
+                <button className="btn-outline-customss2 " style={{height:"45px"}}>
                   <span className="icon-get">
                     <i className="bi bi-arrow-left"></i>
                   </span>

@@ -120,12 +120,11 @@ function MatchedInstallers() {
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                    Energy Assessment
+                   Your matched installers
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Plan the right solar, battery, and hybrid system for your
-                    building. Enter your details and get an instant estimate.
+                    These installers match your project using your location, system size, project cost, and the savings and payback calculated from your results.
                   </p>
 
 
@@ -232,7 +231,7 @@ function MatchedInstallers() {
                 {/* LEFT SIDE */}
                 <div>
                   <h5 className="title-main mb-1">Installer shortlist</h5>
-                  <p className="sub-text mb-0">
+                  <p className="sub-text mb-0 mobile-view-match">
                     Matched to your size, cost, timing, and energy setup
                   </p>
                 </div>
@@ -497,7 +496,7 @@ function MatchedInstallers() {
 
               </div>
 
-              <div className="side-card">
+              <div className="side-card need-help">
                 <h6 className="company-name-m"><i className="bi bi-shield"></i> Need help choosing?</h6>
                 
                 <div className="review-card">
