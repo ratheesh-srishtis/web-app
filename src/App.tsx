@@ -19,7 +19,7 @@ import MatchedInstallers from "./pages/MatchedInstallers.tsx";
 function App() {
   //testgit 08.04.2026
   return (
-    <Router>
+    <Router basename="/web-app">
       {/* MIDDLE CONTENT */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,7 +29,6 @@ function App() {
         <Route path="/sample-results" element={<SampleResults />} />
         <Route path="/who-its-for" element={<WhoItsFor />} />
         <Route path="/matched-installers" element={<MatchedInstallers />} />
-    
       </Routes>
 
       {/* FOOTER */}
