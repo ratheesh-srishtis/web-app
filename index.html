@@ -5,6 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/web-app/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-react-app</title>
+    <script type="text/javascript">
+      // Handle redirect from 404.html for GitHub Pages
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/web-app/assets/index-Bz_DfnfZ.js"></script>
     <link rel="stylesheet" crossorigin href="/web-app/assets/index-B1_o20fw.css">
   </head>

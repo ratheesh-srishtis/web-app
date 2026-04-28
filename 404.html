@@ -4,21 +4,12 @@
     <meta charset="utf-8" />
     <title>Redirect</title>
     <script type="text/javascript">
-      // Redirect all routes to index.html for client-side routing
-      var path = window.location.pathname;
-      var pathArray = path.split("/");
-
-      // Remove the first empty element from split
-      pathArray.shift();
-
-      // Remove 'web-app' if it exists (to avoid duplication)
-      if (pathArray[0] === "web-app") {
-        pathArray.shift();
-      }
-
-      // Redirect to index.html with the original path as a query parameter
-      window.location.replace("/web-app/?" + pathArray.join("/"));
+      // Store the current URL and redirect to index.html
+      // This allows GitHub Pages to serve index.html for all routes
+      sessionStorage.redirect = location.href;
     </script>
+    <meta http-equiv="refresh" content="0;url=/web-app/" />
   </head>
-  <body></body>
+  <body>
+  </body>
 </html>
