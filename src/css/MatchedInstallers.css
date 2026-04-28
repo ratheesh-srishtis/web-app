@@ -1,5 +1,5 @@
 .info-card {
-  background: #f8fafc;
+  background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 12px 14px;
@@ -9,15 +9,15 @@
 
 .info-card:hover {
   border-color: #cbd5e1;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .info-icon {
   font-size: 20px;
-    color: #174C90;
+  color: #174C90;
   flex-shrink: 0;
-      position: relative;
-    top: -10px;
+  position: relative;
+  top: -10px;
 
 }
 
@@ -47,39 +47,40 @@
 
 /* Titles */
 .title-main {
-    font-weight: 600;
-    color: #1A2259;
-    font-size: 40px;
+  font-weight: 600;
+  color: #1A2259;
+  font-size: 40px;
 }
 
 .sub-text {
-     font-size: 14px;
-    color: #6F7196;
+  font-size: 14px;
+  color: #6F7196;
 }
 
 /* Cards */
 .installer-card {
   background: #fff;
-    border: 1px solid #CAE1FF80;
-    border-radius: 14px;
-    padding: 16px;
-    margin-bottom: 17px;
+  border: 1px solid #CAE1FF80;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 17px;
 }
 
 
 .score-box-match {
   width: 40px;
   height: 40px;
-  background: #10B981;
+  background: #1A2259;
   color: #fff;
   font-weight: 600;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-      position: relative;
-    top: -5px;
+  position: relative;
+  top: -45px;
 }
+
 /* Score */
 .score-box {
   width: 40px;
@@ -91,14 +92,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-      position: relative;
-    top: -45px;
+  position: relative;
+  top: -45px;
 }
+
+.score-box-match-right {
+  width: 40px;
+  height: 40px;
+  background: #10B981;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+}
+
 .review-card {
   background-color: #F0F5FF;
-  border-radius: 20px;
+  border-radius: 14px;
   padding: 25px 30px;
-  max-width: 520px;
+
 }
 
 .review-title {
@@ -109,22 +125,70 @@
 }
 
 .review-text {
-      font-size: 14px;
-    color: #1A2259;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    font-weight: 500;
+  font-size: 14px;
+  color: #1A2259;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .review-price {
-    font-size: 32px;
-    font-weight: 700;
-    color: #1A2259;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1A2259;
 }
+
 h6.company-name-m {
-    font-weight: 700;
-    font-size: 20px;
-    color: #1A2259;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1A2259;
+}
+
+
+.result-badge {
+  background: #e9f0ff;
+  /* light blue */
+  color: #2c4b9b;
+  /* dark blue text */
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+  .title-main {
+    font-size: 18px;
+  }
+
+  .btn-primary-custom-match {
+    background: #1e3a8a;
+    top: 0px !important;
+    left: -50px !important;
+    position: relative;
+    width: 100%;
+    min-width: 360px;
+  }
+
+  .sub-text {
+    font-size: 13px;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+    position: relative;
+    left: -50px;
+    width: 100%;
+  }
+
+  .result-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
 }
 
 .green-bg {
@@ -144,10 +208,10 @@ h6.company-name-m {
 }
 
 .location-text {
-    font-weight: 500;
-    font-size: 16px;
-    color: #64748b;
-    margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 10px;
 }
 
 /* Badges */
@@ -157,13 +221,20 @@ h6.company-name-m {
   gap: 6px;
   margin-bottom: 6px;
 }
-
-.badge-custom {
-  font-size: 12px;
+span.badge-custom-blue {
+    font-size: 12px;
     padding: 5px 12px;
-    background: #f1f5f9;
+    background: #F0F5FF;
     border-radius: 14px;
-   color: #174C90;
+    color: #174C90;
+    font-weight: 600;
+}
+.badge-custom {
+     font-size: 12px;
+    padding: 5px 12px;
+    background: #F8F9FA;
+    border-radius: 14px;
+    color: #4D5260;
     font-weight: 600;
 }
 
@@ -173,16 +244,16 @@ h6.company-name-m {
 }
 
 /* Buttons */
-.btn-primary-custom-match{
- background: #1e3a8a;
-    color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    top: -40px;
-    left: -10px;
-    position: relative;
+.btn-primary-custom-match {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  top: 10px;
+  left: -10px;
+  position: relative;
 }
 
 .btn-orange {
@@ -191,6 +262,88 @@ h6.company-name-m {
   border: none;
   padding: 8px;
   border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.step-box-how {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(-186deg, #ce6300, #fdbf69);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  position: relative;
+  top: -4px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .icon-boxs {
+    flex-shrink: 0;
+    /* ✅ keeps icon size fixed */
+  }
+
+  .step-box-how {
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+    position: relative;
+
+
+  }
+
+  .score-box {
+    top: -88px;
+    flex-shrink: 0;
+  }
+
+  .score-box-match {
+    top: -115px;
+    flex-shrink: 0;
+  }
+
+  .score-box-match-right {
+    top: 0px;
+    flex-shrink: 0;
+  }
+
+  .link-view {
+    font-size: 16px;
+    color: #174C90;
+    font-weight: 700;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    left: -25px;
+    top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Default (Desktop) */
+.mobile-view-dis {
+  display: none;
+}
+
+.web-view-dis {
+  display: inline-block;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .mobile-view-dis {
+    display: inline-block;
+  }
+
+  .web-view-dis {
+    display: none;
+  }
 }
 
 .btn-outline {
@@ -202,16 +355,16 @@ h6.company-name-m {
 
 /* Links */
 .link-view {
- font-size: 16px;
-    color: #174C90;
-  
-    font-weight: 700;
+  font-size: 16px;
+  color: #174C90;
+
+  font-weight: 700;
 }
 
 /* Side */
 .side-card {
   background: #fff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #CAE1FF80;
   border-radius: 12px;
   padding: 14px;
   margin-bottom: 14px;
@@ -323,4 +476,120 @@ h6.company-name-m {
   justify-content: center;
   font-size: 12px;
   flex-shrink: 0;
+}
+
+.quote-card-match {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  max-width: 420px;
+}
+
+/* HEADER */
+.quote-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quote-header h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.upload-icon {
+  font-size: 14px;
+  color: #1e3a89;
+  display: flex;
+  filter: #1e3a8a !important;
+  filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(1800%) hue-rotate(220deg) brightness(85%) contrast(95%);
+
+}
+
+/* SUBTEXT */
+.quote-subtext {
+  font-size: 13px;
+  color: #64748b;
+  margin: 8px 0 16px;
+  line-height: 1.5;
+}
+
+/* UPLOAD BOX */
+.upload-box {
+  border: 2px dashed #CAE1FF;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  background: #f9fbff;
+  margin-bottom: 16px;
+  height: 140px;
+
+}
+
+.upload-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-icon-big {
+  font-size: 22px;
+  color: #2563eb;
+  margin-bottom: 6px;
+}
+
+.upload-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0;
+  padding: 10px;
+}
+
+.upload-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* BUTTON */
+.upload-btn {
+  width: 100%;
+  border: 2px solid #174C90;
+  background: transparent;
+  color: #1e3a8a;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+
+.match-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* center horizontally */
+  justify-content: center;
+}
+
+.sub-text-match {
+  font-size: 12px;
+  color: #6F7196;
+  position: relative;
+  left: -25px;
+}
+
+.company-name-m {
+  font-weight: 600;
+  font-size: 16px;
 }

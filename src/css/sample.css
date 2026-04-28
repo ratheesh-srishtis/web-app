@@ -4,20 +4,24 @@
   border-radius: 16px;
   padding: 18px 20px;
   height: 100%;
+  background-color: #fff;
 }
+
 h2.dashboard-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1e2a5a;
-    margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e2a5a;
+  margin-bottom: 10px;
 }
+
 p.dashboard-subtitle {
-    font-size: 14px;
-    color: #6b7280;
-    line-height: 1.6;
-    
-    
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+
+
 }
+
 .card-title {
   font-size: 14px;
   font-weight: 600;
@@ -28,17 +32,18 @@ p.dashboard-subtitle {
 }
 
 .card-value {
-font-size: 36px;
-    font-weight: 700;
-    color: #1A2259;
-    margin-bottom: 6px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1A2259;
+  margin-bottom: 6px;
 }
 
 .card-sub {
-    font-size: 14px;
-    color: #737C92;
-    margin: 0;
+  font-size: 14px;
+  color: #737C92;
+  margin: 0;
 }
+
 /* TABLE WRAPPER */
 .custom-table {
   border: 1px solid #E5E7EB;
@@ -66,7 +71,8 @@ font-size: 36px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-align: left;
-  padding: 16px 28px; /* ✅ FIXED SPACING */
+  padding: 16px 28px;
+  /* ✅ FIXED SPACING */
   border: none;
 }
 
@@ -81,11 +87,11 @@ font-size: 36px;
 
 /* BODY */
 .custom-table tbody td {
-font-size: 16px;
-    color: #4D5260;
-    padding: 18px 28px;
-    border-top: 1px solid #E5E7EB !important;
-    font-weight: 700;
+  font-size: 16px;
+  color: #4D5260;
+  padding: 18px 28px;
+  border-top: 1px solid #E5E7EB !important;
+  font-weight: 700;
 }
 
 .text-color-b {
@@ -104,7 +110,8 @@ font-size: 16px;
 
 /* RECOMMENDED ROW */
 .recommended-row {
-  background: #EEF3FB; /* soft blue like image */
+  background: #EEF3FB;
+  /* soft blue like image */
 }
 
 .recommended-row td {
@@ -116,6 +123,14 @@ font-size: 16px;
 .strong {
   font-weight: 700;
   color: #1F2A44;
+}
+
+.recommended-badge {
+  background: #22C55E;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 20px;
 }
 
 /* BADGE */
@@ -142,6 +157,9 @@ font-size: 16px;
 @media (max-width: 768px) {
   .custom-table {
     overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .custom-table table {
@@ -153,6 +171,7 @@ font-size: 16px;
     padding: 12px 16px;
     font-size: 12px;
   }
+
   .dashboard-title {
     font-size: 22px;
   }
@@ -167,4 +186,3 @@ font-size: 16px;
     font-size: 12px;
   }
 }
-
