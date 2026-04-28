@@ -157,12 +157,12 @@ function HowItWorks() {
                   <p className="process-subtitle">
                     Understand the full journey at a glance — from your first
                     input
-                    <br />
+                    
                     to a clear energy plan.
                   </p>
                 </div>
                 {/* Cards */}
-                <div className="row g-3 mb-4">
+                <div className="row g-3 ">
                   <div className="container ">
                     <div className="row py-4 g-4">
                       {/* Card 1 */}
@@ -260,9 +260,9 @@ function HowItWorks() {
                     </div>
                   </div>
                 </div>
-              </div>
+              
 
-              <div className="second section">
+             <div>
                 <div className="process-section text-center">
                   <h2 className="process-title">
                     What happens behind the scenes
@@ -270,13 +270,11 @@ function HowItWorks() {
                   <p className="process-subtitle">
                     Powerful modelling and financial logic work together to
                     deliver
-                    <br />
+                   
                     actionable results.
                   </p>
                 </div>
-
-
-                <div className="row d-flex mt-2">
+                 <div className="row d-flex">
 
                   <div className="col-12 col-md-6">
                     <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
@@ -342,25 +340,28 @@ function HowItWorks() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div></div>
+
+
+               
+              
 
 
 
-              <div className="third section mt-4 mb-5">
-                <div className="process-section text-center">
+           
+                <div className="process-section text-center mt-4">
                   <h2 className="process-title">
                     Built for real-world energy conditions
                   </h2>
                   <p className="process-subtitle">
                     Solarvy is not just another basic solar calculator — it's
-                    <br />
+                  
                     designed for the realities of West African energy.
 
                   </p>
                 </div>
 
-                <div className="row d-flex">
+                <div className="row d-flex  mb-5">
 
                   <div className="col-12 col-md-4">
                     <div className="p-4 shadow-sm rounded-4 ass-first mt-4">

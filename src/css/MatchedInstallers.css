@@ -159,8 +159,11 @@ h6.company-name-m {
 
 @media (max-width: 576px) {
   .title-main {
-    font-size: 18px;
+    font-size: 24px;
   }
+  p.sub-text.mb-0.mobile-view-match {
+    width: 63%;
+}
 
   .btn-primary-custom-match {
     background: #1e3a8a;
@@ -169,6 +172,7 @@ h6.company-name-m {
     position: relative;
     width: 100%;
     min-width: 360px;
+    height: 41px;
   }
 
   .sub-text {
@@ -188,9 +192,46 @@ h6.company-name-m {
   .result-badge {
     font-size: 11px;
     padding: 5px 10px;
+    position: relative;
+        left: 75%;
+        top: -40px;
   }
+
+  .installer-card {
+    background: #fff;
+    border: 1px solid #CAE1FF80;
+    border-radius: 14px;
+    padding: 16px !important;
+    margin-bottom: 40px;
+    margin-top: -15px;
+}
+.side-card {
+    background: #fff;
+    border: 1px solid #CAE1FF80;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+    margin-top: -35px;
+}
+.side-card.need-help {
+    background: #fff;
+    border: 1px solid #CAE1FF80;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+    margin-top: 25px;
+}
 }
 
+
+
+.side-card.need-help {
+    background: #fff;
+    border: 1px solid #CAE1FF80;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
 .green-bg {
   background: #16a34a;
 }
@@ -254,6 +295,7 @@ span.badge-custom-blue {
   top: 10px;
   left: -10px;
   position: relative;
+  height: 41px;
 }
 
 .btn-orange {
