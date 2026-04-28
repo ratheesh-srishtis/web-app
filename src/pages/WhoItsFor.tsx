@@ -42,10 +42,10 @@ function SampleResults() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
+
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -62,12 +62,12 @@ function SampleResults() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -116,7 +116,7 @@ function SampleResults() {
 
                 </div>
               </nav>
-              <div className="nav-bottom-section row align-items-center">
+              <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
                     Built for real energy users, not just <br />one type of customer
@@ -148,7 +148,7 @@ function SampleResults() {
 
             <div className="container my-2">
               <div className="row g-3">
-                {/* CARD 1 */}
+
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -168,7 +168,7 @@ function SampleResults() {
                   </div>
                 </div>
 
-                {/* CARD 2 */}
+
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -188,7 +188,7 @@ function SampleResults() {
                   </div>
                 </div>
 
-                {/* CARD 3 */}
+
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -208,7 +208,6 @@ function SampleResults() {
                   </div>
                 </div>
 
-                {/* CARD 4 */}
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -246,7 +245,7 @@ function SampleResults() {
             <div className="container my-2">
               <div className="row g-3">
 
-                {/* CARD 1 */}
+
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
                     <div className="feature-icon">
@@ -262,7 +261,7 @@ function SampleResults() {
                   </div>
                 </div>
 
-                {/* CARD 2 */}
+
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
                     <div className="feature-icon">
@@ -278,7 +277,7 @@ function SampleResults() {
                   </div>
                 </div>
 
-                {/* CARD 3 */}
+
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
                     <div className="feature-icon">

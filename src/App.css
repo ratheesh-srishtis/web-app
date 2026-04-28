@@ -1,7 +1,6 @@
-/* Import Poppins (IMPORTANT) */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/* Apply globally */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +15,7 @@ body {
 }
 
 
-/* Ensure all elements inherit */
+
 h1,
 h2,
 h3,
@@ -51,20 +50,21 @@ nav.navbar {
 @media (min-width: 768px) {
   .bannar-see {
     padding-top: 80px;
-    /* adjust based on navbar height */
+
   }
 
   nav.navbar {
     background-color: #174c90;
     position: fixed;
-    /* ✅ fixed at top */
+
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     margin: 0;
     padding: 10px 100px;
-    /* adjust height */
+
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -88,7 +88,7 @@ nav.navbar {
 
 }
 
-/* MOBILE ONLY */
+
 @media (max-width: 768px) {
 
   .navbar-collapse {
@@ -114,9 +114,9 @@ nav.navbar {
 
   .navbar-collapse {
     display: flex !important;
-    /* always visible */
+
     position: static !important;
-    /* remove dropdown behavior */
+
     background: transparent !important;
     padding: 0;
   }
@@ -173,18 +173,18 @@ p.bannr-text-s.text-light {
 .main-section {
   background-image: url("/src/assets/images/see-bannar.png");
   background-size: cover;
-  /* fills entire section */
+
   background-position: center;
-  /* centers image */
+
   background-repeat: no-repeat;
-  /* prevents repeat */
+
 }
 
 .container.position-relative.z-1.menu-div {
   position: relative;
   top: -8%;
   max-width: 1400px;
-  /* control overall width */
+
   margin: 0 auto;
 }
 
@@ -903,7 +903,7 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
 
   .hero-section {
     height: 53vh;
-    background: url(/src/assets/images/bannar-second.jpeg) center / cover no-repeat;
+
     position: relative;
   }
 
@@ -917,7 +917,7 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
     min-height: 380px !important;
     margin-bottom: 10px !important;
   }
-  
+
 
   .hero {
     height: 965px;
@@ -1082,7 +1082,7 @@ a.text-light.align-self-center {
   }
 
   nav.navbar {
-left: 0px;
+    left: 0px;
     background-color: #174c90;
   }
 
@@ -1185,19 +1185,21 @@ left: 0px;
     position: relative;
     top: -45px;
   }
+
   .col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {
     position: relative;
     left: 10px !important;
-}
-.nav-bottom-section.row.align-items-center.home-page {
+  }
+
+  .nav-bottom-section.row.align-items-center.home-page {
     position: relative;
     top: 50px !important;
-}
+  }
 
-.nav-bottom-section.row.align-items-center {
-  position: relative;
-  top: 40px !important;
-}
+  .nav-bottom-section.row.align-items-center {
+    position: relative;
+    top: 0px !important;
+  }
 }
 
 
@@ -1205,9 +1207,10 @@ left: 0px;
 .nav-bottom-section {
   flex-wrap: wrap;
 }
+
 .nav-bottom-section.row.align-items-center.home-page {
-    position: relative;
-    top: 50px;
+  position: relative;
+  top: 50px;
 }
 
 .nav-bottom-section.row.align-items-center {
@@ -1216,6 +1219,6 @@ left: 0px;
 }
 
 .col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {
-    position: relative;
-    left: 20px;
+  position: relative;
+  left: 20px;
 }

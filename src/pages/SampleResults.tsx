@@ -44,10 +44,10 @@ function SampleResults() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
+
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -64,12 +64,12 @@ function SampleResults() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -140,11 +140,11 @@ function SampleResults() {
 
         <section className="container ">
           <div className="row g-4 align-items-start">
-            {/* ✅ LEFT SIDE */}
+
             <div className="col-lg-6">
-              {/* ✅ ADD THIS ROW */}
+
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-2">
 
                   <div>
@@ -156,7 +156,7 @@ function SampleResults() {
                 </div>
 
                 <div className="row">
-                  {/* LEFT SIDE */}
+
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Location</span>
@@ -187,9 +187,9 @@ function SampleResults() {
               </div>
             </div>
             <div className="col-lg-6">
-              {/* ✅ ADD THIS ROW */}
+
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-2">
 
                   <div>
@@ -201,7 +201,7 @@ function SampleResults() {
                 </div>
 
                 <div className="row">
-                  {/* LEFT SIDE */}
+
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Optimal strategy</span>
@@ -300,12 +300,12 @@ function SampleResults() {
 
         <section className="container ">
           <div className="row g-4 align-items-stretch">
-            {/* ✅ LEFT SIDE */}
+
             <div className="col-lg-6 d-flex">
-              {/* ✅ ADD THIS ROW */}
+
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4 w-100 h-100">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-4">
 
                   <div>
@@ -319,11 +319,11 @@ function SampleResults() {
                 <div className="row">
 
 
-                  {/* RIGHT SIDE */}
+
                   <div className="col-md-12  mt-4 mt-md-0">
                     <h6 className="left-rang fw-bold mb-3">% Energy Impact</h6>
 
-                    {/* Solar */}
+
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Solar contribution</span>
@@ -337,7 +337,6 @@ function SampleResults() {
                       </div>
                     </div>
 
-                    {/* Grid */}
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Grid contribution</span>
@@ -351,7 +350,7 @@ function SampleResults() {
                       </div>
                     </div>
 
-                    {/* Diesel */}
+
                     <div>
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Generator contribution</span>
@@ -370,9 +369,9 @@ function SampleResults() {
 
             </div>
             <div className="col-lg-6 d-flex">
-              {/* ✅ ADD THIS ROW */}
+
               <div className="p-4 shadow-sm rounded-4 ass-first  mt-4 w-100 h-100" >
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-2">
 
                   <div>
@@ -387,7 +386,7 @@ function SampleResults() {
                 </div>
 
                 <div className="row">
-                  {/* LEFT SIDE */}
+
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Current annual energy cost</span>
@@ -477,13 +476,13 @@ function SampleResults() {
                     </tr>
 
                     <tr className="recommended-row">
-                     <td className="text-color-b title-cell">
-  <span className="title-text">
-    Solar + Battery + Generator
-  </span>
-  <span className="badge-recommended">Recommended</span>
-</td>
-                      
+                      <td className="text-color-b title-cell">
+                        <span className="title-text">
+                          Solar + Battery + Generator
+                        </span>
+                        <span className="badge-recommended">Recommended</span>
+                      </td>
+
                       <td className="text-color-b">NGN 7.0m</td>
                       <td className="strong text-color-b">Very High</td>
                       <td className="strong text-color-b">Very Low</td>
