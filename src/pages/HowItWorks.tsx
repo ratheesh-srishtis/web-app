@@ -53,10 +53,10 @@ function HowItWorks() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
+
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -73,12 +73,12 @@ function HowItWorks() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -127,7 +127,7 @@ function HowItWorks() {
 
                 </div>
               </nav>
-              <div className="nav-bottom-section row align-items-center">
+              <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
                     Get a tailored energy solution in minutes
@@ -148,24 +148,24 @@ function HowItWorks() {
 
         <section className="container ">
           <div className="row align-items-start">
-            {/* ✅ LEFT SIDE */}
+
             <div className="col-lg-12">
-              {/* Header */}
+
               <div className="first-secion ">
                 <div className="process-section text-center">
                   <h2 className="process-title">The Process</h2>
                   <p className="process-subtitle">
                     Understand the full journey at a glance — from your first
                     input
-                    
+
                     to a clear energy plan.
                   </p>
                 </div>
-                {/* Cards */}
+
                 <div className="row g-3 ">
                   <div className="container ">
                     <div className="row py-4 g-4">
-                      {/* Card 1 */}
+
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -188,7 +188,7 @@ function HowItWorks() {
                         </div>
                       </div>
 
-                      {/* Card 2 */}
+
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -211,7 +211,6 @@ function HowItWorks() {
                         </div>
                       </div>
 
-                      {/* Card 3 */}
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -234,7 +233,7 @@ function HowItWorks() {
                         </div>
                       </div>
 
-                      {/* Card 4 */}
+
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -260,102 +259,102 @@ function HowItWorks() {
                     </div>
                   </div>
                 </div>
-              
 
-             <div>
-                <div className="process-section text-center">
-                  <h2 className="process-title">
-                    What happens behind the scenes
-                  </h2>
-                  <p className="process-subtitle">
-                    Powerful modelling and financial logic work together to
-                    deliver
-                   
-                    actionable results.
-                  </p>
-                </div>
-                 <div className="row d-flex">
 
-                  <div className="col-12 col-md-6">
-                    <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                      <div className="icon-box-maony me-3 mb-3">
-                        <img src={money} alt="icon" />
-                      </div>
-                      <div>
-                        <h5 className="fw-bold mb-2 rang-head">
-                          Technical modelling Financial Summary
-                        </h5>
-                        <small className="text-muted">
-                          Solarvy uses structured energy logic to estimate system size, expected generation, battery support, and performance under real operating conditions.
-                        </small>
-                      </div>
-                      <div className="feature-list">
-                        <div className="feature-item">
-                          <span className="dot-blue"></span>
-                          <span className="dots-texts">Bill-based or appliance-based estimation</span>
+                <div>
+                  <div className="process-section text-center">
+                    <h2 className="process-title">
+                      What happens behind the scenes
+                    </h2>
+                    <p className="process-subtitle">
+                      Powerful modelling and financial logic work together to
+                      deliver
+
+                      actionable results.
+                    </p>
+                  </div>
+                  <div className="row d-flex">
+
+                    <div className="col-12 col-md-6">
+                      <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                        <div className="icon-box-maony me-3 mb-3">
+                          <img src={money} alt="icon" />
                         </div>
-
-                        <div className="feature-item">
-                          <span className="dot-blue"></span>
-                          <span className="dots-texts">Solar and hybrid system sizing</span>
+                        <div>
+                          <h5 className="fw-bold mb-2 rang-head">
+                            Technical modelling Financial Summary
+                          </h5>
+                          <small className="text-muted">
+                            Solarvy uses structured energy logic to estimate system size, expected generation, battery support, and performance under real operating conditions.
+                          </small>
                         </div>
+                        <div className="feature-list">
+                          <div className="feature-item">
+                            <span className="dot-blue"></span>
+                            <span className="dots-texts">Bill-based or appliance-based estimation</span>
+                          </div>
 
-                        <div className="feature-item">
-                          <span className="dot-blue"></span>
-                          <span className="dots-texts">Simple energy strategy comparison</span>
+                          <div className="feature-item">
+                            <span className="dot-blue"></span>
+                            <span className="dots-texts">Solar and hybrid system sizing</span>
+                          </div>
+
+                          <div className="feature-item">
+                            <span className="dot-blue"></span>
+                            <span className="dots-texts">Simple energy strategy comparison</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="col-12 col-md-6">
-                    <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                      <div className="icon-box-maony me-3 mb-3">
-                        <img src={money} alt="icon" />
-                      </div>
-                      <div>
-                        <h5 className="fw-bold mb-2 rang-head">
-                          Financial outputs
-                        </h5>
-                        <small className="text-muted">
-                          The platform translates technical results into decision-friendly outputs so users can understand whether a solution is <br />
-                          commercially attractive.
-                        </small>
-                      </div>
-                      <div className="feature-list-orange">
-                        <div className="feature-item">
-                          <span className="dot-orange"></span>
-                          <span className="dots-texts">Indicative system cost</span>
+                    <div className="col-12 col-md-6">
+                      <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                        <div className="icon-box-maony me-3 mb-3">
+                          <img src={money} alt="icon" />
                         </div>
-
-                        <div className="feature-item">
-                          <span className="dot-orange"></span>
-                          <span className="dots-texts">Estimated savings</span>
+                        <div>
+                          <h5 className="fw-bold mb-2 rang-head">
+                            Financial outputs
+                          </h5>
+                          <small className="text-muted">
+                            The platform translates technical results into decision-friendly outputs so users can understand whether a solution is <br />
+                            commercially attractive.
+                          </small>
                         </div>
+                        <div className="feature-list-orange">
+                          <div className="feature-item">
+                            <span className="dot-orange"></span>
+                            <span className="dots-texts">Indicative system cost</span>
+                          </div>
 
-                        <div className="feature-item">
-                          <span className="dot-orange"></span>
-                          <span className="dots-texts">Simple payback and value indicators</span>
+                          <div className="feature-item">
+                            <span className="dot-orange"></span>
+                            <span className="dots-texts">Estimated savings</span>
+                          </div>
+
+                          <div className="feature-item">
+                            <span className="dot-orange"></span>
+                            <span className="dots-texts">Simple payback and value indicators</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div></div>
-
-
-               
-              
+                  </div></div>
 
 
 
-           
+
+
+
+
+
                 <div className="process-section text-center mt-4">
                   <h2 className="process-title">
                     Built for real-world energy conditions
                   </h2>
                   <p className="process-subtitle">
                     Solarvy is not just another basic solar calculator — it's
-                  
+
                     designed for the realities of West African energy.
 
                   </p>

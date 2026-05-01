@@ -43,10 +43,10 @@ function MatchedInstallers() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
+
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -63,12 +63,12 @@ function MatchedInstallers() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -120,7 +120,7 @@ function MatchedInstallers() {
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                   Your matched installers
+                    Your matched installers
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
@@ -143,7 +143,7 @@ function MatchedInstallers() {
             <div className="container my-4">
               <div className="row g-3">
 
-                {/* Card 1 */}
+
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-briefcase info-icon"></i>
@@ -154,7 +154,7 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Card 2 */}
+
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-geo-alt info-icon"></i>
@@ -165,7 +165,7 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Card 3 */}
+
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-lightning-charge info-icon"></i>
@@ -176,7 +176,6 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Card 4 */}
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-currency-dollar info-icon"></i>
@@ -187,7 +186,6 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Card 5 */}
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-graph-up-arrow info-icon"></i>
@@ -198,7 +196,7 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Card 6 */}
+
                 <div className="col-6 col-md-4 col-lg">
                   <div className="info-card d-flex align-items-center gap-2">
                     <i className="bi bi-clock-history info-icon"></i>
@@ -211,7 +209,7 @@ function MatchedInstallers() {
 
               </div>
 
-              {/* Bottom Note */}
+
               <div className="info-note mt-3">
                 💡 These installers are matched to projects within this size and budget range,
                 so the shortlist still feels connected to the financial outcome shown on your results page.
@@ -223,12 +221,12 @@ function MatchedInstallers() {
         <section className="container">
           <div className="row g-4 align-items-start">
 
-            {/* LEFT SIDE */}
+
             <div className="col-lg-8 ">
 
               <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
 
-                {/* LEFT SIDE */}
+
                 <div>
                   <h5 className="title-main mb-1">Installer shortlist</h5>
                   <p className="sub-text mb-0 mobile-view-match">
@@ -236,18 +234,18 @@ function MatchedInstallers() {
                   </p>
                 </div>
 
-                {/* RIGHT SIDE BADGE */}
+
                 <div className="result-badge">
                   Top 5 results
                 </div>
 
               </div>
 
-              {/* CARD 1 */}
+
               <div className="installer-card p-3">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
 
-                  {/* LEFT SECTION */}
+
                   <div className="d-flex gap-3 flex-grow-1">
 
                     <div className="score-box-match">76</div>
@@ -268,7 +266,7 @@ function MatchedInstallers() {
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
-                      {/* MOBILE BUTTON */}
+
                       <button className="btn-primary-custom-match d-block d-md-none mb-2">
                         Request intro
                       </button>
@@ -279,7 +277,7 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  {/* DESKTOP BUTTON */}
+
                   <div className="d-none d-md-block">
                     <button className="btn-primary-custom-match">
                       Request intro
@@ -289,11 +287,11 @@ function MatchedInstallers() {
                 </div>
               </div>
 
-              {/* CARD 2 */}
+
               <div className="installer-card p-3">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
 
-                  {/* LEFT SECTION */}
+
                   <div className="d-flex gap-3 flex-grow-1">
 
                     <div className="score-box-match green-bg">76</div>
@@ -312,7 +310,7 @@ function MatchedInstallers() {
                         <span className="badge-custom">Typical budget ₦14m–₦24m</span>
                       </div>
 
-                      {/* MOBILE BUTTON */}
+
                       <button className="btn-primary-custom-match d-block d-md-none mb-2">
                         Request intro
                       </button>
@@ -323,7 +321,7 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  {/* DESKTOP BUTTON */}
+
                   <div className="d-none d-md-block">
                     <button className="btn-primary-custom-match">
                       Request intro
@@ -333,11 +331,11 @@ function MatchedInstallers() {
                 </div>
               </div>
 
-              {/* CARD 3 */}
+
               <div className="installer-card p-3">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
 
-                  {/* LEFT SECTION */}
+
                   <div className="d-flex gap-3 flex-grow-1">
 
                     <div className="score-box-match orange-bg">76</div>
@@ -356,7 +354,7 @@ function MatchedInstallers() {
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
-                      {/* MOBILE BUTTON */}
+
                       <button className="btn-primary-custom-match d-block d-md-none mb-2">
                         Request intro
                       </button>
@@ -367,7 +365,7 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  {/* DESKTOP BUTTON */}
+
                   <div className="d-none d-md-block">
                     <button className="btn-primary-custom-match">
                       Request intro
@@ -378,11 +376,11 @@ function MatchedInstallers() {
               </div>
 
 
-              {/* CARD 4 */}
+
               <div className="installer-card p-3">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
 
-                  {/* LEFT SECTION */}
+
                   <div className="d-flex gap-3 flex-grow-1">
 
                     <div className="score-box-match orange-bg">76</div>
@@ -401,7 +399,7 @@ function MatchedInstallers() {
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
-                      {/* MOBILE BUTTON */}
+
                       <button className="btn-primary-custom-match d-block d-md-none mb-2">
                         Request intro
                       </button>
@@ -412,7 +410,7 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  {/* DESKTOP BUTTON */}
+
                   <div className="d-none d-md-block">
                     <button className="btn-primary-custom-match">
                       Request intro
@@ -423,11 +421,11 @@ function MatchedInstallers() {
               </div>
 
 
-              {/* CARD 5 */}
+
               <div className="installer-card p-3">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
 
-                  {/* LEFT SECTION */}
+
                   <div className="d-flex gap-3 flex-grow-1">
 
                     <div className="score-box-match orange-bg">76</div>
@@ -446,7 +444,7 @@ function MatchedInstallers() {
                         <span className="badge-custom">Typical budget ₦18m–₦28m</span>
                       </div>
 
-                      {/* MOBILE BUTTON */}
+
                       <button className="btn-primary-custom-match d-block d-md-none mb-2">
                         Request intro
                       </button>
@@ -457,7 +455,6 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  {/* DESKTOP BUTTON */}
                   <div className="d-none d-md-block">
                     <button className="btn-primary-custom-match">
                       Request intro
@@ -471,7 +468,7 @@ function MatchedInstallers() {
 
 
 
-            {/* RIGHT SIDE */}
+
             <div className="col-lg-4">
 
               <div className="side-card">
@@ -498,7 +495,7 @@ function MatchedInstallers() {
 
               <div className="side-card need-help">
                 <h6 className="company-name-m"><i className="bi bi-shield"></i> Need help choosing?</h6>
-                
+
                 <div className="review-card">
 
 
@@ -516,7 +513,7 @@ function MatchedInstallers() {
 
               <div className="quote-card-match mb-4">
 
-                {/* Header */}
+
                 <div className="quote-header">
                   <span className="upload-icon">
                     <img src={donw} alt="logo" />
@@ -528,7 +525,7 @@ function MatchedInstallers() {
                   Upload the quote you already received so SolarVy can compare it to the cost and payback estimate from your results.
                 </p>
 
-                {/* Upload Box */}
+
                 <div className="upload-box">
                   <div className="upload-inner">
                     <span className="upload-icon">
@@ -539,7 +536,7 @@ function MatchedInstallers() {
                   </div>
                 </div>
 
-                {/* Button */}
+
                 <button className="upload-btn">
                   Upload file
                 </button>

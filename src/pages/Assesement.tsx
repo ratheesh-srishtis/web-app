@@ -269,10 +269,9 @@ function Assesement() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -289,12 +288,12 @@ function Assesement() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -365,10 +364,10 @@ function Assesement() {
 
         <section className="container py-4">
           <div className="row g-4 align-items-start">
-            {/* ✅ LEFT SIDE */}
+
             <div className="col-lg-8">
               <div className="p-4 shadow-sm rounded-4 ass-first">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">1</div>
                   <div>
@@ -381,7 +380,7 @@ function Assesement() {
                   </div>
                 </div>
 
-                {/* Cards */}
+
                 <div className="row g-3 mb-3">
                   {propertyOptions.map((item) => (
                     <div className="col-6 col-md-6 col-lg-4" key={item.id}>
@@ -412,9 +411,9 @@ function Assesement() {
                   ))}
                 </div>
 
-                {/* Form */}
+
                 <div className="row g-3 ">
-                  {/* COUNTRY */}
+
                   <div className="col-md-6">
                     <label className="form-label small fw-bold ass-bold">
                       COUNTRY
@@ -432,10 +431,10 @@ function Assesement() {
                     </select>
                   </div>
 
-                  {/* CITY */}
+
                   <div className="col-md-6">
                     <label className="form-label small fw-bold ass-bold">
-                      CITY / LOCATION
+
                     </label>
                     <input
                       type="text"
@@ -450,7 +449,7 @@ function Assesement() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">2</div>
                   <div>
@@ -495,7 +494,7 @@ function Assesement() {
                 ))}
               </div>
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                {/* Header */}
+
                 <div className="d-flex align-items-center">
                   <div className="step-box me-3">3</div>
                   <div>
@@ -509,7 +508,7 @@ function Assesement() {
                 </div>
 
                 <div className="container mt-2 p-1">
-                  {/* Top Cards */}
+
                   <div className=" row">
                     {options.map((item) => (
                       <div className="col-md-4" key={item.id}>
@@ -543,12 +542,12 @@ function Assesement() {
                 </div>
               </div>
 
-              {/* no:4 (1) start */}
+
               {active === "bill" && (
                 <div className="monthbill-section-tab-1">
-                  {/* Bottom Section */}
+
                   <div className="row mt-2 g-3">
-                    {/* Upload */}
+
                     <div className="col-md-6">
                       <label className="mb-2 fw-semibold ass-hedss">
                         Upload Bill (optional)
@@ -564,7 +563,7 @@ function Assesement() {
                       </div>
                     </div>
 
-                    {/* Notes */}
+
                     <div className="col-md-6">
                       <label className="mb-2 fw-semibold ass-hedss">Notes</label>
                       <textarea
@@ -575,7 +574,7 @@ function Assesement() {
                   </div>
 
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                    {/* Header */}
+
                     <div className="d-flex align-items-center mb-3">
                       <div className="step-box me-3"
                         style={{ position: "relative", top: "0px" }} >4</div>
@@ -587,7 +586,7 @@ function Assesement() {
                     </div>
 
                     <div className="container mt-4">
-                      {/* Form */}
+
                       <div className="row g-3">
                         <div className="col-md-6">
                           <label className="form-label">
@@ -654,13 +653,13 @@ function Assesement() {
                   </div>
                 </div>
               )}
-              {/* no:4 (1) end*/}
 
-              {/* no:4 (2) start */}
+
+
               {active === "appliance" && (
                 <div className="Appliance Calculator-section-tab-2">
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                    {/* Header */}
+
                     <div className="d-flex align-items-center mb-3">
                       <div className="step-box me-3">4</div>
                       <div>
@@ -694,7 +693,7 @@ function Assesement() {
                                     <img src={item.icon} alt="icon" />
                                   </div>
 
-                                  {/* ✅ SELECT DROPDOWN */}
+
                                   <select
                                     className="form-select border-0 first-table"
                                     value={item.name}
@@ -770,12 +769,10 @@ function Assesement() {
                   </div>
                 </div>
               )}
-              {/* no:4 (2) end*/}
 
-              {/* no:4 (3) start */}
               {active === "custom" && (
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                  {/* Header */}
+
                   <div className="d-flex align-items-center mb-3">
                     <div className="step-box me-3">4</div>
                     <div>
@@ -787,7 +784,7 @@ function Assesement() {
                   </div>
 
                   <div className="mt-4">
-                    {/* table-end */}
+
                     <div className="table-container">
                       <table className="appliance-table">
                         <thead>
@@ -808,7 +805,7 @@ function Assesement() {
                                   <img src={item.icon} alt="icon" />
                                 </div>
 
-                                {/* ✅ SELECT DROPDOWN */}
+
                                 <select
                                   className="form-select border-0 first-table"
                                   value={item.name}
@@ -893,10 +890,10 @@ function Assesement() {
                             </tr>
                           ))}
                         </tbody>
-                        {/* ✅ BUTTONS HERE (after table) */}
+
                       </table>
                     </div>
-                    {/* table-end*/}
+
                     <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
                       <button className="dashed-btn">
                         <span className="plus">+</span> Add Equipment
@@ -907,10 +904,10 @@ function Assesement() {
                   </div>
                 </div>
               )}
-              {/* no:4 (3) end*/}
+
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">5</div>
                   <div>
@@ -924,7 +921,7 @@ function Assesement() {
                 </div>
 
                 <div className="container mt-4">
-                  {/* Form */}
+
                   <div className="row g-3">
                     <div className="col-md-6">
                       <label className="form-label">ROOF AREA</label>
@@ -989,7 +986,7 @@ function Assesement() {
               </div>
 
               <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
-                {/* Primary Button */}
+
                 <button className="btn-primary-custom calu">
                   <span className="icon-sun">
                     <img src={sunone} alt="icon" />
@@ -1000,7 +997,7 @@ function Assesement() {
                   </span>
                 </button>
 
-                {/* Outline Button */}
+
                 <button className="btn-outline-custom2 calu-2">
                   <span className="icon-sun">
                     <img src={save} alt="icon" />
@@ -1010,10 +1007,10 @@ function Assesement() {
               </div>
             </div>
 
-            {/* ✅ RIGHT SIDE */}
+
             <div className="col-lg-4">
               <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
-                {/* Steps */}
+
                 <div className="botton-line mb-4">
                   <div className="step-item active">
                     <span className="step-circle">✔</span>
@@ -1031,7 +1028,7 @@ function Assesement() {
                   </div>
                 </div>
 
-                {/* Stats */}
+
                 <div className="row g-3">
                   <div className="col-6">
                     <div className="stat-card text-center">

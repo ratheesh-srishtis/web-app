@@ -5,9 +5,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* vertical center */
+
   align-items: center;
-  /* horizontal center */
+
   text-align: center;
 
 }
@@ -16,14 +16,14 @@
   font-size: 28px;
   font-weight: 700;
   color: #1e2a5a;
-  /* dark blue */
+
   margin-bottom: 10px;
 }
 
 .process-subtitle {
   font-size: 14px;
   color: #6b7280;
-  /* grey text */
+
   line-height: 1.6;
   max-width: 500px;
   margin: 0 auto;
@@ -64,17 +64,17 @@ h5.fw-bold.mb-2.rang-head {
   margin-top: -30px;
 }
 
-/* Dot circle */
+
 .dot-blue {
   width: 6px;
   height: 6px;
   background-color: #234e8f;
-  /* blue */
+
   border-radius: 50%;
   position: relative;
 }
 
-/* outer soft circle */
+
 .dot-blue::before {
   content: "";
   position: absolute;
@@ -107,24 +107,24 @@ h5.fw-bold.mb-2.rang-head {
   margin-bottom: 0;
 }
 
-/* Orange dot */
+
 .dot-orange {
   width: 6px;
   height: 6px;
   background-color: #E33A02;
-  /* 🔥 orange */
+
   border-radius: 50%;
   position: relative;
 }
 
-/* soft outer glow */
+
 .dot-orange::before {
   content: "";
   position: absolute;
   width: 22px;
   height: 22px;
   background: rgba(249, 115, 22, 0.2);
-  /* light orange */
+
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -136,4 +136,3 @@ span.dots-texts {
   font-weight: 500;
   color: #4D5260;
 }
-

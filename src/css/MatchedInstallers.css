@@ -45,7 +45,7 @@
 }
 
 
-/* Titles */
+
 .title-main {
   font-weight: 600;
   color: #1A2259;
@@ -57,7 +57,7 @@
   color: #6F7196;
 }
 
-/* Cards */
+
 .installer-card {
   background: #fff;
   border: 1px solid #CAE1FF80;
@@ -81,7 +81,7 @@
   top: -45px;
 }
 
-/* Score */
+
 .score-box {
   width: 40px;
   height: 40px;
@@ -147,9 +147,9 @@ h6.company-name-m {
 
 .result-badge {
   background: #e9f0ff;
-  /* light blue */
+
   color: #2c4b9b;
-  /* dark blue text */
+
   font-size: 12px;
   padding: 6px 12px;
   border-radius: 20px;
@@ -161,9 +161,10 @@ h6.company-name-m {
   .title-main {
     font-size: 24px;
   }
+
   p.sub-text.mb-0.mobile-view-match {
     width: 63%;
-}
+  }
 
   .btn-primary-custom-match {
     background: #1e3a8a;
@@ -193,8 +194,14 @@ h6.company-name-m {
     font-size: 11px;
     padding: 5px 10px;
     position: relative;
-        left: 75%;
-        top: -40px;
+    left: 75%;
+    top: -40px;
+  }
+
+  .info-note {
+
+    position: relative;
+    top: 20px;
   }
 
   .installer-card {
@@ -203,35 +210,38 @@ h6.company-name-m {
     border-radius: 14px;
     padding: 16px !important;
     margin-bottom: 40px;
-    margin-top: -15px;
-}
-.side-card {
+    margin-top: -25px;
+  }
+
+  .side-card {
     background: #fff;
     border: 1px solid #CAE1FF80;
     border-radius: 12px;
     padding: 14px;
     margin-bottom: 14px;
     margin-top: -35px;
-}
-.side-card.need-help {
+  }
+
+  .side-card.need-help {
     background: #fff;
     border: 1px solid #CAE1FF80;
     border-radius: 12px;
     padding: 14px;
     margin-bottom: 14px;
     margin-top: 25px;
-}
+  }
 }
 
 
 
 .side-card.need-help {
-    background: #fff;
-    border: 1px solid #CAE1FF80;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 14px;
+  background: #fff;
+  border: 1px solid #CAE1FF80;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
 }
+
 .green-bg {
   background: #16a34a;
 }
@@ -240,7 +250,7 @@ h6.company-name-m {
   background: #f59e0b;
 }
 
-/* Text */
+
 .company-name {
   font-size: 15px;
   font-weight: 600;
@@ -255,28 +265,30 @@ h6.company-name-m {
   margin-bottom: 10px;
 }
 
-/* Badges */
+
 .badge-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 6px;
 }
+
 span.badge-custom-blue {
-    font-size: 12px;
-    padding: 5px 12px;
-    background: #F0F5FF;
-    border-radius: 14px;
-    color: #174C90;
-    font-weight: 600;
+  font-size: 12px;
+  padding: 5px 12px;
+  background: #F0F5FF;
+  border-radius: 14px;
+  color: #174C90;
+  font-weight: 600;
 }
+
 .badge-custom {
-     font-size: 12px;
-    padding: 5px 12px;
-    background: #F8F9FA;
-    border-radius: 14px;
-    color: #4D5260;
-    font-weight: 600;
+  font-size: 12px;
+  padding: 5px 12px;
+  background: #F8F9FA;
+  border-radius: 14px;
+  color: #4D5260;
+  font-weight: 600;
 }
 
 .badge-custom.green {
@@ -284,7 +296,7 @@ span.badge-custom-blue {
   color: #16a34a;
 }
 
-/* Buttons */
+
 .btn-primary-custom-match {
   background: #1e3a8a;
   color: white;
@@ -327,7 +339,7 @@ span.badge-custom-blue {
 @media (max-width: 576px) {
   .icon-boxs {
     flex-shrink: 0;
-    /* ✅ keeps icon size fixed */
+
   }
 
   .step-box-how {
@@ -368,7 +380,7 @@ span.badge-custom-blue {
 }
 
 
-/* Default (Desktop) */
+
 .mobile-view-dis {
   display: none;
 }
@@ -377,7 +389,7 @@ span.badge-custom-blue {
   display: inline-block;
 }
 
-/* Mobile View */
+
 @media (max-width: 768px) {
   .mobile-view-dis {
     display: inline-block;
@@ -395,7 +407,7 @@ span.badge-custom-blue {
   border-radius: 20px;
 }
 
-/* Links */
+
 .link-view {
   font-size: 16px;
   color: #174C90;
@@ -403,7 +415,7 @@ span.badge-custom-blue {
   font-weight: 700;
 }
 
-/* Side */
+
 .side-card {
   background: #fff;
   border: 1px solid #CAE1FF80;
@@ -422,7 +434,7 @@ span.badge-custom-blue {
   color: #64748b;
 }
 
-/* Tags */
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -437,7 +449,7 @@ span.badge-custom-blue {
   border-radius: 6px;
 }
 
-/* Icons */
+
 .icon-circle {
   width: 28px;
   height: 28px;
@@ -452,7 +464,7 @@ span.badge-custom-blue {
   color: #16a34a;
 }
 
-/* Upload */
+
 .upload-box {
   border: 1px dashed #cbd5e1;
   padding: 12px;
@@ -461,7 +473,6 @@ span.badge-custom-blue {
   font-size: 12px;
 }
 
-/* Price */
 .price {
   font-weight: 700;
   margin: 8px 0;
@@ -528,7 +539,7 @@ span.badge-custom-blue {
   max-width: 420px;
 }
 
-/* HEADER */
+
 .quote-header {
   display: flex;
   align-items: center;
@@ -551,7 +562,7 @@ span.badge-custom-blue {
 
 }
 
-/* SUBTEXT */
+
 .quote-subtext {
   font-size: 13px;
   color: #64748b;
@@ -559,7 +570,7 @@ span.badge-custom-blue {
   line-height: 1.5;
 }
 
-/* UPLOAD BOX */
+
 .upload-box {
   border: 2px dashed #CAE1FF;
   border-radius: 12px;
@@ -597,7 +608,7 @@ span.badge-custom-blue {
   margin-top: 4px;
 }
 
-/* BUTTON */
+
 .upload-btn {
   width: 100%;
   border: 2px solid #174C90;
@@ -620,7 +631,7 @@ span.badge-custom-blue {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* center horizontally */
+
   justify-content: center;
 }
 
