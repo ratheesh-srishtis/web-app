@@ -344,6 +344,7 @@ p.bannr-text-s.text-light.mt-2.mb-5.ass-page-two {
   top: 0px;
   width: 55%;
   margin-top: 20px !important;
+  left: 0px;
 }
 
 .live-header {
@@ -760,6 +761,7 @@ h1.bannr-text.display-5.ass-page {
   font-weight: 400;
   position: relative;
   top: 10px !important;
+  left: 0px;
 }
 
 .botton-line.mb-4 {

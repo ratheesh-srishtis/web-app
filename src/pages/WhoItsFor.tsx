@@ -127,7 +127,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">Who uses Solarvy</h2>
@@ -225,7 +225,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3">
+        <section className="container-fluid px-lg-4 py-3">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">What problem are you solving?</h2>
@@ -289,7 +289,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3 mb-4">
+        <section className="container-fluid px-lg-4 py-3 mb-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">

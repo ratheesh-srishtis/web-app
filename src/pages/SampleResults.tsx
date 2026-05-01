@@ -128,7 +128,7 @@ function SampleResults() {
           </div>
         </section>
 
-        <section className="container ">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="col-lg-6">
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
@@ -219,7 +219,7 @@ function SampleResults() {
           </div>
         </section>
 
-        <section className="container py-4">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">Result dashboard</h2>
@@ -267,7 +267,7 @@ function SampleResults() {
           </div>
         </section>
 
-        <section className="container ">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-stretch">
             <div className="col-lg-6 d-flex">
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4 w-100 h-100">
@@ -375,7 +375,7 @@ function SampleResults() {
           </div>
         </section>
 
-        <section className="container py-4 mt-3">
+        <section className="container-fluid px-lg-4 py-4 mt-3">
           <div className="row align-items-start">
             <div className="col-12 dashboard-container">
               <h2 className="dashboard-title">Energy strategy comparison</h2>

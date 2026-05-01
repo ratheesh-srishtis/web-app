@@ -134,7 +134,7 @@ function HowItWorks() {
           </div>
         </section>
 
-        <section className="container ">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row align-items-start">
             <div className="col-lg-12">
               <div className="first-secion ">

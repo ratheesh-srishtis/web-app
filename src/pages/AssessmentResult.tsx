@@ -142,7 +142,7 @@ function AssesementResult() {
           </div>
         </section>
 
-        <section className="container py-4">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="col-lg-8">
               <div className="row g-2">

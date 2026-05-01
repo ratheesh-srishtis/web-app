@@ -440,7 +440,7 @@ button.custom-btn.other-section {
 }
 
 .how-it-works {
-  padding: 60px 20px;
+  padding: 30px 20px;
 
   text-align: center;
 }
@@ -462,7 +462,7 @@ button.custom-btn.other-section {
 .steps {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: 67px;
 }
 
 /* Each step */
@@ -1222,6 +1222,7 @@ a.text-light.align-self-center {
 .nav-bottom-section.row.align-items-center.home-page {
   position: relative;
   top: 50px;
+  left: 10px;
 }
 
 .nav-bottom-section.row.align-items-center {
@@ -1232,4 +1233,5 @@ a.text-light.align-self-center {
 .col-12.col-lg-5.offset-lg-1.mt-4.mt-lg-0.quit-sec {
   position: relative;
   left: 20px;
+  left: 10px;
 }

@@ -274,7 +274,7 @@ function Home() {
       </section>
 
       <section className="how-it-works py-4">
-        <div className="container text-center">
+        <div className="text-center">
           <h2 className="head-nor">How Solarvy Works</h2>
           <p className="subtitle ">
             A simple energy decision workflow built around problem-solving, not
@@ -338,133 +338,136 @@ function Home() {
         </div>
       </section>
 
-      <section className=" d-flex align-items-center bannar-see py-4">
-        <div className="container text-center  mb-3">
-          <h1 className="title">See A Sample Energy Assessment</h1>
-          <p className="subtitle">
-            A simple energy decision workflow built around
-            <br />
-            problem-solving, not just calculations.
-          </p>
+     <section className="d-flex align-items-center bannar-see py-4">
+  <div className="container-fluid px-lg-5 px-3 text-center mb-3">
+    <h1 className="title">See A Sample Energy Assessment</h1>
 
-          <div className="row g-4">
-            <div className="col-md-6 ">
-              <div className="card-box d-flex justify-content-between">
-                <span>Location</span>
-                <span className="text-muted text-color">Lagos, Nigeria</span>
-              </div>
+    <p className="subtitle">
+      A simple energy decision workflow built around
+      <br />
+      problem-solving, not just calculations.
+    </p>
 
-              <div className="card-box d-flex justify-content-between">
-                <span>Property type</span>
-                <span className="text-muted text-color">Hotel</span>
-              </div>
+    <div className="row g-4">
+      <div className="col-md-6">
+        <div className="card-box d-flex justify-content-between">
+          <span>Location</span>
+          <span className="text-muted text-color">Lagos, Nigeria</span>
+        </div>
 
-              <div className="card-box d-flex justify-content-between">
-                <span>Objective</span>
-                <span className="text-muted text-color">Reduce diesel use</span>
-              </div>
+        <div className="card-box d-flex justify-content-between">
+          <span>Property type</span>
+          <span className="text-muted text-color">Hotel</span>
+        </div>
 
-              <div className="card-box d-flex justify-content-between">
-                <span>System type</span>
-                <span className="text-muted text-color">
-                  Hybrid solar + battery
-                </span>
-              </div>
+        <div className="card-box d-flex justify-content-between">
+          <span>Objective</span>
+          <span className="text-muted text-color">Reduce diesel use</span>
+        </div>
+
+        <div className="card-box d-flex justify-content-between">
+          <span>System type</span>
+          <span className="text-muted text-color">
+            Hybrid solar + battery
+          </span>
+        </div>
+      </div>
+
+      <div className="col-md-6">
+        <div className="row g-4">
+          <div className="col-6">
+            <div className="card-boxs text-center">
+              <small>
+                <img src={enery} alt="icon" className="graph-image" />
+                Solar PV
+              </small>
+              <h3>28 kWp</h3>
+              <p>Indicative size</p>
             </div>
+          </div>
 
-            <div className="col-md-6 ">
-              <div className="row g-4">
-                <div className="col-6">
-                  <div className="card-boxs text-center">
-                    <small>
-                      {" "}
-                      <img src={enery} alt="icon" className="graph-image" />
-                      Solar PV
-                    </small>
-                    <h3>28 kWp</h3>
-                    <p>Indicative size</p>
-                  </div>
-                </div>
+          <div className="col-6">
+            <div className="card-boxs text-center">
+              <small>
+                <img src={enery} alt="icon" className="graph-image" />
+                Battery
+              </small>
+              <h3>40 kWh</h3>
+              <p>Backup storage</p>
+            </div>
+          </div>
 
-                <div className="col-6">
-                  <div className="card-boxs text-center">
-                    <small>
-                      <img src={enery} alt="icon" className="graph-image" />
-                      Battery
-                    </small>
-                    <h3>40 kWh</h3>
-                    <p>Backup storage</p>
-                  </div>
-                </div>
+          <div className="col-6">
+            <div className="card-boxs text-center">
+              <small>
+                <img src={enery} alt="icon" className="graph-image" />
+                Annual savings
+              </small>
+              <h3>NGN 7.8m</h3>
+              <p>Indicative</p>
+            </div>
+          </div>
 
-                <div className="col-6">
-                  <div className="card-boxs text-center">
-                    <small>
-                      <img src={enery} alt="icon" className="graph-image" />
-                      Annual savings
-                    </small>
-                    <h3>NGN 7.8m</h3>
-                    <p>Indicative</p>
-                  </div>
-                </div>
-
-                <div className="col-6">
-                  <div className="card-boxs text-center">
-                    <small>
-                      <img src={enery} alt="icon" className="graph-image" />
-                      Payback
-                    </small>
-                    <h3>4.2 yrs</h3>
-                    <p>Simple payback</p>
-                  </div>
-                </div>
-              </div>
+          <div className="col-6">
+            <div className="card-boxs text-center">
+              <small>
+                <img src={enery} alt="icon" className="graph-image" />
+                Payback
+              </small>
+              <h3>4.2 yrs</h3>
+              <p>Simple payback</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section className="container built-cases text-center py-4 mb-4">
-        <h2 className="head-blue ">Built for real use cases</h2>
-        <div className="steps mt-3">
-          <div className="step-s">
-            <div className="image-box">
-              {" "}
-              <img src={link} alt="icon" className="boxs-img" />
-            </div>
-            <h4 className="head-blue-left">Homes</h4>
-            <p className="sub-left">
-              Backup planning, appliance-based load estimation, and residential
-              system sizing.
-            </p>
-          </div>
+   <section className="container-fluid built-cases text-center mb-4 px-lg-5 px-3 ">
+  <h2 className="head-blue">Built for real use cases</h2>
 
-          <div className="step-s">
-            <div className="image-box">
-              {" "}
-              <img src={linkone} alt="icon" className="boxs-img" />
-            </div>
-            <h4 className="head-blue-left">Hospitals</h4>
-            <p className="sub-left">
-              Critical load planning, resilience, and structured backup
-              recommendations.
-            </p>
-          </div>
+  <div className="steps mt-3">
+    <div className="step-s">
+      <div className="image-box">
+        <img src={link} alt="icon" className="boxs-img" />
+      </div>
 
-          <div className="step-s">
-            <div className="image-box">
-              {" "}
-              <img src={linktwo} alt="icon" className="boxs-img" />
-            </div>
-            <h4 className="head-blue-left">Factories</h4>
-            <p className="sub-left">
-              Commercial and industrial energy sizing for larger, more valuable
-              projects.
-            </p>
-          </div>
-        </div>
-      </section>
+      <h4 className="head-blue-left">Homes</h4>
 
+      <p className="sub-left">
+        Backup planning, appliance-based load estimation, and residential
+        system sizing.
+      </p>
+    </div>
+
+    <div className="step-s">
+      <div className="image-box">
+        <img src={linkone} alt="icon" className="boxs-img" />
+      </div>
+
+      <h4 className="head-blue-left">Hospitals</h4>
+
+      <p className="sub-left">
+        Critical load planning, resilience, and structured backup
+        recommendations.
+      </p>
+    </div>
+
+    <div className="step-s">
+      <div className="image-box">
+        <img src={linktwo} alt="icon" className="boxs-img" />
+      </div>
+
+      <h4 className="head-blue-left">Factories</h4>
+
+      <p className="sub-left">
+        Commercial and industrial energy sizing for larger, more valuable
+        projects.
+      </p>
+    </div>
+  </div>
+</section>
       <section>
         <div className="hero-section">
           <div className="overlay-wrapper">

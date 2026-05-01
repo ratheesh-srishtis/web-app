@@ -126,7 +126,7 @@ function MatchedInstallers() {
           </div>
         </section>
 
-        <section className="container py-4">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="container my-4">
               <div className="row g-3">
@@ -200,7 +200,7 @@ function MatchedInstallers() {
           </div>
         </section>
 
-        <section className="container">
+        <section className="container-fluid px-lg-4 ">
           <div className="row g-4 align-items-start">
             <div className="col-lg-8 ">
               <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
