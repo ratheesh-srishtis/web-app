@@ -52,16 +52,13 @@ function AssesementResult() {
           <div className="overlay"></div>
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
-
-
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-
-              <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <nav
+                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+              >
                 <div className="container-fluid px-lg-4 px-3">
-
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
@@ -69,20 +66,20 @@ function AssesementResult() {
                   </Link>
 
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-
-                  <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
                         <Link
@@ -96,7 +93,7 @@ function AssesementResult() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/assesement-result"
+                          to="/sample-results"
                           onClick={() => setOpen(false)}
                         >
                           Sample Results
@@ -105,7 +102,7 @@ function AssesementResult() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/"
+                          to="/who-its-for"
                           onClick={() => setOpen(false)}
                         >
                           Who It's For
@@ -123,28 +120,23 @@ function AssesementResult() {
                           <img src={bttnarrow} alt="arrow" />
                         </button>
                       </li>
-
-
                     </ul>
                   </div>
-
                 </div>
               </nav>
               <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                    Your Preliminary Energy  System <br />Recommendation
+                    Your Preliminary Energy System <br />
+                    Recommendation
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Based on the information entered, Solarvy estimates the most suitable solar, battery, and inverter configuration,
+                    Based on the information entered, Solarvy estimates the most
+                    suitable solar, battery, and inverter configuration,
                     together with indicative savings and payback.
                   </p>
-
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -152,11 +144,8 @@ function AssesementResult() {
 
         <section className="container py-4">
           <div className="row g-4 align-items-start">
-
             <div className="col-lg-8">
-
               <div className="row g-2">
-
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
                     <div className="card-body pad">
@@ -174,7 +163,7 @@ function AssesementResult() {
                       </h2>
 
                       <small className="roof-text-text-muted d-block mb-2">
-                        <b>Indicative roof-compatible size</b>
+                        <b>Indicative roof size</b>
                       </small>
 
                       <small className=" pv-text text-danger fw-semibold">
@@ -183,7 +172,6 @@ function AssesementResult() {
                     </div>
                   </div>
                 </div>
-
 
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
@@ -211,7 +199,6 @@ function AssesementResult() {
                     </div>
                   </div>
                 </div>
-
 
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
@@ -246,13 +233,14 @@ function AssesementResult() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-resul-first mt-4">
-
                 <div className="d-flex align-items-center mb-4">
                   <div className="icon-box-maony me-3">
                     <img src={money} alt="icon" />
                   </div>
                   <div>
-                    <h5 className="fw-bold mb-1 rang-head">Financial Summary</h5>
+                    <h5 className="fw-bold mb-1 rang-head">
+                      Financial Summary
+                    </h5>
                     <small className="text-muted">
                       Understand the commercial side quickly, without technical
                       jargon.
@@ -261,7 +249,6 @@ function AssesementResult() {
                 </div>
 
                 <div className="row">
-
                   <div className="col-md-6 border-end">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Estimated system cost</span>
@@ -289,10 +276,8 @@ function AssesementResult() {
                     </div>
                   </div>
 
-
                   <div className="col-md-6 ps-md-4 mt-4 mt-md-0">
                     <h6 className="left-rang fw-bold mb-3">% Energy Impact</h6>
-
 
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
@@ -307,7 +292,6 @@ function AssesementResult() {
                       </div>
                     </div>
 
-
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Grid offset</span>
@@ -320,7 +304,6 @@ function AssesementResult() {
                         ></div>
                       </div>
                     </div>
-
 
                     <div>
                       <div className="d-flex justify-content-between">
@@ -339,7 +322,6 @@ function AssesementResult() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-
                 <div className="d-flex align-items-center mb-4">
                   <div className="icon-box-maony-two me-3">
                     <img src={buletwo} alt="icon" />
@@ -349,14 +331,13 @@ function AssesementResult() {
                       System Detail Breakdown
                     </h5>
                     <small className="text-muted">
-                      Understand why this recommendation was generated and the key
-                      technical parameters.
+                      Understand why this recommendation was generated and the
+                      key technical parameters.
                     </small>
                   </div>
                 </div>
 
                 <div className="row">
-
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Estimated system cost</span>
@@ -387,7 +368,6 @@ function AssesementResult() {
               </div>
 
               <div className="important-note d-flex align-items-start p-3 mt-4">
-
                 <div className="me-2 mt-1">
                   <img src={imp} alt="icon" />
                 </div>
@@ -395,30 +375,29 @@ function AssesementResult() {
                 <div>
                   <span className="fw-bold">Important note:</span> These results
                   are indicative only. Final system design, procurement, and
-                  performance should be validated through a detailed review before
-                  investment or installation.
+                  performance should be validated through a detailed review
+                  before investment or installation.
                 </div>
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4 mb-4">
-
                 <div className="d-flex align-items-start mb-3">
                   <div className="next-icon me-3">
                     <img src={whitearrow} alt="arrow" />
                   </div>
                   <div>
-                    <h5 className="fw-bold mb-1 rang-head">What Happens Next</h5>
+                    <h5 className="fw-bold mb-1 rang-head">
+                      What Happens Next
+                    </h5>
                     <small className="text-muted sub-down">
-                      The best results don’t stop at numbers. Move forward with a
-                      clear next step.
+                      The best results don’t stop at numbers. Move forward with
+                      a clear next step.
                     </small>
                   </div>
                 </div>
 
-
                 <div className="container my-4">
                   <div className="row g-4">
-
                     <div className="col-12 col-md-4">
                       <div className="info-card">
                         <div className="info-badge">1</div>
@@ -427,8 +406,8 @@ function AssesementResult() {
                           Download your report
                         </h6>
                         <p className="info-text">
-                          Send a PDF summary by email with the recommended system,
-                          savings, and payback period.
+                          Send a PDF summary by email with the recommended
+                          system, savings, and payback period.
                         </p>
                       </div>
                     </div>
@@ -441,8 +420,8 @@ function AssesementResult() {
                           Request installer quotes
                         </h6>
                         <p className="info-text">
-                          Use the result to match you with installers suited to the
-                          location and system size.
+                          Use the result to match you with installers suited to
+                          the location and system size.
                         </p>
                       </div>
                     </div>
@@ -455,15 +434,13 @@ function AssesementResult() {
                           Upgrade to expert review
                         </h6>
                         <p className="info-text">
-                          For more confidence before investment, route into a deeper
-                          technical review with our advisory team.
+                          For more confidence before investment, route into a
+                          deeper technical review with our advisory team.
                         </p>
                       </div>
                     </div>
-
                   </div>
                 </div>
-
 
                 <div className="button-group mt-3">
                   <button className="btn-primary-customss-down">
@@ -483,10 +460,8 @@ function AssesementResult() {
               </div>
             </div>
 
-
             <div className="col-lg-4">
               <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
-
                 <div className="d-flex align-items-center mb-3">
                   <div className="qs-icon me-2">
                     <img src={qut} alt="icon" />
@@ -495,7 +470,6 @@ function AssesementResult() {
                 </div>
 
                 <hr className="liness" />
-
 
                 <div className="row g-3">
                   <div className="row g-3">
@@ -541,7 +515,6 @@ function AssesementResult() {
                   </div>
                 </div>
 
-
                 <div className="mt-4">
                   <div className="d-flex align-items-start mb-3">
                     <div className="info-icon-box me-3">
@@ -574,8 +547,10 @@ function AssesementResult() {
                   </div>
                 </div>
 
-
-                <button className="btn-primary-customss" style={{ height: "45px" }}>
+                <button
+                  className="btn-primary-customss"
+                  style={{ height: "45px" }}
+                >
                   <span className="icon-get">
                     <i className="whit-icon bi bi-file-earmark-text"></i>
                   </span>
@@ -585,8 +560,10 @@ function AssesementResult() {
                   </span>
                 </button>
 
-
-                <button className="btn-outline-customss2 " style={{ height: "45px" }}>
+                <button
+                  className="btn-outline-customss2 "
+                  style={{ height: "45px" }}
+                >
                   <span className="icon-get">
                     <i className="bi bi-arrow-left"></i>
                   </span>

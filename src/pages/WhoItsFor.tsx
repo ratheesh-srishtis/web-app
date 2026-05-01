@@ -5,10 +5,9 @@ import logo from "../assets/images/logo.png";
 import bttnarrow from "../assets/images/btton-arrow.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-function SampleResults() {
+function WhoItsFor() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
@@ -31,23 +30,19 @@ function SampleResults() {
   }, []);
 
   return (
-
     <div>
       <div className="full-body-color">
         <section className="hero d-flex align-items-center ass-bannr ">
           <div className="overlay"></div>
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
-
-
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-
-              <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <nav
+                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+              >
                 <div className="container-fluid px-lg-4 px-3">
-
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
@@ -55,20 +50,20 @@ function SampleResults() {
                   </Link>
 
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-
-                  <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
                         <Link
@@ -82,7 +77,7 @@ function SampleResults() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/assesement-result"
+                          to="/sample-results"
                           onClick={() => setOpen(false)}
                         >
                           Sample Results
@@ -91,7 +86,7 @@ function SampleResults() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/"
+                          to="/who-its-for"
                           onClick={() => setOpen(false)}
                         >
                           Who It's For
@@ -109,29 +104,24 @@ function SampleResults() {
                           <img src={bttnarrow} alt="arrow" />
                         </button>
                       </li>
-
-
                     </ul>
                   </div>
-
                 </div>
               </nav>
               <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                    Built for real energy users, not just <br />one type of customer
+                    Built for real energy users, not just <br />
+                    one type of customer
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Solarvy is designed for people and organisations dealing with real energy decisions
-                    — from households planning backup power to businesses trying to reduce diesel use and
+                    Solarvy is designed for people and organisations dealing
+                    with real energy decisions — from households planning backup
+                    power to businesses trying to reduce diesel use and
                     facilities that need stronger reliability.
                   </p>
-
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -148,7 +138,6 @@ function SampleResults() {
 
             <div className="container my-2">
               <div className="row g-3">
-
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -156,8 +145,9 @@ function SampleResults() {
                     </div>
                     <h5 className="fw-bold mb-1 rang-head mt-3">Homes</h5>
                     <p className="text-muted small">
-                      For households that want to reduce bills, improve backup during outages,
-                      or understand the right solar and battery size.
+                      For households that want to reduce bills, improve backup
+                      during outages, or understand the right solar and battery
+                      size.
                     </p>
 
                     <div className="d-flex flex-wrap gap-2 mt-auto">
@@ -168,7 +158,6 @@ function SampleResults() {
                   </div>
                 </div>
 
-
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
@@ -176,8 +165,9 @@ function SampleResults() {
                     </div>
                     <h5 className="fw-bold mb-1 rang-head mt-3">Businesses</h5>
                     <p className="text-muted small">
-                      For SMEs and commercial operators that need to cut diesel cost,
-                      improve reliability, and make better energy investment decisions.
+                      For SMEs and commercial operators that need to cut diesel
+                      cost, improve reliability, and make better energy
+                      investment decisions.
                     </p>
 
                     <div className="d-flex flex-wrap gap-2 mt-auto">
@@ -188,16 +178,17 @@ function SampleResults() {
                   </div>
                 </div>
 
-
                 <div className="col-12 col-md-6 col-lg-3">
                   <div className="custom-card h-100">
                     <div className="icon-box-who">
                       <i className="bi bi-clipboard-pulse"></i>
                     </div>
-                    <h5 className="fw-bold mb-1 rang-head mt-3">Critical facilities</h5>
+                    <h5 className="fw-bold mb-1 rang-head mt-3">
+                      Critical facilities
+                    </h5>
                     <p className="text-muted small">
-                      For hotels, hospitals, offices, and facilities where power interruptions
-                      are expensive and resilience matters.
+                      For hotels, hospitals, offices, and facilities where power
+                      interruptions are expensive and resilience matters.
                     </p>
 
                     <div className="d-flex flex-wrap gap-2 mt-auto">
@@ -213,10 +204,13 @@ function SampleResults() {
                     <div className="icon-box-who">
                       <i className="bi bi-graph-up"></i>
                     </div>
-                    <h5 className="fw-bold mb-1 rang-head mt-3">Developers & advisors</h5>
+                    <h5 className="fw-bold mb-1 rang-head mt-3">
+                      Developers & advisors
+                    </h5>
                     <p className="text-muted small">
-                      For early-stage feasibility, energy strategy comparison, and clearer
-                      technical-financial understanding before deeper study.
+                      For early-stage feasibility, energy strategy comparison,
+                      and clearer technical-financial understanding before
+                      deeper study.
                     </p>
 
                     <div className="d-flex flex-wrap gap-2 mt-auto">
@@ -226,8 +220,6 @@ function SampleResults() {
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -244,8 +236,6 @@ function SampleResults() {
 
             <div className="container my-2">
               <div className="row g-3">
-
-
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
                     <div className="feature-icon">
@@ -255,12 +245,11 @@ function SampleResults() {
                     <h6 className="fw-semibold mt-3">Reduce diesel use</h6>
 
                     <p className="text-muted small mb-0">
-                      Ideal for users with generator-heavy operations who want to cut fuel
-                      cost while keeping power reliable.
+                      Ideal for users with generator-heavy operations who want
+                      to cut fuel cost while keeping power reliable.
                     </p>
                   </div>
                 </div>
-
 
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
@@ -268,15 +257,16 @@ function SampleResults() {
                       <i className="bi bi-lightning-charge"></i>
                     </div>
 
-                    <h6 className="fw-semibold mt-3">Lower electricity bills</h6>
+                    <h6 className="fw-semibold mt-3">
+                      Lower electricity bills
+                    </h6>
 
                     <p className="text-muted small mb-0">
-                      Useful for homes and businesses looking for a cleaner, clearer way
-                      to understand savings potential.
+                      Useful for homes and businesses looking for a cleaner,
+                      clearer way to understand savings potential.
                     </p>
                   </div>
                 </div>
-
 
                 <div className="col-12 col-md-6 col-lg-4">
                   <div className="feature-card h-100">
@@ -284,44 +274,44 @@ function SampleResults() {
                       <i className="bi bi-graph-up"></i>
                     </div>
 
-                    <h6 className="fw-semibold mt-3">Improve power reliability</h6>
+                    <h6 className="fw-semibold mt-3">
+                      Improve power reliability
+                    </h6>
 
                     <p className="text-muted small mb-0">
-                      For users dealing with outages, weak grid conditions, or the need
-                      for backup and resilience planning.
+                      For users dealing with outages, weak grid conditions, or
+                      the need for backup and resilience planning.
                     </p>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
         </section>
 
-
-
         <section className="container py-3 mb-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
-              <h2 className="dashboard-title">Built for different energy setups</h2>
+              <h2 className="dashboard-title">
+                Built for different energy setups
+              </h2>
               <p className="dashboard-subtitle">
-                Solarvy works with real-world energy setups, not just ideal solar conditions.
+                Solarvy works with real-world energy setups, not just ideal
+                solar conditions.
               </p>
             </div>
 
             <div className="container my-2">
               <div className="row  g-3">
-
                 <div className="col-12 col-md-6">
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-
                     <div>
                       <h5 className="fw-bold mb-2 rang-head">
                         Common starting points
                       </h5>
                       <small className="text-muted">
-                        Whether you rely on the grid, a generator, or a mix, Solarvy adapts to your starting point.
+                        Whether you rely on the grid, a generator, or a mix,
+                        Solarvy adapts to your starting point.
                       </small>
                     </div>
                     <div className="feature-list">
@@ -350,53 +340,53 @@ function SampleResults() {
 
                 <div className="col-12 col-md-6">
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-
                     <div>
                       <h5 className="fw-bold mb-2 rang-head">
                         Hybrid-focused environments
                       </h5>
                       <small className="text-muted">
-                        Ideal for places that depend on multiple power sources and need both reliability and cost control.
+                        Ideal for places that depend on multiple power sources
+                        and need both reliability and cost control.
                       </small>
                     </div>
                     <div className="feature-list-orange">
                       <div className="feature-item">
                         <span className="dot-orange"></span>
-                        <span className="dots-texts">Generator-dependent operations</span>
+                        <span className="dots-texts">
+                          Generator-dependent operations
+                        </span>
                       </div>
 
                       <div className="feature-item">
                         <span className="dot-orange"></span>
-                        <span className="dots-texts">Weak or unreliable grids</span>
+                        <span className="dots-texts">
+                          Weak or unreliable grids
+                        </span>
                       </div>
 
                       <div className="feature-item">
                         <span className="dot-orange"></span>
-                        <span className="dots-texts">Facilities with critical loads</span>
+                        <span className="dots-texts">
+                          Facilities with critical loads
+                        </span>
                       </div>
 
                       <div className="feature-item">
                         <span className="dot-orange"></span>
-                        <span className="dots-texts">Users comparing multiple energy strategies</span>
+                        <span className="dots-texts">
+                          Users comparing multiple energy strategies
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
         </section>
-
-
-
-
-
-
       </div>
     </div>
   );
 }
 
-export default SampleResults;
+export default WhoItsFor;
