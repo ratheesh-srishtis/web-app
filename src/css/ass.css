@@ -1403,7 +1403,7 @@ button.btn.btn-outline-primary.mt-3.table-add-btn {
   font-size: 14px;
 }
 
-* Remove hover effect */ button.btn.btn-outline-primary.mt-3.table-add-btn:hover {
+/* Remove hover effect */ button.btn.btn-outline-primary.mt-3.table-add-btn:hover {
   color: #174C90 !important;
   border: 1px dashed #CAE1FF !important;
   background: transparent !important;
