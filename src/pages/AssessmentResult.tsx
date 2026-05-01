@@ -56,10 +56,10 @@ function AssesementResult() {
 
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-              {/* Navbar */}
+
               <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
                 <div className="container-fluid px-lg-4 px-3">
-                  {/* Logo */}
+
                   <Link
                     to="/Home"
                     onClick={() => window.scrollTo(0, 0)}
@@ -76,12 +76,12 @@ function AssesementResult() {
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-                  {/* Hamburger */}
+
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-                  {/* Menu */}
+
                   <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
@@ -130,7 +130,7 @@ function AssesementResult() {
 
                 </div>
               </nav>
-              <div className="nav-bottom-section row align-items-center">
+              <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
                     Your Preliminary Energy  System <br />Recommendation
@@ -152,11 +152,11 @@ function AssesementResult() {
 
         <section className="container py-4">
           <div className="row g-4 align-items-start">
-            {/* ✅ LEFT SIDE */}
+
             <div className="col-lg-8">
-              {/* ✅ ADD THIS ROW */}
+
               <div className="row g-2">
-                {/* Solar PV */}
+
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
                     <div className="card-body pad">
@@ -184,7 +184,7 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Battery */}
+
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
                     <div className="card-body pad">
@@ -212,7 +212,7 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Inverter */}
+
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
                     <div className="card-body pad">
@@ -223,7 +223,7 @@ function AssesementResult() {
                         <small className="text-uppercase text-muted">
                           <b>Recommended Inverter</b>
                         </small>
-                        {/* RIGHT ICON (MOBILE ONLY) */}
+
                         <div className="download-icon-mobile">
                           <img src={donw} alt="logo" />
                         </div>
@@ -246,7 +246,7 @@ function AssesementResult() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-resul-first mt-4">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-4">
                   <div className="icon-box-maony me-3">
                     <img src={money} alt="icon" />
@@ -261,7 +261,7 @@ function AssesementResult() {
                 </div>
 
                 <div className="row">
-                  {/* LEFT SIDE */}
+
                   <div className="col-md-6 border-end">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Estimated system cost</span>
@@ -289,11 +289,11 @@ function AssesementResult() {
                     </div>
                   </div>
 
-                  {/* RIGHT SIDE */}
+
                   <div className="col-md-6 ps-md-4 mt-4 mt-md-0">
                     <h6 className="left-rang fw-bold mb-3">% Energy Impact</h6>
 
-                    {/* Solar */}
+
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Solar share</span>
@@ -307,7 +307,7 @@ function AssesementResult() {
                       </div>
                     </div>
 
-                    {/* Grid */}
+
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Grid offset</span>
@@ -321,7 +321,7 @@ function AssesementResult() {
                       </div>
                     </div>
 
-                    {/* Diesel */}
+
                     <div>
                       <div className="d-flex justify-content-between">
                         <span className="rang-name">Diesel reduction</span>
@@ -339,7 +339,7 @@ function AssesementResult() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-                {/* Header */}
+
                 <div className="d-flex align-items-center mb-4">
                   <div className="icon-box-maony-two me-3">
                     <img src={buletwo} alt="icon" />
@@ -356,7 +356,7 @@ function AssesementResult() {
                 </div>
 
                 <div className="row">
-                  {/* LEFT SIDE */}
+
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Estimated system cost</span>
@@ -387,12 +387,11 @@ function AssesementResult() {
               </div>
 
               <div className="important-note d-flex align-items-start p-3 mt-4">
-                {/* Icon */}
+
                 <div className="me-2 mt-1">
                   <img src={imp} alt="icon" />
                 </div>
 
-                {/* Text */}
                 <div>
                   <span className="fw-bold">Important note:</span> These results
                   are indicative only. Final system design, procurement, and
@@ -402,7 +401,7 @@ function AssesementResult() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4 mb-4">
-                {/* Header */}
+
                 <div className="d-flex align-items-start mb-3">
                   <div className="next-icon me-3">
                     <img src={whitearrow} alt="arrow" />
@@ -416,7 +415,7 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Cards */}
+
                 <div className="container my-4">
                   <div className="row g-4">
 
@@ -465,7 +464,7 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Buttons */}
+
                 <div className="button-group mt-3">
                   <button className="btn-primary-customss-down">
                     <span className="icon-get">
@@ -484,10 +483,10 @@ function AssesementResult() {
               </div>
             </div>
 
-            {/* ✅ RIGHT SIDE */}
+
             <div className="col-lg-4">
               <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
-                {/* Steps */}
+
                 <div className="d-flex align-items-center mb-3">
                   <div className="qs-icon me-2">
                     <img src={qut} alt="icon" />
@@ -497,7 +496,7 @@ function AssesementResult() {
 
                 <hr className="liness" />
 
-                {/* Stats */}
+
                 <div className="row g-3">
                   <div className="row g-3">
                     <div className="col-6">
@@ -542,7 +541,7 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Options */}
+
                 <div className="mt-4">
                   <div className="d-flex align-items-start mb-3">
                     <div className="info-icon-box me-3">
@@ -575,8 +574,8 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                {/* Buttons */}
-                <button className="btn-primary-customss" style={{height:"45px"}}>
+
+                <button className="btn-primary-customss" style={{ height: "45px" }}>
                   <span className="icon-get">
                     <i className="whit-icon bi bi-file-earmark-text"></i>
                   </span>
@@ -586,8 +585,8 @@ function AssesementResult() {
                   </span>
                 </button>
 
-                {/* Outline Button */}
-                <button className="btn-outline-customss2 " style={{height:"45px"}}>
+
+                <button className="btn-outline-customss2 " style={{ height: "45px" }}>
                   <span className="icon-get">
                     <i className="bi bi-arrow-left"></i>
                   </span>

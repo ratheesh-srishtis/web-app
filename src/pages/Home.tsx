@@ -55,10 +55,10 @@ function Home() {
 
           <div className="row align-items-start text-divs gx-3 gx-lg-4">
 
-            {/* Navbar */}
+
             <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
               <div className="container-fluid px-lg-4 px-3">
-                {/* Logo */}
+
                 <Link
                   to="/Home"
                   onClick={() => window.scrollTo(0, 0)}
@@ -75,12 +75,12 @@ function Home() {
                   <img src={logo} alt="logo" className="mbile-size" />
                 </Link>
 
-                {/* Hamburger */}
+
                 <button onClick={handleToggle} className="navbar-toggler">
                   <span className="navbar-toggler-icon"></span>
                 </button>
 
-                {/* Menu */}
+
                 <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
                   <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                     <li className="nav-item">
@@ -181,7 +181,7 @@ function Home() {
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
-                        
+
                         defaultValue="Select Property"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -202,7 +202,8 @@ function Home() {
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
-                        defaultValue="Select Location"
+
+                        defaultValue="Select location"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
@@ -225,7 +226,8 @@ function Home() {
                       <label className="quick-lable">Power Setup</label>
                       <select
                         className="form-select select-text"
-                        defaultValue=" Select power setup"
+
+                        defaultValue="Select Power Setup"
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
@@ -274,7 +276,7 @@ function Home() {
           </p>
 
           <div className="row g-4">
-            {/* STEP 1 */}
+
             <div className="col-md-4">
               <div className="step text-center">
                 <div className="icon-stack">
@@ -292,7 +294,7 @@ function Home() {
               </div>
             </div>
 
-            {/* STEP 2 */}
+
             <div className="col-md-4">
               <div className="step text-center">
                 <div className="icon-stack">
@@ -312,7 +314,7 @@ function Home() {
               </div>
             </div>
 
-            {/* STEP 3 */}
+
             <div className="col-md-4">
               <div className="step text-center">
                 <div className="icon-stack">
