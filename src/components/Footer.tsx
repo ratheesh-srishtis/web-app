@@ -1,15 +1,20 @@
-import logo from '../assets/images/logo.png'
-import '../App.css'
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import "../App.css";
+
 function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer-section">
       <div className="container">
-
         <div className="row justify-content-between">
-
           {/* LEFT SIDE */}
           <div className="col-md-7 mb-4">
-            <a className="navbar-brand footer-logoss text-white fw-bold mb-4" href="#">
+            <a
+              className="navbar-brand footer-logoss text-white fw-bold mb-4"
+              href="#"
+            >
               <img src={logo} alt="logo" />
             </a>
 
@@ -23,13 +28,36 @@ function Footer() {
           {/* RIGHT SIDE */}
           <div className="col-md-5 text-md-end">
             <div className="row justify-content-md-end">
-
               <div className="col-6 col-md-4 mb-3">
                 <ul className="footer-links">
                   <h6 className="newsletter-title mb-4">Main Page</h6>
-                  <li>How It Works</li>
-                  <li>Sample Results</li>
-                  <li>Who It’s For</li>
+                  <li>
+                    <button
+                      type="button"
+                      className="footer-link-nav"
+                      onClick={() => navigate("/how-it-works")}
+                    >
+                      How It Works
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="footer-link-nav"
+                      onClick={() => navigate("/sample-results")}
+                    >
+                      Sample Results
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="footer-link-nav"
+                      onClick={() => navigate("/who-its-for")}
+                    >
+                      Who It’s For
+                    </button>
+                  </li>
                 </ul>
               </div>
 
@@ -42,21 +70,15 @@ function Footer() {
                   <li>Privacy Policy</li>
                 </ul>
               </div>
-
             </div>
           </div>
-
         </div>
-
       </div>
 
       <div className="newsletter-section">
-
         <div className="newsletter-overlay">
           <div className="container">
-
             <div className="row align-items-center">
-
               {/* LEFT SIDE */}
               <div className="col-md-6">
                 <h6 className="newsletter-title">Newsletter</h6>
@@ -72,14 +94,11 @@ function Footer() {
                 <p className="email-label">Email Us</p>
                 <h6 className="email-text">support@solarvy.ng</h6>
               </div>
-
             </div>
 
             <hr className="divider mt-4" />
-
           </div>
         </div>
-
       </div>
       <div className="d-flex align-items-center justify-content-center">
         <h6 className="mb-0 text-center">

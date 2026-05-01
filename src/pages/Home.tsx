@@ -28,7 +28,6 @@ function Home() {
     }
   };
 
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -51,16 +50,13 @@ function Home() {
         <div className="overlay"></div>
 
         <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div">
-
-
           <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-
-            <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+            <nav
+              className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+            >
               <div className="container-fluid px-lg-4 px-3">
-
                 <Link
-                  to="/Home"
+                  to="/"
                   onClick={() => window.scrollTo(0, 0)}
                   className="navbar-brand text-white fw-bold"
                 >
@@ -68,20 +64,20 @@ function Home() {
                 </Link>
 
                 <Link
-                  to="/Home"
+                  to="/"
                   onClick={() => window.scrollTo(0, 0)}
                   className="navbar-brand text-white fw-bold"
                 >
                   <img src={logo} alt="logo" className="mbile-size" />
                 </Link>
 
-
                 <button onClick={handleToggle} className="navbar-toggler">
                   <span className="navbar-toggler-icon"></span>
                 </button>
 
-
-                <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                <div
+                  className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                >
                   <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                     <li className="nav-item">
                       <Link
@@ -95,7 +91,7 @@ function Home() {
                     <li className="nav-item">
                       <Link
                         className="nav-link text-white"
-                        to="/assesement-result"
+                        to="/sample-results"
                         onClick={() => setOpen(false)}
                       >
                         Sample Results
@@ -104,7 +100,7 @@ function Home() {
                     <li className="nav-item">
                       <Link
                         className="nav-link text-white"
-                        to="/"
+                        to="/who-its-for"
                         onClick={() => setOpen(false)}
                       >
                         Who It's For
@@ -122,11 +118,8 @@ function Home() {
                         <img src={bttnarrow} alt="arrow" />
                       </button>
                     </li>
-
-
                   </ul>
                 </div>
-
               </div>
             </nav>
             <div className="nav-bottom-section row align-items-center home-page">
@@ -138,19 +131,27 @@ function Home() {
                 </h1>
 
                 <p className="bannr-text-s text-light mt-2 mb-5">
-                  Solarvy helps homes and businesses estimate solar size, battery
-                  storage, diesel reduction, savings, and payback before speaking
-                  to installers or committing money.
+                  Solarvy helps homes and businesses estimate solar size,
+                  battery storage, diesel reduction, savings, and payback before
+                  speaking to installers or committing money.
                 </p>
 
                 <div className="d-flex flex-column flex-sm-row gap-3 mt-3">
-                  <button className="custom-btn bann-second">
+                  <button
+                    type="button"
+                    className="custom-btn bann-second"
+                    onClick={() => navigate("/start-assesement")}
+                  >
                     {" "}
                     Start Free Assessment
                     <img src={bttnarrow} alt="arrow" />
                   </button>
 
-                  <button className="custom-btn-mobile-view">
+                  <button
+                    type="button"
+                    className="custom-btn-mobile-view"
+                    onClick={() => navigate("/start-assesement")}
+                  >
                     {" "}
                     Start Free Assessment
                     <img src={bttnarrow} alt="arrow" />
@@ -181,7 +182,6 @@ function Home() {
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
-
                         defaultValue="Select Property"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -195,14 +195,15 @@ function Home() {
                           Commercial Building
                         </option>
                         <option value="hospital clinic">Hospital/Clinic</option>
-                        <option value="school education">School/Education</option>
+                        <option value="school education">
+                          School/Education
+                        </option>
                       </select>
                     </div>
                     <div className="col-6">
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
-
                         defaultValue="Select location"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -214,7 +215,9 @@ function Home() {
                     </div>
                   </div>
 
-                  <label className="quick-lable">Monthly Electricity Bill</label>
+                  <label className="quick-lable">
+                    Monthly Electricity Bill
+                  </label>
                   <input
                     type="text"
                     className="form-control select-text mb-2"
@@ -226,7 +229,6 @@ function Home() {
                       <label className="quick-lable">Power Setup</label>
                       <select
                         className="form-select select-text"
-
                         defaultValue="Select Power Setup"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -255,7 +257,11 @@ function Home() {
                     </div>
                   </div>
 
-                  <button className="custom-btn other-section d-flex align-items-center justify-content-between w-100">
+                  <button
+                    type="button"
+                    className="custom-btn other-section d-flex align-items-center justify-content-between w-100"
+                    onClick={() => navigate("/start-assesement")}
+                  >
                     {" "}
                     Start Assessment
                     <img src={bttnarrowhite} alt="arrow" />
@@ -276,7 +282,6 @@ function Home() {
           </p>
 
           <div className="row g-4">
-
             <div className="col-md-4">
               <div className="step text-center">
                 <div className="icon-stack">
@@ -293,7 +298,6 @@ function Home() {
                 </p>
               </div>
             </div>
-
 
             <div className="col-md-4">
               <div className="step text-center">
@@ -313,7 +317,6 @@ function Home() {
                 </p>
               </div>
             </div>
-
 
             <div className="col-md-4">
               <div className="step text-center">
@@ -335,8 +338,7 @@ function Home() {
         </div>
       </section>
 
-      <section
-        className=" d-flex align-items-center bannar-see py-4">
+      <section className=" d-flex align-items-center bannar-see py-4">
         <div className="container text-center  mb-3">
           <h1 className="title">See A Sample Energy Assessment</h1>
           <p className="subtitle">
@@ -476,7 +478,11 @@ function Home() {
               </p>
 
               <div className="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap text-center">
-                <button className="custom-btn other-section strst">
+                <button
+                  type="button"
+                  className="custom-btn other-section strst"
+                  onClick={() => navigate("/start-assesement")}
+                >
                   {" "}
                   Start Assessment
                   <img src={bttnarrowhite} alt="arrow" />

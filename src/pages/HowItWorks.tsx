@@ -5,18 +5,13 @@ import logo from "../assets/images/logo.png";
 import bttnarrow from "../assets/images/btton-arrow.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
 import Sun from "../assets/images/icon/sun-red.svg";
 import halfSun from "../assets/images/icon/half-s.svg";
 import batt from "../assets/images/icon/batt.svg";
 import money from "../assets/images/icon/money-bag.svg";
 
-
-
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
 
 function HowItWorks() {
   const [open, setOpen] = useState(false);
@@ -49,16 +44,13 @@ function HowItWorks() {
           <div className="overlay"></div>
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
-
-
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-
-              <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <nav
+                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+              >
                 <div className="container-fluid px-lg-4 px-3">
-
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
@@ -66,20 +58,20 @@ function HowItWorks() {
                   </Link>
 
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-
-                  <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
                         <Link
@@ -93,7 +85,7 @@ function HowItWorks() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/assesement-result"
+                          to="/sample-results"
                           onClick={() => setOpen(false)}
                         >
                           Sample Results
@@ -102,7 +94,7 @@ function HowItWorks() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/"
+                          to="/who-its-for"
                           onClick={() => setOpen(false)}
                         >
                           Who It's For
@@ -120,11 +112,8 @@ function HowItWorks() {
                           <img src={bttnarrow} alt="arrow" />
                         </button>
                       </li>
-
-
                     </ul>
                   </div>
-
                 </div>
               </nav>
               <div className="nav-bottom-section row align-items-center home-page">
@@ -134,13 +123,12 @@ function HowItWorks() {
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Solarvy turns your bill, appliance data, or custom equipment inputs into a clear energy plan. It combines technical and financial logic so users can understand what system they need and what value it is likely to deliver.
+                    Solarvy turns your bill, appliance data, or custom equipment
+                    inputs into a clear energy plan. It combines technical and
+                    financial logic so users can understand what system they
+                    need and what value it is likely to deliver.
                   </p>
-
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -148,24 +136,19 @@ function HowItWorks() {
 
         <section className="container ">
           <div className="row align-items-start">
-
             <div className="col-lg-12">
-
               <div className="first-secion ">
                 <div className="process-section text-center">
                   <h2 className="process-title">The Process</h2>
                   <p className="process-subtitle">
                     Understand the full journey at a glance — from your first
-                    input
-
-                    to a clear energy plan.
+                    input to a clear energy plan.
                   </p>
                 </div>
 
                 <div className="row g-3 ">
                   <div className="container ">
                     <div className="row py-4 g-4">
-
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -180,14 +163,13 @@ function HowItWorks() {
                             </h6>
 
                             <p className="desc mt-1">
-                              Provide your location, electricity bill, appliances,
-                              or custom equipment so Solarvy understands your
-                              building and energy usage.
+                              Provide your location, electricity bill,
+                              appliances, or custom equipment so Solarvy
+                              understands your building and energy usage.
                             </p>
                           </div>
                         </div>
                       </div>
-
 
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
@@ -203,9 +185,9 @@ function HowItWorks() {
                             </h6>
 
                             <p className="desc">
-                              Solarvy models demand, local solar potential, system
-                              performance, and the likely cost implications of
-                              different energy paths.
+                              Solarvy models demand, local solar potential,
+                              system performance, and the likely cost
+                              implications of different energy paths.
                             </p>
                           </div>
                         </div>
@@ -233,7 +215,6 @@ function HowItWorks() {
                         </div>
                       </div>
 
-
                       <div className="col-md-3">
                         <div className="next-card text-center text-md-start">
                           <div className="d-flex align-items-center mb-3">
@@ -242,7 +223,6 @@ function HowItWorks() {
 
                           <div className="card-content">
                             <h6 className="title-cardss">
-
                               <strong className="rang-heads">
                                 Get your plan
                               </strong>
@@ -250,8 +230,8 @@ function HowItWorks() {
 
                             <p className="desc">
                               Receive system sizing, indicative cost, savings,
-                              payback, and next steps including report download or
-                              installer quotes.{" "}
+                              payback, and next steps including report download
+                              or installer quotes.{" "}
                             </p>
                           </div>
                         </div>
@@ -260,7 +240,6 @@ function HowItWorks() {
                   </div>
                 </div>
 
-
                 <div>
                   <div className="process-section text-center">
                     <h2 className="process-title">
@@ -268,13 +247,10 @@ function HowItWorks() {
                     </h2>
                     <p className="process-subtitle">
                       Powerful modelling and financial logic work together to
-                      deliver
-
-                      actionable results.
+                      deliver actionable results.
                     </p>
                   </div>
                   <div className="row d-flex">
-
                     <div className="col-12 col-md-6">
                       <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
                         <div className="icon-box-maony me-3 mb-3">
@@ -285,23 +261,31 @@ function HowItWorks() {
                             Technical modelling Financial Summary
                           </h5>
                           <small className="text-muted">
-                            Solarvy uses structured energy logic to estimate system size, expected generation, battery support, and performance under real operating conditions.
+                            Solarvy uses structured energy logic to estimate
+                            system size, expected generation, battery support,
+                            and performance under real operating conditions.
                           </small>
                         </div>
                         <div className="feature-list">
                           <div className="feature-item">
                             <span className="dot-blue"></span>
-                            <span className="dots-texts">Bill-based or appliance-based estimation</span>
+                            <span className="dots-texts">
+                              Bill-based or appliance-based estimation
+                            </span>
                           </div>
 
                           <div className="feature-item">
                             <span className="dot-blue"></span>
-                            <span className="dots-texts">Solar and hybrid system sizing</span>
+                            <span className="dots-texts">
+                              Solar and hybrid system sizing
+                            </span>
                           </div>
 
                           <div className="feature-item">
                             <span className="dot-blue"></span>
-                            <span className="dots-texts">Simple energy strategy comparison</span>
+                            <span className="dots-texts">
+                              Simple energy strategy comparison
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -317,36 +301,38 @@ function HowItWorks() {
                             Financial outputs
                           </h5>
                           <small className="text-muted">
-                            The platform translates technical results into decision-friendly outputs so users can understand whether a solution is <br />
+                            The platform translates technical results into
+                            decision-friendly outputs so users can understand
+                            whether a solution is <br />
                             commercially attractive.
                           </small>
                         </div>
                         <div className="feature-list-orange">
                           <div className="feature-item">
                             <span className="dot-orange"></span>
-                            <span className="dots-texts">Indicative system cost</span>
+                            <span className="dots-texts">
+                              Indicative system cost
+                            </span>
                           </div>
 
                           <div className="feature-item">
                             <span className="dot-orange"></span>
-                            <span className="dots-texts">Estimated savings</span>
+                            <span className="dots-texts">
+                              Estimated savings
+                            </span>
                           </div>
 
                           <div className="feature-item">
                             <span className="dot-orange"></span>
-                            <span className="dots-texts">Simple payback and value indicators</span>
+                            <span className="dots-texts">
+                              Simple payback and value indicators
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div></div>
-
-
-
-
-
-
-
+                  </div>
+                </div>
 
                 <div className="process-section text-center mt-4">
                   <h2 className="process-title">
@@ -354,14 +340,11 @@ function HowItWorks() {
                   </h2>
                   <p className="process-subtitle">
                     Solarvy is not just another basic solar calculator — it's
-
                     designed for the realities of West African energy.
-
                   </p>
                 </div>
 
                 <div className="row d-flex  mb-5">
-
                   <div className="col-12 col-md-4">
                     <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
                       <div className="icon-box-sun mb-3">
@@ -372,9 +355,11 @@ function HowItWorks() {
                           Grid + generator + solar logic
                         </h5>
                         <small className="text-muted">
-                          Designed for environments where power is not always stable and hybrid systems are a practical necessity. </small>
+                          Designed for environments where power is not always
+                          stable and hybrid systems are a practical
+                          necessity.{" "}
+                        </small>
                       </div>
-
                     </div>
                   </div>
 
@@ -388,10 +373,10 @@ function HowItWorks() {
                           Homes and businesses
                         </h5>
                         <small className="text-muted">
-                          Useful for residential users, SMEs, and facilities with more demanding energy and reliability needs.
+                          Useful for residential users, SMEs, and facilities
+                          with more demanding energy and reliability needs.
                         </small>
                       </div>
-
                     </div>
                   </div>
 
@@ -405,16 +390,14 @@ function HowItWorks() {
                           Clear decision support
                         </h5>
                         <small className="text-muted">
-                          Moves beyond simple panel-counting to show practical options, cost implications, and next steps.
+                          Moves beyond simple panel-counting to show practical
+                          options, cost implications, and next steps.
                         </small>
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </section>

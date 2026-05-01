@@ -33,23 +33,19 @@ function SampleResults() {
   }, []);
 
   return (
-
     <div>
       <div className="full-body-color">
         <section className="hero d-flex align-items-center ass-bannr ">
           <div className="overlay"></div>
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
-
-
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-
-              <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <nav
+                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+              >
                 <div className="container-fluid px-lg-4 px-3">
-
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
@@ -57,20 +53,20 @@ function SampleResults() {
                   </Link>
 
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-
-                  <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
                         <Link
@@ -84,7 +80,7 @@ function SampleResults() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/assesement-result"
+                          to="/sample-results"
                           onClick={() => setOpen(false)}
                         >
                           Sample Results
@@ -93,7 +89,7 @@ function SampleResults() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/"
+                          to="/who-its-for"
                           onClick={() => setOpen(false)}
                         >
                           Who It's For
@@ -111,11 +107,8 @@ function SampleResults() {
                           <img src={bttnarrow} alt="arrow" />
                         </button>
                       </li>
-
-
                     </ul>
                   </div>
-
                 </div>
               </nav>
               <div className="nav-bottom-section row align-items-center">
@@ -125,14 +118,11 @@ function SampleResults() {
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    This page shows the kind of output Solarvy can generate after a user completes the
-                    assessment. It should make the product feel real, practical, and worth trying.
+                    This page shows the kind of output Solarvy can generate
+                    after a user completes the assessment. It should make the
+                    product feel real, practical, and worth trying.
                   </p>
-
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -140,23 +130,17 @@ function SampleResults() {
 
         <section className="container ">
           <div className="row g-4 align-items-start">
-
             <div className="col-lg-6">
-
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-
                 <div className="d-flex align-items-center mb-2">
-
                   <div>
                     <h5 className="fw-bold mb-1 rang-head">
                       Example project summary
                     </h5>
-
                   </div>
                 </div>
 
                 <div className="row">
-
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Location</span>
@@ -187,25 +171,22 @@ function SampleResults() {
               </div>
             </div>
             <div className="col-lg-6">
-
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
-
                 <div className="d-flex align-items-center mb-2">
-
                   <div>
                     <h5 className="fw-bold mb-1 rang-head">
                       Recommended system
                     </h5>
-
                   </div>
                 </div>
 
                 <div className="row">
-
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
                       <span className="rang-name">Optimal strategy</span>
-                      <strong className="rang-head">Hybrid solar + battery</strong>
+                      <strong className="rang-head">
+                        Hybrid solar + battery
+                      </strong>
                     </div>
 
                     <div className="summary-row d-flex justify-content-between">
@@ -230,37 +211,26 @@ function SampleResults() {
                           Recommended
                         </span>
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
             </div>
-
           </div>
         </section>
-
 
         <section className="container py-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">Result dashboard</h2>
               <p className="dashboard-subtitle">
-                A simple overview of your system size, costs, savings, and expected impact.
+                A simple overview of your system size, costs, savings, and
+                expected impact.
               </p>
             </div>
 
             <div className="container my-2">
               <div className="row g-3">
-
                 <div className="col-12 col-sm-6 col-lg-3">
                   <div className="dashboard-card">
                     <p className="card-title">ESTIMATED COST</p>
@@ -292,7 +262,6 @@ function SampleResults() {
                     <p className="card-sub">Estimated</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -300,29 +269,21 @@ function SampleResults() {
 
         <section className="container ">
           <div className="row g-4 align-items-stretch">
-
             <div className="col-lg-6 d-flex">
-
-
               <div className="p-4 shadow-sm rounded-4 ass-first mt-4 w-100 h-100">
-
                 <div className="d-flex align-items-center mb-4">
-
                   <div>
                     <h5 className="fw-bold mb-1 rang-head">Energy mix</h5>
                     <small className="text-muted">
-                      This shows how solar, grid, and generator power work together to supply your energy.
+                      This shows how solar, grid, and generator power work
+                      together to supply your energy.
                     </small>
                   </div>
                 </div>
 
                 <div className="row">
-
-
-
                   <div className="col-md-12  mt-4 mt-md-0">
                     <h6 className="left-rang fw-bold mb-3">% Energy Impact</h6>
-
 
                     <div className="mb-3">
                       <div className="d-flex justify-content-between">
@@ -350,10 +311,11 @@ function SampleResults() {
                       </div>
                     </div>
 
-
                     <div>
                       <div className="d-flex justify-content-between">
-                        <span className="rang-name">Generator contribution</span>
+                        <span className="rang-name">
+                          Generator contribution
+                        </span>
                         <strong className="per-rang">15%</strong>
                       </div>
                       <div className="progress custom-progress">
@@ -366,35 +328,34 @@ function SampleResults() {
                   </div>
                 </div>
               </div>
-
             </div>
             <div className="col-lg-6 d-flex">
-
-              <div className="p-4 shadow-sm rounded-4 ass-first  mt-4 w-100 h-100" >
-
+              <div className="p-4 shadow-sm rounded-4 ass-first  mt-4 w-100 h-100">
                 <div className="d-flex align-items-center mb-2">
-
                   <div>
                     <h5 className="fw-bold mb-1 rang-head">
                       Financial summary
                     </h5>
                     <small className="text-muted">
-                      See how your energy costs change with the recommended setup.
+                      See how your energy costs change with the recommended
+                      setup.
                     </small>
-
                   </div>
                 </div>
 
                 <div className="row">
-
                   <div className="">
                     <div className="summary-row d-flex justify-content-between">
-                      <span className="rang-name">Current annual energy cost</span>
+                      <span className="rang-name">
+                        Current annual energy cost
+                      </span>
                       <strong className="rang-head">NGN 14.0m</strong>
                     </div>
 
                     <div className="summary-row d-flex justify-content-between">
-                      <span className="rang-name">Projected annual energy cost</span>
+                      <span className="rang-name">
+                        Projected annual energy cost
+                      </span>
                       <strong className="rang-head">NGN 7.0m</strong>
                     </div>
 
@@ -407,21 +368,10 @@ function SampleResults() {
                       <span className="rang-name">Reliability improvement</span>
                       <strong className="rang-head">High</strong>
                     </div>
-
-
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
             </div>
-
           </div>
         </section>
 
@@ -430,14 +380,14 @@ function SampleResults() {
             <div className="col-12 dashboard-container">
               <h2 className="dashboard-title">Energy strategy comparison</h2>
               <p className="dashboard-subtitle">
-                This helps you quickly your options and see which one gives you the best<br />
+                This helps you quickly your options and see which one gives you
+                the best
+                <br />
                 results.
               </p>
             </div>
 
-
             <div className="col-12 mb-4">
-
               <div className="custom-table">
                 <table>
                   <thead>
@@ -488,20 +438,13 @@ function SampleResults() {
                       <td className="strong text-color-b">Very Low</td>
                       <td className="strong text-color-b">4.2 yrs</td>
                     </tr>
-
                   </tbody>
                 </table>
               </div>
-
-
             </div>
           </div>
         </section>
-
       </div>
-
-
-
     </div>
   );
 }

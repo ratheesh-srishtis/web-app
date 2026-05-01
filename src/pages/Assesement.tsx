@@ -39,7 +39,10 @@ function Assesement() {
   const [selected, setSelected] = useState(1);
   const [selectedProperty, setSelectedProperty] = useState(1);
   const [selectedPower, setSelectedPower] = useState(1);
-  const [active, setActive] = useState("bill");
+  const [inputMethod, setInputMethod] = useState<
+    "bill" | "appliance" | "custom"
+  >("bill");
+  const [selectedObjectiveId, setSelectedObjectiveId] = useState("bill");
   const handleToggle = () => {
     if (window.innerWidth < 768) {
       setOpen(!open);
@@ -257,23 +260,36 @@ function Assesement() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
+  const summaryAssessmentPathTitle =
+    inputMethod === "bill"
+      ? "Bill"
+      : inputMethod === "appliance"
+        ? "Appliance"
+        : "Custom";
 
+  const summaryFirstMetricLabel =
+    inputMethod === "bill" ? "MONTHLY USAGE" : "Daily Energy";
+  const summaryFirstMetricUnit =
+    inputMethod === "bill" ? "kWh/month" : "kWh/day";
+
+  const summarySecondMetricLabel =
+    inputMethod === "bill" ? "ESTIMATED ANNUAL LOAD" : "Monthly Energy";
+  const summarySecondMetricValue = inputMethod === "bill" ? "N200,000" : "1.9";
+
+  return (
     <div>
       <div className="full-body-color">
         <section className="hero d-flex align-items-center ass-bannr py-4">
           <div className="overlay"></div>
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
-
-
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-
-              <nav className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}>
+              <nav
+                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
+              >
                 <div className="container-fluid px-lg-4 px-3">
-
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
@@ -281,20 +297,20 @@ function Assesement() {
                   </Link>
 
                   <Link
-                    to="/Home"
+                    to="/"
                     onClick={() => window.scrollTo(0, 0)}
                     className="navbar-brand text-white fw-bold"
                   >
                     <img src={logo} alt="logo" className="mbile-size" />
                   </Link>
 
-
                   <button onClick={handleToggle} className="navbar-toggler">
                     <span className="navbar-toggler-icon"></span>
                   </button>
 
-
-                  <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
                     <ul className="navbar-nav ms-auto align-items-md-center gap-3">
                       <li className="nav-item">
                         <Link
@@ -308,7 +324,7 @@ function Assesement() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/assesement-result"
+                          to="/sample-results"
                           onClick={() => setOpen(false)}
                         >
                           Sample Results
@@ -317,7 +333,7 @@ function Assesement() {
                       <li className="nav-item">
                         <Link
                           className="nav-link text-white"
-                          to="/"
+                          to="/who-its-for"
                           onClick={() => setOpen(false)}
                         >
                           Who It's For
@@ -335,11 +351,8 @@ function Assesement() {
                           <img src={bttnarrow} alt="arrow" />
                         </button>
                       </li>
-
-
                     </ul>
                   </div>
-
                 </div>
               </nav>
               <div className="nav-bottom-section row align-items-center">
@@ -352,11 +365,7 @@ function Assesement() {
                     Plan the right solar, battery, and hybrid system for your
                     building. Enter your details and get an instant estimate.
                   </p>
-
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -364,10 +373,8 @@ function Assesement() {
 
         <section className="container py-4">
           <div className="row g-4 align-items-start">
-
             <div className="col-lg-8">
               <div className="p-4 shadow-sm rounded-4 ass-first">
-
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">1</div>
                   <div>
@@ -375,11 +382,11 @@ function Assesement() {
                       Building Information
                     </h5>
                     <p className="text-muted small mb-0 para-ass">
-                      Tell us about your property so we can tailor the assessment.
+                      Tell us about your property so we can tailor the
+                      assessment.
                     </p>
                   </div>
                 </div>
-
 
                 <div className="row g-3 mb-3">
                   {propertyOptions.map((item) => (
@@ -390,7 +397,11 @@ function Assesement() {
                       >
                         <div className="d-flex align-items-start gap-3">
                           <div className="icon-box-tops">
-                            <img src={item.icon} alt="icon" className="mobile-iconssss" />
+                            <img
+                              src={item.icon}
+                              alt="icon"
+                              className="mobile-iconssss"
+                            />
                           </div>
 
                           <div>
@@ -411,9 +422,7 @@ function Assesement() {
                   ))}
                 </div>
 
-
                 <div className="row g-3 ">
-
                   <div className="col-md-6">
                     <label className="form-label small fw-bold ass-bold">
                       COUNTRY
@@ -431,11 +440,8 @@ function Assesement() {
                     </select>
                   </div>
 
-
                   <div className="col-md-6">
-                    <label className="form-label small fw-bold ass-bold">
-
-                    </label>
+                    <label className="form-label small fw-bold ass-bold"></label>
                     <input
                       type="text"
                       name="city"
@@ -449,7 +455,6 @@ function Assesement() {
               </div>
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">2</div>
                   <div>
@@ -457,7 +462,8 @@ function Assesement() {
                       Current Power Setup
                     </h5>
                     <p className="text-muted small mb-0 para-ass">
-                      This helps us understand your current energy infrastructure.
+                      This helps us understand your current energy
+                      infrastructure.
                     </p>
                   </div>
                 </div>
@@ -486,7 +492,9 @@ function Assesement() {
                         </div>
 
                         <div className="radio-circle ms-auto">
-                          {selectedPower === item.id && <div className="radio-dot"></div>}
+                          {selectedPower === item.id && (
+                            <div className="radio-dot"></div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -494,7 +502,6 @@ function Assesement() {
                 ))}
               </div>
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                 <div className="d-flex align-items-center">
                   <div className="step-box me-3">3</div>
                   <div>
@@ -508,17 +515,21 @@ function Assesement() {
                 </div>
 
                 <div className="container mt-2 p-1">
-
                   <div className=" row">
                     {options.map((item) => (
                       <div className="col-md-4" key={item.id}>
                         <div
-                          className={`option-card  ${active === item.id ? "active" : ""
-                            }`}
-                          onClick={() => setActive(item.id)}
+                          className={`option-card  ${
+                            inputMethod === item.id ? "active" : ""
+                          }`}
+                          onClick={() =>
+                            setInputMethod(
+                              item.id as "bill" | "appliance" | "custom",
+                            )
+                          }
                         >
                           <div className="d-flex align-items-start">
-                            <div className="icon-box-topss me-2" >
+                            <div className="icon-box-topss me-2">
                               <img src={item.icon} />
                             </div>
 
@@ -531,7 +542,7 @@ function Assesement() {
                               </p>
                             </div>
 
-                            {active === item.id && (
+                            {inputMethod === item.id && (
                               <div className="check-icon">✔</div>
                             )}
                           </div>
@@ -542,12 +553,9 @@ function Assesement() {
                 </div>
               </div>
 
-
-              {active === "bill" && (
+              {inputMethod === "bill" && (
                 <div className="monthbill-section-tab-1">
-
                   <div className="row mt-2 g-3">
-
                     <div className="col-md-6">
                       <label className="mb-2 fw-semibold ass-hedss">
                         Upload Bill (optional)
@@ -563,9 +571,10 @@ function Assesement() {
                       </div>
                     </div>
 
-
                     <div className="col-md-6">
-                      <label className="mb-2 fw-semibold ass-hedss">Notes</label>
+                      <label className="mb-2 fw-semibold ass-hedss">
+                        Notes
+                      </label>
                       <textarea
                         className="form-control notes-box ass-text-area"
                         placeholder="Any additional notes about the site, bill pattern, or load profile..."
@@ -574,10 +583,13 @@ function Assesement() {
                   </div>
 
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                     <div className="d-flex align-items-center mb-3">
-                      <div className="step-box me-3"
-                        style={{ position: "relative", top: "0px" }} >4</div>
+                      <div
+                        className="step-box me-3"
+                        style={{ position: "relative", top: "0px" }}
+                      >
+                        4
+                      </div>
                       <div>
                         <h5 className="fw-bold mb-1 heading-ass">
                           Bill information
@@ -586,7 +598,6 @@ function Assesement() {
                     </div>
 
                     <div className="container mt-4">
-
                       <div className="row g-3">
                         <div className="col-md-6">
                           <label className="form-label">
@@ -620,7 +631,9 @@ function Assesement() {
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">GRID TARIFF PER KWH</label>
+                          <label className="form-label">
+                            GRID TARIFF PER KWH
+                          </label>
                           <input
                             type="text"
                             className="form-control custom-input"
@@ -654,12 +667,9 @@ function Assesement() {
                 </div>
               )}
 
-
-
-              {active === "appliance" && (
+              {inputMethod === "appliance" && (
                 <div className="Appliance Calculator-section-tab-2">
                   <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                     <div className="d-flex align-items-center mb-3">
                       <div className="step-box me-3">4</div>
                       <div>
@@ -667,9 +677,9 @@ function Assesement() {
                           Appliance Calculator
                         </h5>
                         <p className="text-muted small mb-0 para-ass">
-                          Add your typical appliances to estimate your daily energy
-                          use. This is the easiest way if you don't know your
-                          kWh.{" "}
+                          Add your typical appliances to estimate your daily
+                          energy use. This is the easiest way if you don't know
+                          your kWh.{" "}
                         </p>
                       </div>
                     </div>
@@ -693,12 +703,15 @@ function Assesement() {
                                     <img src={item.icon} alt="icon" />
                                   </div>
 
-
                                   <select
                                     className="form-select border-0 first-table"
                                     value={item.name}
                                     onChange={(e) =>
-                                      handleRowChange(index, "name", e.target.value)
+                                      handleRowChange(
+                                        index,
+                                        "name",
+                                        e.target.value,
+                                      )
                                     }
                                   >
                                     {applianceOptions.map((opt, i) => (
@@ -757,7 +770,11 @@ function Assesement() {
 
                                 <td className="col-md-2 text-center">
                                   <div className="inputs-text-bluess">
-                                    {calculateKwh(item.qty, item.hours, item.power)}
+                                    {calculateKwh(
+                                      item.qty,
+                                      item.hours,
+                                      item.power,
+                                    )}
                                   </div>
                                 </td>
                               </tr>
@@ -770,13 +787,14 @@ function Assesement() {
                 </div>
               )}
 
-              {active === "custom" && (
+              {inputMethod === "custom" && (
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                   <div className="d-flex align-items-center mb-3">
                     <div className="step-box me-3">4</div>
                     <div>
-                      <h5 className="fw-bold mb-1 heading-ass">Custom Equipment</h5>
+                      <h5 className="fw-bold mb-1 heading-ass">
+                        Custom Equipment
+                      </h5>
                       <p className="text-muted small mb-0 para-ass">
                         Upload information to match custom equipment.
                       </p>
@@ -784,7 +802,6 @@ function Assesement() {
                   </div>
 
                   <div className="mt-4">
-
                     <div className="table-container">
                       <table className="appliance-table">
                         <thead>
@@ -800,17 +817,23 @@ function Assesement() {
                         <tbody>
                           {rows.map((item, index) => (
                             <tr key={index}>
-                              <td className="appliance-cell py-2" style={{ minWidth: "180px" }}>
+                              <td
+                                className="appliance-cell py-2"
+                                style={{ minWidth: "180px" }}
+                              >
                                 <div className="tables-icon-box-custom">
                                   <img src={item.icon} alt="icon" />
                                 </div>
-
 
                                 <select
                                   className="form-select border-0 first-table"
                                   value={item.name}
                                   onChange={(e) =>
-                                    handleRowChange(index, "name", e.target.value)
+                                    handleRowChange(
+                                      index,
+                                      "name",
+                                      e.target.value,
+                                    )
                                   }
                                 >
                                   {applianceOptionssecond.map((opt, i) => (
@@ -884,13 +907,16 @@ function Assesement() {
 
                               <td className="col-md-2 text-center">
                                 <div className="inputs-text-bluess">
-                                  {calculateKwh(item.qty, item.hours, item.power)}
+                                  {calculateKwh(
+                                    item.qty,
+                                    item.hours,
+                                    item.power,
+                                  )}
                                 </div>
                               </td>
                             </tr>
                           ))}
                         </tbody>
-
                       </table>
                     </div>
 
@@ -898,16 +924,12 @@ function Assesement() {
                       <button className="dashed-btn">
                         <span className="plus">+</span> Add Equipment
                       </button>
-
-
                     </div>
                   </div>
                 </div>
               )}
 
-
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
-
                 <div className="d-flex align-items-center mb-3">
                   <div className="step-box me-3">5</div>
                   <div>
@@ -915,13 +937,13 @@ function Assesement() {
                       Site and Goal Inputs
                     </h5>
                     <p className="text-muted small mb-0 para-ass">
-                      These details improve the recommendation without o
+                      These details improve the recommendation without
+                      overwhelming you
                     </p>
                   </div>
                 </div>
 
                 <div className="container mt-4">
-
                   <div className="row g-3">
                     <div className="col-md-6">
                       <label className="form-label">ROOF AREA</label>
@@ -956,12 +978,13 @@ function Assesement() {
                     {Objectiveoptions.map((item) => (
                       <div className="col-md-4" key={item.id}>
                         <div
-                          className={`option-card  ${active === item.id ? "active" : ""
-                            }`}
-                          onClick={() => setActive(item.id)}
+                          className={`option-card  ${
+                            selectedObjectiveId === item.id ? "active" : ""
+                          }`}
+                          onClick={() => setSelectedObjectiveId(item.id)}
                         >
                           <div className="d-flex align-items-start">
-                            <div className="icon-box-topsss me-2 " >
+                            <div className="icon-box-topsss me-2 ">
                               <img src={item.icon} alt="icon" />
                             </div>
 
@@ -974,7 +997,7 @@ function Assesement() {
                               </p>
                             </div>
 
-                            {active === item.id && (
+                            {selectedObjectiveId === item.id && (
                               <div className="check-icon">✔</div>
                             )}
                           </div>
@@ -986,7 +1009,6 @@ function Assesement() {
               </div>
 
               <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
-
                 <button className="btn-primary-custom calu">
                   <span className="icon-sun">
                     <img src={sunone} alt="icon" />
@@ -997,7 +1019,6 @@ function Assesement() {
                   </span>
                 </button>
 
-
                 <button className="btn-outline-custom2 calu-2">
                   <span className="icon-sun">
                     <img src={save} alt="icon" />
@@ -1007,10 +1028,8 @@ function Assesement() {
               </div>
             </div>
 
-
             <div className="col-lg-4">
               <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
-
                 <div className="botton-line mb-4">
                   <div className="step-item active">
                     <span className="step-circle">✔</span>
@@ -1028,7 +1047,6 @@ function Assesement() {
                   </div>
                 </div>
 
-
                 <div className="row g-3">
                   <div className="col-6">
                     <div className="stat-card text-center">
@@ -1037,9 +1055,9 @@ function Assesement() {
                       </div>
                       <h5 className="asst-h">11.3</h5>
                       <div className="usage-wrapper">
-                        <small>kWh/month</small>
+                        <small>{summaryFirstMetricUnit}</small>
                         <small>
-                          <b>MONTHLY USAGE</b>
+                          <b>{summaryFirstMetricLabel}</b>
                         </small>
                       </div>
                     </div>
@@ -1050,11 +1068,11 @@ function Assesement() {
                       <div className="icon-box-build-right  mb-2">
                         <img src={buletwo} alt="icon" />
                       </div>
-                      <h5 className="asst-h">340</h5>
+                      <h5 className="asst-h">{summarySecondMetricValue}</h5>
                       <div className="usage-wrapper">
-                        <small>kWh/month</small>
+                        {inputMethod !== "bill" && <small>kWh/month</small>}
                         <small>
-                          <b>ESTIMATED ANNUAL LOAD</b>
+                          <b>{summarySecondMetricLabel}</b>
                         </small>
                       </div>
                     </div>
@@ -1077,7 +1095,7 @@ function Assesement() {
                       <div className="icon-box-build-right mb-2">
                         <img src={bulethree} alt="icon" />
                       </div>
-                      <h5 className="asst-h">Bill</h5>
+                      <h5 className="asst-h">{summaryAssessmentPathTitle}</h5>
                       <small>
                         <b>ASSESSMENT PATH</b>
                       </small>
@@ -1092,9 +1110,9 @@ function Assesement() {
                   </div>
 
                   <p className="summary-desc">
-                    Solarvy updates your estimated energy and system size in real
-                    time as you enter information. These values form the basis for
-                    your solar, battery, and hybrid recommendations.
+                    Solarvy updates your estimated energy and system size in
+                    real time as you enter information. These values form the
+                    basis for your solar, battery, and hybrid recommendations.
                   </p>
                 </div>
               </div>
