@@ -22,13 +22,14 @@ import whitearrow from "../assets/images/icon/w-arror.svg";
 import { Battery } from "lucide-react";
 
 function AssesementResult() {
-  const [open, setOpen] = useState(false);
+ 
+
+      const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const handleToggle = () => {
-    if (window.innerWidth < 768) {
-      setOpen(!open);
-    }
-  };
+const handleToggle = () => {
+  setOpen(!open);
+};
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -45,6 +46,18 @@ function AssesementResult() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 992) {
+      setOpen(false); // reset menu on desktop
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
   return (
     <div>
       <div className="full-body-color">
@@ -53,88 +66,81 @@ function AssesementResult() {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-              <nav
-                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
-              >
-                <div className="container-fluid px-lg-4 px-3">
-                  <Link
-                    to="/"
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="navbar-brand text-white fw-bold"
-                  >
-                    <img src={logo} alt="logo" className="normal-sizee" />
-                  </Link>
+               <div className="solar-top-navbar">
 
-                  <Link
-                    to="/"
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="navbar-brand text-white fw-bold"
-                  >
-                    <img src={logo} alt="logo" className="mbile-size" />
-                  </Link>
+            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
 
-                  <button onClick={handleToggle} className="navbar-toggler">
-                    <span className="navbar-toggler-icon"></span>
-                  </button>
+              <Link className="navbar-brand" to="/">
+                <img
+                  src={logo}
+                  alt="logo"
+                  className="solar-logo-img"
+                />
+              </Link>
 
-                  <div
-                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
-                  >
-                    <ul className="navbar-nav ms-auto align-items-md-center gap-3">
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/how-it-works"
-                          onClick={() => setOpen(false)}
-                        >
-                          How It Works
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/sample-results"
-                          onClick={() => setOpen(false)}
-                        >
-                          Sample Results
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/who-its-for"
-                          onClick={() => setOpen(false)}
-                        >
-                          Who It's For
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <button
-                          className="custom-btn "
-                          onClick={() => {
-                            navigate("/start-assesement");
-                          }}
-                        >
-                          {" "}
-                          Start Assessment
-                          <img src={bttnarrow} alt="arrow" />
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-              <div className="nav-bottom-section row align-items-center home-page">
+ <button
+  className="navbar-toggler"
+  type="button"
+  onClick={handleToggle}
+>
+  <span className="navbar-toggler-icon"></span>
+</button>
+
+         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+
+                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+
+                  <li className="nav-item">
+              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
+  How It Works
+</Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/sample-results">
+                      Sample Results
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/who-its-for">
+                      Who It's For
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+
+                    <button
+                      className="solar-nav-btn"
+                      onClick={() => navigate("/start-assesement")}
+                    >
+
+                      Start Assessment
+
+                      <img
+                        src={bttnarrow}
+                        alt="arrow"
+                      />
+
+                    </button>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </nav>
+
+          </div>
+              <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                    Your Preliminary Energy System <br />
-                    Recommendation
+                Your preliminary energy  system recommendation
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Based on the information entered, Solarvy estimates the most
-                    suitable solar, battery, and inverter configuration,
-                    together with indicative savings and payback.
+                    Based on the information entered, Solarvy estimates the most suitable solar, battery, and inverter configuration, together with indicative savings and payback.
                   </p>
                 </div>
               </div>

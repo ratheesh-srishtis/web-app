@@ -22,11 +22,9 @@ import { useEffect } from "react";
 function Home() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const handleToggle = () => {
-    if (window.innerWidth < 768) {
-      setOpen(!open);
-    }
-  };
+const handleToggle = () => {
+  setOpen(!open);
+};
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -44,144 +42,164 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 992) {
+      setOpen(false); // reset menu on desktop
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
   return (
-    <div>
-      <section className="hero d-flex align-items-center">
-        <div className="overlay"></div>
+    <div className="menu-div ">
+      <section className="solar-hero-section">
 
-        <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div">
-          <div className="row align-items-start text-divs gx-3 gx-lg-4">
-            <nav
-              className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
-            >
-              <div className="container-fluid px-lg-4 px-3">
-                <Link
-                  to="/"
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="navbar-brand text-white fw-bold"
-                >
-                  <img src={logo} alt="logo" className="normal-sizee" />
-                </Link>
+        <div className="solar-hero-overlay"></div>
 
-                <Link
-                  to="/"
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="navbar-brand text-white fw-bold"
-                >
-                  <img src={logo} alt="logo" className="mbile-size" />
-                </Link>
+        <div className="container-fluid solar-hero-wrapper">
 
-                <button onClick={handleToggle} className="navbar-toggler">
-                  <span className="navbar-toggler-icon"></span>
-                </button>
 
-                <div
-                  className={`collapse navbar-collapse ${open ? "show" : ""}`}
-                >
-                  <ul className="navbar-nav ms-auto align-items-md-center gap-3">
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link text-white"
-                        to="/how-it-works"
-                        onClick={() => setOpen(false)}
-                      >
-                        How It Works
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link text-white"
-                        to="/sample-results"
-                        onClick={() => setOpen(false)}
-                      >
-                        Sample Results
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link text-white"
-                        to="/who-its-for"
-                        onClick={() => setOpen(false)}
-                      >
-                        Who It's For
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <button
-                        className="custom-btn "
-                        onClick={() => {
-                          navigate("/start-assesement");
-                        }}
-                      >
-                        {" "}
-                        Start Assessment
-                        <img src={bttnarrow} alt="arrow" />
-                      </button>
-                    </li>
-                  </ul>
-                </div>
+
+          <div className="solar-top-navbar">
+
+            <nav className={`navbar navbar-expand-md  ${scrolled ? "scrolled" : ""}`}>
+
+              <Link className="navbar-brand" to="/">
+                <img
+                  src={logo}
+                  alt="logo"
+                  className="solar-logo-img"
+                />
+              </Link>
+
+<button
+  className={`navbar-toggler ${open ? "" : "collapsed"}`}
+  type="button"
+  onClick={handleToggle}
+  aria-expanded={open}
+>
+  <span className="navbar-toggler-icon"></span>
+</button>
+
+       <div className={`collapse navbar-collapse ${open ? "show" : ""} ${window.innerWidth >= 768 ? "show" : ""}`}>
+
+                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+
+                  <li className="nav-item">
+            <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}> How It Works</Link>
+                  </li>
+
+                 <li className="nav-item">
+  <Link className="nav-link" to="/sample-results" onClick={() => setOpen(false)}>
+    Sample Results
+  </Link>
+</li>
+
+<li className="nav-item">
+  <Link className="nav-link" to="/who-its-for" onClick={() => setOpen(false)}>
+    Who It's For
+  </Link>
+</li>
+
+                  <li className="nav-item">
+
+                    <button
+                      className="solar-nav-btn"
+                      onClick={() => navigate("/start-assesement")}
+                    >
+
+                      Start Assessment
+
+                      <img
+                        src={bttnarrow}
+                        alt="arrow"
+                      />
+
+                    </button>
+
+                  </li>
+
+                </ul>
+
               </div>
+
             </nav>
-            <div className="nav-bottom-section row align-items-center home-page">
-              <div className="col-12 col-lg-6 text-white ">
-                <h1 className="bannr-text display-5 ">
-                  Find The Right Solar And <br />
-                  Backup Power System For <br />
-                  Your Building
+
+          </div>
+
+
+          <div className="row solar-main-row align-items-center">
+
+            {/* LEFT SIDE */}
+            <div className="col-12 col-lg-7">
+
+              <div className="solar-left-area">
+
+                {/* TITLE */}
+                <h1 className="solar-main-title">
+                  Find The Right Solar And
+                  <br />
+                  Backup Power System For Your
+                  <br />
+                  Building
                 </h1>
 
-                <p className="bannr-text-s text-light mt-2 mb-5">
+                {/* DESCRIPTION */}
+                <p className="solar-main-desc">
                   Solarvy helps homes and businesses estimate solar size,
-                  battery storage, diesel reduction, savings, and payback before
-                  speaking to installers or committing money.
+                  battery storage, diesel reduction, savings, and payback
+                  before speaking to installers or committing money.
                 </p>
 
-                <div className="d-flex flex-column flex-sm-row gap-3 mt-3">
-                  <button
-                    type="button"
-                    className="custom-btn bann-second"
-                    onClick={() => navigate("/start-assesement")}
-                  >
-                    {" "}
-                    Start Free Assessment
-                    <img src={bttnarrow} alt="arrow" />
-                  </button>
+                {/* BUTTONS */}
+                <div className="solar-action-group">
 
                   <button
-                    type="button"
-                    className="custom-btn-mobile-view"
+                    className="solar-primary-btn"
                     onClick={() => navigate("/start-assesement")}
                   >
-                    {" "}
-                    Start Free Assessment
-                    <img src={bttnarrow} alt="arrow" />
+
+                    <span>Start Free Assessment</span>
+
+                    <img
+                      src={bttnarrow}
+                      alt="arrow"
+                    />
+
                   </button>
 
-                  <a href="#" className="text-light align-self-center">
+                  <a href="#" className="solar-sample-link">
                     See Sample Result
                   </a>
+
                 </div>
+
               </div>
 
-              <div className="col-12 col-lg-5 offset-lg-1 mt-4 mt-lg-0 quit-sec">
-                <div
-                  className="p-4 shadow rounded-4"
-                  style={{
-                    backgroundImage: `url(${quik})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
-                  <h5 className="fw-bold text-center mb-3">
+            </div>
+
+          
+            <div className="col-12 col-lg-5 mt-4 mt-lg-0">
+
+              <div className="solar-form-column">
+
+                <div className="solar-preview-card">
+
+
+                  <h2 className="solar-preview-title">
                     Quick Assessment Preview
-                  </h5>
+                  </h2>
 
                   <div className="row">
                     <div className="col-6">
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
+
                         defaultValue="Select Property"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -195,15 +213,14 @@ function Home() {
                           Commercial Building
                         </option>
                         <option value="hospital clinic">Hospital/Clinic</option>
-                        <option value="school education">
-                          School/Education
-                        </option>
+                        <option value="school education">School/Education</option>
                       </select>
                     </div>
                     <div className="col-6">
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
+
                         defaultValue="Select location"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -215,9 +232,7 @@ function Home() {
                     </div>
                   </div>
 
-                  <label className="quick-lable">
-                    Monthly Electricity Bill
-                  </label>
+                  <label className="quick-lable">Monthly Electricity Bill</label>
                   <input
                     type="text"
                     className="form-control select-text mb-2"
@@ -229,6 +244,7 @@ function Home() {
                       <label className="quick-lable">Power Setup</label>
                       <select
                         className="form-select select-text"
+
                         defaultValue="Select Power Setup"
                         onChange={(e) => {
                           e.target.style.color = "#000";
@@ -257,20 +273,22 @@ function Home() {
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    className="custom-btn other-section d-flex align-items-center justify-content-between w-100"
-                    onClick={() => navigate("/start-assesement")}
-                  >
+                  <button className="custom-btn other-section d-flex align-items-center justify-content-between w-100">
                     {" "}
                     Start Assessment
                     <img src={bttnarrowhite} alt="arrow" />
                   </button>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       <section className="how-it-works py-4">
@@ -338,136 +356,150 @@ function Home() {
         </div>
       </section>
 
-     <section className="d-flex align-items-center bannar-see py-4">
-  <div className="container-fluid px-lg-5 px-3 text-center mb-3">
-    <h1 className="title">See A Sample Energy Assessment</h1>
+      <section className="d-flex align-items-center bannar-see py-4">
+        <div className="container px-lg-5 px-3 text-center mb-3">
+           <h2 className="head-nor">See A Sample Energy Assessment</h2>
 
-    <p className="subtitle">
-      A simple energy decision workflow built around
-      <br />
-      problem-solving, not just calculations.
-    </p>
+          <p className="subtitle mb-4">
+            A simple energy decision workflow built around
+            <br />
+            problem-solving, not just calculations.
+          </p>
 
-    <div className="row g-4">
-      <div className="col-md-6">
-        <div className="card-box d-flex justify-content-between">
-          <span>Location</span>
-          <span className="text-muted text-color">Lagos, Nigeria</span>
-        </div>
+          <div className="row g-4">
+           <div className="col-md-6 d-flex">
+  <div className="left-wrapper w-100">
 
-        <div className="card-box d-flex justify-content-between">
-          <span>Property type</span>
-          <span className="text-muted text-color">Hotel</span>
-        </div>
-
-        <div className="card-box d-flex justify-content-between">
-          <span>Objective</span>
-          <span className="text-muted text-color">Reduce diesel use</span>
-        </div>
-
-        <div className="card-box d-flex justify-content-between">
-          <span>System type</span>
-          <span className="text-muted text-color">
-            Hybrid solar + battery
-          </span>
-        </div>
-      </div>
-
-      <div className="col-md-6">
-        <div className="row g-4">
-          <div className="col-6">
-            <div className="card-boxs text-center">
-              <small>
-                <img src={enery} alt="icon" className="graph-image" />
-                Solar PV
-              </small>
-              <h3>28 kWp</h3>
-              <p>Indicative size</p>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="card-boxs text-center">
-              <small>
-                <img src={enery} alt="icon" className="graph-image" />
-                Battery
-              </small>
-              <h3>40 kWh</h3>
-              <p>Backup storage</p>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="card-boxs text-center">
-              <small>
-                <img src={enery} alt="icon" className="graph-image" />
-                Annual savings
-              </small>
-              <h3>NGN 7.8m</h3>
-              <p>Indicative</p>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="card-boxs text-center">
-              <small>
-                <img src={enery} alt="icon" className="graph-image" />
-                Payback
-              </small>
-              <h3>4.2 yrs</h3>
-              <p>Simple payback</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="card-box d-flex justify-content-between align-items-center">
+      <span>Location</span>
+      <span className="text-muted text-color">Lagos, Nigeria</span>
     </div>
+
+    <div className="card-box d-flex justify-content-between align-items-center">
+      <span>Property type</span>
+      <span className="text-muted text-color">Hotel</span>
+    </div>
+
+    <div className="card-box d-flex justify-content-between align-items-center">
+      <span>Objective</span>
+      <span className="text-muted text-color">Reduce diesel use</span>
+    </div>
+
+    <div className="card-box d-flex justify-content-between align-items-center">
+      <span>System type</span>
+      <span className="text-muted text-color">
+        Hybrid solar + battery
+      </span>
+    </div>
+
   </div>
-</section>
+</div>
 
-   <section className="container-fluid built-cases text-center mb-4 px-lg-5 px-3 ">
-  <h2 className="head-blue">Built for real use cases</h2>
+            <div className="col-md-6 ">
+  <div className="row g-4 w-100 h-100">
 
-  <div className="steps mt-3">
-    <div className="step-s">
-      <div className="image-box">
-        <img src={link} alt="icon" className="boxs-img" />
+    <div className="col-6 d-flex">
+      <div className="card-boxs text-center w-100">
+        <small>
+          <img src={enery} alt="icon" className="graph-image" />
+          Solar PV
+        </small>
+        <h3>28 kWp</h3>
+        <p>Indicative size</p>
       </div>
-
-      <h4 className="head-blue-left">Homes</h4>
-
-      <p className="sub-left">
-        Backup planning, appliance-based load estimation, and residential
-        system sizing.
-      </p>
     </div>
 
-    <div className="step-s">
-      <div className="image-box">
-        <img src={linkone} alt="icon" className="boxs-img" />
+    <div className="col-6 d-flex">
+      <div className="card-boxs text-center w-100">
+        <small>
+          <img src={enery} alt="icon" className="graph-image" />
+          Battery
+        </small>
+        <h3>40 kWh</h3>
+        <p>Backup storage</p>
       </div>
-
-      <h4 className="head-blue-left">Hospitals</h4>
-
-      <p className="sub-left">
-        Critical load planning, resilience, and structured backup
-        recommendations.
-      </p>
     </div>
 
-    <div className="step-s">
-      <div className="image-box">
-        <img src={linktwo} alt="icon" className="boxs-img" />
+    <div className="col-6 d-flex">
+      <div className="card-boxs text-center w-100">
+        <small>
+          <img src={enery} alt="icon" className="graph-image" />
+          Annual savings
+        </small>
+        <h3>NGN 7.8m</h3>
+        <p>Indicative</p>
       </div>
-
-      <h4 className="head-blue-left">Factories</h4>
-
-      <p className="sub-left">
-        Commercial and industrial energy sizing for larger, more valuable
-        projects.
-      </p>
     </div>
+
+    <div className="col-6 d-flex">
+      <div className="card-boxs text-center w-100">
+        <small>
+          <img src={enery} alt="icon" className="graph-image" />
+          Payback
+        </small>
+        <h3>4.2 yrs</h3>
+        <p>Simple payback</p>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="usecase-section py-1">
+        <div className="container-fluid px-lg-5 px-3">
+
+          <h2 className="head-nor">
+            Built for real use cases
+          </h2>
+
+          <div className="row g-4">
+
+            <div className="col-lg-4 col-md-6">
+              <div className="usecase-card">
+                <img src={link} alt="" className="boxs-img" />
+
+                <div className="p-4">
+                  <h4 className="head-blue-left">Homes</h4>
+                  <p className="sub-left">
+                    Backup planning, appliance-based load estimation,
+                    and residential system sizing.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="usecase-card">
+                <img src={linkone} alt="" className="boxs-img"/>
+
+               <div className="p-4">
+                  <h4 className="head-blue-left">Hospitals</h4>
+                  <p className="sub-left">
+                    Critical load planning, resilience, and structured backup recommendations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-md-6">
+              <div className="usecase-card">
+                <img src={linktwo} alt="" className="boxs-img"/>
+
+               <div className="p-4">
+                  <h4 className="head-blue-left">Factories</h4>
+                  <p className="sub-left">
+                  Commercial and industrial energy sizing for larger, more valuable projects.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
       <section>
         <div className="hero-section">
           <div className="overlay-wrapper">

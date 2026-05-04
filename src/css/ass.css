@@ -778,7 +778,11 @@ h1.bannr-text.display-5.ass-page {
 
 nav.navbar.scrolled {
   background: #174c90 !important;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
+  margin: 0 auto;
+  overflow: hidden; /* 🔥 ensures radius is visible */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1034,9 +1038,7 @@ button.btn.btn-outline-custom.btn-start {
   top: -25%;
 }
 
-.menu-div {
-  padding-top: 20px;
-}
+
 
 .text-divs {
   margin-top: 60px;
@@ -1065,7 +1067,7 @@ button.btn.btn-outline-custom.btn-start {
 section.hero.d-flex.align-items-center.ass-bannr {
   height: 100%;
   min-height: 445px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .property-card.active .icon-box {
