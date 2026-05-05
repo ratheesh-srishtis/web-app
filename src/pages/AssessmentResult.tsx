@@ -22,13 +22,11 @@ import whitearrow from "../assets/images/icon/w-arror.svg";
 import { Battery } from "lucide-react";
 
 function AssesementResult() {
- 
-
-      const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-const handleToggle = () => {
-  setOpen(!open);
-};
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -46,17 +44,16 @@ const handleToggle = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 992) {
-      setOpen(false); // reset menu on desktop
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setOpen(false); // reset menu on desktop
+      }
+    };
 
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div>
@@ -66,81 +63,71 @@ const handleToggle = () => {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-               <div className="solar-top-navbar">
+              <div className="solar-top-navbar">
+                <nav
+                  className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}
+                >
+                  <Link className="navbar-brand" to="/">
+                    <img src={logo} alt="logo" className="solar-logo-img" />
+                  </Link>
 
-            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
+                  <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleToggle}
+                  >
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
 
-              <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="solar-logo-img"
-                />
-              </Link>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
+                    <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          to="/how-it-works"
+                          onClick={() => setOpen(false)}
+                        >
+                          How It Works
+                        </Link>
+                      </li>
 
- <button
-  className="navbar-toggler"
-  type="button"
-  onClick={handleToggle}
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/sample-results">
+                          Sample Results
+                        </Link>
+                      </li>
 
-         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/who-its-for">
+                          Who It's For
+                        </Link>
+                      </li>
 
-                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
-
-                  <li className="nav-item">
-              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
-  How It Works
-</Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/sample-results">
-                      Sample Results
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/who-its-for">
-                      Who It's For
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-
-                    <button
-                      className="solar-nav-btn"
-                      onClick={() => navigate("/start-assesement")}
-                    >
-
-                      Start Assessment
-
-                      <img
-                        src={bttnarrow}
-                        alt="arrow"
-                      />
-
-                    </button>
-
-                  </li>
-
-                </ul>
-
+                      <li className="nav-item">
+                        <button
+                          className="solar-nav-btn"
+                          onClick={() => navigate("/start-assesement")}
+                        >
+                          Start Assessment
+                          <img src={bttnarrow} alt="arrow" />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
-
-            </nav>
-
-          </div>
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
-                Your preliminary energy  system recommendation
+                    Your preliminary energy system recommendation
                   </h1>
 
                   <p className="bannr-text-s text-light mt-2 mb-5 ass-page-two">
-                    Based on the information entered, Solarvy estimates the most suitable solar, battery, and inverter configuration, together with indicative savings and payback.
+                    Based on the information entered, Solarvy estimates the most
+                    suitable solar, battery, and inverter configuration,
+                    together with indicative savings and payback.
                   </p>
                 </div>
               </div>
@@ -423,7 +410,7 @@ const handleToggle = () => {
                         <div className="info-badge">2</div>
                         <h6 className="info-title">
                           <i className="bi bi-people me-2"></i>
-                          Request installer quotes
+                          View installer quotes
                         </h6>
                         <p className="info-text">
                           Use the result to match you with installers suited to
@@ -456,11 +443,15 @@ const handleToggle = () => {
                     <span>Download Report</span>
                   </button>
 
-                  <button className="btn-outline-customsss2-req">
+                  <button
+                    type="button"
+                    className="btn-outline-customsss2-req"
+                    onClick={() => navigate("/matched-installers")}
+                  >
                     <span className="icon-get">
                       <img src={save} alt="icon" />
                     </span>
-                    <span>Request Installer Quotes</span>
+                    <span>View Installer Quotes</span>
                   </button>
                 </div>
               </div>

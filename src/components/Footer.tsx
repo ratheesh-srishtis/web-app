@@ -4,7 +4,7 @@ import "../App.css";
 
 function Footer() {
   const navigate = useNavigate();
-
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="footer-section">
       <div className="container">
@@ -84,7 +84,12 @@ function Footer() {
                 <h6 className="newsletter-title">Newsletter</h6>
 
                 <div className="input-box mt-3">
-                  <input type="email" placeholder="Enter your email..." />
+                  <input
+                    type="email"
+                    className="footer-newsletter-input"
+                    placeholder="Enter your email..."
+                    autoComplete="email"
+                  />
                   <button>↗</button>
                 </div>
               </div>
@@ -100,10 +105,10 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-center">
-        <h6 className="mb-0 text-center">
-          © 2024 SolarVy, Inc. All rights reserved.
-        </h6>
+      <div className="d-flex align-items-center justify-content-center px-3">
+        <p className="mb-0 text-center footer-copyright">
+          © {currentYear} SolarVy, Inc. All rights reserved.
+        </p>
       </div>
     </footer>
   );

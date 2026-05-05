@@ -9,6 +9,15 @@ import donw from "../assets/images/icon/d11.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+const MATCHED_PROJECT_SUMMARY = [
+  { label: "Project type", value: "Small business" },
+  { label: "Location", value: "Lagos" },
+  { label: "System size", value: "15–25 kWp" },
+  { label: "Est. system total", value: "₦18m–₦24m" },
+  { label: "Annual savings", value: "₦5.2m" },
+  { label: "Payback", value: "3.8–4.6 yrs" },
+] as const;
+
 function MatchedInstallers() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -38,73 +47,61 @@ function MatchedInstallers() {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-               <div className="solar-top-navbar">
+              <div className="solar-top-navbar">
+                <nav
+                  className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}
+                >
+                  <Link className="navbar-brand" to="/">
+                    <img src={logo} alt="logo" className="solar-logo-img" />
+                  </Link>
 
-            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
+                  <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleToggle}
+                  >
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
 
-              <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="solar-logo-img"
-                />
-              </Link>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
+                    <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          to="/how-it-works"
+                          onClick={() => setOpen(false)}
+                        >
+                          How It Works
+                        </Link>
+                      </li>
 
- <button
-  className="navbar-toggler"
-  type="button"
-  onClick={handleToggle}
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/sample-results">
+                          Sample Results
+                        </Link>
+                      </li>
 
-         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/who-its-for">
+                          Who It's For
+                        </Link>
+                      </li>
 
-                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
-
-                  <li className="nav-item">
-              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
-  How It Works
-</Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/sample-results">
-                      Sample Results
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/who-its-for">
-                      Who It's For
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-
-                    <button
-                      className="solar-nav-btn"
-                      onClick={() => navigate("/start-assesement")}
-                    >
-
-                      Start Assessment
-
-                      <img
-                        src={bttnarrow}
-                        alt="arrow"
-                      />
-
-                    </button>
-
-                  </li>
-
-                </ul>
-
+                      <li className="nav-item">
+                        <button
+                          className="solar-nav-btn"
+                          onClick={() => navigate("/start-assesement")}
+                        >
+                          Start Assessment
+                          <img src={bttnarrow} alt="arrow" />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
-
-            </nav>
-
-          </div>
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
@@ -122,81 +119,7 @@ function MatchedInstallers() {
           </div>
         </section>
 
-        <section className="container-fluid px-lg-4 py-4">
-          <div className="row g-4 align-items-start">
-            <div className="container my-4">
-              <div className="row g-3">
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-briefcase info-icon"></i>
-                    <div>
-                      <p className="info-label">PROJECT TYPE</p>
-                      <h6 className="info-value">Small business</h6>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-geo-alt info-icon"></i>
-                    <div>
-                      <p className="info-label">LOCATION</p>
-                      <h6 className="info-value">Lagos</h6>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-lightning-charge info-icon"></i>
-                    <div>
-                      <p className="info-label">SYSTEM SIZE</p>
-                      <h6 className="info-value">15–25 kWp</h6>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-currency-dollar info-icon"></i>
-                    <div>
-                      <p className="info-label">ESTIMATED COST</p>
-                      <h6 className="info-value">₦18m–₦24m</h6>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-graph-up-arrow info-icon"></i>
-                    <div>
-                      <p className="info-label">ANNUAL SAVINGS</p>
-                      <h6 className="info-value">₦5.2m</h6>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 col-md-4 col-lg">
-                  <div className="info-card d-flex align-items-center gap-2">
-                    <i className="bi bi-clock-history info-icon"></i>
-                    <div>
-                      <p className="info-label">PAYBACK</p>
-                      <h6 className="info-value">3.8–4.6 yrs</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="info-note mt-3">
-                💡 These installers are matched to projects within this size and
-                budget range, so the shortlist still feels connected to the
-                financial outcome shown on your results page.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="container-fluid px-lg-4 ">
+        <section className="container-fluid px-lg-4 px-3 py-3">
           <div className="row g-4 align-items-start">
             <div className="col-lg-8 ">
               <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
@@ -241,7 +164,7 @@ function MatchedInstallers() {
                       </button>
 
                       <a href="#" className="link-view d-block">
-                        Get Review/Edit
+                        Get Review First
                       </a>
                     </div>
                   </div>
@@ -437,12 +360,37 @@ function MatchedInstallers() {
             </div>
 
             <div className="col-lg-4">
+              <div
+                className="match-snapshot mb-4"
+                role="region"
+                aria-labelledby="match-snapshot-heading"
+              >
+                <div className="match-snapshot__header">
+                  <h2
+                    id="match-snapshot-heading"
+                    className="match-snapshot__title"
+                  >
+                    Your project snapshot
+                  </h2>
+                  <p className="match-snapshot__hint">
+                    These details come from your assessment and shape how we rank
+                    installers.
+                  </p>
+                </div>
+                <ul className="match-snapshot__list">
+                  {MATCHED_PROJECT_SUMMARY.map((item) => (
+                    <li key={item.label} className="match-snapshot__row">
+                      <span className="match-snapshot__label">{item.label}</span>
+                      <span className="match-snapshot__value">{item.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div className="side-card">
                 <div className="d-flex align-items-center gap-2 mb-2">
                   <div className="score-box-match-right ">81</div>
                   <div className="match-box text-center">
-                    <p className="sub-text-match mb-1">Top fit example</p>
-
                     <h6 className="company-name-m mb-0">Strong match</h6>
                   </div>
                 </div>

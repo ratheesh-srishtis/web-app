@@ -1,6 +1,5 @@
 .dashboard-card {
-
-  border: 1px solid #E8EDF5;
+  border: 1px solid #e8edf5;
   border-radius: 16px;
   padding: 18px 20px;
   height: 100%;
@@ -18,40 +17,36 @@ p.dashboard-subtitle {
   font-size: 14px;
   color: #6b7280;
   line-height: 1.6;
-
-
 }
 
 .card-title {
   font-size: 14px;
   font-weight: 600;
-  color: #5F6D90 !important;
+  color: #5f6d90 !important;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 8px !important;
 }
 
 .card-value {
-  font-size: 36px;
+  font-size: 22px;
   font-weight: 700;
-  color: #1A2259;
+  color: #1a2259;
   margin-bottom: 6px;
 }
 
 .card-sub {
   font-size: 14px;
-  color: #737C92;
+  color: #737c92;
   margin: 0;
 }
 
-
 .custom-table {
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
 }
-
 
 .custom-table table {
   width: 100%;
@@ -60,7 +55,7 @@ p.dashboard-subtitle {
 }
 
 .custom-table thead {
-  background: #2F5597;
+  background: #2f5597;
 }
 
 .custom-table thead th {
@@ -75,7 +70,6 @@ p.dashboard-subtitle {
   border: none;
 }
 
-
 .custom-table thead th:first-child {
   border-top-left-radius: 14px;
 }
@@ -84,57 +78,50 @@ p.dashboard-subtitle {
   border-top-right-radius: 14px;
 }
 
-
 .custom-table tbody td {
   font-size: 16px;
-  color: #4D5260;
+  color: #4d5260;
   padding: 18px 28px;
-  border-top: 1px solid #E5E7EB !important;
+  border-top: 1px solid #e5e7eb !important;
   font-weight: 700;
 }
 
 .text-color-b {
-  color: #174C90 !important;
+  color: #174c90 !important;
 }
-
 
 .custom-table tbody tr:first-child td {
   border-top: none;
 }
 
-
 .custom-table tbody tr {
   vertical-align: middle;
 }
 
-
 .recommended-row {
-  background: #EEF3FB;
-
+  background: #eef3fb;
 }
 
 .recommended-row td {
   font-weight: 500;
-  color: #1F2A44;
+  color: #1f2a44;
 }
-
 
 .strong {
   font-weight: 700;
-  color: #1F2A44;
+  color: #1f2a44;
 }
 
 .recommended-badge {
-  background: #22C55E;
+  background: #22c55e;
   color: #fff;
   font-weight: 500;
   font-size: 14px;
   border-radius: 20px;
 }
 
-
 .badge-recommended {
-  background: #22C55E;
+  background: #22c55e;
   color: #fff;
   font-size: 11px;
   padding: 4px 10px;
@@ -143,7 +130,6 @@ p.dashboard-subtitle {
   font-weight: 600;
 }
 
-
 .custom-table tbody tr:last-child td:first-child {
   border-bottom-left-radius: 14px;
 }
@@ -151,7 +137,6 @@ p.dashboard-subtitle {
 .custom-table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 14px;
 }
-
 
 @media (max-width: 768px) {
   .custom-table {
@@ -186,7 +171,6 @@ p.dashboard-subtitle {
   }
 }
 
-
 .title-cell {
   display: flex;
   align-items: center;
@@ -194,11 +178,8 @@ p.dashboard-subtitle {
   flex-wrap: wrap;
 }
 
-
 @media (min-width: 768px) {
   .title-cell {
     flex-wrap: nowrap;
   }
 }
-
-

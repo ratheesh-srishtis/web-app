@@ -22,9 +22,9 @@ import { useEffect } from "react";
 function Home() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-const handleToggle = () => {
-  setOpen(!open);
-};
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,103 +42,93 @@ const handleToggle = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 992) {
-      setOpen(false); // reset menu on desktop
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setOpen(false); // reset menu on desktop
+      }
+    };
 
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="menu-div ">
       <section className="solar-hero-section">
-
         <div className="solar-hero-overlay"></div>
 
         <div className="container-fluid solar-hero-wrapper">
-
-
-
           <div className="solar-top-navbar">
-
-            <nav className={`navbar navbar-expand-md  ${scrolled ? "scrolled" : ""}`}>
-
+            <nav
+              className={`navbar navbar-expand-md  ${scrolled ? "scrolled" : ""}`}
+            >
               <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="solar-logo-img"
-                />
+                <img src={logo} alt="logo" className="solar-logo-img" />
               </Link>
 
-<button
-  className={`navbar-toggler ${open ? "" : "collapsed"}`}
-  type="button"
-  onClick={handleToggle}
-  aria-expanded={open}
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+              <button
+                className={`navbar-toggler ${open ? "" : "collapsed"}`}
+                type="button"
+                onClick={handleToggle}
+                aria-expanded={open}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
 
-       <div className={`collapse navbar-collapse ${open ? "show" : ""} ${window.innerWidth >= 768 ? "show" : ""}`}>
-
+              <div
+                className={`collapse navbar-collapse ${open ? "show" : ""} ${window.innerWidth >= 768 ? "show" : ""}`}
+              >
                 <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
-
                   <li className="nav-item">
-            <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}> How It Works</Link>
+                    <Link
+                      className="nav-link"
+                      to="/how-it-works"
+                      onClick={() => setOpen(false)}
+                    >
+                      {" "}
+                      How It Works
+                    </Link>
                   </li>
 
-                 <li className="nav-item">
-  <Link className="nav-link" to="/sample-results" onClick={() => setOpen(false)}>
-    Sample Results
-  </Link>
-</li>
-
-<li className="nav-item">
-  <Link className="nav-link" to="/who-its-for" onClick={() => setOpen(false)}>
-    Who It's For
-  </Link>
-</li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link"
+                      to="/sample-results"
+                      onClick={() => setOpen(false)}
+                    >
+                      Sample Results
+                    </Link>
+                  </li>
 
                   <li className="nav-item">
+                    <Link
+                      className="nav-link"
+                      to="/who-its-for"
+                      onClick={() => setOpen(false)}
+                    >
+                      Who It's For
+                    </Link>
+                  </li>
 
+                  <li className="nav-item">
                     <button
                       className="solar-nav-btn"
                       onClick={() => navigate("/start-assesement")}
                     >
-
                       Start Assessment
-
-                      <img
-                        src={bttnarrow}
-                        alt="arrow"
-                      />
-
+                      <img src={bttnarrow} alt="arrow" />
                     </button>
-
                   </li>
-
                 </ul>
-
               </div>
-
             </nav>
-
           </div>
 
-
           <div className="row solar-main-row align-items-center">
-
             {/* LEFT SIDE */}
             <div className="col-12 col-lg-7">
-
               <div className="solar-left-area">
-
                 {/* TITLE */}
                 <h1 className="solar-main-title">
                   Find The Right Solar And
@@ -151,45 +141,31 @@ const handleToggle = () => {
                 {/* DESCRIPTION */}
                 <p className="solar-main-desc">
                   Solarvy helps homes and businesses estimate solar size,
-                  battery storage, diesel reduction, savings, and payback
-                  before speaking to installers or committing money.
+                  battery storage, diesel reduction, savings, and payback before
+                  speaking to installers or committing money.
                 </p>
 
                 {/* BUTTONS */}
                 <div className="solar-action-group">
-
                   <button
                     className="solar-primary-btn"
                     onClick={() => navigate("/start-assesement")}
                   >
-
                     <span>Start Free Assessment</span>
 
-                    <img
-                      src={bttnarrow}
-                      alt="arrow"
-                    />
-
+                    <img src={bttnarrow} alt="arrow" />
                   </button>
 
                   <a href="#" className="solar-sample-link">
                     See Sample Result
                   </a>
-
                 </div>
-
               </div>
-
             </div>
 
-          
             <div className="col-12 col-lg-5 mt-4 mt-lg-0">
-
               <div className="solar-form-column">
-
                 <div className="solar-preview-card">
-
-
                   <h2 className="solar-preview-title">
                     Quick Assessment Preview
                   </h2>
@@ -199,13 +175,14 @@ const handleToggle = () => {
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
-
-                        defaultValue="Select Property"
+                        defaultValue=""
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
                       >
-                        <option disabled>Select Property</option>
+                        <option value="" disabled hidden>
+                          Select
+                        </option>
                         <option value="home">Home</option>
                         <option value="hotel">Hotel</option>
                         <option value="factory">Factory</option>
@@ -213,26 +190,31 @@ const handleToggle = () => {
                           Commercial Building
                         </option>
                         <option value="hospital clinic">Hospital/Clinic</option>
-                        <option value="school education">School/Education</option>
+                        <option value="school education">
+                          School/Education
+                        </option>
                       </select>
                     </div>
                     <div className="col-6">
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"
-
-                        defaultValue="Select location"
+                        defaultValue=""
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
                       >
-                        <option disabled>Select location</option>
+                        <option value="" disabled hidden>
+                          Select
+                        </option>
                         <option>Nigeria</option>
                       </select>
                     </div>
                   </div>
 
-                  <label className="quick-lable">Monthly Electricity Bill</label>
+                  <label className="quick-lable">
+                    Monthly Electricity Bill
+                  </label>
                   <input
                     type="text"
                     className="form-control select-text mb-2"
@@ -244,13 +226,14 @@ const handleToggle = () => {
                       <label className="quick-lable">Power Setup</label>
                       <select
                         className="form-select select-text"
-
-                        defaultValue="Select Power Setup"
+                        defaultValue=""
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
                       >
-                        <option disabled>Select Power Setup</option>
+                        <option value="" disabled hidden>
+                          Select
+                        </option>
                         <option value="Grid Generator">Grid + Generator</option>
                         <option value="Grid Only">Grid Only</option>
                         <option value="Solar grid">Solar grid</option>
@@ -260,12 +243,14 @@ const handleToggle = () => {
                       <label className="quick-lable">Main Objective</label>
                       <select
                         className="form-select select-text"
-                        defaultValue="Select Main Objective"
+                        defaultValue=""
                         onChange={(e) => {
                           e.target.style.color = "#000";
                         }}
                       >
-                        <option disabled>Select Main Objective</option>
+                        <option value="" disabled hidden>
+                          Select
+                        </option>
                         <option value="1">Reduce Diesel Use</option>
                         <option value="2">Reduce Electricity Bills</option>
                         <option value="3">Backup During Outages</option>
@@ -278,17 +263,11 @@ const handleToggle = () => {
                     Start Assessment
                     <img src={bttnarrowhite} alt="arrow" />
                   </button>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       <section className="how-it-works py-4">
@@ -358,7 +337,7 @@ const handleToggle = () => {
 
       <section className="d-flex align-items-center bannar-see py-4">
         <div className="container px-lg-5 px-3 text-center mb-3">
-           <h2 className="head-nor">See A Sample Energy Assessment</h2>
+          <h2 className="head-nor">See A Sample Energy Assessment</h2>
 
           <p className="subtitle mb-4">
             A simple energy decision workflow built around
@@ -367,96 +346,90 @@ const handleToggle = () => {
           </p>
 
           <div className="row g-4">
-           <div className="col-md-6 d-flex">
-  <div className="left-wrapper w-100">
+            <div className="col-md-6 d-flex">
+              <div className="left-wrapper w-100">
+                <div className="card-box d-flex justify-content-between align-items-center">
+                  <span>Location</span>
+                  <span className="text-muted text-color">Lagos, Nigeria</span>
+                </div>
 
-    <div className="card-box d-flex justify-content-between align-items-center">
-      <span>Location</span>
-      <span className="text-muted text-color">Lagos, Nigeria</span>
-    </div>
+                <div className="card-box d-flex justify-content-between align-items-center">
+                  <span>Property type</span>
+                  <span className="text-muted text-color">Hotel</span>
+                </div>
 
-    <div className="card-box d-flex justify-content-between align-items-center">
-      <span>Property type</span>
-      <span className="text-muted text-color">Hotel</span>
-    </div>
+                <div className="card-box d-flex justify-content-between align-items-center">
+                  <span>Objective</span>
+                  <span className="text-muted text-color">
+                    Reduce diesel use
+                  </span>
+                </div>
 
-    <div className="card-box d-flex justify-content-between align-items-center">
-      <span>Objective</span>
-      <span className="text-muted text-color">Reduce diesel use</span>
-    </div>
-
-    <div className="card-box d-flex justify-content-between align-items-center">
-      <span>System type</span>
-      <span className="text-muted text-color">
-        Hybrid solar + battery
-      </span>
-    </div>
-
-  </div>
-</div>
+                <div className="card-box d-flex justify-content-between align-items-center">
+                  <span>System type</span>
+                  <span className="text-muted text-color">
+                    Hybrid solar + battery
+                  </span>
+                </div>
+              </div>
+            </div>
 
             <div className="col-md-6 ">
-  <div className="row g-4 w-100 h-100">
+              <div className="row g-4 w-100 h-100">
+                <div className="col-6 d-flex">
+                  <div className="card-boxs text-center w-100">
+                    <small>
+                      <img src={enery} alt="icon" className="graph-image" />
+                      Solar PV
+                    </small>
+                    <h3>28 kWp</h3>
+                    <p>Indicative size</p>
+                  </div>
+                </div>
 
-    <div className="col-6 d-flex">
-      <div className="card-boxs text-center w-100">
-        <small>
-          <img src={enery} alt="icon" className="graph-image" />
-          Solar PV
-        </small>
-        <h3>28 kWp</h3>
-        <p>Indicative size</p>
-      </div>
-    </div>
+                <div className="col-6 d-flex">
+                  <div className="card-boxs text-center w-100">
+                    <small>
+                      <img src={enery} alt="icon" className="graph-image" />
+                      Battery
+                    </small>
+                    <h3>40 kWh</h3>
+                    <p>Backup storage</p>
+                  </div>
+                </div>
 
-    <div className="col-6 d-flex">
-      <div className="card-boxs text-center w-100">
-        <small>
-          <img src={enery} alt="icon" className="graph-image" />
-          Battery
-        </small>
-        <h3>40 kWh</h3>
-        <p>Backup storage</p>
-      </div>
-    </div>
+                <div className="col-6 d-flex">
+                  <div className="card-boxs text-center w-100">
+                    <small>
+                      <img src={enery} alt="icon" className="graph-image" />
+                      Annual savings
+                    </small>
+                    <h3>NGN 7.8m</h3>
+                    <p>Indicative</p>
+                  </div>
+                </div>
 
-    <div className="col-6 d-flex">
-      <div className="card-boxs text-center w-100">
-        <small>
-          <img src={enery} alt="icon" className="graph-image" />
-          Annual savings
-        </small>
-        <h3>NGN 7.8m</h3>
-        <p>Indicative</p>
-      </div>
-    </div>
-
-    <div className="col-6 d-flex">
-      <div className="card-boxs text-center w-100">
-        <small>
-          <img src={enery} alt="icon" className="graph-image" />
-          Payback
-        </small>
-        <h3>4.2 yrs</h3>
-        <p>Simple payback</p>
-      </div>
-    </div>
-
-  </div>
-</div>
+                <div className="col-6 d-flex">
+                  <div className="card-boxs text-center w-100">
+                    <small>
+                      <img src={enery} alt="icon" className="graph-image" />
+                      Payback
+                    </small>
+                    <h3>4.2 yrs</h3>
+                    <p>Simple payback</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="usecase-section py-1">
         <div className="container-fluid px-lg-5 px-3">
-
-          <h2 className="head-nor">
-            Built for real use cases
-          </h2>
+          <h2 className="head-nor">Built for real use cases</h2>
 
           <div className="row g-4">
-
             <div className="col-lg-4 col-md-6">
               <div className="usecase-card">
                 <img src={link} alt="" className="boxs-img" />
@@ -464,8 +437,8 @@ const handleToggle = () => {
                 <div className="p-4">
                   <h4 className="head-blue-left">Homes</h4>
                   <p className="sub-left">
-                    Backup planning, appliance-based load estimation,
-                    and residential system sizing.
+                    Backup planning, appliance-based load estimation, and
+                    residential system sizing.
                   </p>
                 </div>
               </div>
@@ -473,12 +446,13 @@ const handleToggle = () => {
 
             <div className="col-lg-4 col-md-6">
               <div className="usecase-card">
-                <img src={linkone} alt="" className="boxs-img"/>
+                <img src={linkone} alt="" className="boxs-img" />
 
-               <div className="p-4">
+                <div className="p-4">
                   <h4 className="head-blue-left">Hospitals</h4>
                   <p className="sub-left">
-                    Critical load planning, resilience, and structured backup recommendations.
+                    Critical load planning, resilience, and structured backup
+                    recommendations.
                   </p>
                 </div>
               </div>
@@ -486,17 +460,17 @@ const handleToggle = () => {
 
             <div className="col-lg-4 col-md-6">
               <div className="usecase-card">
-                <img src={linktwo} alt="" className="boxs-img"/>
+                <img src={linktwo} alt="" className="boxs-img" />
 
-               <div className="p-4">
+                <div className="p-4">
                   <h4 className="head-blue-left">Factories</h4>
                   <p className="sub-left">
-                  Commercial and industrial energy sizing for larger, more valuable projects.
+                    Commercial and industrial energy sizing for larger, more
+                    valuable projects.
                   </p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

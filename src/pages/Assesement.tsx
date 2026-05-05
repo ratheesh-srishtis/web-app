@@ -1,38 +1,323 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../assets/images/logo.png";
 import logo from "../assets/images/logo.png";
-import appone from "../assets/images/icon/app1.svg";
-import apptwo from "../assets/images/icon/app2.svg";
-import appthree from "../assets/images/icon/app3.svg";
-import appfour from "../assets/images/icon/app4.svg";
 import bttnarrow from "../assets/images/btton-arrow.png";
-import siteone from "../assets/images/icon/site1.svg";
-import sitetwo from "../assets/images/icon/site2.svg";
-import sitethree from "../assets/images/icon/site3.svg";
 import sunone from "../assets/images/icon/sun.svg";
 import sunthree from "../assets/images/icon/sun1.svg";
 import save from "../assets/images/icon/save.svg";
-import mone from "../assets/images/icon/month.svg";
-import mtwo from "../assets/images/icon/month1.svg";
-import mthree from "../assets/images/icon/month3.svg";
-import clockone from "../assets/images/icon/clock.svg";
-import clocktwo from "../assets/images/icon/clock1.svg";
-import clockthree from "../assets/images/icon/clock3.svg";
-import buildone from "../assets/images/icon/home.svg";
-import buildtwo from "../assets/images/icon/hotel.svg";
-import buildthree from "../assets/images/icon/factor.svg";
-import buildfour from "../assets/images/icon/build.svg";
-import buildfive from "../assets/images/icon/hospital.svg";
-import buildsix from "../assets/images/icon/school.svg";
 import buleone from "../assets/images/icon/bule1.svg";
 import buletwo from "../assets/images/icon/bule2.svg";
 import bulethree from "../assets/images/icon/bule3.svg";
 import bulefour from "../assets/images/icon/sun-blue.svg";
+import {
+  AirVent,
+  BatteryCharging,
+  Building2,
+  Calculator,
+  Factory,
+  Fan,
+  Fuel,
+  Home,
+  Hospital,
+  Hotel,
+  LayoutGrid,
+  Lightbulb,
+  PlugZap,
+  Receipt,
+  School,
+  Sun,
+  Trash2,
+  Tv,
+  Wallet,
+  Wrench,
+  ChevronDown,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Bold } from "lucide-react";
+
+type LoadTableRow = {
+  id: string;
+  kind: string;
+  qty: number;
+  hours: number;
+  power: number;
+  /** Percent 0–100; used only in Custom Equipment daily kWh. */
+  loadFactorPct?: number;
+};
+
+type ApplianceCatalogItem = {
+  kind: string;
+  label: string;
+  defaultPower: number;
+  Icon: LucideIcon;
+};
+
+const APPLIANCE_CALC_CATALOG: ApplianceCatalogItem[] = [
+  { kind: "led-bulb", label: "LED Bulb", defaultPower: 10, Icon: Lightbulb },
+  { kind: "fan", label: "Fan", defaultPower: 75, Icon: Fan },
+  { kind: "tv", label: "TV", defaultPower: 120, Icon: Tv },
+  { kind: "ac", label: "AC", defaultPower: 1500, Icon: AirVent },
+];
+
+const CUSTOM_EQUIP_CATALOG: ApplianceCatalogItem[] = [
+  { kind: "ce-10", label: "Ultrasound", defaultPower: 10, Icon: Lightbulb },
+  { kind: "ce-120", label: "Ultrasound", defaultPower: 120, Icon: Fan },
+  { kind: "ce-70", label: "Ultrasound", defaultPower: 70, Icon: Tv },
+  { kind: "ce-1500", label: "Ultrasound", defaultPower: 1500, Icon: AirVent },
+];
+
+type AppliancePresetRowTemplate = Pick<
+  LoadTableRow,
+  "kind" | "qty" | "hours" | "power"
+>;
+
+type AppliancePresetTab = {
+  id: string;
+  label: string;
+  rows: AppliancePresetRowTemplate[];
+};
+
+/** Preset appliance lists per home size (Daily kWh is derived in the table). */
+const APPLIANCE_PRESETS: AppliancePresetTab[] = [
+  {
+    id: "2-bedroom",
+    label: "2 Bedroom House",
+    rows: [
+      { kind: "led-bulb", qty: 8, hours: 6, power: 10 },
+      { kind: "fan", qty: 3, hours: 8, power: 75 },
+      { kind: "tv", qty: 2, hours: 4, power: 120 },
+      { kind: "ac", qty: 1, hours: 6, power: 1500 },
+    ],
+  },
+  {
+    id: "3-bedroom",
+    label: "3 Bedroom House",
+    rows: [
+      { kind: "led-bulb", qty: 14, hours: 6, power: 10 },
+      { kind: "fan", qty: 5, hours: 10, power: 75 },
+      { kind: "tv", qty: 3, hours: 5, power: 120 },
+      { kind: "ac", qty: 2, hours: 7, power: 1500 },
+    ],
+  },
+];
+
+function loadApplianceRowsFromPreset(preset: AppliancePresetTab): LoadTableRow[] {
+  return preset.rows.map((r) => ({
+    id: newRowId("ap"),
+    kind: r.kind,
+    qty: r.qty,
+    hours: r.hours,
+    power: r.power,
+  }));
+}
+
+type CustomPresetRowTemplate = Pick<
+  LoadTableRow,
+  "kind" | "qty" | "hours" | "power"
+> & {
+  loadFactorPct?: number;
+};
+
+type CustomPresetTab = {
+  id: string;
+  label: string;
+  rows: CustomPresetRowTemplate[];
+};
+
+/** Preset custom equipment rows per scenario (same tab labels as appliance calculator). */
+const CUSTOM_PRESETS: CustomPresetTab[] = [
+  {
+    id: "2-bedroom",
+    label: "2 Bedroom House",
+    rows: [
+      { kind: "ce-10", qty: 6, hours: 6, power: 10, loadFactorPct: 100 },
+      { kind: "ce-120", qty: 1, hours: 4, power: 120, loadFactorPct: 100 },
+      { kind: "ce-70", qty: 1, hours: 7, power: 70, loadFactorPct: 90 },
+      { kind: "ce-1500", qty: 1, hours: 5, power: 1500, loadFactorPct: 65 },
+    ],
+  },
+  {
+    id: "3-bedroom",
+    label: "3 Bedroom House",
+    rows: [
+      { kind: "ce-10", qty: 10, hours: 6, power: 10, loadFactorPct: 100 },
+      { kind: "ce-120", qty: 1, hours: 5, power: 120, loadFactorPct: 100 },
+      { kind: "ce-70", qty: 2, hours: 8, power: 70, loadFactorPct: 100 },
+      { kind: "ce-1500", qty: 1, hours: 6, power: 1500, loadFactorPct: 100 },
+    ],
+  },
+];
+
+function loadCustomRowsFromPreset(preset: CustomPresetTab): LoadTableRow[] {
+  return preset.rows.map((r) => ({
+    id: newRowId("ce"),
+    kind: r.kind,
+    qty: r.qty,
+    hours: r.hours,
+    power: r.power,
+    loadFactorPct: r.loadFactorPct ?? 100,
+  }));
+}
+
+const MIN_EQUIP_ROWS = 1;
+
+const newRowId = (prefix: string) =>
+  `${prefix}-${typeof crypto !== "undefined" && typeof crypto.randomUUID === "function" ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`}`;
+
+const defaultRowFromCatalog = (
+  prefix: string,
+  catalog: ApplianceCatalogItem[],
+  customEquipment: boolean,
+): LoadTableRow => {
+  const first = catalog[0];
+  return {
+    id: newRowId(prefix),
+    kind: first.kind,
+    qty: 1,
+    hours: 8,
+    power: first.defaultPower,
+    ...(customEquipment ? { loadFactorPct: 100 } : {}),
+  };
+};
+
+function ApplianceKindSelect({
+  rowIndex,
+  catalog,
+  valueKind,
+  onPick,
+  openRow,
+  onOpenChange,
+}: {
+  rowIndex: number;
+  catalog: ApplianceCatalogItem[];
+  valueKind: string;
+  onPick: (kind: string) => void;
+  openRow: number | null;
+  onOpenChange: (row: number | null) => void;
+}) {
+  const selected = catalog.find((o) => o.kind === valueKind);
+  const isOpen = openRow === rowIndex;
+  const TriggerIcon = selected?.Icon ?? Lightbulb;
+
+  return (
+    <div
+      className={`appliance-select-cell position-relative${isOpen ? " appliance-select-cell--open" : ""}`}
+    >
+      <button
+        type="button"
+        className="appliance-select-trigger"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenChange(isOpen ? null : rowIndex);
+        }}
+      >
+        <span className="appliance-select-trigger-inner">
+          <span className="tables-icon-box-custom appliance-select-icon-wrap">
+            <TriggerIcon
+              size={18}
+              strokeWidth={2}
+              aria-hidden
+              className="appliance-select-trigger-icon"
+            />
+          </span>
+          <span className="appliance-select-label">
+            {selected?.label ?? "—"}
+          </span>
+          <ChevronDown
+            className="appliance-select-chevron"
+            size={18}
+            aria-hidden
+          />
+        </span>
+      </button>
+      {isOpen && (
+        <>
+          <div
+            className="appliance-select-backdrop"
+            role="presentation"
+            onMouseDown={() => onOpenChange(null)}
+          />
+          <ul className="appliance-select-menu" role="listbox">
+            {catalog.map((opt) => {
+              const OptionIcon = opt.Icon;
+              const active = opt.kind === valueKind;
+              return (
+                <li key={opt.kind} role="none">
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={active}
+                    className={`appliance-select-option${active ? " is-active" : ""}`}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onPick(opt.kind);
+                      onOpenChange(null);
+                    }}
+                  >
+                    <span className="tables-icon-box-custom appliance-select-icon-wrap">
+                      <OptionIcon size={18} strokeWidth={2} aria-hidden />
+                    </span>
+                    <span>{opt.label}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
+    </div>
+  );
+}
+
+/** Stable slug → official state name (36 states + FCT). */
+const NIGERIA_STATES: Record<string, string> = {
+  abia: "Abia",
+  adamawa: "Adamawa",
+  akwa_ibom: "Akwa Ibom",
+  anambra: "Anambra",
+  bauchi: "Bauchi",
+  bayelsa: "Bayelsa",
+  benue: "Benue",
+  borno: "Borno",
+  cross_river: "Cross River",
+  delta: "Delta",
+  ebonyi: "Ebonyi",
+  edo: "Edo",
+  ekiti: "Ekiti",
+  enugu: "Enugu",
+  fct: "Federal Capital Territory",
+  gombe: "Gombe",
+  imo: "Imo",
+  jigawa: "Jigawa",
+  kaduna: "Kaduna",
+  kano: "Kano",
+  katsina: "Katsina",
+  kebbi: "Kebbi",
+  kogi: "Kogi",
+  kwara: "Kwara",
+  lagos: "Lagos",
+  nasarawa: "Nasarawa",
+  niger: "Niger",
+  ogun: "Ogun",
+  ondo: "Ondo",
+  osun: "Osun",
+  oyo: "Oyo",
+  plateau: "Plateau",
+  rivers: "Rivers",
+  sokoto: "Sokoto",
+  taraba: "Taraba",
+  yobe: "Yobe",
+  zamfara: "Zamfara",
+};
+
+const NIGERIA_STATES_SORTED = Object.entries(NIGERIA_STATES).sort((a, b) =>
+  a[1].localeCompare(b[1]),
+);
 
 function Assesement() {
   const [open, setOpen] = useState(false);
@@ -49,111 +334,131 @@ function Assesement() {
     }
   };
   const navigate = useNavigate();
-  const options = [
+  const options: {
+    id: string;
+    title: string;
+    desc: string;
+    Icon: LucideIcon;
+  }[] = [
     {
       id: "bill",
       title: "Monthly Bill",
       desc: "Enter kWh directly from your bill.",
-      icon: mone,
+      Icon: Receipt,
     },
     {
       id: "appliance",
       title: "Appliance Calculator",
       desc: "Select appliances and hours/day.",
-      icon: mtwo,
+      Icon: Calculator,
     },
     {
       id: "custom",
       title: "Custom Equipment",
       desc: "For factories, hospitals, specialist loads.",
-      icon: mthree,
+      Icon: Wrench,
     },
   ];
 
-  const Objectiveoptions = [
+  const Objectiveoptions: {
+    id: string;
+    title: string;
+    desc: string;
+    Icon: LucideIcon;
+  }[] = [
     {
       id: "bill",
       title: "Reduce Diesel Use",
       desc: "Cut diesel consumption and runtime.",
-      icon: siteone,
+      Icon: Fuel,
     },
     {
       id: "appliance",
       title: "Reduce Electricity Bills",
       desc: "Lower monthly energy costs.",
-      icon: sitetwo,
+      Icon: Wallet,
     },
     {
       id: "custom",
       title: "Backup During Outages",
       desc: "Maintain power when grid fails.",
-      icon: sitethree,
+      Icon: BatteryCharging,
     },
   ];
 
-  const propertyOptions = [
+  const propertyOptions: {
+    id: number;
+    title: string;
+    desc: string;
+    Icon: LucideIcon;
+  }[] = [
     {
       id: 1,
       title: "Home",
       desc: "Backup and lower energy bills",
-      icon: buildone,
+      Icon: Home,
     },
     {
       id: 2,
       title: "Hotel",
       desc: "Optimise generator and hybrid power",
-      icon: buildtwo,
+      Icon: Hotel,
     },
     {
       id: 3,
       title: "Factory",
       desc: "Support larger equipment loads",
-      icon: buildthree,
+      Icon: Factory,
     },
     {
       id: 4,
       title: "Commercial Building",
       desc: "Reduce business electricity cost",
-      icon: buildfour,
+      Icon: Building2,
     },
     {
       id: 5,
-      title: "Hospital / Clinic",
+      title: "Hospital",
       desc: "Reliable power for critical systems",
-      icon: buildfive,
+      Icon: Hospital,
     },
     {
       id: 6,
-      title: "School / Education",
+      title: "School",
       desc: "Maximise daytime solar savings",
-      icon: buildsix,
+      Icon: School,
     },
   ];
 
-  const powerOptions = [
+  const powerOptions: {
+    id: number;
+    title: string;
+    desc: string;
+    Icon: LucideIcon;
+  }[] = [
     {
       id: 1,
       title: "Grid + Generator",
       desc: "Grid supply with backup generator",
-      icon: clockone,
+      Icon: PlugZap,
     },
     {
       id: 2,
       title: "Grid Only",
       desc: "Utility electricity supply only",
-      icon: clocktwo,
+      Icon: LayoutGrid,
     },
     {
       id: 3,
       title: "Solar + Grid",
       desc: "Solar connected with utility supply",
-      icon: clockthree,
+      Icon: Sun,
     },
   ];
 
   const [formData, setFormData] = useState({
     country: "",
-    city: "",
+    state: "",
   });
 
   const [fileName, setFileName] = useState("No file chosen");
@@ -163,10 +468,16 @@ function Assesement() {
   ) => {
     const { name, value } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      if (name === "country") {
+        return {
+          ...prev,
+          country: value,
+          state: value === "Nigeria" ? prev.state : "",
+        };
+      }
+      return { ...prev, [name]: value };
+    });
   };
 
   const categories = [
@@ -180,62 +491,94 @@ function Assesement() {
 
   const [activeTab, setActiveTab] = useState("Businesses");
 
-  const applianceOptions = [
-    { name: "LED Bulb", power: 10, icon: appone },
-    { name: "Fan", power: 75, icon: apptwo },
-    { name: "TV", power: 120, icon: appthree },
-    { name: "AC", power: 1500, icon: appfour },
-  ];
+  const [appliancePresetTabId, setAppliancePresetTabId] = useState(
+    APPLIANCE_PRESETS[0].id,
+  );
+  const [applianceRows, setApplianceRows] = useState<LoadTableRow[]>(() =>
+    loadApplianceRowsFromPreset(APPLIANCE_PRESETS[0]),
+  );
+  const [customPresetTabId, setCustomPresetTabId] = useState(
+    CUSTOM_PRESETS[1].id,
+  );
+  const [customRows, setCustomRows] = useState<LoadTableRow[]>(() =>
+    loadCustomRowsFromPreset(CUSTOM_PRESETS[1]),
+  );
 
-  const applianceOptionssecond = [
-    { name: "Ultrasound", qty: 10, hours: 6, power: 10, icon: appone },
-    { name: "Ultrasound", qty: 1, hours: 5, power: 120, icon: apptwo },
-    { name: "Ultrasound", qty: 2, hours: 8, power: 70, icon: appthree },
-    { name: "Ultrasound", qty: 1, hours: 6, power: 1500, icon: appfour },
-  ];
+  const [openApplianceSelectRow, setOpenApplianceSelectRow] = useState<
+    number | null
+  >(null);
 
-  const initialData = [
-    { name: "LED Bulb", qty: 10, hours: 6, power: 10, icon: appone },
-    { name: "LED Bulb", qty: 1, hours: 5, power: 120, icon: apptwo },
-    { name: "LED Bulb", qty: 2, hours: 8, power: 70, icon: appthree },
-    { name: "LED Bulb", qty: 1, hours: 6, power: 1500, icon: appfour },
-  ];
-
-  const calculateKwh = (qty: any, hours: any, power: any) => {
-    const q = Number(qty) || 0;
-    const h = Number(hours) || 0;
-    const p = Number(power) || 0;
-
-    return ((q * h * p) / 1000).toFixed(2);
+  const calculateRowDailyKwh = (item: LoadTableRow) => {
+    const lf = (item.loadFactorPct ?? 100) / 100;
+    const q = Number(item.qty) || 0;
+    const h = Number(item.hours) || 0;
+    const p = Number(item.power) || 0;
+    return ((q * h * p * lf) / 1000).toFixed(2);
   };
 
-  const [rows, setRows] = useState(initialData);
-
   const handleRowChange = (index: any, field: any, value: any) => {
-    setRows((prevRows) => {
-      const updatedRows: any = [...prevRows];
+    const setter = inputMethod === "custom" ? setCustomRows : setApplianceRows;
 
-      // ✅ Safety check
+    setter((prevRows) => {
+      const updatedRows: LoadTableRow[] = [...prevRows];
+
       if (!updatedRows[index]) return prevRows;
 
-      // ✅ Convert numbers properly
-      if (field === "qty" || field === "hours" || field === "power") {
-        updatedRows[index][field] = Number(value) || 0;
-      } else {
-        updatedRows[index][field] = value;
+      if (field === "qty") {
+        updatedRows[index].qty = Number(value) || 0;
+      } else if (field === "hours") {
+        updatedRows[index].hours = Number(value) || 0;
+      } else if (field === "power") {
+        updatedRows[index].power = Number(value) || 0;
+      } else if (field === "loadFactorPct") {
+        updatedRows[index].loadFactorPct = Math.min(
+          100,
+          Math.max(0, Number(value) || 0),
+        );
+      } else if (field === "kind") {
+        updatedRows[index].kind = String(value);
       }
 
-      // ✅ Auto update power when appliance changes
-      if (field === "name") {
-        const selected = applianceOptions.find((opt) => opt.name === value);
-        if (selected) {
-          updatedRows[index].power = selected.power;
-        }
+      if (field === "kind") {
+        const catalog =
+          inputMethod === "custom"
+            ? CUSTOM_EQUIP_CATALOG
+            : APPLIANCE_CALC_CATALOG;
+        const opt = catalog.find((o) => o.kind === value);
+        if (opt) updatedRows[index].power = opt.defaultPower;
       }
 
       return updatedRows;
     });
   };
+
+  const addEquipmentRow = (customEquipment: boolean) => {
+    const row = defaultRowFromCatalog(
+      customEquipment ? "ce" : "ap",
+      customEquipment ? CUSTOM_EQUIP_CATALOG : APPLIANCE_CALC_CATALOG,
+      customEquipment,
+    );
+    if (customEquipment) setCustomRows((prev) => [...prev, row]);
+    else setApplianceRows((prev) => [...prev, row]);
+    setOpenApplianceSelectRow(null);
+  };
+
+  const removeEquipmentRow = (customEquipment: boolean, index: number) => {
+    const setter = customEquipment ? setCustomRows : setApplianceRows;
+    setter((prev) =>
+      prev.length <= MIN_EQUIP_ROWS ? prev : prev.filter((_, i) => i !== index),
+    );
+    setOpenApplianceSelectRow((open) => {
+      if (open === null) return null;
+      if (open === index) return null;
+      if (open > index) return open - 1;
+      return open;
+    });
+  };
+
+  useEffect(() => {
+    setOpenApplianceSelectRow(null);
+  }, [inputMethod]);
 
   const handleFileChange = (e: any) => {
     if (e.target.files.length > 0) {
@@ -244,7 +587,6 @@ function Assesement() {
       setFileName("No file chosen");
     }
   };
-  
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -262,17 +604,16 @@ function Assesement() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 992) {
-      setOpen(false); // reset menu on desktop
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setOpen(false); // reset menu on desktop
+      }
+    };
 
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const summaryAssessmentPathTitle =
     inputMethod === "bill"
       ? "Bill"
@@ -286,7 +627,7 @@ function Assesement() {
     inputMethod === "bill" ? "kWh/month" : "kWh/day";
 
   const summarySecondMetricLabel =
-    inputMethod === "bill" ? "ESTIMATED ANNUAL LOAD" : "Monthly Energy";
+    inputMethod === "bill" ? "ESTIMATED MONTHLY SPEND" : "Monthly Energy";
   const summarySecondMetricValue = inputMethod === "bill" ? "N200,000" : "1.9";
 
   return (
@@ -297,73 +638,61 @@ function Assesement() {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-               <div className="solar-top-navbar">
+              <div className="solar-top-navbar">
+                <nav
+                  className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}
+                >
+                  <Link className="navbar-brand" to="/">
+                    <img src={logo} alt="logo" className="solar-logo-img" />
+                  </Link>
 
-            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
+                  <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleToggle}
+                  >
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
 
-              <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="solar-logo-img"
-                />
-              </Link>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
+                    <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          to="/how-it-works"
+                          onClick={() => setOpen(false)}
+                        >
+                          How It Works
+                        </Link>
+                      </li>
 
- <button
-  className="navbar-toggler"
-  type="button"
-  onClick={handleToggle}
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/sample-results">
+                          Sample Results
+                        </Link>
+                      </li>
 
-         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/who-its-for">
+                          Who It's For
+                        </Link>
+                      </li>
 
-                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
-
-                  <li className="nav-item">
-              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
-  How It Works
-</Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/sample-results">
-                      Sample Results
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/who-its-for">
-                      Who It's For
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-
-                    <button
-                      className="solar-nav-btn"
-                      onClick={() => navigate("/start-assesement")}
-                    >
-
-                      Start Assessment
-
-                      <img
-                        src={bttnarrow}
-                        alt="arrow"
-                      />
-
-                    </button>
-
-                  </li>
-
-                </ul>
-
+                      <li className="nav-item">
+                        <button
+                          className="solar-nav-btn"
+                          onClick={() => navigate("/start-assesement")}
+                        >
+                          Start Assessment
+                          <img src={bttnarrow} alt="arrow" />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
-
-            </nav>
-
-          </div>
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
@@ -406,10 +735,11 @@ function Assesement() {
                       >
                         <div className="d-flex align-items-start gap-3">
                           <div className="icon-box-tops">
-                            <img
-                              src={item.icon}
-                              alt="icon"
+                            <item.Icon
                               className="mobile-iconssss"
+                              size={22}
+                              strokeWidth={2}
+                              aria-hidden
                             />
                           </div>
 
@@ -431,34 +761,45 @@ function Assesement() {
                   ))}
                 </div>
 
-                <div className="row g-3 ">
+                <div className="row g-3 align-items-center">
                   <div className="col-md-6">
-                    <label className="form-label small fw-bold ass-bold">
+                    <label className="form-label ass-field-label">
                       COUNTRY
                     </label>
                     <select
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
-                      className="form-select rounded-3 ass-intput"
+                      className="form-select ass-field-control"
                     >
                       <option value="">Select country</option>
                       <option value="Nigeria">Nigeria</option>
-                      <option value="India">India</option>
-                      <option value="USA">USA</option>
                     </select>
                   </div>
 
                   <div className="col-md-6">
-                    <label className="form-label small fw-bold ass-bold"></label>
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
+                    <label className="form-label ass-field-label">STATE</label>
+                    <select
+                      name="state"
+                      value={
+                        formData.country === "Nigeria" ? formData.state : ""
+                      }
                       onChange={handleChange}
-                      className="form-control rounded-3 ass-intput"
-                      placeholder="Lagos"
-                    />
+                      className="form-select ass-field-control"
+                    >
+                      {formData.country === "Nigeria" ? (
+                        <>
+                          <option value="">Select state</option>
+                          {NIGERIA_STATES_SORTED.map(([slug, label]) => (
+                            <option key={slug} value={label}>
+                              {label}
+                            </option>
+                          ))}
+                        </>
+                      ) : (
+                        <option value=""></option>
+                      )}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -487,7 +828,7 @@ function Assesement() {
                       <div className="d-flex align-items-center justify-content-between w-100">
                         <div className="d-flex align-items-center gap-3">
                           <div className="icon-boxs">
-                            <img src={item.icon} alt="icon" />
+                            <item.Icon size={20} strokeWidth={2} aria-hidden />
                           </div>
 
                           <div>
@@ -539,7 +880,11 @@ function Assesement() {
                         >
                           <div className="d-flex align-items-start">
                             <div className="icon-box-topss me-2">
-                              <img src={item.icon} />
+                              <item.Icon
+                                size={20}
+                                strokeWidth={2}
+                                aria-hidden
+                              />
                             </div>
 
                             <div className="flex-grow-1">
@@ -564,30 +909,32 @@ function Assesement() {
 
               {inputMethod === "bill" && (
                 <div className="monthbill-section-tab-1">
-                  <div className="row mt-2 g-3">
-                    <div className="col-md-6">
-                      <label className="mb-2 fw-semibold ass-hedss">
-                        Upload Bill (optional)
-                      </label>
-                      <div className="upload-box-ass text-center">
-                        <div className="file-upload">
-                          <label className="file-label">
-                            <span className="file-btn">Choose file</span>
-                            <span className="file-name">{fileName}</span>
-                            <input type="file" onChange={handleFileChange} />
-                          </label>
+                  <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
+                    <div className="row mt-2 g-3">
+                      <div className="col-md-6">
+                        <label className="form-label ass-field-label ass-field-label--section mb-2">
+                          Upload Bill (optional)
+                        </label>
+                        <div className="upload-box-ass text-center">
+                          <div className="file-upload">
+                            <label className="file-label">
+                              <span className="file-btn">Choose file</span>
+                              <span className="file-name">{fileName}</span>
+                              <input type="file" onChange={handleFileChange} />
+                            </label>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="col-md-6">
-                      <label className="mb-2 fw-semibold ass-hedss">
-                        Notes
-                      </label>
-                      <textarea
-                        className="form-control notes-box ass-text-area"
-                        placeholder="Any additional notes about the site, bill pattern, or load profile..."
-                      />
+                      <div className="col-md-6">
+                        <label className="form-label ass-field-label ass-field-label--section mb-2">
+                          Notes
+                        </label>
+                        <textarea
+                          className="form-control ass-field-control notes-box ass-text-area"
+                          placeholder="Any additional notes about the site, bill pattern, or load profile..."
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -609,52 +956,56 @@ function Assesement() {
                     <div className="container mt-4">
                       <div className="row g-3">
                         <div className="col-md-6">
-                          <label className="form-label">
+                          <label className="form-label ass-field-label">
                             MONTHLY ELECTRICITY USAGE
                           </label>
                           <input
                             type="text"
-                            className="form-control custom-input"
+                            className="form-control ass-field-control"
                             placeholder="200"
                           />
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">UNIT</label>
-                          <select className="form-control custom-input">
-                            <option>Select</option>
-                            <option>kWh</option>
-                            <option>Units</option>
+                          <label className="form-label ass-field-label">
+                            UNIT
+                          </label>
+                          <select className="form-select ass-field-control">
+                            <option value="">Select unit</option>
+                            <option value="kWh">kWh</option>
+                            <option value="units">Units</option>
                           </select>
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">
+                          <label className="form-label ass-field-label">
                             AVERAGE MONTHLY ELECTRICITY SPEND
                           </label>
                           <input
                             type="text"
-                            className="form-control custom-input"
+                            className="form-control ass-field-control"
                             placeholder="#320,000"
                           />
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">
+                          <label className="form-label ass-field-label">
                             GRID TARIFF PER KWH
                           </label>
                           <input
                             type="text"
-                            className="form-control custom-input"
+                            className="form-control ass-field-control"
                           />
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">ROOF AREA</label>
+                          <label className="form-label ass-field-label">
+                            ROOF AREA
+                          </label>
                           <div className="input-wrapper">
                             <input
                               type="number"
-                              className="form-control custom-input"
+                              className="form-control ass-field-control"
                               placeholder="200"
                             />
                             <span className="unit">m²</span>
@@ -662,12 +1013,12 @@ function Assesement() {
                         </div>
 
                         <div className="col-md-6">
-                          <label className="form-label">
+                          <label className="form-label ass-field-label">
                             AVERAGE OUTAGE HOURS / DAY
                           </label>
                           <input
                             type="text"
-                            className="form-control custom-input"
+                            className="form-control ass-field-control"
                           />
                         </div>
                       </div>
@@ -693,7 +1044,34 @@ function Assesement() {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <div className="table-container">
+                      <div
+                        className="tag-row appliance-preset-tabs"
+                        role="tablist"
+                        aria-label="Typical load by home size"
+                      >
+                        {APPLIANCE_PRESETS.map((preset) => {
+                          const selected = appliancePresetTabId === preset.id;
+                          return (
+                            <button
+                              key={preset.id}
+                              type="button"
+                              role="tab"
+                              aria-selected={selected}
+                              className={`badge-custom appliance-preset-tab${selected ? " appliance-preset-tab--selected" : ""}`}
+                              onClick={() => {
+                                setAppliancePresetTabId(preset.id);
+                                setApplianceRows(
+                                  loadApplianceRowsFromPreset(preset),
+                                );
+                                setOpenApplianceSelectRow(null);
+                              }}
+                            >
+                              {preset.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <div className="table-container appliance-table-allow-dropdown">
                         <table className="appliance-table">
                           <thead>
                             <tr>
@@ -702,38 +1080,39 @@ function Assesement() {
                               <th>HRS/DAY</th>
                               <th>POWER (W)</th>
                               <th>DAILY KWH</th>
+                              <th
+                                className="appliance-table-th-actions"
+                                scope="col"
+                                aria-label="Remove row"
+                              />
                             </tr>
                           </thead>
                           <tbody>
-                            {rows.map((item, index) => (
-                              <tr key={index}>
+                            {applianceRows.map((item, index) => (
+                              <tr
+                                key={item.id}
+                                className={
+                                  openApplianceSelectRow === index
+                                    ? "appliance-select-row-is-open"
+                                    : undefined
+                                }
+                              >
                                 <td className="appliance-cell py-2">
-                                  <div className="tables-icon-box-custom">
-                                    <img src={item.icon} alt="icon" />
-                                  </div>
-
-                                  <select
-                                    className="form-select border-0 first-table"
-                                    value={item.name}
-                                    onChange={(e) =>
-                                      handleRowChange(
-                                        index,
-                                        "name",
-                                        e.target.value,
-                                      )
+                                  <ApplianceKindSelect
+                                    rowIndex={index}
+                                    catalog={APPLIANCE_CALC_CATALOG}
+                                    valueKind={item.kind}
+                                    onPick={(kind) =>
+                                      handleRowChange(index, "kind", kind)
                                     }
-                                  >
-                                    {applianceOptions.map((opt, i) => (
-                                      <option key={i} value={opt.name}>
-                                        {opt.name}
-                                      </option>
-                                    ))}
-                                  </select>
+                                    openRow={openApplianceSelectRow}
+                                    onOpenChange={setOpenApplianceSelectRow}
+                                  />
                                 </td>
 
                                 <td>
                                   <input
-                                    className="rows-borders"
+                                    className="form-control ass-field-control ass-field-control--table"
                                     type="number"
                                     value={item.qty}
                                     onChange={(e) =>
@@ -748,7 +1127,7 @@ function Assesement() {
 
                                 <td>
                                   <input
-                                    className="rows-borders"
+                                    className="form-control ass-field-control ass-field-control--table"
                                     type="number"
                                     value={item.hours}
                                     onChange={(e) =>
@@ -765,6 +1144,7 @@ function Assesement() {
                                   <div className="inputs-text-bluess">
                                     <input
                                       type="number"
+                                      className="form-control ass-field-control ass-field-control--table"
                                       value={item.power}
                                       onChange={(e) =>
                                         handleRowChange(
@@ -778,18 +1158,42 @@ function Assesement() {
                                 </td>
 
                                 <td className="col-md-2 text-center">
-                                  <div className="inputs-text-bluess">
-                                    {calculateKwh(
-                                      item.qty,
-                                      item.hours,
-                                      item.power,
-                                    )}
+                                  <div className="inputs-text-bluess inputs-text-bluess--computed">
+                                    {calculateRowDailyKwh(item)}
                                   </div>
+                                </td>
+                                <td className="appliance-table-td-actions text-center align-middle py-2">
+                                  <button
+                                    type="button"
+                                    className="ass-row-remove-btn"
+                                    disabled={
+                                      applianceRows.length <= MIN_EQUIP_ROWS
+                                    }
+                                    aria-label="Remove equipment row"
+                                    onClick={() =>
+                                      removeEquipmentRow(false, index)
+                                    }
+                                  >
+                                    <Trash2
+                                      size={18}
+                                      strokeWidth={2}
+                                      aria-hidden
+                                    />
+                                  </button>
                                 </td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
+                      </div>
+                      <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
+                        <button
+                          type="button"
+                          className="dashed-btn"
+                          onClick={() => addEquipmentRow(false)}
+                        >
+                          <span className="plus">+</span> Add Equipment
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -811,7 +1215,32 @@ function Assesement() {
                   </div>
 
                   <div className="mt-4">
-                    <div className="table-container">
+                    <div
+                      className="tag-row appliance-preset-tabs"
+                      role="tablist"
+                      aria-label="Typical custom equipment by scenario"
+                    >
+                      {CUSTOM_PRESETS.map((preset) => {
+                        const selected = customPresetTabId === preset.id;
+                        return (
+                          <button
+                            key={preset.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={selected}
+                            className={`badge-custom appliance-preset-tab${selected ? " appliance-preset-tab--selected" : ""}`}
+                            onClick={() => {
+                              setCustomPresetTabId(preset.id);
+                              setCustomRows(loadCustomRowsFromPreset(preset));
+                              setOpenApplianceSelectRow(null);
+                            }}
+                          >
+                            {preset.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div className="table-container appliance-table-allow-dropdown">
                       <table className="appliance-table">
                         <thead>
                           <tr>
@@ -821,41 +1250,57 @@ function Assesement() {
                             <th>Hrs/Day</th>
                             <th>LOAD FACTOR</th>
                             <th>DAILY KWH</th>
+                            <th
+                              className="appliance-table-th-actions"
+                              scope="col"
+                              aria-label="Remove row"
+                            />
                           </tr>
                         </thead>
                         <tbody>
-                          {rows.map((item, index) => (
-                            <tr key={index}>
+                          {customRows.map((item, index) => (
+                            <tr
+                              key={item.id}
+                              className={
+                                openApplianceSelectRow === index
+                                  ? "appliance-select-row-is-open"
+                                  : undefined
+                              }
+                            >
                               <td
                                 className="appliance-cell py-2"
                                 style={{ minWidth: "180px" }}
                               >
-                                <div className="tables-icon-box-custom">
-                                  <img src={item.icon} alt="icon" />
-                                </div>
-
-                                <select
-                                  className="form-select border-0 first-table"
-                                  value={item.name}
-                                  onChange={(e) =>
-                                    handleRowChange(
-                                      index,
-                                      "name",
-                                      e.target.value,
-                                    )
+                                <ApplianceKindSelect
+                                  rowIndex={index}
+                                  catalog={CUSTOM_EQUIP_CATALOG}
+                                  valueKind={item.kind}
+                                  onPick={(kind) =>
+                                    handleRowChange(index, "kind", kind)
                                   }
-                                >
-                                  {applianceOptionssecond.map((opt, i) => (
-                                    <option key={i} value={opt.name}>
-                                      {opt.name}
-                                    </option>
-                                  ))}
-                                </select>
+                                  openRow={openApplianceSelectRow}
+                                  onOpenChange={setOpenApplianceSelectRow}
+                                />
                               </td>
 
                               <td>
                                 <input
-                                  className="rows-borders"
+                                  className="form-control ass-field-control ass-field-control--table"
+                                  type="number"
+                                  value={item.power}
+                                  onChange={(e) =>
+                                    handleRowChange(
+                                      index,
+                                      "power",
+                                      Number(e.target.value),
+                                    )
+                                  }
+                                />
+                              </td>
+
+                              <td>
+                                <input
+                                  className="form-control ass-field-control ass-field-control--table"
                                   type="number"
                                   value={item.qty}
                                   onChange={(e) =>
@@ -870,7 +1315,7 @@ function Assesement() {
 
                               <td>
                                 <input
-                                  className="rows-borders"
+                                  className="form-control ass-field-control ass-field-control--table"
                                   type="number"
                                   value={item.hours}
                                   onChange={(e) =>
@@ -885,43 +1330,43 @@ function Assesement() {
 
                               <td>
                                 <input
-                                  className="rows-borders"
+                                  className="form-control ass-field-control ass-field-control--table"
                                   type="number"
-                                  value={item.hours}
+                                  min={0}
+                                  max={100}
+                                  title="Percent (0–100)"
+                                  value={item.loadFactorPct ?? 100}
                                   onChange={(e) =>
                                     handleRowChange(
                                       index,
-                                      "hours",
+                                      "loadFactorPct",
                                       Number(e.target.value),
                                     )
                                   }
                                 />
                               </td>
 
-                              <td>
-                                <div className="inputs-text-bluess">
-                                  <input
-                                    type="number"
-                                    value={item.power}
-                                    onChange={(e) =>
-                                      handleRowChange(
-                                        index,
-                                        "power",
-                                        Number(e.target.value),
-                                      )
-                                    }
-                                  />
+                              <td className="text-center">
+                                <div className="inputs-text-bluess inputs-text-bluess--computed">
+                                  {calculateRowDailyKwh(item)}
                                 </div>
                               </td>
-
-                              <td className="col-md-2 text-center">
-                                <div className="inputs-text-bluess">
-                                  {calculateKwh(
-                                    item.qty,
-                                    item.hours,
-                                    item.power,
-                                  )}
-                                </div>
+                              <td className="appliance-table-td-actions text-center align-middle py-2">
+                                <button
+                                  type="button"
+                                  className="ass-row-remove-btn"
+                                  disabled={customRows.length <= MIN_EQUIP_ROWS}
+                                  aria-label="Remove equipment row"
+                                  onClick={() =>
+                                    removeEquipmentRow(true, index)
+                                  }
+                                >
+                                  <Trash2
+                                    size={18}
+                                    strokeWidth={2}
+                                    aria-hidden
+                                  />
+                                </button>
                               </td>
                             </tr>
                           ))}
@@ -930,7 +1375,11 @@ function Assesement() {
                     </div>
 
                     <div className="buttons-actions bottom-bttns d-flex flex-wrap gap-3 mt-3">
-                      <button className="dashed-btn">
+                      <button
+                        type="button"
+                        className="dashed-btn"
+                        onClick={() => addEquipmentRow(true)}
+                      >
                         <span className="plus">+</span> Add Equipment
                       </button>
                     </div>
@@ -955,11 +1404,13 @@ function Assesement() {
                 <div className="container mt-4">
                   <div className="row g-3">
                     <div className="col-md-6">
-                      <label className="form-label">ROOF AREA</label>
+                      <label className="form-label ass-field-label">
+                        ROOF AREA
+                      </label>
                       <div className="input-wrapper">
                         <input
                           type="number"
-                          className="form-control custom-input"
+                          className="form-control ass-field-control"
                           placeholder="200"
                         />
                         <span className="unit">m²</span>
@@ -967,12 +1418,12 @@ function Assesement() {
                     </div>
 
                     <div className="col-md-6">
-                      <label className="form-label">
+                      <label className="form-label ass-field-label">
                         Backup Duration Required
                       </label>
                       <select
                         name="country"
-                        className="form-select rounded-3 ass-intput"
+                        className="form-select ass-field-control"
                       >
                         <option value="">Select Duration Required</option>
                         <option value="Nigeria">1</option>
@@ -994,7 +1445,11 @@ function Assesement() {
                         >
                           <div className="d-flex align-items-start">
                             <div className="icon-box-topsss me-2 ">
-                              <img src={item.icon} alt="icon" />
+                              <item.Icon
+                                size={20}
+                                strokeWidth={2}
+                                aria-hidden
+                              />
                             </div>
 
                             <div className="flex-grow-1">
@@ -1018,7 +1473,11 @@ function Assesement() {
               </div>
 
               <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
-                <button className="btn-primary-custom calu">
+                <button
+                  type="button"
+                  className="btn-primary-custom calu"
+                  onClick={() => navigate("/assesement-result")}
+                >
                   <span className="icon-sun">
                     <img src={sunone} alt="icon" />
                   </span>
@@ -1094,7 +1553,7 @@ function Assesement() {
                       <h5 className="asst-h">340</h5>
                       <div className="usage-wrapper">
                         <small>
-                          <b>MONTHLY SPEND</b>
+                          <b>ESTIMATED ANNUAL LOAD</b>
                         </small>
                       </div>
                     </div>
