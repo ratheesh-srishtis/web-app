@@ -37,77 +37,73 @@ function WhoItsFor() {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-              <nav
-                className={`navbar navbar-expand-md ${scrolled ? "scrolled" : ""}`}
-              >
-                <div className="container-fluid px-lg-4 px-3">
-                  <Link
-                    to="/"
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="navbar-brand text-white fw-bold"
-                  >
-                    <img src={logo} alt="logo" className="normal-sizee" />
-                  </Link>
+                <div className="solar-top-navbar">
 
-                  <Link
-                    to="/"
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="navbar-brand text-white fw-bold"
-                  >
-                    <img src={logo} alt="logo" className="mbile-size" />
-                  </Link>
+            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
 
-                  <button onClick={handleToggle} className="navbar-toggler">
-                    <span className="navbar-toggler-icon"></span>
-                  </button>
+              <Link className="navbar-brand" to="/">
+                <img
+                  src={logo}
+                  alt="logo"
+                  className="solar-logo-img"
+                />
+              </Link>
 
-                  <div
-                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
-                  >
-                    <ul className="navbar-nav ms-auto align-items-md-center gap-3">
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/how-it-works"
-                          onClick={() => setOpen(false)}
-                        >
-                          How It Works
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/sample-results"
-                          onClick={() => setOpen(false)}
-                        >
-                          Sample Results
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link text-white"
-                          to="/who-its-for"
-                          onClick={() => setOpen(false)}
-                        >
-                          Who It's For
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <button
-                          className="custom-btn "
-                          onClick={() => {
-                            navigate("/start-assesement");
-                          }}
-                        >
-                          {" "}
-                          Start Assessment
-                          <img src={bttnarrow} alt="arrow" />
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
+ <button
+  className="navbar-toggler"
+  type="button"
+  onClick={handleToggle}
+>
+  <span className="navbar-toggler-icon"></span>
+</button>
+
+         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+
+                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+
+                  <li className="nav-item">
+              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
+  How It Works
+</Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/sample-results">
+                      Sample Results
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/who-its-for">
+                      Who It's For
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
+
+                    <button
+                      className="solar-nav-btn"
+                      onClick={() => navigate("/start-assesement")}
+                    >
+
+                      Start Assessment
+
+                      <img
+                        src={bttnarrow}
+                        alt="arrow"
+                      />
+
+                    </button>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </nav>
+
+          </div>
               <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
                   <h1 className="bannr-text display-5 ass-page ">
@@ -127,7 +123,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3">
+        <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">Who uses Solarvy</h2>
@@ -225,7 +221,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3">
+        <section className="container-fluid px-lg-4 py-3">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">What problem are you solving?</h2>
@@ -289,7 +285,7 @@ function WhoItsFor() {
           </div>
         </section>
 
-        <section className="container py-3 mb-4">
+        <section className="container-fluid px-lg-4 py-3 mb-4">
           <div className="row g-4 align-items-start">
             <div className="dashboard-container">
               <h2 className="dashboard-title">

@@ -202,9 +202,3 @@ p.dashboard-subtitle {
 }
 
 
-@media (max-width: 767px) {
-  .title-cell {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
