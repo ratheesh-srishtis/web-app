@@ -185,7 +185,7 @@ p.bannr-text-s.text-light {
 
 /* top button */
 .solar-nav-btn {
-  height: 56px;
+  height: 45px;
 
   padding: 8px 10px 8px 24px;
 
@@ -254,7 +254,7 @@ p.bannr-text-s.text-light {
 
 /* main button */
 .solar-primary-btn {
-  height: 60px;
+  height: 45px;
 
   padding: 8px 10px 8px 24px;
 
@@ -1056,9 +1056,7 @@ button.custom-btn.other-section {
   cursor: pointer !important;
 }
 
-.other-section {
-  margin-top: 25px;
-}
+
 
 .custom-btn img {
   width: 35px;

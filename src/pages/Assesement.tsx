@@ -777,7 +777,7 @@ function Assesement() {
                                   </div>
                                 </td>
 
-                                <td className="col-md-2 text-center">
+                                <td className="col-md-2">
                                   <div className="inputs-text-bluess">
                                     {calculateKwh(
                                       item.qty,
@@ -914,7 +914,7 @@ function Assesement() {
                                 </div>
                               </td>
 
-                              <td className="col-md-2 text-center">
+                              <td className="col-md-2">
                                 <div className="inputs-text-bluess">
                                   {calculateKwh(
                                     item.qty,
