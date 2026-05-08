@@ -6,7 +6,6 @@ import "../src/css/howitwork.css";
 import "../src/css/sample.css";
 import "../src/css/WhoItsFor.css";
 import "../src/css/MatchedInstallers.css";
-import "../src/css/responsive.css";
 
 import Footer from "./components/Footer.tsx";
 import Home from "./pages/Home.tsx";
