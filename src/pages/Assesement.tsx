@@ -1157,9 +1157,11 @@ function Assesement() {
                                   </div>
                                 </td>
 
+
                                 <td className="col-md-2 text-center">
                                   <div className="inputs-text-bluess inputs-text-bluess--computed">
                                     {calculateRowDailyKwh(item)}
+
                                   </div>
                                 </td>
                                 <td className="appliance-table-td-actions text-center align-middle py-2">
@@ -1351,6 +1353,17 @@ function Assesement() {
                                   {calculateRowDailyKwh(item)}
                                 </div>
                               </td>
+
+
+                              <td className="col-md-2">
+                                <div className="inputs-text-bluess">
+                                  {calculateKwh(
+                                    item.qty,
+                                    item.hours,
+                                    item.power,
+                                  )}
+                                </div>
+
                               <td className="appliance-table-td-actions text-center align-middle py-2">
                                 <button
                                   type="button"
@@ -1367,6 +1380,7 @@ function Assesement() {
                                     aria-hidden
                                   />
                                 </button>
+
                               </td>
                             </tr>
                           ))}

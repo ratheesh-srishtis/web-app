@@ -733,7 +733,7 @@ textarea.form-control.notes-box.ass-field-control.ass-text-area {
   font-size: 16px;
   font-weight: 500;
   transition: 0.3s ease;
-  height: 56px;
+  height: 45px;
 }
 
 .btn-primary-custom:hover {
@@ -757,7 +757,7 @@ textarea.form-control.notes-box.ass-field-control.ass-text-area {
   font-weight: 500;
   transition: 0.3s ease;
   width: 100%;
-  height: 56px;
+  height: 45px;
   max-width: 170px;
 }
 
@@ -976,7 +976,7 @@ button.btn.btn-outline-custom.btn-start {
 
 .input-wrapper {
   position: relative;
-  max-width: 375px;
+
 }
 
 .unit {

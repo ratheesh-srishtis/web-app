@@ -62,7 +62,7 @@ button.btn-outline-custom2.assresult {
   font-weight: 500;
   transition: 0.3s ease;
   width: 100%;
-  height: 60px;
+  height: 45px;
 
 }
 
@@ -558,7 +558,7 @@ i.colo-sym.bi.bi-graph-up.mb-2.text-primary.fs-5 {
 
 .btn-primary-customss {
   width: 100%;
-  height: 56px;
+  height: 45px;
   background-color: #234F8E;
   color: #fff;
   border: none;
@@ -741,7 +741,7 @@ h6.qt-text.fw-bold.mb-0 {
 
 button.btn-primary-customss-down {
   width: 30%;
-  height: 56px;
+  height: 45px;
   background-color: #234F8E;
   color: #fff;
   border: none;
@@ -757,7 +757,7 @@ button.btn-primary-customss-down {
 
 button.btn-outline-customsss2-req {
   width: 100%;
-  height: 56px;
+  height: 45px;
   background-color: #fff;
   color: #234F8E;
   border: 2px solid #BFD0EA;

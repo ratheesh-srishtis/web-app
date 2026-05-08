@@ -127,9 +127,10 @@
 
 .title-main {
   font-weight: 600;
-  color: #1a2259;
-  font-size: 40px;
-}
+
+  color: #1A2259;
+  font-size: 30px;
+
 
 .sub-text {
   font-size: 14px;
@@ -208,7 +209,7 @@
 }
 
 .review-price {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   color: #1a2259;
 }

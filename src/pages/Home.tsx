@@ -425,7 +425,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="usecase-section py-1">
+      <section className="usecase-section py-1 mt-4 mb-4">
         <div className="container-fluid px-lg-5 px-3">
           <h2 className="head-nor">Built for real use cases</h2>
 
