@@ -246,7 +246,7 @@ h6.company-name-m {
     left: -50px !important;
     position: relative;
     width: 100%;
-    min-width: 360px;
+    min-width: 300px;
     height: 41px;
   }
 
@@ -372,11 +372,12 @@ span.badge-custom-blue {
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
-  top: 10px;
-  left: -10px;
+  top: 0px;
+  left: 0px;
   position: relative;
   height: 41px;
 }
+
 
 .btn-orange {
   background: #f59e0b;

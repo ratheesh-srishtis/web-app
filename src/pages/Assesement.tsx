@@ -728,11 +728,11 @@ function Assesement() {
                   </div>
                 </div>
 
-                <div className="row g-3 mb-3">
+                <div className="row g-3 mb-3 align-items-stretch">
                   {propertyOptions.map((item) => (
-                    <div className="col-6 col-md-6 col-lg-4" key={item.id}>
+                    <div className="col-lg-4 col-md-6 d-flex" key={item.id}>
                       <div
-                        className={`property-card ${selectedProperty === item.id ? "active" : ""}`}
+                        className={`property-card w-100 ${selectedProperty === item.id ? "active" : ""}`}
                         onClick={() => setSelectedProperty(item.id)}
                       >
                         <div className="d-flex align-items-start gap-3">
@@ -866,12 +866,12 @@ function Assesement() {
                   </div>
                 </div>
 
-                <div className="container mt-2 p-1">
+                <div className="container mt-2 p-1 align-items-stretch">
                   <div className=" row">
                     {options.map((item) => (
-                      <div className="col-md-4" key={item.id}>
+                      <div className="col-lg-4 col-md-6 d-flex" key={item.id}>
                         <div
-                          className={`option-card  ${
+                          className={`option-card w-100 ${
                             inputMethod === item.id ? "active" : ""
                           }`}
                           onClick={() =>
@@ -1000,19 +1000,6 @@ function Assesement() {
                           />
                         </div>
 
-                        <div className="col-md-6">
-                          <label className="form-label ass-field-label">
-                            ROOF AREA
-                          </label>
-                          <div className="input-wrapper">
-                            <input
-                              type="number"
-                              className="form-control ass-field-control"
-                              placeholder="200"
-                            />
-                            <span className="unit">m²</span>
-                          </div>
-                        </div>
 
                         <div className="col-md-6">
                           <label className="form-label ass-field-label">

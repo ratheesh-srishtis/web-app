@@ -337,10 +337,10 @@ select.form-select.ass-field-control,
 textarea.form-control.ass-field-control {
   min-height: 48px;
   padding: 0.65rem 0.9rem;
-  font-size: 15px !important;
+  font-size: 14px !important;
   line-height: 1.45;
-  font-weight: 500;
-  color: #1a2259;
+  font-weight: 400;
+  color: #b3b4be !important;
   background-color: #ffffff;
   border: 1px solid #e8edf5 !important;
   border-radius: 10px !important;
@@ -663,23 +663,21 @@ input.form-control.text-center.inputs-textss {
 }
 
 .option-card {
-  border: 2px solid #e8edf5;
+    border: 2px solid #e8edf5;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
 
-  background: #fff;
-  cursor: pointer;
-  transition: 0.2s;
-  position: relative;
+    width: 100%;
+    height: 100%;
 
-  width: 100%;
-
-  border-radius: 14px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 12px;
-  box-sizing: border-box;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    box-sizing: border-box;
 }
 
 .option-card:hover {
@@ -1032,12 +1030,18 @@ button.btn.btn-outline-custom.btn-start {
 }
 
 .property-card {
-  border: 2px solid #e8edf5;
-  border-radius: 16px;
-  padding: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
+    border: 2px solid #e8edf5;
+    border-radius: 16px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .parent-container.onlt-this:not(:last-child) {

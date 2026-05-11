@@ -167,9 +167,9 @@ function MatchedInstallers() {
                     </div>
                   </div>
 
-                  <div className="d-none d-md-block">
-                    <button className="btn-primary-custom-match">
-                      Request intro
+                  <div className="d-none d-md-block btn-wrapper">
+                    <button className="btn-primary-custom-match intro-btn">
+                      Request introoo
                     </button>
                   </div>
                 </div>
