@@ -178,7 +178,7 @@
   justify-content: center;
   margin: auto;
   font-size: 18px;
-  flexshrink: 0;
+  flex-shrink: 0;
 }
 
 .icon-box img {

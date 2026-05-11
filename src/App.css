@@ -781,11 +781,17 @@ p.bannr-text-s.text-light {
   background-repeat: no-repeat;
 }
 
-/*.overlay {
+.overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 30, 60, 0.85), rgba(0, 0, 0, 0.4));
-}*/
+  background: linear-gradient(
+    to right,
+    rgba(0, 30, 60, 0.85),
+    rgba(0, 0, 0, 0.4)
+  );
+  z-index: 0;
+  pointer-events: none;
+}
 
 .navbar-toggler {
   border: none;

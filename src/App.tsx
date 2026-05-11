@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "../src/App.css";
-import "../src/css/ass.css";
-import "../src/css/ass-result.css";
-import "../src/css/howitwork.css";
-import "../src/css/sample.css";
-import "../src/css/WhoItsFor.css";
-import "../src/css/MatchedInstallers.css";
+import "./App.css";
+import "./css/ass.css";
+import "./css/ass-result.css";
+import "./css/howitwork.css";
+import "./css/sample.css";
+import "./css/WhoItsFor.css";
+import "./css/MatchedInstallers.css";
 
 import Footer from "./components/Footer.tsx";
 import Home from "./pages/Home.tsx";
