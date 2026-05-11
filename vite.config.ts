@@ -39,4 +39,8 @@ function redirectBaseToTrailingSlash(): Plugin {
 export default defineConfig({
   plugins: [react(), redirectBaseToTrailingSlash()],
   base,
+  build: {
+    // LightningCSS fails on minifying concatenated Bootstrap + Icons (@keyframes).
+    cssMinify: "esbuild",
+  },
 });

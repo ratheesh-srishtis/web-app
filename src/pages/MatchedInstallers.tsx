@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/images/logo.png";
 import logo from "../assets/images/logo.png";
 import bttnarrow from "../assets/images/btton-arrow.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 import donw from "../assets/images/icon/d11.svg";
-
-import { useNavigate } from "react-router-dom";
+import "../css/MatchedInstallers.css";
 import { useEffect } from "react";
 
 const MATCHED_PROJECT_SUMMARY = [
@@ -373,15 +371,19 @@ function MatchedInstallers() {
                     Your project snapshot
                   </h2>
                   <p className="match-snapshot__hint">
-                    These details come from your assessment and shape how we rank
-                    installers.
+                    These details come from your assessment and shape how we
+                    rank installers.
                   </p>
                 </div>
                 <ul className="match-snapshot__list">
                   {MATCHED_PROJECT_SUMMARY.map((item) => (
                     <li key={item.label} className="match-snapshot__row">
-                      <span className="match-snapshot__label">{item.label}</span>
-                      <span className="match-snapshot__value">{item.value}</span>
+                      <span className="match-snapshot__label">
+                        {item.label}
+                      </span>
+                      <span className="match-snapshot__value">
+                        {item.value}
+                      </span>
                     </li>
                   ))}
                 </ul>
