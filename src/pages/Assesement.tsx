@@ -103,7 +103,9 @@ const APPLIANCE_PRESETS: AppliancePresetTab[] = [
   },
 ];
 
-function loadApplianceRowsFromPreset(preset: AppliancePresetTab): LoadTableRow[] {
+function loadApplianceRowsFromPreset(
+  preset: AppliancePresetTab,
+): LoadTableRow[] {
   return preset.rows.map((r) => ({
     id: newRowId("ap"),
     kind: r.kind,
@@ -1157,11 +1159,9 @@ function Assesement() {
                                   </div>
                                 </td>
 
-
                                 <td className="col-md-2 text-center">
                                   <div className="inputs-text-bluess inputs-text-bluess--computed">
                                     {calculateRowDailyKwh(item)}
-
                                   </div>
                                 </td>
                                 <td className="appliance-table-td-actions text-center align-middle py-2">
@@ -1354,15 +1354,11 @@ function Assesement() {
                                 </div>
                               </td>
 
-
                               <td className="col-md-2">
                                 <div className="inputs-text-bluess">
-                                  {calculateKwh(
-                                    item.qty,
-                                    item.hours,
-                                    item.power,
-                                  )}
+                                  {calculateRowDailyKwh(item)}
                                 </div>
+                              </td>
 
                               <td className="appliance-table-td-actions text-center align-middle py-2">
                                 <button
@@ -1380,7 +1376,6 @@ function Assesement() {
                                     aria-hidden
                                   />
                                 </button>
-
                               </td>
                             </tr>
                           ))}
