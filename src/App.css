@@ -139,8 +139,8 @@ p.bannr-text-s.text-light {
   /*max-width: 2020px;*/
 
   margin: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 /* navbar */
@@ -212,7 +212,7 @@ p.bannr-text-s.text-light {
 .solar-main-title {
   color: #ffffff;
 
-  font-size: 45px;
+  font-size: clamp(32px, 3vw, 45px);
   line-height: 1.1;
   font-weight: 400;
   margin-bottom: 60px;
@@ -287,14 +287,14 @@ p.bannr-text-s.text-light {
 
   border-radius: 28px;
 
-  padding: 36px;
+  padding: 25px;
 }
 
 /* heading */
 .solar-preview-title {
   text-align: center;
 
-  font-size: clamp(28px, 2vw, 42px);
+  font-size: clamp(22px, 1.6vw, 36px);
   font-weight: 700;
 
   margin-bottom: 28px;
@@ -335,6 +335,7 @@ p.bannr-text-s.text-light {
   box-shadow: none;
   border-color: #8eb3f5;
 }
+
 
 /* button */
 .solar-submit-btn {
@@ -384,7 +385,7 @@ p.bannr-text-s.text-light {
   }
 
   .solar-main-title {
-    font-size: 38px;
+    font-size: 30px;
     margin-top: -30px;
   }
 }
@@ -964,10 +965,10 @@ input.form-control.select-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* pushes text left & icon right */
+ border: none !important;
   height: 60px;
   width: 100%;
-  /* optional (use if you want full width button) */
+ 
 
   font-family: "Poppins", sans-serif;
   font-size: 26px;
@@ -1007,6 +1008,7 @@ button.custom-btn.other-section {
   border-radius: 100px;
   padding: 8px 8px 8px 26px !important;
   cursor: pointer !important;
+   border: none !important;
 }
 
 
@@ -1034,7 +1036,7 @@ button.custom-btn.other-section {
 }
 
 .how-it-works h2 {
-  font-size: 45px;
+
   color: #1a2259;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -1042,7 +1044,7 @@ button.custom-btn.other-section {
 
 h2.head-nor {
   font-weight: 400;
-  font-size: 45px;
+ 
   color: #1a2259;
   margin-bottom: 15px;
 

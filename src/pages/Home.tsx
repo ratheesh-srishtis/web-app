@@ -170,8 +170,8 @@ function Home() {
                     Quick Assessment Preview
                   </h2>
 
-                  <div className="row">
-                    <div className="col-6">
+                  <div className="row g-2 mb-3">
+                    <div className="col">
                       <label className="quick-lable">Property Type</label>
                       <select
                         className="form-select select-text"
@@ -195,7 +195,7 @@ function Home() {
                         </option>
                       </select>
                     </div>
-                    <div className="col-6">
+                    <div className="col">
                       <label className="quick-lable">Location</label>
                       <select
                         className="form-select select-text"

@@ -377,7 +377,7 @@ small.text-muted.sub-down {
     border-radius: 8px;
     position: relative;
     top: 50px;
-    left: 75px;
+ 
   }
 
   .download-icon-mobile img {
@@ -526,7 +526,7 @@ i.bi.bi-download.me-2,
 }
 
 h2.fw-bold.sun-head {
-  font-size: 36px;
+  font-size: 30px;
   margin: 10px 0;
   color: #1A2259;
 }
