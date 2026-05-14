@@ -117,8 +117,8 @@ function MatchedInstallers() {
           </div>
         </section>
 
-        <section className="container-fluid px-lg-4 px-3 py-3">
-          <div className="row g-4 align-items-start">
+        <section className="container-fluid px-lg-4 px-3 py-5">
+          <div className="row align-items-start">
             <div className="col-lg-8 ">
               <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
                 <div>
@@ -131,7 +131,7 @@ function MatchedInstallers() {
                 <div className="result-badge">Top 5 results</div>
               </div>
 
-              <div className="installer-card p-3">
+              <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
                     <div className="score-box-match">76</div>
@@ -152,30 +152,36 @@ function MatchedInstallers() {
                         <span className="badge-custom-blue">
                           Fits your range
                         </span>
-                        <span className="badge-custom">
-                          Typical budget ₦18m–₦28m
-                        </span>
                       </div>
 
-                      <button className="btn-primary-custom-match d-block d-md-none mb-2">
+                      <button
+                        className="btn-primary-custom-match d-block d-md-none mb-2"
+                        onClick={() => navigate("/request-intro")}
+                      >
                         Request intro
                       </button>
 
-                      <a href="#" className="link-view d-block">
-                        Get Review First
-                      </a>
+                      <Link
+                        to="/expert-review"
+                        className="link-view d-block review-link"
+                      >
+                        Get Expert Review
+                      </Link>
                     </div>
                   </div>
 
                   <div className="d-none d-md-block btn-wrapper">
-                    <button className="btn-primary-custom-match intro-btn">
-                      Request introoo
+                    <button
+                      className="btn-primary-custom-match intro-btn"
+                      onClick={() => navigate("/request-intro")}
+                    >
+                      Request intro
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="installer-card p-3">
+              <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
                     <div className="score-box-match green-bg">76</div>
@@ -199,30 +205,36 @@ function MatchedInstallers() {
                         <span className="badge-custom-blue">
                           Cost effective
                         </span>
-                        <span className="badge-custom">
-                          Typical budget ₦14m–₦24m
-                        </span>
                       </div>
 
-                      <button className="btn-primary-custom-match d-block d-md-none mb-2">
+                      <button
+                        className="btn-primary-custom-match d-block d-md-none mb-2"
+                        onClick={() => navigate("/request-intro")}
+                      >
                         Request intro
                       </button>
 
-                      <a href="#" className="link-view d-block">
-                        Get Review/Edit
-                      </a>
+                      <Link
+                        to="/expert-review"
+                        className="link-view d-block review-link"
+                      >
+                        Get Expert Review
+                      </Link>
                     </div>
                   </div>
 
                   <div className="d-none d-md-block">
-                    <button className="btn-primary-custom-match">
+                    <button
+                      className="btn-primary-custom-match"
+                      onClick={() => navigate("/request-intro")}
+                    >
                       Request intro
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="installer-card p-3">
+              <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
                     <div className="score-box-match orange-bg">76</div>
@@ -245,30 +257,36 @@ function MatchedInstallers() {
                         <span className="badge-custom-blue">
                           Storage capable
                         </span>
-                        <span className="badge-custom">
-                          Typical budget ₦18m–₦28m
-                        </span>
                       </div>
 
-                      <button className="btn-primary-custom-match d-block d-md-none mb-2">
+                      <button
+                        className="btn-primary-custom-match d-block d-md-none mb-2"
+                        onClick={() => navigate("/request-intro")}
+                      >
                         Request intro
                       </button>
 
-                      <a href="#" className="link-view d-block">
-                        Get Review/Edit
-                      </a>
+                      <Link
+                        to="/expert-review"
+                        className="link-view d-block review-link"
+                      >
+                        Get Expert Review
+                      </Link>
                     </div>
                   </div>
 
                   <div className="d-none d-md-block">
-                    <button className="btn-primary-custom-match">
+                    <button
+                      className="btn-primary-custom-match"
+                      onClick={() => navigate("/request-intro")}
+                    >
                       Request intro
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="installer-card p-3">
+              <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
                     <div className="score-box-match orange-bg">76</div>
@@ -291,30 +309,36 @@ function MatchedInstallers() {
                         <span className="badge-custom-blue">
                           Storage capable
                         </span>
-                        <span className="badge-custom">
-                          Typical budget ₦18m–₦28m
-                        </span>
                       </div>
 
-                      <button className="btn-primary-custom-match d-block d-md-none mb-2">
+                      <button
+                        className="btn-primary-custom-match d-block d-md-none mb-2"
+                        onClick={() => navigate("/request-intro")}
+                      >
                         Request intro
                       </button>
 
-                      <a href="#" className="link-view d-block">
-                        Get Review/Edit
-                      </a>
+                      <Link
+                        to="/expert-review"
+                        className="link-view d-block review-link"
+                      >
+                        Get Expert Review
+                      </Link>
                     </div>
                   </div>
 
                   <div className="d-none d-md-block">
-                    <button className="btn-primary-custom-match">
+                    <button
+                      className="btn-primary-custom-match"
+                      onClick={() => navigate("/request-intro")}
+                    >
                       Request intro
                     </button>
                   </div>
                 </div>
               </div>
 
-              <div className="installer-card p-3">
+              <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
                     <div className="score-box-match orange-bg">76</div>
@@ -333,23 +357,29 @@ function MatchedInstallers() {
                         </span>
                         <span className="badge-custom">Solar + battery</span>
                         <span className="badge-custom">Storage capable</span>
-                        <span className="badge-custom">
-                          Typical budget ₦18m–₦28m
-                        </span>
                       </div>
 
-                      <button className="btn-primary-custom-match d-block d-md-none mb-2">
+                      <button
+                        className="btn-primary-custom-match d-block d-md-none mb-2"
+                        onClick={() => navigate("/request-intro")}
+                      >
                         Request intro
                       </button>
 
-                      <a href="#" className="link-view d-block">
-                        Get Review/Edit
-                      </a>
+                      <Link
+                        to="/expert-review"
+                        className="link-view d-block review-link"
+                      >
+                        Get Expert Review
+                      </Link>
                     </div>
                   </div>
 
                   <div className="d-none d-md-block">
-                    <button className="btn-primary-custom-match">
+                    <button
+                      className="btn-primary-custom-match"
+                      onClick={() => navigate("/request-intro")}
+                    >
                       Request intro
                     </button>
                   </div>
@@ -423,7 +453,10 @@ function MatchedInstallers() {
                   <h2 className="review-price">₦250k+</h2>
                 </div>
 
-                <button className="btn-orange w-100 mt-3">
+                <button
+                  className="btn-orange w-100 mt-3"
+                  onClick={() => navigate("/expert-review")}
+                >
                   Get expert review
                 </button>
               </div>

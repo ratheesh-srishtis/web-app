@@ -147,15 +147,17 @@ p.bannr-text-s.text-light {
 
 .solar-top-navbar .navbar {
   padding: -15px !important;
+  z-index: 999999999 !important;
 }
 
 .solar-top-navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 999999999 !important;
   background: transparent;
   transition: all 0.3s ease;
+  background-color: #174c90 !important;
 }
 
 /* logo */
@@ -166,15 +168,13 @@ p.bannr-text-s.text-light {
 
 .solar-nav-links .nav-link {
   color: #ffffff !important;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 /* top button */
 .solar-nav-btn {
-
   height: 45px;
-
 
   padding: 8px 10px 8px 24px;
 
@@ -211,9 +211,8 @@ p.bannr-text-s.text-light {
 
 .solar-main-title {
   color: #ffffff;
-
-  font-size: clamp(32px, 3vw, 45px);
-  line-height: 1.1;
+  font-size: 30px;
+  line-height: 1.4;
   font-weight: 400;
   margin-bottom: 60px;
   margin-top: 0px;
@@ -241,9 +240,7 @@ p.bannr-text-s.text-light {
 
 /* main button */
 .solar-primary-btn {
-
   height: 45px;
-
 
   padding: 8px 10px 8px 24px;
 
@@ -282,12 +279,10 @@ p.bannr-text-s.text-light {
 .solar-preview-card {
   width: 100%;
   max-width: 690px;
-
   background: #dfe8f6;
-
   border-radius: 28px;
-
   padding: 25px;
+  border: 3px solid #ffffff;
 }
 
 /* heading */
@@ -335,7 +330,6 @@ p.bannr-text-s.text-light {
   box-shadow: none;
   border-color: #8eb3f5;
 }
-
 
 /* button */
 .solar-submit-btn {
@@ -401,7 +395,7 @@ p.bannr-text-s.text-light {
   }
 
   .solar-main-row {
-    row-gap: 40px;
+    row-gap: 20px;
     padding: 35px 0px 0px 0px;
   }
 
@@ -410,7 +404,7 @@ p.bannr-text-s.text-light {
   }
 
   .solar-main-title {
-    font-size: 48px;
+    font-size: 30px;
   }
 
   .solar-preview-card {
@@ -437,12 +431,14 @@ p.bannr-text-s.text-light {
   }
 
   .solar-main-title {
-    font-size: 38px;
+    font-size: 30px;
     line-height: 1.2;
+    margin-bottom: 25px;
   }
 
   .solar-main-desc {
     font-size: 15px;
+    margin-bottom: 25px;
   }
 
   .solar-preview-card {
@@ -483,7 +479,8 @@ p.bannr-text-s.text-light {
 
 @media (max-width: 480px) {
   .solar-main-title {
-    font-size: 32px;
+    font-size: 30px;
+    margin-bottom: 25px;
   }
 
   .solar-preview-title {
@@ -630,6 +627,9 @@ nav.navbar {
   .nav-bottom-section {
     row-gap: 30px;
   }
+  .start-assesement-banner-text {
+    margin-top: 80px;
+  }
 }
 
 .navbar .container,
@@ -664,12 +664,12 @@ nav.navbar {
 
   .navbar-nav .nav-link {
     color: #fff !important;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .nav-link {
     color: #fff !important;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .bannar-see {
@@ -965,10 +965,9 @@ input.form-control.select-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
- border: none !important;
+  border: none !important;
   height: 60px;
   width: 100%;
- 
 
   font-family: "Poppins", sans-serif;
   font-size: 26px;
@@ -1008,10 +1007,9 @@ button.custom-btn.other-section {
   border-radius: 100px;
   padding: 8px 8px 8px 26px !important;
   cursor: pointer !important;
-   border: none !important;
+  border: none !important;
+  width: 90%;
 }
-
-
 
 .custom-btn img {
   width: 35px;
@@ -1036,7 +1034,6 @@ button.custom-btn.other-section {
 }
 
 .how-it-works h2 {
-
   color: #1a2259;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -1044,7 +1041,7 @@ button.custom-btn.other-section {
 
 h2.head-nor {
   font-weight: 400;
- 
+
   color: #1a2259;
   margin-bottom: 15px;
 
@@ -1364,15 +1361,17 @@ a.navbar-brand.footer-logoss.text-white.fw-bold.mb-4 {
 
 /* Text */
 .overlay-card h1 {
-  font-size: 43px;
-  font-weight: 500;
+  font-size: 45px;
+  font-weight: 600;
   text-align: center;
+  color: #ffffff;
 }
 
 .overlay-card p {
   margin-top: 15px;
-  color: #e6e6e6;
+  color: #f3f3f3;
   text-align: center;
+  font-size: 14px;
 }
 
 /* Button */
@@ -1684,6 +1683,8 @@ nav.navbar.navbar-expand-md.mb-2.asst-menuss {
     text-align: center;
     padding: 30px 30px 30px 30px;
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .overlay-card h1 {
@@ -1771,12 +1772,16 @@ a.text-light.align-self-center {
   }
 
   .how-it-works h2 {
-    font-size: 25px;
+    font-size: 25px !important;
+  }
+
+  .head-nor {
+    font-size: 25px !important;
   }
 
   h2.head-nor {
     font-weight: 400;
-    font-size: 35px;
+    font-size: 25px !important;
     color: #1a2259;
     margin-bottom: 10px;
     margin-top: 20px;

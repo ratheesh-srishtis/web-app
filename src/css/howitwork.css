@@ -1,5 +1,30 @@
-.process-section {
+/* Behind-the-scenes cards: content-height on mobile, fixed on md+ */
+.how-behind-scenes-card {
+  box-sizing: border-box;
+  height: auto;
+  min-height: fit-content;
+  padding: 24px 1.5rem;
+  background-color: #ffffff;
+}
 
+@media (min-width: 768px) {
+  .how-behind-scenes-row > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .how-behind-scenes-card {
+    min-height: 350px;
+    padding: 1.5rem;
+  }
+
+  .how-behind-scenes-row .how-behind-scenes-card {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+.process-section {
   padding: 10px 10px;
 
   display: flex;
@@ -9,7 +34,6 @@
   align-items: center;
 
   text-align: center;
-
 }
 
 .process-title {
@@ -27,18 +51,16 @@
   line-height: 1.6;
   max-width: 500px;
   margin: 0 auto;
-
 }
 
 .feature-list {
-
   padding: 20px 10px;
   border-radius: 10px;
   max-width: 500px;
 }
 
 h5.fw-bold.mb-2.rang-head {
-  color: #1A2259;
+  color: #1a2259;
   font-size: 22px;
   font-weight: 600 !important;
 }
@@ -52,7 +74,6 @@ h5.fw-bold.mb-2.rang-head {
   margin-bottom: 14px;
 }
 
-
 .feature-item:last-child {
   margin-bottom: 0;
 }
@@ -64,7 +85,6 @@ h5.fw-bold.mb-2.rang-head {
   margin-top: -30px;
 }
 
-
 .dot-blue {
   width: 6px;
   height: 6px;
@@ -73,7 +93,6 @@ h5.fw-bold.mb-2.rang-head {
   border-radius: 50%;
   position: relative;
 }
-
 
 .dot-blue::before {
   content: "";
@@ -88,8 +107,7 @@ h5.fw-bold.mb-2.rang-head {
 }
 
 .feature-list-orange {
-
-  padding: 20px 24px;
+  padding: 20px 4px;
   border-radius: 10px;
   max-width: 500px;
 }
@@ -107,16 +125,14 @@ h5.fw-bold.mb-2.rang-head {
   margin-bottom: 0;
 }
 
-
 .dot-orange {
   width: 6px;
   height: 6px;
-  background-color: #E33A02;
+  background-color: #e33a02;
 
   border-radius: 50%;
   position: relative;
 }
-
 
 .dot-orange::before {
   content: "";
@@ -134,5 +150,11 @@ h5.fw-bold.mb-2.rang-head {
 span.dots-texts {
   font-size: 16px;
   font-weight: 500;
-  color: #4D5260;
+  color: #4d5260;
+}
+
+@media (max-width: 768px) {
+  .how-it-works-banner-text {
+    margin-top: 30px;
+  }
 }

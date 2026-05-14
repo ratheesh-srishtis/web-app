@@ -120,7 +120,7 @@ function AssesementResult() {
               </div>
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
-                  <h1 className="bannr-text display-5 ass-page ">
+                  <h1 className="bannr-text display-5 ass-page ass-result-banner-text">
                     Your preliminary energy system recommendation
                   </h1>
 
@@ -196,7 +196,7 @@ function AssesementResult() {
                 <div className="col-md-4">
                   <div className="card custom-card h-100">
                     <div className="card-body pad">
-                      <div className="d-flex align-items-center mb-2 gap-2">
+                      <div className="d-flex align-items-center justify-content-between mb-2 gap-2">
                         <div className="icon-box-act">
                           <img src={halfSun} alt="icon" />
                         </div>
@@ -389,10 +389,13 @@ function AssesementResult() {
                   </div>
                 </div>
 
-                <div className="container my-4">
+                <div
+                  className="container my-4"
+                  style={{ marginLeft: 0, paddingLeft: 0 }}
+                >
                   <div className="row g-4">
                     <div className="col-12 col-md-4">
-                      <div className="info-card">
+                      <div className="info-card ms-0">
                         <div className="info-badge">1</div>
                         <h6 className="info-title">
                           <i className="bi bi-download me-2"></i>

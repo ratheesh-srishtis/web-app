@@ -1,5 +1,5 @@
 .custom-card {
-  background: #f8fafc;
+  background: #ffffff;
   border-radius: 20px;
   padding: 24px;
   height: 100%;
@@ -11,6 +11,7 @@
 
 .custom-card:hover {
   transform: translateY(-5px);
+  background-color: #ffffff;
 }
 
 .icon-box-who {
@@ -25,13 +26,13 @@
 
 .icon-box-who i {
   font-size: 24px;
-  color: #174C90;
+  color: #174c90;
   border-radius: 18px;
 }
 
 .tag {
   background: #e0ecff;
-  color: #174C90;
+  color: #174c90;
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 12px;
@@ -39,7 +40,7 @@
 }
 
 .feature-card {
-  background: #f8fafc;
+  background: #ffffff;
   border-radius: 18px;
   padding: 22px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
@@ -63,5 +64,5 @@
 
 .feature-icon i {
   font-size: 20px;
-  color: #174C90;
+  color: #174c90;
 }

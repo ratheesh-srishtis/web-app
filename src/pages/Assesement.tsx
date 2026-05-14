@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import bttnarrow from "../assets/images/btton-arrow.png";
@@ -199,15 +200,55 @@ function ApplianceKindSelect({
   openRow: number | null;
   onOpenChange: (row: number | null) => void;
 }) {
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [menuPos, setMenuPos] = useState<{
+    top: number;
+    left: number;
+    minWidth: number;
+  } | null>(null);
   const selected = catalog.find((o) => o.kind === valueKind);
   const isOpen = openRow === rowIndex;
   const TriggerIcon = selected?.Icon ?? Lightbulb;
+
+  useLayoutEffect(() => {
+    if (!isOpen) {
+      setMenuPos(null);
+      return;
+    }
+    const update = () => {
+      const el = triggerRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const vw = window.innerWidth;
+      const margin = 16;
+      const maxMenuW = Math.min(340, vw - margin * 2);
+      const minWidth = Math.min(Math.max(r.width, 200), maxMenuW);
+      let left = r.left;
+      if (left + minWidth > vw - margin) {
+        left = vw - margin - minWidth;
+      }
+      left = Math.max(margin, left);
+      setMenuPos({
+        top: r.bottom + 4,
+        left,
+        minWidth,
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [isOpen]);
 
   return (
     <div
       className={`appliance-select-cell position-relative${isOpen ? " appliance-select-cell--open" : ""}`}
     >
       <button
+        ref={triggerRef}
         type="button"
         className="appliance-select-trigger"
         aria-expanded={isOpen}
@@ -236,42 +277,58 @@ function ApplianceKindSelect({
           />
         </span>
       </button>
-      {isOpen && (
-        <>
-          <div
-            className="appliance-select-backdrop"
-            role="presentation"
-            onMouseDown={() => onOpenChange(null)}
-          />
-          <ul className="appliance-select-menu" role="listbox">
-            {catalog.map((opt) => {
-              const OptionIcon = opt.Icon;
-              const active = opt.kind === valueKind;
-              return (
-                <li key={opt.kind} role="none">
-                  <button
-                    type="button"
-                    role="option"
-                    aria-selected={active}
-                    className={`appliance-select-option${active ? " is-active" : ""}`}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      onPick(opt.kind);
-                      onOpenChange(null);
-                    }}
-                  >
-                    <span className="tables-icon-box-custom appliance-select-icon-wrap">
-                      <OptionIcon size={18} strokeWidth={2} aria-hidden />
-                    </span>
-                    <span>{opt.label}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )}
+      {isOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <>
+            <div
+              className="appliance-select-backdrop"
+              role="presentation"
+              onPointerDown={() => onOpenChange(null)}
+            />
+            {menuPos ? (
+              <ul
+                className="appliance-select-menu appliance-select-menu--portal"
+                role="listbox"
+                style={{
+                  position: "fixed",
+                  top: menuPos.top,
+                  left: menuPos.left,
+                  minWidth: menuPos.minWidth,
+                  maxWidth: "min(340px, calc(100vw - 32px))",
+                  zIndex: 1000000,
+                }}
+              >
+                {catalog.map((opt) => {
+                  const OptionIcon = opt.Icon;
+                  const active = opt.kind === valueKind;
+                  return (
+                    <li key={opt.kind} role="none">
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={active}
+                        className={`appliance-select-option${active ? " is-active" : ""}`}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          onPick(opt.kind);
+                          onOpenChange(null);
+                        }}
+                      >
+                        <span className="tables-icon-box-custom appliance-select-icon-wrap">
+                          <OptionIcon size={18} strokeWidth={2} aria-hidden />
+                        </span>
+                        <span>{opt.label}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : null}
+          </>,
+          document.body,
+        )}
     </div>
   );
 }
@@ -632,6 +689,35 @@ function Assesement() {
     inputMethod === "bill" ? "ESTIMATED MONTHLY SPEND" : "Monthly Energy";
   const summarySecondMetricValue = inputMethod === "bill" ? "N200,000" : "1.9";
 
+  /** Shared display values — update in one place for desktop & mobile summaries. */
+  const summaryFirstMetricValue = "11.3";
+  const summaryEstimatedAnnualLoad = "340";
+
+  const assessmentCtaBar = (
+    <div className="d-flex gap-3 flex-wrap mt-3 mb-4 assessment-cta-bar">
+      <button
+        type="button"
+        className="btn-primary-custom calu"
+        onClick={() => navigate("/assesement-result")}
+      >
+        <span className="icon-sun">
+          <img src={sunone} alt="icon" />
+        </span>
+        <span>Calculate My Energy System</span>
+        <span className="arrows">
+          <img src={sunthree} alt="icon" />
+        </span>
+      </button>
+
+      <button className="btn-outline-custom2 calu-2">
+        <span className="icon-sun">
+          <img src={save} alt="icon" />
+        </span>
+        <span>Save Draft</span>
+      </button>
+    </div>
+  );
+
   return (
     <div>
       <div className="full-body-color">
@@ -697,7 +783,7 @@ function Assesement() {
               </div>
               <div className="nav-bottom-section row align-items-center">
                 <div className="col-12 col-lg-12 text-white ">
-                  <h1 className="bannr-text display-5 ass-page ">
+                  <h1 className="bannr-text start-assesement-banner-text display-5 ass-page ">
                     Energy Assessment
                   </h1>
 
@@ -728,9 +814,12 @@ function Assesement() {
                   </div>
                 </div>
 
-                <div className="row g-3 mb-3 align-items-stretch">
+                <div className="row g-3 mb-3 start-assesement-cards">
                   {propertyOptions.map((item) => (
-                    <div className="col-lg-4 col-md-6 d-flex" key={item.id}>
+                    <div
+                      className="col-6 col-lg-4 d-flex"
+                      key={item.id}
+                    >
                       <div
                         className={`property-card w-100 ${selectedProperty === item.id ? "active" : ""}`}
                         onClick={() => setSelectedProperty(item.id)}
@@ -789,18 +878,12 @@ function Assesement() {
                       onChange={handleChange}
                       className="form-select ass-field-control"
                     >
-                      {formData.country === "Nigeria" ? (
-                        <>
-                          <option value="">Select state</option>
-                          {NIGERIA_STATES_SORTED.map(([slug, label]) => (
-                            <option key={slug} value={label}>
-                              {label}
-                            </option>
-                          ))}
-                        </>
-                      ) : (
-                        <option value=""></option>
-                      )}
+                      <option value="">Select state</option>
+                      {NIGERIA_STATES_SORTED.map(([slug, label]) => (
+                        <option key={slug} value={label}>
+                          {label}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -867,9 +950,9 @@ function Assesement() {
                 </div>
 
                 <div className="container mt-2 p-1 align-items-stretch">
-                  <div className=" row">
+                  <div className="row g-3">
                     {options.map((item) => (
-                      <div className="col-lg-4 col-md-6 d-flex" key={item.id}>
+                      <div className="col-12 col-md-6 col-lg-4 d-flex" key={item.id}>
                         <div
                           className={`option-card w-100 ${
                             inputMethod === item.id ? "active" : ""
@@ -964,7 +1047,7 @@ function Assesement() {
                           <input
                             type="text"
                             className="form-control ass-field-control"
-                            placeholder="200"
+                            placeholder=""
                           />
                         </div>
 
@@ -986,7 +1069,7 @@ function Assesement() {
                           <input
                             type="text"
                             className="form-control ass-field-control"
-                            placeholder="#320,000"
+                            placeholder=""
                           />
                         </div>
 
@@ -1000,7 +1083,15 @@ function Assesement() {
                           />
                         </div>
 
-
+                        <div className="col-md-6">
+                          <label className="form-label ass-field-label">
+                            PEAK LOAD (Optional)
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control ass-field-control"
+                          />
+                        </div>
                         <div className="col-md-6">
                           <label className="form-label ass-field-label">
                             AVERAGE OUTAGE HOURS / DAY
@@ -1032,7 +1123,7 @@ function Assesement() {
                         </p>
                       </div>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-1">
                       <div
                         className="tag-row appliance-preset-tabs"
                         role="tablist"
@@ -1061,7 +1152,7 @@ function Assesement() {
                         })}
                       </div>
                       <div className="table-container appliance-table-allow-dropdown">
-                        <table className="appliance-table">
+                        <table className="appliance-table mt-2">
                           <thead>
                             <tr>
                               <th>APPLIANCE</th>
@@ -1069,6 +1160,7 @@ function Assesement() {
                               <th>HRS/DAY</th>
                               <th>POWER (W)</th>
                               <th>DAILY KWH</th>
+                              <th>ACTION</th>
                               <th
                                 className="appliance-table-th-actions"
                                 scope="col"
@@ -1146,7 +1238,7 @@ function Assesement() {
                                   </div>
                                 </td>
 
-                                <td className="col-md-2 text-center">
+                                <td className="col-md-2 ">
                                   <div className="inputs-text-bluess inputs-text-bluess--computed">
                                     {calculateRowDailyKwh(item)}
                                   </div>
@@ -1239,6 +1331,7 @@ function Assesement() {
                             <th>Hrs/Day</th>
                             <th>LOAD FACTOR</th>
                             <th>DAILY KWH</th>
+                            <th>ACTION</th>
                             <th
                               className="appliance-table-th-actions"
                               scope="col"
@@ -1317,24 +1410,6 @@ function Assesement() {
                                 />
                               </td>
 
-                              <td>
-                                <input
-                                  className="form-control ass-field-control ass-field-control--table"
-                                  type="number"
-                                  min={0}
-                                  max={100}
-                                  title="Percent (0–100)"
-                                  value={item.loadFactorPct ?? 100}
-                                  onChange={(e) =>
-                                    handleRowChange(
-                                      index,
-                                      "loadFactorPct",
-                                      Number(e.target.value),
-                                    )
-                                  }
-                                />
-                              </td>
-
                               <td className="text-center">
                                 <div className="inputs-text-bluess inputs-text-bluess--computed">
                                   {calculateRowDailyKwh(item)}
@@ -1342,7 +1417,7 @@ function Assesement() {
                               </td>
 
                               <td className="col-md-2">
-                                <div className="inputs-text-bluess">
+                                <div className="inputs-text-bluess inputs-text-bluess--computed">
                                   {calculateRowDailyKwh(item)}
                                 </div>
                               </td>
@@ -1468,32 +1543,94 @@ function Assesement() {
                 </div>
               </div>
 
-              <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
-                <button
-                  type="button"
-                  className="btn-primary-custom calu"
-                  onClick={() => navigate("/assesement-result")}
-                >
-                  <span className="icon-sun">
-                    <img src={sunone} alt="icon" />
-                  </span>
-                  <span>Calculate My Energy System</span>
-                  <span className="arrows">
-                    <img src={sunthree} alt="icon" />
-                  </span>
-                </button>
-
-                <button className="btn-outline-custom2 calu-2">
-                  <span className="icon-sun">
-                    <img src={save} alt="icon" />
-                  </span>
-                  <span>Save Draft</span>
-                </button>
-              </div>
+              <div className="d-none d-lg-block">{assessmentCtaBar}</div>
             </div>
 
             <div className="col-lg-4">
-              <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
+              <div className="assessment-summary-metrics-mobile d-lg-none">
+                <div
+                  className="assessment-summary-mobile-live-head"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <span
+                    className="assessment-summary-mobile-live-dot"
+                    aria-hidden
+                  />
+                  <span className="assessment-summary-mobile-live-title">
+                    Live summary
+                  </span>
+                </div>
+                <p className="assessment-summary-mobile-live-hint">
+                  Key figures update as you enter your assessment.
+                </p>
+
+                <div className="assessment-summary-mobile-row">
+                  <div className="assessment-summary-mobile-icon-wrap">
+                    <img src={buleone} alt="" />
+                  </div>
+                  <div className="assessment-summary-mobile-body">
+                    <div className="assessment-summary-mobile-value">
+                      {summaryFirstMetricValue}
+                    </div>
+                    <div className="assessment-summary-mobile-labels">
+                      <span>{summaryFirstMetricUnit}</span>
+                      <span className="fw-bold">{summaryFirstMetricLabel}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="assessment-summary-mobile-row">
+                  <div className="assessment-summary-mobile-icon-wrap">
+                    <img src={buletwo} alt="" />
+                  </div>
+                  <div className="assessment-summary-mobile-body">
+                    <div className="assessment-summary-mobile-value">
+                      {summarySecondMetricValue}
+                    </div>
+                    <div className="assessment-summary-mobile-labels">
+                      {inputMethod !== "bill" && <span>kWh/month</span>}
+                      <span className="fw-bold">{summarySecondMetricLabel}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="assessment-summary-mobile-row">
+                  <div className="assessment-summary-mobile-icon-wrap">
+                    <img src={bulefour} alt="" />
+                  </div>
+                  <div className="assessment-summary-mobile-body">
+                    <div className="assessment-summary-mobile-value">
+                      {summaryEstimatedAnnualLoad}
+                    </div>
+                    <div className="assessment-summary-mobile-labels">
+                      <span className="fw-bold text-uppercase">
+                        ESTIMATED ANNUAL LOAD
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="assessment-summary-mobile-row">
+                  <div className="assessment-summary-mobile-icon-wrap">
+                    <img src={bulethree} alt="" />
+                  </div>
+                  <div className="assessment-summary-mobile-body">
+                    <div className="assessment-summary-mobile-value">
+                      {summaryAssessmentPathTitle}
+                    </div>
+                    <div className="assessment-summary-mobile-labels">
+                      <span className="fw-bold text-uppercase">
+                        ASSESSMENT PATH
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="d-lg-none">{assessmentCtaBar}</div>
+
+              <div className="d-none d-lg-block p-4 rounded-4 shadow-sm right-panel assts-right">
                 <div className="botton-line mb-4">
                   <div className="step-item active">
                     <span className="step-circle">✔</span>
@@ -1511,13 +1648,13 @@ function Assesement() {
                   </div>
                 </div>
 
-                <div className="row g-3">
+                <div className="row g-3 flex-wrap">
                   <div className="col-6">
                     <div className="stat-card text-center">
                       <div className="icon-box-build-right mb-2">
                         <img src={buleone} alt="icon" />
                       </div>
-                      <h5 className="asst-h">11.3</h5>
+                      <h5 className="asst-h">{summaryFirstMetricValue}</h5>
                       <div className="usage-wrapper">
                         <small>{summaryFirstMetricUnit}</small>
                         <small>
@@ -1546,7 +1683,7 @@ function Assesement() {
                       <div className="icon-box-build-right mb-2">
                         <img src={bulefour} alt="icon" />
                       </div>
-                      <h5 className="asst-h">340</h5>
+                      <h5 className="asst-h">{summaryEstimatedAnnualLoad}</h5>
                       <div className="usage-wrapper">
                         <small>
                           <b>ESTIMATED ANNUAL LOAD</b>

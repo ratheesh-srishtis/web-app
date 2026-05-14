@@ -1,3 +1,10 @@
+/* Even vertical rhythm between Sample Results content blocks (mobile + desktop) */
+.sample-page-section {
+  box-sizing: border-box;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .dashboard-card {
   border: 1px solid #e8edf5;
   border-radius: 16px;
@@ -29,7 +36,6 @@ p.dashboard-subtitle {
 }
 
 .card-value {
-
   font-size: 22px;
 
   font-weight: 700;
@@ -146,6 +152,12 @@ p.dashboard-subtitle {
     overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+  .financial-summary-title {
+    margin-top: 40px !important;
+  }
+  .sample-results-banner-text {
+    margin-top: 30px;
   }
 
   .custom-table table {

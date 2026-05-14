@@ -14,11 +14,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function HowItWorks() {
-   const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-const handleToggle = () => {
-  setOpen(!open);
-};
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,17 +36,16 @@ const handleToggle = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 992) {
-      setOpen(false); // reset menu on desktop
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setOpen(false); // reset menu on desktop
+      }
+    };
 
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div>
       <div className="full-body-color">
@@ -55,76 +54,64 @@ const handleToggle = () => {
 
           <div className="container-fluid px-lg-4 px-3 position-relative z-1 menu-div ass-div">
             <div className="row align-items-start text-divs gx-3 gx-lg-4">
-               <div className="solar-top-navbar">
+              <div className="solar-top-navbar">
+                <nav
+                  className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}
+                >
+                  <Link className="navbar-brand" to="/">
+                    <img src={logo} alt="logo" className="solar-logo-img" />
+                  </Link>
 
-            <nav className={`navbar navbar-expand-lg  ${scrolled ? "scrolled" : ""}`}>
+                  <button
+                    className="navbar-toggler"
+                    type="button"
+                    onClick={handleToggle}
+                  >
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
 
-              <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  alt="logo"
-                  className="solar-logo-img"
-                />
-              </Link>
+                  <div
+                    className={`collapse navbar-collapse ${open ? "show" : ""}`}
+                  >
+                    <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          to="/how-it-works"
+                          onClick={() => setOpen(false)}
+                        >
+                          How It Works
+                        </Link>
+                      </li>
 
- <button
-  className="navbar-toggler"
-  type="button"
-  onClick={handleToggle}
->
-  <span className="navbar-toggler-icon"></span>
-</button>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/sample-results">
+                          Sample Results
+                        </Link>
+                      </li>
 
-         <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/who-its-for">
+                          Who It's For
+                        </Link>
+                      </li>
 
-                <ul className="navbar-nav ms-auto align-items-lg-center solar-nav-links">
-
-                  <li className="nav-item">
-              <Link className="nav-link" to="/how-it-works" onClick={() => setOpen(false)}>
-  How It Works
-</Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/sample-results">
-                      Sample Results
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/who-its-for">
-                      Who It's For
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-
-                    <button
-                      className="solar-nav-btn"
-                      onClick={() => navigate("/start-assesement")}
-                    >
-
-                      Start Assessment
-
-                      <img
-                        src={bttnarrow}
-                        alt="arrow"
-                      />
-
-                    </button>
-
-                  </li>
-
-                </ul>
-
+                      <li className="nav-item">
+                        <button
+                          className="solar-nav-btn"
+                          onClick={() => navigate("/start-assesement")}
+                        >
+                          Start Assessment
+                          <img src={bttnarrow} alt="arrow" />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
-
-            </nav>
-
-          </div>
               <div className="nav-bottom-section row align-items-center home-page">
                 <div className="col-12 col-lg-12 text-white ">
-                  <h1 className="bannr-text display-5 ass-page ">
+                  <h1 className="bannr-text display-5 ass-page how-it-works-banner-text">
                     Get a tailored energy solution in minutes
                   </h1>
 
@@ -256,9 +243,9 @@ const handleToggle = () => {
                       deliver actionable results.
                     </p>
                   </div>
-                  <div className="row d-flex">
+                  <div className="row g-4 align-items-stretch how-behind-scenes-row">
                     <div className="col-12 col-md-6">
-                      <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                      <div className="shadow-sm rounded-4 ass-first mt-4 how-behind-scenes-card">
                         <div className="icon-box-maony me-3 mb-3">
                           <img src={money} alt="icon" />
                         </div>
@@ -298,7 +285,7 @@ const handleToggle = () => {
                     </div>
 
                     <div className="col-12 col-md-6">
-                      <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                      <div className="shadow-sm rounded-4 ass-first mt-4 how-behind-scenes-card">
                         <div className="icon-box-maony me-3 mb-3">
                           <img src={money} alt="icon" />
                         </div>
@@ -352,7 +339,10 @@ const handleToggle = () => {
 
                 <div className="row d-flex  mb-5">
                   <div className="col-12 col-md-4">
-                    <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                    <div
+                      className="p-4 shadow-sm rounded-4 ass-first mt-4"
+                      style={{ height: "220px" }}
+                    >
                       <div className="icon-box-sun mb-3">
                         <img src={Sun} alt="icon" />
                       </div>
@@ -370,7 +360,10 @@ const handleToggle = () => {
                   </div>
 
                   <div className="col-12 col-md-4">
-                    <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                    <div
+                      className="p-4 shadow-sm rounded-4 ass-first mt-4"
+                      style={{ height: "220px" }}
+                    >
                       <div className="icon-box-battery mb-3">
                         <img src={batt} alt="icon" />
                       </div>
@@ -387,7 +380,10 @@ const handleToggle = () => {
                   </div>
 
                   <div className="col-12 col-md-4">
-                    <div className="p-4 shadow-sm rounded-4 ass-first mt-4">
+                    <div
+                      className="p-4 shadow-sm rounded-4 ass-first mt-4"
+                      style={{ height: "220px" }}
+                    >
                       <div className="icon-box-act mb-3">
                         <img src={halfSun} alt="icon" />
                       </div>

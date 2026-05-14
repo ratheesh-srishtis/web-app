@@ -272,7 +272,9 @@ function Home() {
 
       <section className="how-it-works py-4">
         <div className="text-center">
-          <h2 className="head-nor">How Solarvy Works</h2>
+          <h2 className="head-nor" style={{ fontSize: "25px !important" }}>
+            How Solarvy Works
+          </h2>
           <p className="subtitle ">
             A simple energy decision workflow built around problem-solving, not
             just calculations.
@@ -478,28 +480,30 @@ function Home() {
         <div className="hero-section">
           <div className="overlay-wrapper">
             <div className="overlay-card">
-              <h1>Start With A Simple Assessment</h1>
+              <div>
+                <h1>Start With A Simple Assessment</h1>
 
-              <p>
-                Estimate the solar, battery, and hybrid system suited to your
-                building, then download a structured report or request installer
-                quotes.
-              </p>
+                <p>
+                  Estimate the solar, battery, and hybrid system suited to your
+                  building, then download a structured report or request
+                  installer quotes.
+                </p>
 
-              <div className="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap text-center">
-                <button
-                  type="button"
-                  className="custom-btn other-section strst"
-                  onClick={() => navigate("/start-assesement")}
-                >
-                  {" "}
-                  Start Assessment
-                  <img src={bttnarrowhite} alt="arrow" />
-                </button>
+                <div className="d-flex justify-content-center align-items-center gap-3 mt-4 flex-wrap text-center">
+                  <button
+                    type="button"
+                    className="custom-btn other-section strst"
+                    onClick={() => navigate("/start-assesement")}
+                  >
+                    {" "}
+                    Start Assessment
+                    <img src={bttnarrowhite} alt="arrow" />
+                  </button>
 
-                <a href="#" className="see-link">
-                  See Sample Result
-                </a>
+                  <a href="#" className="see-link">
+                    See Sample Result
+                  </a>
+                </div>
               </div>
             </div>
           </div>

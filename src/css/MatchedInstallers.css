@@ -45,7 +45,7 @@
 
 /* Project snapshot: narrow column, receipt-style rows (not full-width bars) */
 .match-snapshot {
-  background: linear-gradient(180deg, #f8fafc 0%, #fff 48%);
+  background: #ffffff !important;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 16px 18px 14px;
@@ -54,6 +54,11 @@
 
 .match-snapshot__header {
   margin-bottom: 4px;
+}
+
+.review-link {
+  cursor: pointer;
+  font-size: 12px !important;
 }
 
 .match-snapshot__title {
@@ -247,7 +252,7 @@ h6.company-name-m {
     position: relative;
     width: 100%;
     min-width: 300px;
-    height: 41px;
+    height: 30px;
   }
 
   .sub-text {
@@ -292,7 +297,6 @@ h6.company-name-m {
     border-radius: 12px;
     padding: 14px;
     margin-bottom: 14px;
-    margin-top: -35px;
   }
 
   .side-card.need-help {
@@ -375,9 +379,8 @@ span.badge-custom-blue {
   top: 0px;
   left: 0px;
   position: relative;
-  height: 41px;
+  height: 30px;
 }
-
 
 .btn-orange {
   background: #f59e0b;
@@ -390,19 +393,20 @@ span.badge-custom-blue {
 }
 
 .step-box-how {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(-186deg, #ce6300, #fdbf69);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(-186deg, #ff3600, #fdbf69);
   color: white;
   font-weight: bold;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   position: relative;
   top: -4px;
   flex-shrink: 0;
+  border-radius: 12px;
 }
 
 @media (max-width: 576px) {
@@ -411,10 +415,11 @@ span.badge-custom-blue {
   }
 
   .step-box-how {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     font-size: 18px;
     position: relative;
+    border-radius: 12px;
   }
 
   .score-box {
@@ -423,7 +428,7 @@ span.badge-custom-blue {
   }
 
   .score-box-match {
-    top: -115px;
+    top: -95px;
     flex-shrink: 0;
   }
 
