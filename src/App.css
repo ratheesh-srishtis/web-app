@@ -1939,9 +1939,22 @@ body {
     padding-top: 100px;
     padding-bottom: 40px;
   }
-
+  .installer-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .quit-sec h5 {
     font-size: 28px;
+  }
+  .request-intro-step-box {
+    top: -7px !important;
+  }
+  .expert-review-step-box {
+    top: -7px !important;
+  }
+  .match-score-box {
+    top: -75px !important;
   }
 }
 

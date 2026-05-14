@@ -1376,12 +1376,6 @@ input.form-control.text-center.inputs-text {
   margin-top: 2px;
 }
 
-/* Request Intro Page */
-.installer-highlight-box {
-  background: linear-gradient(135deg, #f0f4ff 0%, #eef3fb 100%);
-  border: 1px solid #e3ebf8;
-}
-
 .installer-avatar-placeholder {
   width: 74px;
   height: 74px;
@@ -1412,50 +1406,49 @@ input.form-control.text-center.inputs-text {
   color: #174c90;
 }
 
-.request-intro-sidebar-back {
-  margin-top: 1rem;
-  padding-top: 1rem;
+.request-intro-sidebar-back-link-wrap {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid #e8edf5;
 }
 
-.request-intro-sidebar-back-hint {
-  margin: 0 0 0.625rem;
-  font-size: 12px;
-  line-height: 1.45;
-  color: #64748b;
-}
-
-.request-intro-back-btn {
-  width: 100%;
+.request-intro-back-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  border: 1px solid #d4e1f4;
-  background: linear-gradient(180deg, #fbfdff 0%, #f4f8fc 100%);
+  gap: 0.35rem;
+  font-size: 12px;
+  font-weight: 500;
   color: #174c90;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.request-intro-back-btn:hover {
-  background: #eef4ff;
-  border-color: #9ec0f0;
+.request-intro-back-link:hover {
   color: #0f3a70;
-  box-shadow: 0 2px 8px rgba(23, 76, 144, 0.08);
 }
 
-.request-intro-back-btn:focus-visible {
+.request-intro-back-link:focus-visible {
   outline: 2px solid #174c90;
   outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Form pages: primary actions at bottom on mobile only */
+@media (max-width: 991.98px) {
+  .form-page-mobile-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e8edf5;
+  }
+
+  .form-page-mobile-cta .btn-primary-custom,
+  .form-page-mobile-cta .btn-outline-custom2 {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .buttons-actions {

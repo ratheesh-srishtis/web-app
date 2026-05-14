@@ -134,7 +134,7 @@ function MatchedInstallers() {
               <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match">76</div>
+                    <div className="score-box-match match-score-box">76</div>
 
                     <div className="content-area">
                       <h6 className="company-name mb-1">PrimeVolt Energy</h6>
@@ -154,16 +154,25 @@ function MatchedInstallers() {
                         </span>
                       </div>
 
-                      <button
-                        className="btn-primary-custom-match d-block d-md-none mb-2"
-                        onClick={() => navigate("/request-intro")}
-                      >
-                        Request intro
-                      </button>
+                      <div className="installer-card-actions d-md-none">
+                        <button
+                          type="button"
+                          className="installer-mobile-request-btn"
+                          onClick={() => navigate("/request-intro")}
+                        >
+                          Request intro
+                        </button>
+                        <Link
+                          to="/expert-review"
+                          className="installer-mobile-expert-link"
+                        >
+                          Get Expert Review
+                        </Link>
+                      </div>
 
                       <Link
                         to="/expert-review"
-                        className="link-view d-block review-link"
+                        className="link-view review-link d-none d-md-block"
                       >
                         Get Expert Review
                       </Link>
@@ -184,7 +193,9 @@ function MatchedInstallers() {
               <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match green-bg">76</div>
+                    <div className="score-box-match green-bg match-score-box">
+                      76
+                    </div>
 
                     <div className="content-area">
                       <h6 className="company-name mb-1">GreenGrid Power</h6>
@@ -207,16 +218,25 @@ function MatchedInstallers() {
                         </span>
                       </div>
 
-                      <button
-                        className="btn-primary-custom-match d-block d-md-none mb-2"
-                        onClick={() => navigate("/request-intro")}
-                      >
-                        Request intro
-                      </button>
+                      <div className="installer-card-actions d-md-none">
+                        <button
+                          type="button"
+                          className="installer-mobile-request-btn"
+                          onClick={() => navigate("/request-intro")}
+                        >
+                          Request intro
+                        </button>
+                        <Link
+                          to="/expert-review"
+                          className="installer-mobile-expert-link"
+                        >
+                          Get Expert Review
+                        </Link>
+                      </div>
 
                       <Link
                         to="/expert-review"
-                        className="link-view d-block review-link"
+                        className="link-view review-link d-none d-md-block"
                       >
                         Get Expert Review
                       </Link>
@@ -237,7 +257,9 @@ function MatchedInstallers() {
               <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg">76</div>
+                    <div className="score-box-match orange-bg match-score-box">
+                      76
+                    </div>
 
                     <div className="content-area">
                       <h6 className="company-name mb-1">NovaSun Systems</h6>
@@ -259,16 +281,25 @@ function MatchedInstallers() {
                         </span>
                       </div>
 
-                      <button
-                        className="btn-primary-custom-match d-block d-md-none mb-2"
-                        onClick={() => navigate("/request-intro")}
-                      >
-                        Request intro
-                      </button>
+                      <div className="installer-card-actions d-md-none">
+                        <button
+                          type="button"
+                          className="installer-mobile-request-btn"
+                          onClick={() => navigate("/request-intro")}
+                        >
+                          Request intro
+                        </button>
+                        <Link
+                          to="/expert-review"
+                          className="installer-mobile-expert-link"
+                        >
+                          Get Expert Review
+                        </Link>
+                      </div>
 
                       <Link
                         to="/expert-review"
-                        className="link-view d-block review-link"
+                        className="link-view review-link d-none d-md-block"
                       >
                         Get Expert Review
                       </Link>
@@ -289,7 +320,9 @@ function MatchedInstallers() {
               <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg">76</div>
+                    <div className="score-box-match orange-bg match-score-box">
+                      76
+                    </div>
 
                     <div className="content-area">
                       <h6 className="company-name mb-1">NovaSun Systems</h6>
@@ -311,16 +344,25 @@ function MatchedInstallers() {
                         </span>
                       </div>
 
-                      <button
-                        className="btn-primary-custom-match d-block d-md-none mb-2"
-                        onClick={() => navigate("/request-intro")}
-                      >
-                        Request intro
-                      </button>
+                      <div className="installer-card-actions d-md-none">
+                        <button
+                          type="button"
+                          className="installer-mobile-request-btn"
+                          onClick={() => navigate("/request-intro")}
+                        >
+                          Request intro
+                        </button>
+                        <Link
+                          to="/expert-review"
+                          className="installer-mobile-expert-link"
+                        >
+                          Get Expert Review
+                        </Link>
+                      </div>
 
                       <Link
                         to="/expert-review"
-                        className="link-view d-block review-link"
+                        className="link-view review-link d-none d-md-block"
                       >
                         Get Expert Review
                       </Link>
@@ -341,7 +383,9 @@ function MatchedInstallers() {
               <div className="installer-card p-4">
                 <div className="d-flex justify-content-between align-items-start flex-wrap">
                   <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg">76</div>
+                    <div className="score-box-match orange-bg   match-score-box">
+                      76
+                    </div>
 
                     <div className="content-area">
                       <h6 className="company-name mb-1">NovaSun Systems</h6>
@@ -359,16 +403,25 @@ function MatchedInstallers() {
                         <span className="badge-custom">Storage capable</span>
                       </div>
 
-                      <button
-                        className="btn-primary-custom-match d-block d-md-none mb-2"
-                        onClick={() => navigate("/request-intro")}
-                      >
-                        Request intro
-                      </button>
+                      <div className="installer-card-actions d-md-none">
+                        <button
+                          type="button"
+                          className="installer-mobile-request-btn"
+                          onClick={() => navigate("/request-intro")}
+                        >
+                          Request intro
+                        </button>
+                        <Link
+                          to="/expert-review"
+                          className="installer-mobile-expert-link"
+                        >
+                          Get Expert Review
+                        </Link>
+                      </div>
 
                       <Link
                         to="/expert-review"
-                        className="link-view d-block review-link"
+                        className="link-view review-link d-none d-md-block"
                       >
                         Get Expert Review
                       </Link>
@@ -454,7 +507,8 @@ function MatchedInstallers() {
                 </div>
 
                 <button
-                  className="btn-orange w-100 mt-3"
+                  type="button"
+                  className="btn-orange installer-sidebar-review-btn mt-3"
                   onClick={() => navigate("/expert-review")}
                 >
                   Get expert review

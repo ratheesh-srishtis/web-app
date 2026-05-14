@@ -159,7 +159,7 @@ function ExpertReview() {
         <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="col-lg-8">
-              <form onSubmit={handleSubmit}>
+              <form id="expert-review-form" onSubmit={handleSubmit}>
                 <div className="p-4 shadow-sm rounded-4 ass-first">
                   <div className="d-flex align-items-center mb-3">
                     <div className="step-box me-3">1</div>
@@ -238,7 +238,9 @@ function ExpertReview() {
 
                 <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="step-box me-3">2</div>
+                    <div className="step-box me-3 expert-review-step-box">
+                      2
+                    </div>
                     <div>
                       <h5 className="fw-bold mb-1 heading-ass">
                         Review Details
@@ -314,7 +316,7 @@ function ExpertReview() {
                   </div>
                 </div>
 
-                <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
+                <div className="d-none d-lg-flex gap-3 flex-wrap mt-3 mb-4">
                   <button type="submit" className="btn-primary-custom calu">
                     <span className="icon-sun">
                       <img src={sunone} alt="icon" />
@@ -329,7 +331,7 @@ function ExpertReview() {
             </div>
 
             <div className="col-lg-4">
-              <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
+              <div className="p-4 rounded-4 shadow-sm right-panel assts-right  mt-3 mt-md-0">
                 <h5 className="fw-bold mb-3 heading-ass">
                   What You'll Receive
                 </h5>
@@ -393,6 +395,22 @@ function ExpertReview() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="d-lg-none  px-1 mb-3">
+            <button
+              type="submit"
+              form="expert-review-form"
+              className="btn-primary-custom calu"
+            >
+              <span className="icon-sun">
+                <img src={sunone} alt="" />
+              </span>
+              <span>Request Expert Review</span>
+              <span className="arrows">
+                <img src={sunthree} alt="" />
+              </span>
+            </button>
           </div>
         </section>
       </div>

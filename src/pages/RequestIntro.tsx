@@ -156,9 +156,9 @@ function RequestIntro() {
         <section className="container-fluid px-lg-4 py-4">
           <div className="row g-4 align-items-start">
             <div className="col-lg-8">
-              <form onSubmit={handleSubmit}>
+              <form id="request-intro-form" onSubmit={handleSubmit}>
                 <div className="p-4 shadow-sm rounded-4 ass-first">
-                  <div className="d-flex align-items-start gap-3 mb-4 p-3 rounded-3 installer-highlight-box">
+                  <div className="d-flex align-items-start gap-3 mb-4  rounded-3 installer-highlight-box">
                     {/* <div className="installer-avatar-placeholder"></div> */}
                     <div className="flex-grow-1">
                       <h5 className="fw-bold mb-2 heading-ass">
@@ -178,7 +178,9 @@ function RequestIntro() {
                   </div>
 
                   <div className="d-flex align-items-center mb-3">
-                    <div className="step-box me-3">1</div>
+                    <div className="step-box me-3 request-intro-step-box">
+                      1
+                    </div>
                     <div>
                       <h5 className="fw-bold mb-1 heading-ass">
                         Your Contact Information
@@ -271,7 +273,7 @@ function RequestIntro() {
                   </div>
 
                   <div className="alert alert-info mt-3 py-1" role="alert">
-                    <small style={{ fontSize: "10px", lineHeight: "1.2" }}>
+                    <small style={{ fontSize: "10px", lineHeight: "0.5" }}>
                       <strong>Privacy Notice:</strong> Your details will be
                       shared only with this selected installer for the purpose
                       of responding to your project enquiry.
@@ -279,7 +281,7 @@ function RequestIntro() {
                   </div>
                 </div>
 
-                <div className="d-flex gap-3 flex-wrap mt-3 mb-4">
+                <div className="d-none d-lg-flex gap-3 flex-wrap mt-3 mb-4">
                   <button type="submit" className="btn-primary-custom calu">
                     <span className="icon-sun">
                       <img src={sunone} alt="icon" />
@@ -302,7 +304,7 @@ function RequestIntro() {
             </div>
 
             <div className="col-lg-4">
-              <div className="p-4 rounded-4 shadow-sm right-panel assts-right mb-3">
+              <div className="p-4 rounded-4 shadow-sm right-panel assts-right mt-4 mt-md-0">
                 <h5 className="fw-bold mb-2 heading-ass">Project Summary</h5>
                 <p className="text-muted small mb-3 para-ass">
                   This is the project information already carried over from your
@@ -325,7 +327,7 @@ function RequestIntro() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-4 shadow-sm right-panel assts-right">
+              <div className="p-4 rounded-4 shadow-sm right-panel assts-right mt-4 ">
                 <h5 className="fw-bold mb-3 heading-ass">Why This Works</h5>
 
                 <ul className="review-benefits-list">
@@ -370,21 +372,40 @@ function RequestIntro() {
                   </li>
                 </ul>
 
-                <div className="request-intro-sidebar-back">
-                  <p className="request-intro-sidebar-back-hint">
-                    Not ready to send? Return to your shortlist anytime.
-                  </p>
-                  <button
-                    type="button"
-                    className="request-intro-back-btn"
-                    onClick={() => navigate("/matched-installers")}
+                <div className="request-intro-sidebar-back-link-wrap">
+                  <Link
+                    to="/matched-installers"
+                    className="request-intro-back-link"
                   >
-                    <ArrowLeft size={18} strokeWidth={2} aria-hidden />
-                    <span>Back to matched installers</span>
-                  </button>
+                    <ArrowLeft size={14} strokeWidth={2} aria-hidden />
+                    Back to matched installers
+                  </Link>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="d-lg-none form-page-mobile-cta px-1">
+            <button
+              type="submit"
+              form="request-intro-form"
+              className="btn-primary-custom calu"
+            >
+              <span className="icon-sun">
+                <img src={sunone} alt="" />
+              </span>
+              <span>Request Introduction</span>
+              <span className="arrows">
+                <img src={sunthree} alt="" />
+              </span>
+            </button>
+            <button
+              type="button"
+              className="btn-outline-custom2 calu-2"
+              onClick={() => navigate("/matched-installers")}
+            >
+              <span>Cancel</span>
+            </button>
           </div>
         </section>
       </div>
