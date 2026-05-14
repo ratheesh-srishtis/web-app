@@ -823,6 +823,10 @@ nav.navbar.scrolled {
     top: 5px;
     margin-top: 10px;
   }
+  .option-card {
+    height: 65px !important;
+    margin-bottom: 5px !important;
+  }
 }
 
 .btn-outline-custom2:hover {
