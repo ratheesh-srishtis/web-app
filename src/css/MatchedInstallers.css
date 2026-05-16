@@ -159,8 +159,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: -45px;
+  font-size: 15px;
+}
+
+.score-box-match.match-score-accent--danger {
+  background: #dc2626;
+  color: #fff;
+}
+
+.score-box-match.match-score-accent--warning {
+  background: #eab308;
+  color: #1a1a1a;
+}
+
+.score-box-match.match-score-accent--orange {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.score-box-match.match-score-accent--success {
+  background: #16a34a;
+  color: #fff;
 }
 
 .score-box {
@@ -187,8 +206,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: 0px;
 }
 
 .review-card {
@@ -324,7 +341,7 @@ h6.company-name-m {
 
 .location-text {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 10px;
   color: #64748b;
   margin-bottom: 10px;
 }
@@ -337,19 +354,19 @@ h6.company-name-m {
 }
 
 span.badge-custom-blue {
-  font-size: 12px;
-  padding: 5px 12px;
+  font-size: 11px;
+  padding: 4px 10px;
   background: #f0f5ff;
-  border-radius: 14px;
+  border-radius: 12px;
   color: #174c90;
   font-weight: 600;
 }
 
 .badge-custom {
-  font-size: 12px;
-  padding: 5px 12px;
+  font-size: 11px;
+  padding: 4px 10px;
   background: #f8f9fa;
-  border-radius: 14px;
+  border-radius: 12px;
   color: #4d5260;
   font-weight: 600;
 }
@@ -513,7 +530,6 @@ span.badge-custom-blue {
   }
 
   .score-box-match {
-    top: -95px;
     flex-shrink: 0;
   }
 
@@ -684,7 +700,7 @@ span.badge-custom-blue {
   border-radius: 14px;
   padding: 20px;
   border: 1px solid #e5e7eb;
-  max-width: 420px;
+  max-width: 100%;
 }
 
 .quote-header {

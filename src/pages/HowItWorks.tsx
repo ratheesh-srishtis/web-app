@@ -348,7 +348,7 @@ function HowItWorks() {
                       </div>
                       <div>
                         <h5 className="fw-bold mb-2 rang-head">
-                          Grid + generator + solar logic
+                          Grid + generator + solar
                         </h5>
                         <small className="text-muted">
                           Designed for environments where power is not always

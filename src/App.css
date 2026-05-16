@@ -216,6 +216,7 @@ p.bannr-text-s.text-light {
   font-weight: 400;
   margin-bottom: 60px;
   margin-top: 0px;
+  word-spacing: 2px;
 }
 
 .solar-main-desc {
@@ -240,10 +241,8 @@ p.bannr-text-s.text-light {
 
 /* main button */
 .solar-primary-btn {
-  height: 45px;
-
+  height: 55px;
   padding: 8px 10px 8px 24px;
-
   border-radius: 100px;
   border: none;
 
@@ -1008,7 +1007,7 @@ button.custom-btn.other-section {
   padding: 8px 8px 8px 26px !important;
   cursor: pointer !important;
   border: none !important;
-  width: 90%;
+  width: 80%;
 }
 
 .custom-btn img {

@@ -128,10 +128,8 @@
   position: relative;
   display: flex;
   align-items: center;
-
   justify-content: center;
-
-  top: 0px;
+  top: -1px;
   flex-shrink: 0;
   color: #9ca3af;
 }
@@ -163,7 +161,7 @@
 
   justify-content: center;
 
-  top: 0px;
+  top: 5px;
   flex-shrink: 0;
   color: #9ca3af;
 }
@@ -256,14 +254,14 @@ p.small.mb-0.text-muted.ass-mutedss {
 
 .check-icon {
   position: absolute;
-  right: 10px;
-  top: 8px;
+  right: -5px;
+  top: -5px;
   background: #174c90;
   color: white;
   font-size: 12px;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -271,14 +269,14 @@ p.small.mb-0.text-muted.ass-mutedss {
 
 .check-icon-homss {
   position: absolute;
-  right: 10px;
-  top: 15px;
+  right: -10px;
+  top: -7px;
   background: #174c90;
   color: white;
   font-size: 12px;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -545,7 +543,7 @@ h5.asst-h {
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 0px;
+    top: -1px;
     flex-shrink: 0;
   }
 
@@ -675,6 +673,7 @@ input.form-control.text-center.inputs-textss {
   border-radius: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 12px;
   box-sizing: border-box;
@@ -824,8 +823,9 @@ nav.navbar.scrolled {
     margin-top: 10px;
   }
   .option-card {
-    height: 65px !important;
+    height: 75px !important;
     margin-bottom: 5px !important;
+    justify-content: flex-start;
   }
 }
 
@@ -1055,6 +1055,8 @@ button.btn.btn-outline-custom.btn-start {
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .parent-container.onlt-this:not(:last-child) {
@@ -1238,9 +1240,6 @@ input.form-control.text-center.inputs-text {
   background: #fff;
   border-radius: 14px;
   border: 1px solid #e8edf5;
-  box-shadow:
-    0 10px 30px rgba(23, 76, 144, 0.1),
-    0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
 .assessment-summary-mobile-live-head {
@@ -1713,6 +1712,14 @@ input[type="number"] {
     position: static;
     margin-bottom: 12px;
   }
+
+  .option-card-main-objective {
+    align-items: center;
+  }
+
+  .step-box-main-objective {
+    top: -28px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1743,7 +1750,7 @@ input[type="number"] {
 
   .property-card {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 10px;
     padding: 12px !important;
     border-radius: 12px;
@@ -1794,9 +1801,9 @@ input[type="number"] {
   }
 
   h6.mb-1.fw-semibold.ass-semi {
-    position: relative;
+    /* position: relative;
     top: 10px !important;
-    left: 0px !important;
+    left: 0px !important; */
     width: 100%;
     min-width: 70px;
     display: block;
@@ -1972,4 +1979,16 @@ textarea:not(.form-control):not(.ass-field-control):not(
   background: #eef4ff;
   color: #174c90;
   border: 1px solid #c7d9f5;
+}
+
+@media (min-width: 768px) {
+  .building-info-cards-content {
+    align-items: flex-start !important;
+  }
+  .icon-box-topss-choose-input-method {
+    top: 1px !important;
+  }
+  .option-card-main-objective {
+    justify-content: flex-start;
+  }
 }

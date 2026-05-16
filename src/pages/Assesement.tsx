@@ -83,6 +83,16 @@ type AppliancePresetTab = {
 /** Preset appliance lists per home size (Daily kWh is derived in the table). */
 const APPLIANCE_PRESETS: AppliancePresetTab[] = [
   {
+    id: "1-bedroom",
+    label: "2 Bedroom House",
+    rows: [
+      { kind: "led-bulb", qty: 8, hours: 6, power: 10 },
+      { kind: "fan", qty: 3, hours: 8, power: 75 },
+      { kind: "tv", qty: 2, hours: 4, power: 120 },
+      { kind: "ac", qty: 1, hours: 6, power: 1500 },
+    ],
+  },
+  {
     id: "2-bedroom",
     label: "2 Bedroom House",
     rows: [
@@ -100,6 +110,16 @@ const APPLIANCE_PRESETS: AppliancePresetTab[] = [
       { kind: "fan", qty: 5, hours: 10, power: 75 },
       { kind: "tv", qty: 3, hours: 5, power: 120 },
       { kind: "ac", qty: 2, hours: 7, power: 1500 },
+    ],
+  },
+  {
+    id: "duplex",
+    label: "Duplex Houses",
+    rows: [
+      { kind: "led-bulb", qty: 18, hours: 6, power: 10 },
+      { kind: "fan", qty: 7, hours: 12, power: 75 },
+      { kind: "tv", qty: 4, hours: 6, power: 120 },
+      { kind: "ac", qty: 3, hours: 8, power: 1500 },
     ],
   },
 ];
@@ -132,6 +152,16 @@ type CustomPresetTab = {
 /** Preset custom equipment rows per scenario (same tab labels as appliance calculator). */
 const CUSTOM_PRESETS: CustomPresetTab[] = [
   {
+    id: "1-bedroom",
+    label: "1 Bedroom House",
+    rows: [
+      { kind: "ce-10", qty: 6, hours: 6, power: 10, loadFactorPct: 100 },
+      { kind: "ce-120", qty: 1, hours: 4, power: 120, loadFactorPct: 100 },
+      { kind: "ce-70", qty: 1, hours: 7, power: 70, loadFactorPct: 90 },
+      { kind: "ce-1500", qty: 1, hours: 5, power: 1500, loadFactorPct: 65 },
+    ],
+  },
+  {
     id: "2-bedroom",
     label: "2 Bedroom House",
     rows: [
@@ -149,6 +179,16 @@ const CUSTOM_PRESETS: CustomPresetTab[] = [
       { kind: "ce-120", qty: 1, hours: 5, power: 120, loadFactorPct: 100 },
       { kind: "ce-70", qty: 2, hours: 8, power: 70, loadFactorPct: 100 },
       { kind: "ce-1500", qty: 1, hours: 6, power: 1500, loadFactorPct: 100 },
+    ],
+  },
+  {
+    id: "duplex",
+    label: "Duplex Houses",
+    rows: [
+      { kind: "led-bulb", qty: 18, hours: 6, power: 10 },
+      { kind: "fan", qty: 7, hours: 12, power: 75 },
+      { kind: "tv", qty: 4, hours: 6, power: 120 },
+      { kind: "ac", qty: 3, hours: 8, power: 1500 },
     ],
   },
 ];
@@ -408,13 +448,13 @@ function Assesement() {
     {
       id: "appliance",
       title: "Appliance Calculator",
-      desc: "Select appliances and hours/day.",
+      desc: "Select appliances and hours.",
       Icon: Calculator,
     },
     {
       id: "custom",
       title: "Custom Equipment",
-      desc: "For factories, hospitals, specialist loads.",
+      desc: "For factories, specialist loads.",
       Icon: Wrench,
     },
   ];
@@ -428,7 +468,7 @@ function Assesement() {
     {
       id: "bill",
       title: "Reduce Diesel Use",
-      desc: "Cut diesel consumption and runtime.",
+      desc: "Cut diesel consumption.",
       Icon: Fuel,
     },
     {
@@ -816,15 +856,12 @@ function Assesement() {
 
                 <div className="row g-3 mb-3 start-assesement-cards">
                   {propertyOptions.map((item) => (
-                    <div
-                      className="col-6 col-lg-4 d-flex"
-                      key={item.id}
-                    >
+                    <div className="col-6 col-lg-4 d-flex" key={item.id}>
                       <div
                         className={`property-card w-100 ${selectedProperty === item.id ? "active" : ""}`}
                         onClick={() => setSelectedProperty(item.id)}
                       >
-                        <div className="d-flex align-items-start gap-3">
+                        <div className="d-flex gap-2 building-info-cards-content">
                           <div className="icon-box-tops">
                             <item.Icon
                               className="mobile-iconssss"
@@ -952,7 +989,10 @@ function Assesement() {
                 <div className="container mt-2 p-1 align-items-stretch">
                   <div className="row g-3">
                     {options.map((item) => (
-                      <div className="col-12 col-md-6 col-lg-4 d-flex" key={item.id}>
+                      <div
+                        className="col-12 col-md-6 col-lg-4 d-flex"
+                        key={item.id}
+                      >
                         <div
                           className={`option-card w-100 ${
                             inputMethod === item.id ? "active" : ""
@@ -964,7 +1004,7 @@ function Assesement() {
                           }
                         >
                           <div className="d-flex align-items-start">
-                            <div className="icon-box-topss me-2">
+                            <div className="icon-box-topss me-2 icon-box-topss-choose-input-method">
                               <item.Icon
                                 size={20}
                                 strokeWidth={2}
@@ -1460,7 +1500,7 @@ function Assesement() {
 
               <div className="p-4 shadow-sm rounded-4 ass-first mt-3">
                 <div className="d-flex align-items-center mb-3">
-                  <div className="step-box me-3">5</div>
+                  <div className="step-box me-3 step-box-main-objective">5</div>
                   <div>
                     <h5 className="fw-bold mb-1 heading-ass">
                       Site and Goal Inputs
@@ -1500,6 +1540,11 @@ function Assesement() {
                         <option value="Nigeria">1</option>
                         <option value="India">2</option>
                         <option value="USA">3</option>
+                        <option value="USA">4</option>
+                        <option value="USA">5</option>
+                        <option value="USA">6</option>
+                        <option value="USA">7</option>
+                        <option value="USA">8</option>
                       </select>
                     </div>
                     <p className="text-muted small mb-0 para-ass">
@@ -1509,12 +1554,12 @@ function Assesement() {
                     {Objectiveoptions.map((item) => (
                       <div className="col-md-4" key={item.id}>
                         <div
-                          className={`option-card  ${
+                          className={`option-card option-card-main-objective ${
                             selectedObjectiveId === item.id ? "active" : ""
                           }`}
                           onClick={() => setSelectedObjectiveId(item.id)}
                         >
-                          <div className="d-flex align-items-start">
+                          <div className="d-flex option-card-main-objective-individual">
                             <div className="icon-box-topsss me-2 ">
                               <item.Icon
                                 size={20}
@@ -1590,7 +1635,9 @@ function Assesement() {
                     </div>
                     <div className="assessment-summary-mobile-labels">
                       {inputMethod !== "bill" && <span>kWh/month</span>}
-                      <span className="fw-bold">{summarySecondMetricLabel}</span>
+                      <span className="fw-bold">
+                        {summarySecondMetricLabel}
+                      </span>
                     </div>
                   </div>
                 </div>

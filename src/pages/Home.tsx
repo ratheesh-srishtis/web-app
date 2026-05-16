@@ -133,9 +133,7 @@ function Home() {
                 <h1 className="solar-main-title">
                   Find The Right Solar And
                   <br />
-                  Backup Power System For Your
-                  <br />
-                  Building
+                  Backup Power System For Your Building
                 </h1>
 
                 {/* DESCRIPTION */}
@@ -156,7 +154,11 @@ function Home() {
                     <img src={bttnarrow} alt="arrow" />
                   </button>
 
-                  <a href="#" className="solar-sample-link">
+                  <a
+                    href="#"
+                    className="solar-sample-link"
+                    onClick={() => navigate("/sample-results")}
+                  >
                     See Sample Result
                   </a>
                 </div>
@@ -258,7 +260,10 @@ function Home() {
                     </div>
                   </div>
 
-                  <button className="custom-btn other-section d-flex align-items-center justify-content-between w-100">
+                  <button
+                    className="custom-btn other-section d-flex align-items-center justify-content-between w-100"
+                    onClick={() => navigate("/start-assesement")}
+                  >
                     {" "}
                     Start Assessment
                     <img src={bttnarrowhite} alt="arrow" />
@@ -500,7 +505,11 @@ function Home() {
                     <img src={bttnarrowhite} alt="arrow" />
                   </button>
 
-                  <a href="#" className="see-link">
+                  <a
+                    href="#"
+                    className="see-link"
+                    onClick={() => navigate("/sample-results")}
+                  >
                     See Sample Result
                   </a>
                 </div>

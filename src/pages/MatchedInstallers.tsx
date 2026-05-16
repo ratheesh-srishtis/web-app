@@ -16,6 +16,135 @@ const MATCHED_PROJECT_SUMMARY = [
   { label: "Payback", value: "3.8–4.6 yrs" },
 ] as const;
 
+/** Match-score box background tiers: red · yellow · orange · green */
+function matchScoreAccentClass(score: number): string {
+  if (score <= 39) return "match-score-accent--danger";
+  if (score <= 54) return "match-score-accent--warning";
+  if (score <= 79) return "match-score-accent--orange";
+  return "match-score-accent--success";
+}
+
+type InstallerBadgeMatch = {
+  type: "match";
+  /** Shown inside the green badge, e.g. "Matches most (70%)" */
+  label: string;
+  /** Matches first card spacing on the check icon */
+  checkIconSpacing?: boolean;
+};
+
+type InstallerBadgeTag = {
+  type: "tag";
+  variant: "blue" | "neutral";
+  label: string;
+};
+
+type InstallerBadgeDef = InstallerBadgeMatch | InstallerBadgeTag;
+
+type InstallerCardDef = {
+  id: string;
+  score: number;
+  companyName: string;
+  location: string;
+  badges: InstallerBadgeDef[];
+  /** First card wraps desktop button in `.btn-wrapper` */
+  desktopIntroBtnWrapper?: boolean;
+};
+
+const INSTALLERS: readonly InstallerCardDef[] = [
+  {
+    id: "primevolt",
+    score: 30,
+    companyName: "PrimeVolt Energy",
+    location: "Lagos • Normal • SME\u2019s 15–40 kWp projects",
+    badges: [
+      {
+        type: "match",
+        label: "Matches most (70%)",
+        checkIconSpacing: true,
+      },
+      { type: "tag", variant: "blue", label: "Solar battery" },
+      { type: "tag", variant: "blue", label: "Fits your range" },
+    ],
+    desktopIntroBtnWrapper: true,
+  },
+  {
+    id: "greengrid",
+    score: 50,
+    companyName: "GreenGrid Power",
+    location:
+      "South West Nigeria • Rooftop business systems • 10–120 kWp",
+    badges: [
+      { type: "match", label: "Matches most (80%)" },
+      { type: "tag", variant: "blue", label: "Commercial install" },
+      { type: "tag", variant: "blue", label: "Cost effective" },
+    ],
+  },
+  {
+    id: "novasun-a",
+    score: 65,
+    companyName: "NovaSun Systems",
+    location: "Lagos & Abuja • SMEs & hospitality • 8–60 kWp",
+    badges: [
+      { type: "match", label: "Matches most (70%)" },
+      { type: "tag", variant: "blue", label: "Solar + battery" },
+      { type: "tag", variant: "blue", label: "Storage capable" },
+    ],
+  },
+  {
+    id: "novasun-b",
+    score: 100,
+    companyName: "NovaSun Systems",
+    location: "Lagos & Abuja • SMEs & hospitality • 8–60 kWp",
+    badges: [
+      { type: "match", label: "Matches most (70%)" },
+      { type: "tag", variant: "blue", label: "Solar + battery" },
+      { type: "tag", variant: "blue", label: "Storage capable" },
+    ],
+  },
+  {
+    id: "novasun-c",
+    score: 76,
+    companyName: "NovaSun Systems",
+    location: "Lagos & Abuja • SMEs & hospitality • 8–60 kWp",
+    badges: [
+      { type: "match", label: "Matches most (70%)" },
+      { type: "tag", variant: "neutral", label: "Solar + battery" },
+      { type: "tag", variant: "neutral", label: "Storage capable" },
+    ],
+  },
+] as const;
+
+function InstallerBadgesRow({ badges }: { badges: readonly InstallerBadgeDef[] }) {
+  return (
+    <>
+      {badges.map((b, i) => {
+        const key =
+          b.type === "match" ? `m-${i}-${b.label}` : `${b.variant}-${i}-${b.label}`;
+        if (b.type === "match") {
+          const iconCls = `bi bi-check-circle${b.checkIconSpacing ? " me-1" : ""}`;
+          return (
+            <span key={key} className="badge-custom green">
+              <i className={iconCls}></i> {b.label}
+            </span>
+          );
+        }
+        if (b.variant === "blue") {
+          return (
+            <span key={key} className="badge-custom-blue">
+              {b.label}
+            </span>
+          );
+        }
+        return (
+          <span key={key} className="badge-custom">
+            {b.label}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
 function MatchedInstallers() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -131,313 +260,78 @@ function MatchedInstallers() {
                 <div className="result-badge">Top 5 results</div>
               </div>
 
-              <div className="installer-card p-4">
-                <div className="d-flex justify-content-between align-items-start flex-wrap">
-                  <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match match-score-box">76</div>
-
-                    <div className="content-area">
-                      <h6 className="company-name mb-1">PrimeVolt Energy</h6>
-
-                      <p className="location-text mb-2">
-                        Lagos • Normal • SME’s 15–40 kWp projects
-                      </p>
-
-                      <div className="badge-row mb-3">
-                        <span className="badge-custom green">
-                          <i className="bi bi-check-circle me-1"></i> Matches
-                          most (70%)
-                        </span>
-                        <span className="badge-custom-blue">Solar battery</span>
-                        <span className="badge-custom-blue">
-                          Fits your range
-                        </span>
+              {INSTALLERS.map((installer) => (
+                <div key={installer.id} className="installer-card p-4">
+                  <div className="d-flex justify-content-between align-items-start flex-wrap">
+                    <div className="d-flex gap-3 flex-grow-1 align-items-start">
+                      <div
+                        className={`score-box-match match-score-box ${matchScoreAccentClass(installer.score)}`}
+                      >
+                        {installer.score}
                       </div>
 
-                      <div className="installer-card-actions d-md-none">
-                        <button
-                          type="button"
-                          className="installer-mobile-request-btn"
-                          onClick={() => navigate("/request-intro")}
-                        >
-                          Request intro
-                        </button>
+                      <div className="content-area">
+                        <h6 className="company-name mb-1">
+                          {installer.companyName}
+                        </h6>
+
+                        <p className="location-text mb-2">
+                          {installer.location}
+                        </p>
+
+                        <div className="badge-row mb-3">
+                          <InstallerBadgesRow badges={installer.badges} />
+                        </div>
+
+                        <div className="installer-card-actions d-md-none">
+                          <button
+                            type="button"
+                            className="installer-mobile-request-btn"
+                            onClick={() => navigate("/request-intro")}
+                          >
+                            Request intro
+                          </button>
+                          <Link
+                            to="/expert-review"
+                            className="installer-mobile-expert-link"
+                          >
+                            Get Expert Review
+                          </Link>
+                        </div>
+
                         <Link
                           to="/expert-review"
-                          className="installer-mobile-expert-link"
+                          className="link-view review-link d-none d-md-block"
                         >
                           Get Expert Review
                         </Link>
                       </div>
-
-                      <Link
-                        to="/expert-review"
-                        className="link-view review-link d-none d-md-block"
-                      >
-                        Get Expert Review
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="d-none d-md-block btn-wrapper">
-                    <button
-                      className="btn-primary-custom-match intro-btn"
-                      onClick={() => navigate("/request-intro")}
-                    >
-                      Request intro
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="installer-card p-4">
-                <div className="d-flex justify-content-between align-items-start flex-wrap">
-                  <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match green-bg match-score-box">
-                      76
                     </div>
 
-                    <div className="content-area">
-                      <h6 className="company-name mb-1">GreenGrid Power</h6>
-
-                      <p className="location-text mb-2">
-                        South West Nigeria • Rooftop business systems • 10–120
-                        kWp
-                      </p>
-
-                      <div className="badge-row mb-3">
-                        <span className="badge-custom green">
-                          <i className="bi bi-check-circle"></i> Matches most
-                          (80%)
-                        </span>
-                        <span className="badge-custom-blue">
-                          Commercial install
-                        </span>
-                        <span className="badge-custom-blue">
-                          Cost effective
-                        </span>
-                      </div>
-
-                      <div className="installer-card-actions d-md-none">
+                    {installer.desktopIntroBtnWrapper ? (
+                      <div className="d-none d-md-block btn-wrapper">
                         <button
                           type="button"
-                          className="installer-mobile-request-btn"
+                          className="btn-primary-custom-match intro-btn"
                           onClick={() => navigate("/request-intro")}
                         >
                           Request intro
                         </button>
-                        <Link
-                          to="/expert-review"
-                          className="installer-mobile-expert-link"
-                        >
-                          Get Expert Review
-                        </Link>
                       </div>
-
-                      <Link
-                        to="/expert-review"
-                        className="link-view review-link d-none d-md-block"
-                      >
-                        Get Expert Review
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="d-none d-md-block">
-                    <button
-                      className="btn-primary-custom-match"
-                      onClick={() => navigate("/request-intro")}
-                    >
-                      Request intro
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="installer-card p-4">
-                <div className="d-flex justify-content-between align-items-start flex-wrap">
-                  <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg match-score-box">
-                      76
-                    </div>
-
-                    <div className="content-area">
-                      <h6 className="company-name mb-1">NovaSun Systems</h6>
-
-                      <p className="location-text mb-2">
-                        Lagos & Abuja • SMEs & hospitality • 8–60 kWp
-                      </p>
-
-                      <div className="badge-row mb-3">
-                        <span className="badge-custom green">
-                          <i className="bi bi-check-circle"></i> Matches most
-                          (70%)
-                        </span>
-                        <span className="badge-custom-blue">
-                          Solar + battery
-                        </span>
-                        <span className="badge-custom-blue">
-                          Storage capable
-                        </span>
-                      </div>
-
-                      <div className="installer-card-actions d-md-none">
+                    ) : (
+                      <div className="d-none d-md-block">
                         <button
                           type="button"
-                          className="installer-mobile-request-btn"
+                          className="btn-primary-custom-match"
                           onClick={() => navigate("/request-intro")}
                         >
                           Request intro
                         </button>
-                        <Link
-                          to="/expert-review"
-                          className="installer-mobile-expert-link"
-                        >
-                          Get Expert Review
-                        </Link>
                       </div>
-
-                      <Link
-                        to="/expert-review"
-                        className="link-view review-link d-none d-md-block"
-                      >
-                        Get Expert Review
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="d-none d-md-block">
-                    <button
-                      className="btn-primary-custom-match"
-                      onClick={() => navigate("/request-intro")}
-                    >
-                      Request intro
-                    </button>
+                    )}
                   </div>
                 </div>
-              </div>
-
-              <div className="installer-card p-4">
-                <div className="d-flex justify-content-between align-items-start flex-wrap">
-                  <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg match-score-box">
-                      76
-                    </div>
-
-                    <div className="content-area">
-                      <h6 className="company-name mb-1">NovaSun Systems</h6>
-
-                      <p className="location-text mb-2">
-                        Lagos & Abuja • SMEs & hospitality • 8–60 kWp
-                      </p>
-
-                      <div className="badge-row mb-3">
-                        <span className="badge-custom green">
-                          <i className="bi bi-check-circle"></i> Matches most
-                          (70%)
-                        </span>
-                        <span className="badge-custom-blue">
-                          Solar + battery
-                        </span>
-                        <span className="badge-custom-blue">
-                          Storage capable
-                        </span>
-                      </div>
-
-                      <div className="installer-card-actions d-md-none">
-                        <button
-                          type="button"
-                          className="installer-mobile-request-btn"
-                          onClick={() => navigate("/request-intro")}
-                        >
-                          Request intro
-                        </button>
-                        <Link
-                          to="/expert-review"
-                          className="installer-mobile-expert-link"
-                        >
-                          Get Expert Review
-                        </Link>
-                      </div>
-
-                      <Link
-                        to="/expert-review"
-                        className="link-view review-link d-none d-md-block"
-                      >
-                        Get Expert Review
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="d-none d-md-block">
-                    <button
-                      className="btn-primary-custom-match"
-                      onClick={() => navigate("/request-intro")}
-                    >
-                      Request intro
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="installer-card p-4">
-                <div className="d-flex justify-content-between align-items-start flex-wrap">
-                  <div className="d-flex gap-3 flex-grow-1">
-                    <div className="score-box-match orange-bg   match-score-box">
-                      76
-                    </div>
-
-                    <div className="content-area">
-                      <h6 className="company-name mb-1">NovaSun Systems</h6>
-
-                      <p className="location-text mb-2">
-                        Lagos & Abuja • SMEs & hospitality • 8–60 kWp
-                      </p>
-
-                      <div className="badge-row mb-3">
-                        <span className="badge-custom green">
-                          <i className="bi bi-check-circle"></i> Matches most
-                          (70%)
-                        </span>
-                        <span className="badge-custom">Solar + battery</span>
-                        <span className="badge-custom">Storage capable</span>
-                      </div>
-
-                      <div className="installer-card-actions d-md-none">
-                        <button
-                          type="button"
-                          className="installer-mobile-request-btn"
-                          onClick={() => navigate("/request-intro")}
-                        >
-                          Request intro
-                        </button>
-                        <Link
-                          to="/expert-review"
-                          className="installer-mobile-expert-link"
-                        >
-                          Get Expert Review
-                        </Link>
-                      </div>
-
-                      <Link
-                        to="/expert-review"
-                        className="link-view review-link d-none d-md-block"
-                      >
-                        Get Expert Review
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="d-none d-md-block">
-                    <button
-                      className="btn-primary-custom-match"
-                      onClick={() => navigate("/request-intro")}
-                    >
-                      Request intro
-                    </button>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div className="col-lg-4">
