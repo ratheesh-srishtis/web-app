@@ -538,7 +538,7 @@ h5.asst-h {
     width: 30px;
     height: 30px;
     background: #eef2ff;
-    border-radius: 8px;
+    border-radius: 4px;
     position: relative;
     display: flex;
     align-items: center;
@@ -546,7 +546,6 @@ h5.asst-h {
     top: -1px;
     flex-shrink: 0;
   }
-
   .tabls-rows label {
     font-size: 12px;
     color: #6c757d;
@@ -1810,7 +1809,7 @@ input[type="number"] {
     overflow: hidden;
     line-height: 1.2em;
     height: 1.2em;
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .how-it-works {

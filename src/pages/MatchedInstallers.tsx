@@ -71,8 +71,7 @@ const INSTALLERS: readonly InstallerCardDef[] = [
     id: "greengrid",
     score: 50,
     companyName: "GreenGrid Power",
-    location:
-      "South West Nigeria • Rooftop business systems • 10–120 kWp",
+    location: "South West Nigeria • Rooftop business systems • 10–120 kWp",
     badges: [
       { type: "match", label: "Matches most (80%)" },
       { type: "tag", variant: "blue", label: "Commercial install" },
@@ -114,12 +113,18 @@ const INSTALLERS: readonly InstallerCardDef[] = [
   },
 ] as const;
 
-function InstallerBadgesRow({ badges }: { badges: readonly InstallerBadgeDef[] }) {
+function InstallerBadgesRow({
+  badges,
+}: {
+  badges: readonly InstallerBadgeDef[];
+}) {
   return (
     <>
       {badges.map((b, i) => {
         const key =
-          b.type === "match" ? `m-${i}-${b.label}` : `${b.variant}-${i}-${b.label}`;
+          b.type === "match"
+            ? `m-${i}-${b.label}`
+            : `${b.variant}-${i}-${b.label}`;
         if (b.type === "match") {
           const iconCls = `bi bi-check-circle${b.checkIconSpacing ? " me-1" : ""}`;
           return (
@@ -262,8 +267,8 @@ function MatchedInstallers() {
 
               {INSTALLERS.map((installer) => (
                 <div key={installer.id} className="installer-card p-4">
-                  <div className="d-flex justify-content-between align-items-start flex-wrap">
-                    <div className="d-flex gap-3 flex-grow-1 align-items-start">
+                  <div className="d-flex justify-content-between align-items-start flex-wrap ">
+                    <div className="d-flex gap-3 flex-grow-1 align-items-start installer-card-content-mobile">
                       <div
                         className={`score-box-match match-score-box ${matchScoreAccentClass(installer.score)}`}
                       >
